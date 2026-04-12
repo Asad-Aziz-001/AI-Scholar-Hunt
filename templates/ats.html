@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
     <title>ATS Resume Analyzer | Smart Resume Scanner</title>
 
     <!-- PDF.js for text extraction (client side) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -36,32 +39,78 @@
             z-index: -1;
             overflow: hidden;
         }
+
         .circle {
             position: absolute;
             border-radius: 50%;
             background: rgba(13, 98, 255, 0.08);
             animation: float 18s infinite ease-in-out;
         }
-        .circle:nth-child(1) { width: 100px; height: 100px; top: 10%; left: 5%; animation-delay: 0s; }
-        .circle:nth-child(2) { width: 180px; height: 180px; top: 70%; left: 85%; animation-delay: 2s; }
-        .circle:nth-child(3) { width: 70px; height: 70px; top: 85%; left: 15%; animation-delay: 4s; }
-        .circle:nth-child(4) { width: 130px; height: 130px; top: 30%; left: 80%; animation-delay: 6s; }
-        .circle:nth-child(5) { width: 90px; height: 90px; top: 60%; left: 35%; animation-delay: 3s; }
+
+        .circle:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .circle:nth-child(2) {
+            width: 180px;
+            height: 180px;
+            top: 70%;
+            left: 85%;
+            animation-delay: 2s;
+        }
+
+        .circle:nth-child(3) {
+            width: 70px;
+            height: 70px;
+            top: 85%;
+            left: 15%;
+            animation-delay: 4s;
+        }
+
+        .circle:nth-child(4) {
+            width: 130px;
+            height: 130px;
+            top: 30%;
+            left: 80%;
+            animation-delay: 6s;
+        }
+
+        .circle:nth-child(5) {
+            width: 90px;
+            height: 90px;
+            top: 60%;
+            left: 35%;
+            animation-delay: 3s;
+        }
+
         @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-25px) rotate(180deg); }
-            100% { transform: translateY(0px) rotate(360deg); }
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-25px) rotate(180deg);
+            }
+
+            100% {
+                transform: translateY(0px) rotate(360deg);
+            }
         }
 
         .header {
-            background: rgba(255,255,255,0.96);
+            background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(12px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
             padding: 18px 30px;
             position: sticky;
             top: 0;
             z-index: 100;
         }
+
         .nav-container {
             max-width: 1280px;
             margin: 0 auto;
@@ -70,11 +119,13 @@
             align-items: center;
             flex-wrap: wrap;
         }
+
         .logo {
             display: flex;
             align-items: center;
             gap: 12px;
         }
+
         .logo-icon {
             width: 44px;
             height: 44px;
@@ -85,8 +136,9 @@
             justify-content: center;
             color: white;
             font-size: 22px;
-            box-shadow: 0 8px 18px rgba(13,98,255,0.25);
+            box-shadow: 0 8px 18px rgba(13, 98, 255, 0.25);
         }
+
         .logo-text {
             font-weight: 800;
             font-size: 26px;
@@ -95,20 +147,23 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .container {
             max-width: 1280px;
             margin: 40px auto;
             padding: 0 24px;
         }
+
         .hero {
-            background: rgba(255,255,255,0.85);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(10px);
             border-radius: 36px;
             padding: 40px 30px;
             text-align: center;
             margin-bottom: 50px;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
         }
+
         .hero h1 {
             font-size: 44px;
             font-weight: 700;
@@ -117,6 +172,7 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .badge-group {
             display: flex;
             justify-content: center;
@@ -124,28 +180,32 @@
             flex-wrap: wrap;
             margin-top: 25px;
         }
+
         .badge {
             background: white;
             padding: 8px 20px;
             border-radius: 40px;
             font-size: 14px;
             font-weight: 500;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
+
         .content-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 35px;
         }
+
         .card {
-            background: rgba(255,255,255,0.96);
+            background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(8px);
             border-radius: 28px;
             padding: 32px;
-            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
-            border: 1px solid rgba(13,98,255,0.12);
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(13, 98, 255, 0.12);
             transition: transform 0.2s;
         }
+
         .section-title {
             font-size: 26px;
             font-weight: 600;
@@ -156,6 +216,7 @@
             border-left: 5px solid #0d62ff;
             padding-left: 18px;
         }
+
         .upload-area {
             border: 2.5px dashed #b9d0f0;
             border-radius: 24px;
@@ -166,16 +227,19 @@
             transition: all 0.25s;
             margin-bottom: 30px;
         }
+
         .upload-area:hover {
             border-color: #0d62ff;
             background: #f2f8ff;
             transform: scale(0.99);
         }
+
         .upload-icon {
             font-size: 58px;
             color: #0d62ff;
             margin-bottom: 18px;
         }
+
         .file-name {
             background: #0d62ff;
             color: white;
@@ -185,6 +249,7 @@
             font-size: 14px;
             margin-top: 15px;
         }
+
         .submit-btn {
             width: 100%;
             padding: 16px;
@@ -202,15 +267,18 @@
             transition: all 0.2s;
             box-shadow: 0 10px 20px -5px #0d62ff60;
         }
+
         .submit-btn:disabled {
             opacity: 0.6;
             cursor: not-allowed;
             transform: none;
         }
+
         .loading {
             text-align: center;
             padding: 30px;
         }
+
         .spinner {
             width: 56px;
             height: 56px;
@@ -220,7 +288,16 @@
             animation: spin 0.9s linear infinite;
             margin: 0 auto 20px;
         }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
 
         .score-circle {
             width: 170px;
@@ -228,6 +305,7 @@
             margin: 0 auto 20px;
             position: relative;
         }
+
         .score-ring {
             width: 100%;
             height: 100%;
@@ -237,6 +315,7 @@
             align-items: center;
             justify-content: center;
         }
+
         .score-inner {
             width: 135px;
             height: 135px;
@@ -246,14 +325,16 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
+
         .score-value {
             font-size: 48px;
             font-weight: 800;
             color: #0d62ff;
             line-height: 1;
         }
+
         .verdict {
             padding: 14px;
             border-radius: 60px;
@@ -266,21 +347,36 @@
             width: 100%;
             margin-bottom: 25px;
         }
-        .verdict.success { background: #dcfce7; color: #166534; }
-        .verdict.warning { background: #fef9c3; color: #854d0e; }
-        .verdict.danger { background: #fee2e2; color: #991b1b; }
+
+        .verdict.success {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .verdict.warning {
+            background: #fef9c3;
+            color: #854d0e;
+        }
+
+        .verdict.danger {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
         .detail-item {
             display: flex;
             justify-content: space-between;
             padding: 14px 0;
             border-bottom: 1px solid #eef2ff;
         }
+
         .keywords-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             margin-top: 12px;
         }
+
         .keyword {
             background: #eef3ff;
             padding: 8px 16px;
@@ -290,6 +386,7 @@
             color: #0d62ff;
             transition: all 0.2s;
         }
+
         .suggestion-item {
             background: #f9fbfe;
             padding: 12px 16px;
@@ -300,19 +397,22 @@
             align-items: center;
             border-left: 4px solid #0d62ff;
         }
+
         .info-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
             gap: 28px;
             margin-top: 55px;
         }
+
         .info-card {
-            background: rgba(255,255,255,0.9);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(6px);
             padding: 28px;
             border-radius: 28px;
             transition: 0.2s;
         }
+
         .footer {
             text-align: center;
             margin-top: 60px;
@@ -321,367 +421,418 @@
             font-size: 13px;
             border-top: 1px solid #e2edff;
         }
+
         @media (max-width: 860px) {
-            .content-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 32px; }
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
         }
     </style>
 </head>
+
 <body>
-<div class="bg-animation"><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div></div>
-
-<header class="header">
-    <div class="nav-container">
-        <div class="logo"><div class="logo-icon"><i class="fas fa-file-alt"></i></div><div class="logo-text">ATS Resume Analyzer</div></div>
-        <div><span style="background:#0d62ff10; padding:8px 18px; border-radius:40px; font-weight:500;"><i class="fas fa-chart-simple"></i> Real-time AI scan</span></div>
-    </div>
-</header>
-
-<div class="container">
-    <div class="hero">
-        <h1>Smart ATS Resume Scanner</h1>
-        <p style="max-width:700px; margin:18px auto; color:#334155;">Upload your resume (PDF) – our algorithm checks keyword density, structure, achievements, and ATS-friendly formatting. Instant score + personalized tips.</p>
-        <div class="badge-group">
-            <div class="badge"><i class="fas fa-check-circle" style="color:#10b981;"></i> 100% Free</div>
-            <div class="badge"><i class="fas fa-lock"></i> Privacy safe</div>
-            <div class="badge"><i class="fas fa-bolt"></i> Instant analysis</div>
-        </div>
+    <div class="bg-animation">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
     </div>
 
-    <div class="content-grid">
-        <!-- Left: Upload -->
-        <div class="card">
-            <div class="section-title"><i class="fas fa-cloud-upload-alt" style="color:#0d62ff;"></i> Upload Resume</div>
-            <div class="upload-area" id="uploadArea">
-                <div class="upload-icon"><i class="fas fa-file-pdf"></i></div>
-                <div class="upload-text" style="font-weight:600;">Click or drag PDF</div>
-                <div class="upload-subtext" style="font-size:13px; color:#5b6e8c;">Supports .pdf, max 10MB</div>
-                <input type="file" id="resumeFileInput" accept="application/pdf" style="display:none;">
-                <div class="file-name" id="fileNameDisplay" style="display:none;"></div>
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-file-alt"></i></div>
+                <div class="logo-text">ATS Resume Analyzer</div>
             </div>
-            <button class="submit-btn" id="analyzeBtn"><i class="fas fa-chart-line"></i> Analyze ATS Score</button>
-            <div id="loadingSpinner" style="display:none;" class="loading"><div class="spinner"></div><div class="loading-text">Analyzing resume text & keywords ...</div></div>
-            <div style="margin-top: 28px; background:#f4f9fe; border-radius: 20px; padding:18px;">
-                <i class="fas fa-lightbulb" style="color:#0d62ff;"></i> <strong>Pro tips</strong>
-                <ul style="margin-top:12px; margin-left:20px; color:#2c3e66;">
-                    <li>Use standard fonts (Arial, Calibri)</li>
-                    <li>Include measurable achievements</li>
-                    <li>Tailor keywords to your industry</li>
-                </ul>
+            <div><span style="background:#0d62ff10; padding:8px 18px; border-radius:40px; font-weight:500;"><i
+                        class="fas fa-chart-simple"></i> Real-time AI scan</span></div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <h1>Smart ATS Resume Scanner</h1>
+            <p style="max-width:700px; margin:18px auto; color:#334155;">Upload your resume (PDF) – our algorithm checks
+                keyword density, structure, achievements, and ATS-friendly formatting. Instant score + personalized
+                tips.</p>
+            <div class="badge-group">
+                <div class="badge"><i class="fas fa-check-circle" style="color:#10b981;"></i> 100% Free</div>
+                <div class="badge"><i class="fas fa-lock"></i> Privacy safe</div>
+                <div class="badge"><i class="fas fa-bolt"></i> Instant analysis</div>
             </div>
         </div>
 
-        <!-- Right: Results -->
-        <div class="card" id="resultCard">
-            <div class="section-title"><i class="fas fa-chart-pie"></i> ATS Score & Insights</div>
-            <div id="resultsPanel">
-                <div style="text-align:center;">
-                    <div class="score-circle"><div class="score-ring" id="scoreRingVisual"><div class="score-inner"><div class="score-value" id="mainScore">0</div><div style="font-size:12px;">ATS Score</div></div></div></div>
-                    <div class="verdict" id="verdictBox"><i class="fas fa-hourglass-half"></i> <span>Waiting for upload</span></div>
+        <div class="content-grid">
+            <!-- Left: Upload -->
+            <div class="card">
+                <div class="section-title"><i class="fas fa-cloud-upload-alt" style="color:#0d62ff;"></i> Upload Resume
                 </div>
-                <div style="background:#f8fafc; border-radius: 24px; padding:18px; margin: 18px 0;">
-                    <div class="detail-item"><span class="detail-label">📄 Word count</span><span class="detail-value" id="wordCountSpan">—</span></div>
-                    <div class="detail-item"><span class="detail-label">🔑 Keywords detected</span><span class="detail-value" id="keywordCountSpan">—</span></div>
-                    <div class="detail-item"><span class="detail-label">✅ ATS format readiness</span><span class="detail-value" id="formatStatus">—</span></div>
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon"><i class="fas fa-file-pdf"></i></div>
+                    <div class="upload-text" style="font-weight:600;">Click or drag PDF</div>
+                    <div class="upload-subtext" style="font-size:13px; color:#5b6e8c;">Supports .pdf, max 10MB</div>
+                    <input type="file" id="resumeFileInput" accept="application/pdf" style="display:none;">
+                    <div class="file-name" id="fileNameDisplay" style="display:none;"></div>
                 </div>
+                <button class="submit-btn" id="analyzeBtn"><i class="fas fa-chart-line"></i> Analyze ATS Score</button>
+                <div id="loadingSpinner" style="display:none;" class="loading">
+                    <div class="spinner"></div>
+                    <div class="loading-text">Analyzing resume text & keywords ...</div>
+                </div>
+                <div style="margin-top: 28px; background:#f4f9fe; border-radius: 20px; padding:18px;">
+                    <i class="fas fa-lightbulb" style="color:#0d62ff;"></i> <strong>Pro tips</strong>
+                    <ul style="margin-top:12px; margin-left:20px; color:#2c3e66;">
+                        <li>Use standard fonts (Arial, Calibri)</li>
+                        <li>Include measurable achievements</li>
+                        <li>Tailor keywords to your industry</li>
+                    </ul>
+                </div>
+            </div>
 
-                <div class="keywords-section">
-                    <h3 style="display:flex; gap:8px; margin-bottom:14px;"><i class="fas fa-key"></i> Top Keywords</h3>
-                    <div class="keywords-grid" id="keywordsContainer"><span class="keyword">No data yet</span></div>
-                </div>
-                <div class="suggestions-section" style="margin-top: 28px;">
-                    <h3 style="display:flex; gap:10px;"><i class="fas fa-list-check"></i> Smart Suggestions</h3>
-                    <ul id="suggestionsList" style="list-style:none; margin-top:16px;"><li class="suggestion-item"><i class="fas fa-arrow-right"></i> Upload your resume to get actionable insights</li></ul>
+            <!-- Right: Results -->
+            <div class="card" id="resultCard">
+                <div class="section-title"><i class="fas fa-chart-pie"></i> ATS Score & Insights</div>
+                <div id="resultsPanel">
+                    <div style="text-align:center;">
+                        <div class="score-circle">
+                            <div class="score-ring" id="scoreRingVisual">
+                                <div class="score-inner">
+                                    <div class="score-value" id="mainScore">0</div>
+                                    <div style="font-size:12px;">ATS Score</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="verdict" id="verdictBox"><i class="fas fa-hourglass-half"></i> <span>Waiting for
+                                upload</span></div>
+                    </div>
+                    <div style="background:#f8fafc; border-radius: 24px; padding:18px; margin: 18px 0;">
+                        <div class="detail-item"><span class="detail-label">📄 Word count</span><span
+                                class="detail-value" id="wordCountSpan">—</span></div>
+                        <div class="detail-item"><span class="detail-label">🔑 Keywords detected</span><span
+                                class="detail-value" id="keywordCountSpan">—</span></div>
+                        <div class="detail-item"><span class="detail-label">✅ ATS format readiness</span><span
+                                class="detail-value" id="formatStatus">—</span></div>
+                    </div>
+
+                    <div class="keywords-section">
+                        <h3 style="display:flex; gap:8px; margin-bottom:14px;"><i class="fas fa-key"></i> Top Keywords
+                        </h3>
+                        <div class="keywords-grid" id="keywordsContainer"><span class="keyword">No data yet</span></div>
+                    </div>
+                    <div class="suggestions-section" style="margin-top: 28px;">
+                        <h3 style="display:flex; gap:10px;"><i class="fas fa-list-check"></i> Smart Suggestions</h3>
+                        <ul id="suggestionsList" style="list-style:none; margin-top:16px;">
+                            <li class="suggestion-item"><i class="fas fa-arrow-right"></i> Upload your resume to get
+                                actionable insights</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <div class="info-cards">
+            <div class="info-card"><i class="fas fa-robot" style="font-size:36px;"></i>
+                <h3>AI keyword analysis</h3>
+                <p>TF-IDF based keyword extraction to match recruiter expectations.</p>
+            </div>
+            <div class="info-card"><i class="fas fa-chart-line"></i>
+                <h3>Realistic ATS scoring</h3>
+                <p>Based on structure, achievements, contact info, and keyword density.</p>
+            </div>
+            <div class="info-card"><i class="fas fa-magic"></i>
+                <h3>Instant optimization tips</h3>
+                <p>Personalized advice to boost your score and land more interviews.</p>
+            </div>
+        </div>
+        <footer class="footer">
+            <p>🔒 Your PDF is processed locally in your browser — never uploaded to any server. Full privacy.</p>
+            <p style="margin-top: 8px;">© 2026 ATS Resume Analyzer — Smart career tool</p>
+        </footer>
     </div>
 
-    <div class="info-cards">
-        <div class="info-card"><i class="fas fa-robot" style="font-size:36px;"></i><h3>AI keyword analysis</h3><p>TF-IDF based keyword extraction to match recruiter expectations.</p></div>
-        <div class="info-card"><i class="fas fa-chart-line"></i><h3>Realistic ATS scoring</h3><p>Based on structure, achievements, contact info, and keyword density.</p></div>
-        <div class="info-card"><i class="fas fa-magic"></i><h3>Instant optimization tips</h3><p>Personalized advice to boost your score and land more interviews.</p></div>
-    </div>
-    <footer class="footer"><p>🔒 Your PDF is processed locally in your browser — never uploaded to any server. Full privacy.</p><p style="margin-top: 8px;">© 2026 ATS Resume Analyzer — Smart career tool</p></footer>
-</div>
+    <script>
+        // ------------------ PDF TEXT EXTRACTION (Client side) ------------------
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 
-<script>
-    // ------------------ PDF TEXT EXTRACTION (Client side) ------------------
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+        let currentResumeText = "";
+        let selectedFile = null;
 
-    let currentResumeText = "";
-    let selectedFile = null;
+        // DOM elements
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('resumeFileInput');
+        const fileNameDisplay = document.getElementById('fileNameDisplay');
+        const analyzeBtn = document.getElementById('analyzeBtn');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const mainScoreSpan = document.getElementById('mainScore');
+        const scoreRingDiv = document.getElementById('scoreRingVisual');
+        const verdictBox = document.getElementById('verdictBox');
+        const wordCountSpan = document.getElementById('wordCountSpan');
+        const keywordCountSpan = document.getElementById('keywordCountSpan');
+        const formatStatusSpan = document.getElementById('formatStatus');
+        const keywordsContainer = document.getElementById('keywordsContainer');
+        const suggestionsListEl = document.getElementById('suggestionsList');
 
-    // DOM elements
-    const uploadArea = document.getElementById('uploadArea');
-    const fileInput = document.getElementById('resumeFileInput');
-    const fileNameDisplay = document.getElementById('fileNameDisplay');
-    const analyzeBtn = document.getElementById('analyzeBtn');
-    const loadingSpinner = document.getElementById('loadingSpinner');
-    const mainScoreSpan = document.getElementById('mainScore');
-    const scoreRingDiv = document.getElementById('scoreRingVisual');
-    const verdictBox = document.getElementById('verdictBox');
-    const wordCountSpan = document.getElementById('wordCountSpan');
-    const keywordCountSpan = document.getElementById('keywordCountSpan');
-    const formatStatusSpan = document.getElementById('formatStatus');
-    const keywordsContainer = document.getElementById('keywordsContainer');
-    const suggestionsListEl = document.getElementById('suggestionsList');
-
-    // Helper: clean text
-    function cleanText(text) {
-        let cleaned = text.replace(/[^a-zA-Z0-9\s]/g, ' ');
-        cleaned = cleaned.replace(/\s+/g, ' ').toLowerCase().trim();
-        return cleaned;
-    }
-
-    // extract keywords via TF-IDF simulation (simple frequency + uniqueness)
-    function extractKeywords(text, topN = 15) {
-        const cleaned = cleanText(text);
-        const words = cleaned.split(/\s+/).filter(w => w.length > 2);
-        if (words.length === 0) return [];
-        
-        // stopwords (basic)
-        const stopwords = new Set(['the','and','for','with','this','that','are','was','were','have','has','from','your','our','their','can','will','would','could','should','about','into','through','during','before','after','above','below','between','using','under','also','per','each','such','only','very','just','but','not','you','they','she','he','it','we','all','some','any','no','other','more','most','few','many','those','these','then','than','then','thence','there','therefore']);
-        
-        const freq = new Map();
-        for (let w of words) {
-            if (w.length < 3) continue;
-            if (stopwords.has(w)) continue;
-            freq.set(w, (freq.get(w) || 0) + 1);
+        // Helper: clean text
+        function cleanText(text) {
+            let cleaned = text.replace(/[^a-zA-Z0-9\s]/g, ' ');
+            cleaned = cleaned.replace(/\s+/g, ' ').toLowerCase().trim();
+            return cleaned;
         }
-        const sorted = Array.from(freq.entries()).sort((a,b) => b[1] - a[1]);
-        const top = sorted.slice(0, topN).map(item => item[0]);
-        // remove duplicates and return unique
-        return [...new Set(top)];
-    }
 
-    // core ATS scoring algorithm (matches python backend logic but pure JS)
-    function calculateATS(resumeTextRaw) {
-        const resume = cleanText(resumeTextRaw);
-        const words = resume.split(/\s+/).filter(w => w.length > 0);
-        const wordCount = words.length;
-        
-        let indicators = {
-            contact_info: 0,
-            education: 0,
-            experience: 0,
-            skills: 0,
-            achievements: 0,
-            formatting: 0,
-            keywords: 0
-        };
-        
-        // contact info
-        const contactRegex = /email|phone|mobile|linkedin|github|@|\+?\d{10,}/i;
-        if (contactRegex.test(resume)) indicators.contact_info = 5;
-        
-        // education section
-        if (/(education|university|college|bachelor|master|phd|degree|bs|ba|msc|btech|mtech)/i.test(resume)) indicators.education = 15;
-        
-        // experience
-        if (/(experience|work history|employment|position|role|responsibilities|worked at)/i.test(resume)) indicators.experience = 20;
-        
-        // skills
-        if (/(skills|technical skills|core competencies|proficient|expertise|programming languages)/i.test(resume)) indicators.skills = 15;
-        
-        // achievements (action verbs + numbers)
-        const achievementMatches = resume.match(/(increased|improved|developed|created|managed|led|achieved|boosted|reduced|delivered|built|launched|optimized|engineered|designed)/gi);
-        const hasNumbers = /[0-9]+%|\d{3,}|\$\d+/.test(resume);
-        let achievementScore = 0;
-        if (achievementMatches) achievementScore = Math.min(achievementMatches.length * 2, 12);
-        if (hasNumbers) achievementScore += 3;
-        indicators.achievements = Math.min(achievementScore, 15);
-        
-        // formatting & length
-        if (wordCount >= 280 && wordCount <= 850) indicators.formatting = 15;
-        else if (wordCount > 120) indicators.formatting = 10;
-        else indicators.formatting = 4;
-        
-        // keywords quality
-        const keywordsList = extractKeywords(resume, 18);
-        let keywordScore = Math.min(keywordsList.length * 1.5, 15);
-        indicators.keywords = Math.floor(keywordScore);
-        
-        let total = Object.values(indicators).reduce((a,b)=>a+b,0);
-        let finalScore = Math.min(Math.floor(total + (wordCount > 100 ? 2 : 0)), 100);
-        finalScore = Math.max(finalScore, 18); // base min
-        
-        // generate suggestions
-        const suggestions = [];
-        if (indicators.contact_info < 5) suggestions.push("📞 Add clear contact info (phone, email, LinkedIn) at the top.");
-        if (indicators.education < 15) suggestions.push("🎓 Include an Education section with degrees, institutions, and graduation dates.");
-        if (indicators.experience < 20) suggestions.push("💼 Add detailed Work Experience with bullet points and action verbs.");
-        if (indicators.skills < 15) suggestions.push("🛠️ Create a standalone 'Skills' section with relevant hard/soft skills.");
-        if (indicators.achievements < 10) suggestions.push("🏆 Quantify achievements (e.g., 'Increased sales by 30%' or 'Managed team of 12').");
-        if (indicators.keywords < 10) suggestions.push("🔍 Include more industry-specific keywords; tailor resume to target job descriptions.");
-        if (wordCount < 280) suggestions.push("📄 Expand resume details – aim for 300–800 words to show substance.");
-        if (wordCount > 900) suggestions.push("✂️ Keep concise: 1-2 pages ideal. Remove redundant bullet points.");
-        if (!/(bullet point|•|\-|\*)/.test(resume)) suggestions.push("📌 Use bullet points to improve readability and ATS parsing.");
-        if (!/(analytical|leadership|team|project|communication)/i.test(resume)) suggestions.push("🤝 Add soft skills like leadership, communication, problem-solving.");
-        
-        // additional default tips if low score
-        if (finalScore < 55) suggestions.push("⚡ Consider using a cleaner, single-column layout without tables/graphics.");
-        if (finalScore > 0 && suggestions.length < 3) suggestions.push("✨ Add certifications or relevant projects to boost relevance.");
-        
-        const uniqueSuggestions = [...new Set(suggestions)].slice(0, 8);
-        
-        let formatReadiness = "Good";
-        if (indicators.formatting < 10) formatReadiness = "Needs improvement";
-        if (indicators.formatting >= 14) formatReadiness = "Excellent";
-        
-        return {
-            score: finalScore,
-            wordCount: wordCount,
-            keywords: keywordsList.slice(0, 12),
-            suggestions: uniqueSuggestions,
-            indicators: indicators,
-            formatReadiness: formatReadiness
-        };
-    }
-    
-    // animate score
-    function animateScore(finalScore) {
-        let current = 0;
-        const step = Math.ceil(finalScore / 30);
-        const interval = setInterval(() => {
-            current += step;
-            if (current >= finalScore) {
-                current = finalScore;
-                clearInterval(interval);
+        // extract keywords via TF-IDF simulation (simple frequency + uniqueness)
+        function extractKeywords(text, topN = 15) {
+            const cleaned = cleanText(text);
+            const words = cleaned.split(/\s+/).filter(w => w.length > 2);
+            if (words.length === 0) return [];
+
+            // stopwords (basic)
+            const stopwords = new Set(['the', 'and', 'for', 'with', 'this', 'that', 'are', 'was', 'were', 'have', 'has', 'from', 'your', 'our', 'their', 'can', 'will', 'would', 'could', 'should', 'about', 'into', 'through', 'during', 'before', 'after', 'above', 'below', 'between', 'using', 'under', 'also', 'per', 'each', 'such', 'only', 'very', 'just', 'but', 'not', 'you', 'they', 'she', 'he', 'it', 'we', 'all', 'some', 'any', 'no', 'other', 'more', 'most', 'few', 'many', 'those', 'these', 'then', 'than', 'then', 'thence', 'there', 'therefore']);
+
+            const freq = new Map();
+            for (let w of words) {
+                if (w.length < 3) continue;
+                if (stopwords.has(w)) continue;
+                freq.set(w, (freq.get(w) || 0) + 1);
             }
-            mainScoreSpan.innerText = current;
-            const deg = (current / 100) * 360;
-            scoreRingDiv.style.background = `conic-gradient(#0d62ff 0deg ${deg}deg, #e2e8f0 ${deg}deg 360deg)`;
-        }, 18);
-    }
-    
-    function updateUIWithResults(result) {
-        const score = result.score;
-        mainScoreSpan.innerText = score;
-        const deg = (score / 100) * 360;
-        scoreRingDiv.style.background = `conic-gradient(#0d62ff 0deg ${deg}deg, #e2e8f0 ${deg}deg 360deg)`;
-        
-        let verdictClass = "danger";
-        let verdictIcon = "exclamation-circle";
-        let verdictMsg = "Needs significant improvement";
-        if (score >= 80) { verdictClass = "success"; verdictIcon = "check-circle"; verdictMsg = "🔥 Excellent ATS Score! Well optimized."; }
-        else if (score >= 70) { verdictClass = "success"; verdictIcon = "check-circle"; verdictMsg = "⭐ Strong ATS Score – great potential."; }
-        else if (score >= 60) { verdictClass = "warning"; verdictIcon = "info-circle"; verdictMsg = "👍 Good ATS Score, minor improvements possible."; }
-        else if (score >= 50) { verdictClass = "warning"; verdictIcon = "exclamation-triangle"; verdictMsg = "⚠️ Moderate Score – optimize keywords & structure."; }
-        else { verdictClass = "danger"; verdictIcon = "exclamation-circle"; verdictMsg = "❌ Low ATS Score – rework needed for interviews."; }
-        
-        verdictBox.className = `verdict ${verdictClass}`;
-        verdictBox.innerHTML = `<i class="fas fa-${verdictIcon}"></i> <span>${verdictMsg}</span>`;
-        
-        wordCountSpan.innerText = result.wordCount;
-        keywordCountSpan.innerText = result.keywords.length;
-        formatStatusSpan.innerText = result.formatReadiness;
-        
-        // keywords
-        if (result.keywords.length > 0) {
-            keywordsContainer.innerHTML = result.keywords.map(kw => `<span class="keyword">${escapeHtml(kw)}</span>`).join('');
-        } else {
-            keywordsContainer.innerHTML = '<span class="keyword">No strong keywords detected</span>';
+            const sorted = Array.from(freq.entries()).sort((a, b) => b[1] - a[1]);
+            const top = sorted.slice(0, topN).map(item => item[0]);
+            // remove duplicates and return unique
+            return [...new Set(top)];
         }
-        
-        // suggestions
-        if (result.suggestions.length) {
-            suggestionsListEl.innerHTML = result.suggestions.map(sug => `<li class="suggestion-item"><i class="fas fa-chevron-circle-right suggestion-icon" style="color:#0d62ff;"></i> <span>${escapeHtml(sug)}</span></li>`).join('');
-        } else {
-            suggestionsListEl.innerHTML = '<li class="suggestion-item"><i class="fas fa-smile-wink"></i> Your resume looks strong! Keep tailoring for each job.</li>';
-        }
-    }
-    
-    function escapeHtml(str) { return str.replace(/[&<>]/g, function(m){if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
-    
-    // PDF text extraction
-    async function extractTextFromPdf(file) {
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = async function(evt) {
-                try {
-                    const typedArray = new Uint8Array(evt.target.result);
-                    const pdf = await pdfjsLib.getDocument(typedArray).promise;
-                    let fullText = "";
-                    for (let i = 1; i <= pdf.numPages; i++) {
-                        const page = await pdf.getPage(i);
-                        const content = await page.getTextContent();
-                        const strings = content.items.map(item => item.str);
-                        fullText += strings.join(" ") + " ";
-                    }
-                    resolve(fullText);
-                } catch (err) {
-                    reject(err);
-                }
+
+        // core ATS scoring algorithm (matches python backend logic but pure JS)
+        function calculateATS(resumeTextRaw) {
+            const resume = cleanText(resumeTextRaw);
+            const words = resume.split(/\s+/).filter(w => w.length > 0);
+            const wordCount = words.length;
+
+            let indicators = {
+                contact_info: 0,
+                education: 0,
+                experience: 0,
+                skills: 0,
+                achievements: 0,
+                formatting: 0,
+                keywords: 0
             };
-            reader.onerror = (err) => reject(err);
-            reader.readAsArrayBuffer(file);
-        });
-    }
-    
-    // main analysis trigger
-    async function performAnalysis() {
-        if (!selectedFile) {
-            alert("Please select a PDF file first.");
-            return;
+
+            // contact info
+            const contactRegex = /email|phone|mobile|linkedin|github|@|\+?\d{10,}/i;
+            if (contactRegex.test(resume)) indicators.contact_info = 5;
+
+            // education section
+            if (/(education|university|college|bachelor|master|phd|degree|bs|ba|msc|btech|mtech)/i.test(resume)) indicators.education = 15;
+
+            // experience
+            if (/(experience|work history|employment|position|role|responsibilities|worked at)/i.test(resume)) indicators.experience = 20;
+
+            // skills
+            if (/(skills|technical skills|core competencies|proficient|expertise|programming languages)/i.test(resume)) indicators.skills = 15;
+
+            // achievements (action verbs + numbers)
+            const achievementMatches = resume.match(/(increased|improved|developed|created|managed|led|achieved|boosted|reduced|delivered|built|launched|optimized|engineered|designed)/gi);
+            const hasNumbers = /[0-9]+%|\d{3,}|\$\d+/.test(resume);
+            let achievementScore = 0;
+            if (achievementMatches) achievementScore = Math.min(achievementMatches.length * 2, 12);
+            if (hasNumbers) achievementScore += 3;
+            indicators.achievements = Math.min(achievementScore, 15);
+
+            // formatting & length
+            if (wordCount >= 280 && wordCount <= 850) indicators.formatting = 15;
+            else if (wordCount > 120) indicators.formatting = 10;
+            else indicators.formatting = 4;
+
+            // keywords quality
+            const keywordsList = extractKeywords(resume, 18);
+            let keywordScore = Math.min(keywordsList.length * 1.5, 15);
+            indicators.keywords = Math.floor(keywordScore);
+
+            let total = Object.values(indicators).reduce((a, b) => a + b, 0);
+            let finalScore = Math.min(Math.floor(total + (wordCount > 100 ? 2 : 0)), 100);
+            finalScore = Math.max(finalScore, 18); // base min
+
+            // generate suggestions
+            const suggestions = [];
+            if (indicators.contact_info < 5) suggestions.push("📞 Add clear contact info (phone, email, LinkedIn) at the top.");
+            if (indicators.education < 15) suggestions.push("🎓 Include an Education section with degrees, institutions, and graduation dates.");
+            if (indicators.experience < 20) suggestions.push("💼 Add detailed Work Experience with bullet points and action verbs.");
+            if (indicators.skills < 15) suggestions.push("🛠️ Create a standalone 'Skills' section with relevant hard/soft skills.");
+            if (indicators.achievements < 10) suggestions.push("🏆 Quantify achievements (e.g., 'Increased sales by 30%' or 'Managed team of 12').");
+            if (indicators.keywords < 10) suggestions.push("🔍 Include more industry-specific keywords; tailor resume to target job descriptions.");
+            if (wordCount < 280) suggestions.push("📄 Expand resume details – aim for 300–800 words to show substance.");
+            if (wordCount > 900) suggestions.push("✂️ Keep concise: 1-2 pages ideal. Remove redundant bullet points.");
+            if (!/(bullet point|•|\-|\*)/.test(resume)) suggestions.push("📌 Use bullet points to improve readability and ATS parsing.");
+            if (!/(analytical|leadership|team|project|communication)/i.test(resume)) suggestions.push("🤝 Add soft skills like leadership, communication, problem-solving.");
+
+            // additional default tips if low score
+            if (finalScore < 55) suggestions.push("⚡ Consider using a cleaner, single-column layout without tables/graphics.");
+            if (finalScore > 0 && suggestions.length < 3) suggestions.push("✨ Add certifications or relevant projects to boost relevance.");
+
+            const uniqueSuggestions = [...new Set(suggestions)].slice(0, 8);
+
+            let formatReadiness = "Good";
+            if (indicators.formatting < 10) formatReadiness = "Needs improvement";
+            if (indicators.formatting >= 14) formatReadiness = "Excellent";
+
+            return {
+                score: finalScore,
+                wordCount: wordCount,
+                keywords: keywordsList.slice(0, 12),
+                suggestions: uniqueSuggestions,
+                indicators: indicators,
+                formatReadiness: formatReadiness
+            };
         }
-        
-        analyzeBtn.disabled = true;
-        analyzeBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Processing...';
-        loadingSpinner.style.display = "block";
-        
-        try {
-            const extracted = await extractTextFromPdf(selectedFile);
-            if (!extracted || extracted.trim().length < 30) {
-                throw new Error("Could not extract enough text. Make sure PDF contains selectable text.");
+
+        // animate score
+        function animateScore(finalScore) {
+            let current = 0;
+            const step = Math.ceil(finalScore / 30);
+            const interval = setInterval(() => {
+                current += step;
+                if (current >= finalScore) {
+                    current = finalScore;
+                    clearInterval(interval);
+                }
+                mainScoreSpan.innerText = current;
+                const deg = (current / 100) * 360;
+                scoreRingDiv.style.background = `conic-gradient(#0d62ff 0deg ${deg}deg, #e2e8f0 ${deg}deg 360deg)`;
+            }, 18);
+        }
+
+        function updateUIWithResults(result) {
+            const score = result.score;
+            mainScoreSpan.innerText = score;
+            const deg = (score / 100) * 360;
+            scoreRingDiv.style.background = `conic-gradient(#0d62ff 0deg ${deg}deg, #e2e8f0 ${deg}deg 360deg)`;
+
+            let verdictClass = "danger";
+            let verdictIcon = "exclamation-circle";
+            let verdictMsg = "Needs significant improvement";
+            if (score >= 80) { verdictClass = "success"; verdictIcon = "check-circle"; verdictMsg = "🔥 Excellent ATS Score! Well optimized."; }
+            else if (score >= 70) { verdictClass = "success"; verdictIcon = "check-circle"; verdictMsg = "⭐ Strong ATS Score – great potential."; }
+            else if (score >= 60) { verdictClass = "warning"; verdictIcon = "info-circle"; verdictMsg = "👍 Good ATS Score, minor improvements possible."; }
+            else if (score >= 50) { verdictClass = "warning"; verdictIcon = "exclamation-triangle"; verdictMsg = "⚠️ Moderate Score – optimize keywords & structure."; }
+            else { verdictClass = "danger"; verdictIcon = "exclamation-circle"; verdictMsg = "❌ Low ATS Score – rework needed for interviews."; }
+
+            verdictBox.className = `verdict ${verdictClass}`;
+            verdictBox.innerHTML = `<i class="fas fa-${verdictIcon}"></i> <span>${verdictMsg}</span>`;
+
+            wordCountSpan.innerText = result.wordCount;
+            keywordCountSpan.innerText = result.keywords.length;
+            formatStatusSpan.innerText = result.formatReadiness;
+
+            // keywords
+            if (result.keywords.length > 0) {
+                keywordsContainer.innerHTML = result.keywords.map(kw => `<span class="keyword">${escapeHtml(kw)}</span>`).join('');
+            } else {
+                keywordsContainer.innerHTML = '<span class="keyword">No strong keywords detected</span>';
             }
-            currentResumeText = extracted;
-            const atsResult = calculateATS(currentResumeText);
-            updateUIWithResults(atsResult);
-            // animate after update
-            animateScore(atsResult.score);
-        } catch (err) {
-            console.error(err);
-            verdictBox.className = "verdict danger";
-            verdictBox.innerHTML = `<i class="fas fa-bug"></i> <span>Error: ${err.message || "Text extraction failed. Try another PDF."}</span>`;
-            suggestionsListEl.innerHTML = '<li class="suggestion-item">⚠️ Ensure your PDF is text-based (not scanned image). Try converting to text-friendly PDF.</li>';
-            keywordsContainer.innerHTML = '<span class="keyword">Extraction error</span>';
-            wordCountSpan.innerText = "Error";
-            keywordCountSpan.innerText = "—";
-        } finally {
-            analyzeBtn.disabled = false;
-            analyzeBtn.innerHTML = '<i class="fas fa-chart-line"></i> Analyze ATS Score';
-            loadingSpinner.style.display = "none";
+
+            // suggestions
+            if (result.suggestions.length) {
+                suggestionsListEl.innerHTML = result.suggestions.map(sug => `<li class="suggestion-item"><i class="fas fa-chevron-circle-right suggestion-icon" style="color:#0d62ff;"></i> <span>${escapeHtml(sug)}</span></li>`).join('');
+            } else {
+                suggestionsListEl.innerHTML = '<li class="suggestion-item"><i class="fas fa-smile-wink"></i> Your resume looks strong! Keep tailoring for each job.</li>';
+            }
         }
-    }
-    
-    // file selection & UI
-    uploadArea.addEventListener("click", () => fileInput.click());
-    fileInput.addEventListener("change", (e) => {
-        if (e.target.files && e.target.files[0]) {
-            const file = e.target.files[0];
-            if (file.type !== "application/pdf") {
-                alert("Only PDF files are supported.");
+
+        function escapeHtml(str) { return str.replace(/[&<>]/g, function (m) { if (m === '&') return '&amp;'; if (m === '<') return '&lt;'; if (m === '>') return '&gt;'; return m; }); }
+
+        // PDF text extraction
+        async function extractTextFromPdf(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = async function (evt) {
+                    try {
+                        const typedArray = new Uint8Array(evt.target.result);
+                        const pdf = await pdfjsLib.getDocument(typedArray).promise;
+                        let fullText = "";
+                        for (let i = 1; i <= pdf.numPages; i++) {
+                            const page = await pdf.getPage(i);
+                            const content = await page.getTextContent();
+                            const strings = content.items.map(item => item.str);
+                            fullText += strings.join(" ") + " ";
+                        }
+                        resolve(fullText);
+                    } catch (err) {
+                        reject(err);
+                    }
+                };
+                reader.onerror = (err) => reject(err);
+                reader.readAsArrayBuffer(file);
+            });
+        }
+
+        // main analysis trigger
+        async function performAnalysis() {
+            if (!selectedFile) {
+                alert("Please select a PDF file first.");
                 return;
             }
-            selectedFile = file;
-            fileNameDisplay.textContent = file.name;
-            fileNameDisplay.style.display = "inline-block";
-            uploadArea.classList.add("active");
-        } else {
-            selectedFile = null;
-            fileNameDisplay.style.display = "none";
+
+            analyzeBtn.disabled = true;
+            analyzeBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Processing...';
+            loadingSpinner.style.display = "block";
+
+            try {
+                const extracted = await extractTextFromPdf(selectedFile);
+                if (!extracted || extracted.trim().length < 30) {
+                    throw new Error("Could not extract enough text. Make sure PDF contains selectable text.");
+                }
+                currentResumeText = extracted;
+                const atsResult = calculateATS(currentResumeText);
+                updateUIWithResults(atsResult);
+                // animate after update
+                animateScore(atsResult.score);
+            } catch (err) {
+                console.error(err);
+                verdictBox.className = "verdict danger";
+                verdictBox.innerHTML = `<i class="fas fa-bug"></i> <span>Error: ${err.message || "Text extraction failed. Try another PDF."}</span>`;
+                suggestionsListEl.innerHTML = '<li class="suggestion-item">⚠️ Ensure your PDF is text-based (not scanned image). Try converting to text-friendly PDF.</li>';
+                keywordsContainer.innerHTML = '<span class="keyword">Extraction error</span>';
+                wordCountSpan.innerText = "Error";
+                keywordCountSpan.innerText = "—";
+            } finally {
+                analyzeBtn.disabled = false;
+                analyzeBtn.innerHTML = '<i class="fas fa-chart-line"></i> Analyze ATS Score';
+                loadingSpinner.style.display = "none";
+            }
         }
-    });
-    
-    analyzeBtn.addEventListener("click", performAnalysis);
-    
-    // initial reset placeholder
-    window.onload = () => {
-        // default score ring 0%
-        scoreRingDiv.style.background = `conic-gradient(#0d62ff 0deg 0deg, #e2e8f0 0deg 360deg)`;
-        mainScoreSpan.innerText = "0";
-    };
-</script>
+
+        // file selection & UI
+        uploadArea.addEventListener("click", () => fileInput.click());
+        fileInput.addEventListener("change", (e) => {
+            if (e.target.files && e.target.files[0]) {
+                const file = e.target.files[0];
+                if (file.type !== "application/pdf") {
+                    alert("Only PDF files are supported.");
+                    return;
+                }
+                selectedFile = file;
+                fileNameDisplay.textContent = file.name;
+                fileNameDisplay.style.display = "inline-block";
+                uploadArea.classList.add("active");
+            } else {
+                selectedFile = null;
+                fileNameDisplay.style.display = "none";
+            }
+        });
+
+        analyzeBtn.addEventListener("click", performAnalysis);
+
+        // initial reset placeholder
+        window.onload = () => {
+            // default score ring 0%
+            scoreRingDiv.style.background = `conic-gradient(#0d62ff 0deg 0deg, #e2e8f0 0deg 360deg)`;
+            mainScoreSpan.innerText = "0";
+        };
+    </script>
 </body>
+
 </html>
