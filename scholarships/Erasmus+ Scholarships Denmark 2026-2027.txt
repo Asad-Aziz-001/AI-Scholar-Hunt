@@ -1,0 +1,42 @@
+{
+  "scholarship_name": "Erasmus+ Scholarships Denmark 2026-2027",
+  "level_of_study": ["Master's", "PhD", "Exchange"],
+  "institution": "European Union (Erasmus+ Program with Danish Partner Universities)",
+  "study_in": "Denmark + Multiple European Countries",
+  "courses_offered": ["Programs under Erasmus Mundus Joint Master Degrees and Erasmus+ networks"],
+  "program_period": {
+    "Masters": "Depends on program",
+    "PhD": "Depends on program",
+    "Exchange": "Short-term mobility (varies)"
+  },
+  "deadline": "Varies by program (generally October - January)",
+  "coverage": {
+    "type": "Fully funded",
+    "tuition_fee": "Full coverage",
+    "monthly_stipend": "€1,100 - €1,200 per month",
+    "travel_allowance": "Provided",
+    "health_insurance": "Full coverage",
+    "mobility": "Study in multiple European universities"
+  },
+  "eligibility": {
+    "language_requirement": "English (IELTS/TOEFL or equivalent)",
+    "eligible_countries": "Eligible Erasmus+ program and partner countries",
+    "academic_requirement": "Excellent academic record",
+    "other_requirements": [
+      "Must apply to Erasmus Mundus Joint Master or Erasmus+ program",
+      "Must be willing to study in at least two European universities",
+      "Must meet program-specific requirements",
+      "Selection based on academic merit and application profile"
+    ]
+  },
+  "required_documents": [
+    "Academic transcripts",
+    "CV/Resume",
+    "Statement of Purpose",
+    "Recommendation letters",
+    "Proof of English proficiency"
+  ],
+  "apply_link": "https://erasmus-plus.ec.europa.eu/",
+  "official_website": "https://erasmus-plus.ec.europa.eu/",
+  "notes": "Fully funded Erasmus+ scholarship covering tuition, stipend, travel, and insurance. Requires application to specific Erasmus Mundus programs. Includes mobility across multiple European universities."
+}

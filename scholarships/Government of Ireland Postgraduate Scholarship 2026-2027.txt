@@ -1,0 +1,50 @@
+{
+  "scholarship_name": "Government of Ireland Postgraduate Scholarship 2026-2027",
+  "level_of_study": ["Master's", "PhD"],
+  "institution": "Government of Ireland",
+  "study_in": "Ireland",
+  "courses_offered": ["All disciplines"],
+  "program_period": {
+    "Masters": "1 - 2 years",
+    "PhD": "3 - 4 years"
+  },
+  "deadline": "October 10, 2026",
+  "coverage": {
+    "type": "Fully funded",
+    "annual_stipend": "€22,000 per year",
+    "tuition_fee": "Up to €5,750 per year",
+    "research_allowance": "€3,250 per year"
+  },
+  "eligibility": {
+    "language_requirement": "English",
+    "eligible_countries": "All Countries",
+    "academic_requirement": {
+      "minimum_degree": "First class or upper second-class honours Bachelor's degree",
+      "alternative": "Master's degree required if minimum grade not met"
+    },
+    "other_requirements": [
+      "Must be a new entrant to the program",
+      "Must have formal acceptance from an Irish institution",
+      "Must not have more than two unsuccessful previous applications",
+      "Applicants must not hold a similar government scholarship",
+      "Selection based on academic excellence and research potential"
+    ],
+    "residency_requirement": {
+      "Category_I": "EEA or Switzerland citizen with 3 out of 5 years residency (for specific category)"
+    }
+  },
+  "required_documents": [
+    "Online application form",
+    "Academic transcripts",
+    "Proof of degree classification",
+    "Research proposal",
+    "Admission/acceptance letter",
+    "Supporting academic documents"
+  ],
+  "apply_link": "https://research.ie/funding/goipg/?f=postgraduate",
+  "official_website": [
+    "https://research.ie/funding/goipg/?f=postgraduate",
+    "https://research.ie/"
+  ],
+  "notes": "Prestigious fully funded Irish government scholarship supporting postgraduate research. Covers stipend, tuition contribution, and research expenses. Highly competitive and focused on academic excellence and research potential."
+}

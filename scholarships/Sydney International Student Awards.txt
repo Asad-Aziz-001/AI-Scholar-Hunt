@@ -1,0 +1,39 @@
+{
+  "scholarship_name": "Sydney International Student Award 2026-2027",
+  "level_of_study": ["Undergraduate", "Master's"],
+  "institution": "University of Sydney",
+  "study_in": "Australia",
+  "courses_offered": ["All Coursework Programs (excluding MBA, EMBA, Law Dual Degree, distance and executive programs)"],
+  "program_period": {
+    "Undergraduate": "One year (award duration)",
+    "Master's": "One year (award duration)"
+  },
+  "deadline": "Varies (check official website)",
+  "coverage": {
+    "tuition": "20% tuition fee reduction",
+    "registration_fees": "Not specified",
+    "living_expenses": "Not covered"
+  },
+  "eligibility": {
+    "language_requirement": "English",
+    "eligible_countries": "Bangladesh, Cambodia, India, Indonesia, Japan, Malaysia, Mongolia, Myanmar, Nepal, Pakistan, Philippines, South Korea, Sri Lanka, Thailand, Turkey, Vietnam",
+    "academic_requirement": {
+      "general": "Must meet admission requirements of University of Sydney"
+    },
+    "additional_conditions": [
+      "Must receive admission offer for full-time undergraduate or postgraduate coursework program (2026 intake)",
+      "Must not be an Australian or New Zealand citizen or permanent resident",
+      "Must not have already started a degree at University of Sydney (exceptions apply for second degree)",
+      "Must submit a personal statement",
+      "Program exclusions apply (MBA, EMBA, executive programs, distance learning, Law Dual Degree)"
+    ]
+  },
+  "required_documents": [
+    "Admission application",
+    "Personal statement (max 200 words per question)",
+    "Academic documents (as required)"
+  ],
+  "apply_link": "http://sydney.edu.au/study/applying/how-to-apply/international-students.html",
+  "official_website_link": "https://www.sydney.edu.au/study/fees-and-loans/scholarships/sydney-international-student-award.html",
+  "notes": "Partial scholarship offering 20% tuition fee reduction. Requires personal statement submission during admission process. Highly competitive and limited to selected countries."
+}

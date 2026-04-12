@@ -1,0 +1,46 @@
+{
+  "scholarship_name": "Neufert-Foundation Scholarships 2026-2027",
+  "level_of_study": ["Master's"],
+  "institution": "Neufert-Foundation",
+  "study_in": "Germany",
+  "courses_offered": ["Architecture", "Landscaping", "Urban Development"],
+  "program_period": {
+    "Master's": "1.5 - 2 years"
+  },
+  "deadline": "May 15",
+  "coverage": {
+    "type": "Grant",
+    "amount": "€2,500 (one-time grant)"
+  },
+  "eligibility": {
+    "language_requirement": "English or German",
+    "eligible_countries": "All Countries",
+    "academic_requirement": {
+      "degree": "Bachelor's or equivalent in relevant field",
+      "fields": ["Architecture", "Landscaping", "Urban Development"]
+    },
+    "other_requirements": [
+      "Must be starting a Master's program in Germany",
+      "Strong academic performance in Bachelor's degree",
+      "High-quality portfolio (including Bachelor thesis)",
+      "Reference from university professor",
+      "Clear motivation for chosen program",
+      "Quality and originality of submitted work"
+    ]
+  },
+  "required_documents": [
+    "Motivation letter",
+    "CV (with languages and photo)",
+    "Notarized Bachelor's degree certificate",
+    "Academic transcripts",
+    "Professor recommendation letter",
+    "University admission letter",
+    "Portfolio (minimum 4 projects, DIN A3 format)"
+  ],
+  "apply_link": "https://www.neufert-stiftung.de/en/scholarsh",
+  "official_website": [
+    "https://www.neufert-stiftung.de/en/scholarsh",
+    "https://www.neufert-stiftung.de/en"
+  ],
+  "notes": "Specialized scholarship for architecture-related fields. One-time grant of €2,500. Requires strong portfolio and academic background. Applicants must submit physical documents by mail. Repayment required if Master's program is not completed."
+}

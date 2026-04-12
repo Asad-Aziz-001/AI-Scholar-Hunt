@@ -1,0 +1,93 @@
+{
+  "scholarship_name": "Shanghai Government Scholarship 2026-2027 (Fully Funded / Partial)",
+  "level_of_study": ["Undergraduate", "Master's", "PhD"],
+  "institution": "Shanghai Universities",
+  "study_in": "China",
+  "courses_offered": [
+    "Philosophy",
+    "Economics",
+    "Law",
+    "Education",
+    "Literature",
+    "History",
+    "Management",
+    "Science",
+    "Engineering",
+    "Agriculture",
+    "Medicine",
+    "Art"
+  ],
+  "program_period": {
+    "Undergraduate": "4–5 years",
+    "Master's": "2–3 years",
+    "PhD": "3–4 years"
+  },
+  "deadline": "January – June (varies by university)",
+  "coverage": {
+    "tuition": "Full (Type A) or partial (Type B)",
+    "registration_fees": "Covered (Type A), Not specified (Type B)",
+    "living_expenses": "CNY 2500–3500 per month depending on level",
+    "other_benefits": [
+      "On-campus accommodation (Type A)",
+      "Comprehensive medical insurance"
+    ]
+  },
+  "eligibility": {
+    "language_requirement": "Chinese (HSK4 or program-specific requirement)",
+    "eligible_countries": "All countries except China",
+    "academic_requirement": {
+      "Undergraduate": "High school diploma, age under 25",
+      "Master": "Bachelor’s degree, age under 35",
+      "PhD": "Master’s degree, age under 40"
+    },
+    "additional_conditions": [
+      "Must be non-Chinese citizen",
+      "Must meet university admission requirements",
+      "Must not hold another Chinese government scholarship"
+    ]
+  },
+  "required_documents": [
+    "Application form",
+    "Academic transcripts",
+    "Diploma",
+    "Health certificate",
+    "Passport copy",
+    "Language certificate"
+  ],
+  "participating_universities": [
+    {"name": "Fudan University", "website": "https://iso.fudan.edu.cn/isoenglish/"},
+    {"name": "Shanghai Jiao Tong University", "website": "http://isc.sjtu.edu.cn/EN/Default.aspx"},
+    {"name": "Shanghai Jiao Tong University School of Medicine", "website": "https://www.shsmu.edu.cn/iso_en/"},
+    {"name": "Tongji University", "website": "https://study.tongji.edu.cn/English/"},
+    {"name": "East China Normal University", "website": "https://english.ecnu.edu.cn/"},
+    {"name": "East China University of Science and Technology", "website": "https://ies.ecust.edu.cn/en/index.php"},
+    {"name": "Shanghai International Studies University", "website": "http://en.shisu.edu.cn/"},
+    {"name": "Donghua University", "website": "https://english.dhu.edu.cn/"},
+    {"name": "Shanghai University of Finance and Economics", "website": "https://ices.sufe.edu.cn/enices/"},
+    {"name": "Shanghai University", "website": "https://apply.shu.edu.cn/application/index"},
+    {"name": "University of Shanghai for Science and Technology", "website": "http://isoe.usst.edu.cn/"},
+    {"name": "Shanghai Maritime University", "website": "https://en.shmtu.edu.cn/"},
+    {"name": "Shanghai Conservatory of Music", "website": "https://en.shcmusic.edu.cn/main.htm"},
+    {"name": "Shanghai Theatre Academy", "website": "https://en.sta.edu.cn/"},
+    {"name": "Shanghai University of Sport", "website": "https://eng.sus.edu.cn/Admission.htm"},
+    {"name": "East China University of Political Science and Law", "website": "https://study.ecupl.edu.cn/"},
+    {"name": "Shanghai Ocean University", "website": "https://www.shou.edu.cn/eng/6689/list.htm"},
+    {"name": "Shanghai University of Electric Power", "website": "https://fao.shiep.edu.cn/en/"},
+    {"name": "Shanghai University of Traditional Chinese Medicine", "website": "https://iec.shutcm.edu.cn/en/"},
+    {"name": "Shanghai Normal University", "website": "https://english.shnu.edu.cn/"},
+    {"name": "Shanghai University of International Business and Economics", "website": "https://www.suibe.edu.cn/wsc/lhlx/"},
+    {"name": "Shanghai University of Engineering Science", "website": "https://cie.sues.edu.cn/global/main.htm"},
+    {"name": "Shanghai Lixin University of Accounting and Finance", "website": "https://en.lixin.edu.cn/"},
+    {"name": "Shanghai Polytechnic University", "website": "https://lxs.sspu.edu.cn/"},
+    {"name": "Shanghai Dianji University", "website": "https://ies.sdju.edu.cn/"},
+    {"name": "Shanghai Institute of Technology", "website": "https://inter.sit.edu.cn/_t451/main.htm"},
+    {"name": "Shanghai Business School", "website": "https://english.sbs.edu.cn/"},
+    {"name": "Shanghai University of Political Science and Law", "website": "https://www.shupl.edu.cn/en/"},
+    {"name": "Sanda University", "website": "https://global.sandau.edu.cn/"},
+    {"name": "Shanghai Jian Qiao University", "website": "https://en.gench.edu.cn/"},
+    {"name": "Shanghai University of Medicine & Health Sciences", "website": "https://www.sumhs.edu.cn/english/"}
+  ],
+  "apply_link": "https://www.study-shanghai.cn/c.asp?action=AS_SS_Entry",
+  "official_website": "https://edu.sh.gov.cn/study_en_scholarships/",
+  "notes": "Scholarship valid for multiple universities in Shanghai. Applicants must apply separately to selected universities."
+}

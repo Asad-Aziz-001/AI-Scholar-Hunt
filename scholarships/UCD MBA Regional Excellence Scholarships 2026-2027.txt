@@ -1,0 +1,55 @@
+{
+  "scholarship_name": "UCD MBA Regional Excellence Scholarships 2026-2027",
+  "level_of_study": ["Master's (MBA)"],
+  "institution": "University College Dublin (UCD) - Michael Smurfit Graduate Business School",
+  "study_in": "Ireland",
+  "courses_offered": [
+    "Business Administration (MBA)",
+    "Accounting",
+    "Business Studies",
+    "Finance"
+  ],
+  "program_period": {
+    "MBA": "1 - 2 years"
+  },
+  "deadline": "April 30",
+  "coverage": {
+    "type": "Partial to full funding",
+    "tuition_fee": "Up to 50% (exceptional cases up to 100%)"
+  },
+  "eligibility": {
+    "language_requirement": "English (IELTS ≥ 7.0 or TOEFL ≥ 100)",
+    "eligible_countries": "All Countries",
+    "academic_requirement": {
+      "degree": "Bachelor's degree required"
+    },
+    "test_requirement": {
+      "GMAT": "Minimum 600 (Full-time MBA)",
+      "Executive_MBA": "GMAT ≥ 520 or EA ≥ 149",
+      "GRE": "Accepted as alternative"
+    },
+    "experience_requirement": "Minimum 3 years professional experience",
+    "other_requirements": [
+      "Must have MBA admission offer or acceptance",
+      "Strong leadership potential",
+      "Demonstrated professional excellence",
+      "Complete application before deadline",
+      "Selection based on merit and diversity contribution"
+    ]
+  },
+  "required_documents": [
+    "CV/Resume",
+    "GMAT/GRE score report",
+    "English proficiency test (IELTS/TOEFL)",
+    "Academic transcripts",
+    "Two recommendation letters",
+    "MBA essays",
+    "Video interview (Kira platform)"
+  ],
+  "apply_link": "https://www.smurfitschool.ie/admissions/",
+  "official_website": [
+    "https://www.smurfitschool.ie/admissions/",
+    "https://www.smurfitschool.ie/"
+  ],
+  "notes": "Merit-based MBA scholarship with partial to full tuition coverage. Requires GMAT and professional experience. No separate scholarship application required; all MBA applicants are automatically considered. Rolling selection process."
+}

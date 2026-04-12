@@ -1,0 +1,35 @@
+{
+  "scholarship_name": "Melbourne International Undergraduate Scholarship 2026-2027",
+  "level_of_study": ["Undergraduate"],
+  "institution": "University of Melbourne",
+  "study_in": "Australia",
+  "courses_offered": ["All Undergraduate Programs"],
+  "program_period": {
+    "Undergraduate": "3 years"
+  },
+  "deadline": "Semester 1: November 30, Semester 2: March 31",
+  "coverage": {
+    "tuition": "Partial to full tuition fee remission ($10,000 first year OR 50% OR 100% for full duration)",
+    "registration_fees": "Not specified",
+    "living_expenses": "Not covered"
+  },
+  "eligibility": {
+    "language_requirement": "English",
+    "eligible_countries": "All countries except Australia and New Zealand",
+    "academic_requirement": {
+      "Undergraduate": "Excellent academic results (e.g., A Levels A*, 97% foundation, IB score 43)"
+    },
+    "additional_conditions": [
+      "Must have an unconditional offer from University of Melbourne",
+      "Must not have undertaken prior tertiary education",
+      "Selection is merit-based and highly competitive"
+    ]
+  },
+  "required_documents": [
+    "No separate application required",
+    "Admission application documents (academic transcripts, etc.)"
+  ],
+  "apply_link": "https://unimelb-web.t1cloud.com/T1SMDefault/WebApps/eStudent/SM/eApplications/eAppLogin.aspx",
+  "official_website": "https://scholarships.unimelb.edu.au/awards/melbourne-international-undergraduate-scholarship",
+  "notes": "Automatically awarded scholarship based on academic merit. No separate application required. Covers partial to full tuition fees."
+}

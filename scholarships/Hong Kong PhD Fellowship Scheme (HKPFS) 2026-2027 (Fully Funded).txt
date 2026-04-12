@@ -1,0 +1,46 @@
+{
+  "scholarship_name": "Hong Kong PhD Fellowship Scheme (HKPFS) 2026-2027 (Fully Funded)",
+  "level_of_study": ["PhD"],
+  "institution": "UGC-funded Universities in Hong Kong (City University of Hong Kong, Hong Kong Baptist University, Lingnan University, The Chinese University of Hong Kong, The Education University of Hong Kong, The Hong Kong Polytechnic University, The Hong Kong University of Science and Technology, The University of Hong Kong)",
+  "study_in": "Hong Kong",
+  "courses_offered": ["All PhD Programs offered by participating universities"],
+  "program_period": {
+    "PhD": "3–4 years"
+  },
+  "deadline": "September 1, 2026 – December 1, 2026",
+  "coverage": {
+    "tuition": "Not specified (may vary by university)",
+    "registration_fees": "No application fee for HKPFS (universities may charge separately)",
+    "living_expenses": "HK$325,200 per year stipend",
+    "other_benefits": [
+      "Research and conference travel allowance HK$13,600 per year",
+      "Up to 3 years funding (additional support may be provided by universities)",
+      "Opportunity to study at top Hong Kong universities"
+    ]
+  },
+  "eligibility": {
+    "language_requirement": "English",
+    "eligible_countries": "All countries",
+    "academic_requirement": {
+      "general": "Must meet PhD admission requirements of chosen university"
+    },
+    "additional_conditions": [
+      "Must apply as a new full-time PhD student",
+      "Must demonstrate strong academic performance",
+      "Must show research potential and leadership qualities",
+      "Must submit initial application to HKPFS and full application to universities"
+    ]
+  },
+  "required_documents": [
+    "Initial HKPFS application form",
+    "University PhD application",
+    "Academic transcripts",
+    "CV/Resume",
+    "Research proposal (if required)",
+    "Recommendation letters",
+    "English proficiency certificate"
+  ],
+  "apply_link": "https://cerg1.ugc.edu.hk/hkpfs/apply.html",
+  "official_website": "https://cerg1.ugc.edu.hk/hkpfs/index.html",
+  "notes": "Highly competitive fully funded PhD fellowship with generous stipend and travel allowance. Requires dual application (HKPFS + university). Around 300 awards offered annually."
+}

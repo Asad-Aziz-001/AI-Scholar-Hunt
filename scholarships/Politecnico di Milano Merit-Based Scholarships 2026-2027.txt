@@ -1,0 +1,54 @@
+{
+  "scholarship_name": "Politecnico di Milano Merit-Based Scholarships 2026-2027",
+  "level_of_study": ["Master's"],
+  "institution": "Politecnico di Milano",
+  "study_in": "Italy",
+  "courses_offered": ["Master of Science (Laurea Magistrale) programs"],
+  "program_period": {
+    "Master's": "Depends on program"
+  },
+  "deadline": {
+    "Fall_Intake": "February 2026",
+    "Spring_Intake": "July 2026"
+  },
+  "coverage": {
+    "type": "Fully funded (tuition + allowance)",
+    "Platinum": {
+      "tuition_fee": "Full waiver",
+      "allowance": "€10,000 per year"
+    },
+    "Gold": {
+      "tuition_fee": "Full waiver",
+      "allowance": "€8,000 per year"
+    },
+    "Silver": {
+      "tuition_fee": "Full waiver",
+      "allowance": "No stipend"
+    },
+    "administrative_fee": "€200 per year (non-refundable)"
+  },
+  "eligibility": {
+    "language_requirement": "English (IELTS/TOEFL or equivalent)",
+    "eligible_countries": "All Countries",
+    "academic_requirement": {
+      "degree": "Bachelor's degree required",
+      "performance": "Excellent academic record"
+    },
+    "other_requirements": [
+      "Must apply for Master of Science program",
+      "Must submit all required documents",
+      "Scholarship awarded based on merit",
+      "No separate scholarship application required (automatic consideration)"
+    ]
+  },
+  "required_documents": [
+    "Bachelor's degree certificate",
+    "Academic transcripts",
+    "CV/Resume",
+    "Motivation letter",
+    "English proficiency test (IELTS/TOEFL)"
+  ],
+  "apply_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/scholarships/",
+  "official_website": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/scholarships/",
+  "notes": "Fully funded merit-based scholarship with three tiers (Platinum, Gold, Silver). Automatically awarded to admitted students based on academic excellence. Includes tuition waiver and optional annual allowance depending on scholarship category."
+}

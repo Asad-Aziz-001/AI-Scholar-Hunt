@@ -1,0 +1,38 @@
+{
+  "scholarship_name": "John Thompson Scholarship 2026-2027",
+  "level_of_study": ["Master's"],
+  "institution": "Dublin City University (DCU) Business School",
+  "study_in": "Ireland",
+  "courses_offered": ["MSc in Digital Marketing"],
+  "program_period": {
+    "Masters": "Up to 2 years"
+  },
+  "deadline": "July 30, 2026",
+  "coverage": {
+    "type": "Full tuition waiver",
+    "tuition_fee": "100% covered"
+  },
+  "eligibility": {
+    "language_requirement": "English",
+    "eligible_countries": "All Countries",
+    "academic_requirement": {
+      "degree": "First Class Honors (1.1) Bachelor's degree"
+    },
+    "other_requirements": [
+      "Interest in digital marketing, media, business, or journalism",
+      "Must meet MSc Digital Marketing program requirements",
+      "Strong academic background required"
+    ]
+  },
+  "required_documents": [
+    "CV",
+    "Motivation statement (max 250 words)",
+    "Academic transcripts / degree proof"
+  ],
+  "apply_link": "https://business.dcu.ie/scholarships/john-thompson-scholarship/",
+  "official_website": [
+    "https://business.dcu.ie/scholarships/john-thompson-scholarship/",
+    "https://business.dcu.ie/"
+  ],
+  "notes": "Highly competitive scholarship offering full tuition coverage for MSc Digital Marketing at DCU. Requires strong academic performance and interest in digital media fields. Application is submitted via email."
+}

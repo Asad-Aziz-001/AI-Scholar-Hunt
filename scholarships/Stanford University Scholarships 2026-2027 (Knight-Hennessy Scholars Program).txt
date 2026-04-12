@@ -1,0 +1,50 @@
+{
+  "scholarship_name": "Stanford University Scholarships 2026-2027 (Knight-Hennessy Scholars Program)",
+  "level_of_study": ["Master's", "PhD"],
+  "institution": "Stanford University",
+  "study_in": "United States of America (USA)",
+  "courses_offered": [
+    "Arts",
+    "Engineering",
+    "Education",
+    "Humanities",
+    "Social Sciences",
+    "Business",
+    "Law",
+    "Medicine",
+    "Interdisciplinary Programs"
+  ],
+  "program_period": {
+    "Master's": "Up to 3 years funded",
+    "PhD": "Up to 3 years funded (remaining funded by department if applicable)"
+  },
+  "deadline": "08 October 2026",
+  "coverage": {
+    "tuition": "Full tuition fees (fellowship applied)",
+    "living_expenses": "Stipend covering accommodation, food, and personal expenses",
+    "travel": "Annual economy-class airfare",
+    "academic_expenses": "Books, supplies, instructional materials",
+    "additional_support": "Supplemental funding for academic activities (e.g., conferences)"
+  },
+  "eligibility": {
+    "language_requirement": "English proficiency (TOEFL ≥100 iBT or equivalent, IELTS/PTE accepted for some programs)",
+    "eligible_countries": "All countries",
+    "academic_requirement": {
+      "Bachelor": "Must have obtained first/bachelor’s degree in 2019 or later (for 2026 intake)",
+      "Additional": "Must apply and be accepted to a Stanford graduate program (MS, MBA, MFA, MD, JD, PhD, etc.)"
+    }
+  },
+  "required_documents": [
+    "Online application form",
+    "Academic transcripts",
+    "Resume (CV)",
+    "Two recommendation letters",
+    "Essays (up to 1750 words total)",
+    "Short answer responses",
+    "Video statement (max 2 minutes)",
+    "Standardized test scores (GRE, GMAT, LSAT, MCAT etc. if required)"
+  ],
+  "apply_link": "https://knight-hennessy.stanford.edu/admission",
+  "official_website": "https://knight-hennessy.stanford.edu/admission",
+  "notes": "Fully funded prestigious scholarship under Knight-Hennessy Scholars Program at Stanford University. Covers major academic and living expenses for up to 3 years. Remaining funding for longer programs is covered by the respective department."
+}

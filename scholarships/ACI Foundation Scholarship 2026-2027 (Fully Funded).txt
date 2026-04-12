@@ -1,0 +1,35 @@
+{
+  "scholarship_name": "ACI Foundation Scholarship 2026-2027 (Fully Funded)",
+  "level_of_study": ["Undergraduate", "Master's", "PhD", "Postdoctoral"],
+  "institution": "ACI Foundation",
+  "study_in": "United States of America (USA) / Canada / GCC Countries",
+  "courses_offered": ["Concrete industry related fields", "Engineering", "Construction", "Materials Science"],
+  "program_period": {
+    "General": "1 year (renewable annually upon reapplication)"
+  },
+  "deadline": "November 01, 2026",
+  "coverage": {
+    "stipend": "$10,000 – $15,000",
+    "expenses": "Covers tuition, residence, books, and materials",
+    "travel": "Paid travel and attendance for ACI conventions",
+    "mentorship": "Industry mentor support"
+  },
+  "eligibility": {
+    "language_requirement": "English (TOEFL optional if non-native)",
+    "eligible_countries": "All countries",
+    "academic_requirement": {
+      "General": "Must be enrolled or planning to enroll in relevant field (concrete/construction related)",
+      "Additional": "Must attend a university in USA, Canada, or GCC region depending on fellowship type"
+    }
+  },
+  "required_documents": [
+    "Online application form",
+    "Essays",
+    "Academic records",
+    "Recommendation letters",
+    "Proof of English proficiency (if applicable)"
+  ],
+  "apply_link": "https://www.acifoundation.org/scholarships.aspx",
+  "official_website": "https://www.acifoundation.org/",
+  "notes": "Fully funded scholarship/fellowship supporting students in concrete-related fields. Includes stipend, travel to ACI conventions, mentorship, and potential internship opportunities. Requires participation in ACI events and annual reapplication for continuation."
+}

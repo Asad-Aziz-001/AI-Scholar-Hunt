@@ -1,0 +1,38 @@
+{
+  "scholarship_name": "Maynooth University Taught Master’s Scholarships 2026-2027",
+  "level_of_study": ["Master's"],
+  "institution": "Maynooth University",
+  "study_in": "Ireland",
+  "courses_offered": ["All taught Master's programs"],
+  "program_period": {
+    "Masters": "1 year (scholarship applies to first year only)"
+  },
+  "deadline": "June 30",
+  "coverage": {
+    "type": "Partial funding",
+    "amount": "€2,000 (one-time award)"
+  },
+  "eligibility": {
+    "language_requirement": "English or Chinese",
+    "eligible_countries": "All Countries",
+    "academic_requirement": {
+      "minimum_degree": "2.1 honours undergraduate degree"
+    },
+    "other_requirements": [
+      "Must apply for full-time Master's program",
+      "Must meet program admission requirements",
+      "Must apply through PAC system",
+      "Selection based on highest final-year academic performance",
+      "Not open to current Master's or PhD students",
+      "Financial need may be considered in tie cases"
+    ]
+  },
+  "required_documents": [
+    "Academic transcripts",
+    "Passport or birth certificate",
+    "Referee details (2 references)"
+  ],
+  "apply_link": "https://www.maynoothuniversity.ie/",
+  "official_website": "https://www.maynoothuniversity.ie/",
+  "notes": "Partial scholarship awarded based on academic excellence. Limited to 60 students annually. Automatically considered after application to the Master's program."
+}

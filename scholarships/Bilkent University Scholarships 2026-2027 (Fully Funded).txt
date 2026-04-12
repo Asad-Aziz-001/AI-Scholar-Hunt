@@ -1,0 +1,62 @@
+{
+  "scholarship_name": "Bilkent University Scholarships 2026-2027 (Fully Funded)",
+  "level_of_study": ["Master's", "PhD"],
+  "institution": "Bilkent University",
+  "study_in": "Turkey",
+  "courses_offered": [
+    "Architecture",
+    "Computer Engineering",
+    "Electrical and Electronics Engineering",
+    "Industrial Engineering",
+    "Mechanical Engineering",
+    "Materials Science & Nanotechnology",
+    "Molecular Biology and Genetics",
+    "Neuroscience",
+    "Physics",
+    "Chemistry",
+    "Mathematics",
+    "Telecommunications and Networking"
+  ],
+  "program_period": {
+    "Master's": "3 years (6 semesters)",
+    "PhD": "4 years"
+  },
+  "deadline": "March 18 / June 6 / November 4",
+  "coverage": {
+    "tuition": "Full tuition fee waiver",
+    "stipend": {
+      "Master's": "$450 per month (approx)",
+      "PhD": "$600 per month (approx)"
+    },
+    "accommodation": "Housing provided",
+    "health_insurance": "Private health insurance",
+    "additional_benefits": [
+      "Laptop computer",
+      "Meal card (PhD after qualifier)",
+      "Conference travel support"
+    ]
+  },
+  "eligibility": {
+    "language_requirement": "English (TOEFL ≥87, IELTS ≥6.5, or Bilkent COPE ≥C)",
+    "eligible_countries": "All countries",
+    "academic_requirement": {
+      "Master": "Bachelor’s degree with minimum CGPA 2.80/4.00",
+      "PhD": "Master’s degree or strong academic background",
+      "Tests": "GRE (Quant ≥153) required for international students; ALES for Turkish applicants"
+    }
+  },
+  "required_documents": [
+    "Online application form",
+    "Degree certificate",
+    "Academic transcripts",
+    "Statement of Purpose",
+    "Two recommendation letters",
+    "Curriculum Vitae (CV)",
+    "Research proposal (if applicable)",
+    "English proficiency test scores",
+    "GRE score"
+  ],
+  "apply_link": "https://unam.bilkent.edu.tr/en/unam-scholarship-opportunities/",
+  "official_website": "https://unam.bilkent.edu.tr/",
+  "notes": "Fully funded scholarship at Bilkent University offering tuition waiver, stipend, housing, and research support. Multiple funding options available including fellowships and project-based scholarships. No application fee required."
+}

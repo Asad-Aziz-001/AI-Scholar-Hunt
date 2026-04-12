@@ -1,0 +1,52 @@
+{
+  "scholarship_name": "Heinrich Böll Foundation Scholarship 2026-2027",
+  "level_of_study": ["Master's", "PhD"],
+  "institution": "Heinrich Böll Foundation",
+  "study_in": "Germany",
+  "courses_offered": ["All fields offered by German universities"],
+  "program_period": {
+    "Masters": "Full duration of program",
+    "PhD": "Full duration of program"
+  },
+  "deadline": {
+    "Spring_Intake": "September 01, 2026",
+    "Fall_Intake": "March 01, 2027"
+  },
+  "coverage": {
+    "type": "Fully funded",
+    "tuition_fee": "Covered (if applicable)",
+    "monthly_stipend": "Provided (varies by level)",
+    "additional_benefits": [
+      "Research allowance",
+      "Travel grants",
+      "Health insurance contribution",
+      "Family support (if applicable)"
+    ]
+  },
+  "eligibility": {
+    "language_requirement": "English (German may be required depending on program)",
+    "eligible_countries": "All Countries",
+    "academic_requirement": "Excellent academic record",
+    "other_requirements": [
+      "Strong social commitment",
+      "Interest in political and social issues",
+      "Convincing motivation for applying",
+      "Alignment with values (democracy, sustainability, human rights)",
+      "PhD applicants must submit strong research proposal",
+      "Students already studying in Germany can also apply"
+    ]
+  },
+  "required_documents": [
+    "CV",
+    "Motivation letter",
+    "Academic transcripts",
+    "Proof of social and political engagement",
+    "Research proposal (for PhD)"
+  ],
+  "apply_link": "https://www.boell.de/en/application",
+  "official_website": [
+    "https://www.boell.de/de",
+    "https://www.boell.de/en/foundation/scholarships"
+  ],
+  "notes": "Fully funded scholarship covering full study duration. Focuses on academic excellence along with social and political engagement. Selection process includes application review and interviews."
+}

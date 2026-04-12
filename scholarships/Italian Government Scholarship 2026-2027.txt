@@ -1,0 +1,53 @@
+{
+  "scholarship_name": "Italian Government Scholarship 2026-2027",
+  "level_of_study": ["Master's", "PhD"],
+  "institution": "Italian Higher Education Institutes",
+  "study_in": "Italy",
+  "courses_offered": ["All courses offered by universities recognized by the Italian Ministry of University and Research (MUR)"],
+  "program_period": {
+    "Masters": "3, 6, or 9 months",
+    "PhD": "3, 6, or 9 months"
+  },
+  "deadline": "June 14, Not specified year",
+  "coverage": {
+    "type": "Fully funded",
+    "monthly_stipend": "€900 per month",
+    "tuition_fee": "Exemption (depends on university policy)",
+    "health_insurance": "Full medical and accident insurance",
+    "notes": "Paid quarterly to Italian bank account"
+  },
+  "eligibility": {
+    "language_requirement": "English (B2 level for English-taught programs, Italian A2 for language courses)",
+    "eligible_countries": "Eligible foreign countries",
+    "academic_requirement": {
+      "Masters": "Bachelor's degree required",
+      "PhD": "Must meet university requirements and provide acceptance letter"
+    },
+    "age_limit": {
+      "Masters_AFAM_Language": "Not over 28 years",
+      "PhD": "Not over 30 years",
+      "Research": "Not over 40 years"
+    },
+    "other_requirements": [
+      "Must be a foreign student not residing in Italy",
+      "Proof of English proficiency required (B2 minimum)",
+      "Italian proficiency required for Italian language courses (A2 minimum)",
+      "Must meet admission requirements of selected university",
+      "PhD applicants require acceptance letter",
+      "Research applicants must have academic supervisor approval"
+    ]
+  },
+  "required_documents": [
+    "CV",
+    "Academic transcripts / score statement",
+    "Recommendation letter",
+    "University admission letter",
+    "Motivation letter (max 1000 words)"
+  ],
+  "apply_link": "https://www.esteri.it/en/opportunita/borse-di-studio/per-cittadini-stranieri/borsestudio_stranieri/",
+  "official_website": [
+    "https://www.esteri.it/en/opportunita/borse-di-studio/per-cittadini-stranieri/borsestudio_stranieri/",
+    "https://www.esteri.it/"
+  ],
+  "notes": "Fully funded scholarship by MAECI. Covers tuition (depending on university), monthly stipend, and health insurance. Designed to promote international collaboration, Italian culture, and education. Requires separate online application."
+}

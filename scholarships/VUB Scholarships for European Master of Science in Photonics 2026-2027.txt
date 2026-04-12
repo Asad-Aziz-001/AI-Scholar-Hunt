@@ -1,0 +1,52 @@
+{
+  "scholarship_name": "VUB Scholarships for European Master of Science in Photonics 2026-2027",
+  "level_of_study": ["Master's"],
+  "institution": "Vrije Universiteit Brussel (VUB)",
+  "study_in": "Belgium",
+  "courses_offered": [
+    "European Master of Science in Photonics",
+    "Photonics Engineering",
+    "Preparatory programs in Engineering and Physics-related fields"
+  ],
+  "program_period": {
+    "Master's": "2 years"
+  },
+  "deadline": "July 31, 2026 / March 31, 2027",
+  "coverage": {
+    "tuition": "Partial to full funding (varies by scholarship type)",
+    "registration_fees": "Not specified",
+    "living_expenses": "€10,000 per year (main scholarship)",
+    "other_benefits": [
+      "Entry Scholarship: €1,000",
+      "Continuation Scholarship: €1,500",
+      "Excellence Scholarship: €5,000",
+      "Automatic consideration (no separate application for some awards)"
+    ]
+  },
+  "eligibility": {
+    "language_requirement": "English (IELTS ≥ 6.0, TOEFL ≥ 87, or equivalent)",
+    "eligible_countries": "All countries",
+    "academic_requirement": {
+      "Bachelor": "Degree in Electrical Engineering, Physics, Materials Science, or related field"
+    },
+    "additional_conditions": [
+      "Must apply for MSc Photonics program at VUB",
+      "Strong academic performance and motivation required",
+      "Preparatory program available for other engineering backgrounds",
+      "Must complete MSc thesis at VUB (for some scholarships)"
+    ]
+  },
+  "required_documents": [
+    "ID copy",
+    "CV",
+    "Motivation letter",
+    "Two recommendation letters",
+    "Bachelor's and/or Master's degree certificates",
+    "Academic transcripts",
+    "English language certificate",
+    "Course descriptions (Bachelor level)"
+  ],
+  "apply_link": "https://www.vub.be/en/studying-vub/practical-info-for-students/how-much-does-studying-cost/financial-support/scholarships-for-masters-in-photonics-engineering",
+  "official_website": "https://www.vub.be/en/studying-vub/practical-info-for-students/how-much-does-studying-cost/financial-support/scholarships-for-masters-in-photonics-engineering",
+  "notes": "Combination of multiple scholarships including full €10,000/year funding and smaller merit-based awards. Some scholarships are automatically granted without separate application."
+}

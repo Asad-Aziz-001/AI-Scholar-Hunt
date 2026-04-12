@@ -1,0 +1,46 @@
+{
+  "scholarship_name": "Ghent University Doctoral Scholarships 2027 (Fully Funded)",
+  "level_of_study": ["PhD"],
+  "institution": "Ghent University",
+  "study_in": "Belgium",
+  "courses_offered": ["All PhD Research Fields offered at Ghent University"],
+  "program_period": {
+    "PhD": "4 years (24 months in Belgium + 24 months in home country for BOF program)"
+  },
+  "deadline": "February (varies each year, check official website)",
+  "coverage": {
+    "tuition": "Full tuition fee coverage",
+    "registration_fees": "Covered",
+    "living_expenses": "Monthly stipend €2,000 – €2,500",
+    "other_benefits": [
+      "Research funding and supervision",
+      "Insurance and social security",
+      "Co-supervision (Belgium + home country)",
+      "International research collaboration"
+    ]
+  },
+  "eligibility": {
+    "language_requirement": "English (if required by program)",
+    "eligible_countries": "Developing countries (for BOF scholarships)",
+    "academic_requirement": {
+      "Master": "Relevant Master’s degree with strong academic record"
+    },
+    "additional_conditions": [
+      "Must have a PhD research proposal",
+      "Must find a supervisor at Ghent University",
+      "Must demonstrate strong research potential",
+      "Focus on research with global impact"
+    ]
+  },
+  "required_documents": [
+    "Academic transcripts and diplomas",
+    "CV/Resume",
+    "Motivation letter",
+    "Research proposal",
+    "Recommendation letters",
+    "English proficiency certificate (if required)"
+  ],
+  "apply_link": "https://www.ugent.be/en/research/funding/phd/bof/",
+  "official_website": "https://www.ugent.be/en/research/doctoralresearch",
+  "notes": "Fully funded PhD scholarship with stipend and research support. Includes split research between Belgium and home country for BOF program."
+}

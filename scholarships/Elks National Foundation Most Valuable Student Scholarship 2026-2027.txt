@@ -1,0 +1,33 @@
+{
+  "scholarship_name": "Elks National Foundation Most Valuable Student Scholarship 2026-2027",
+  "level_of_study": ["Undergraduate"],
+  "institution": "American Colleges and Universities",
+  "study_in": "United States of America (USA)",
+  "courses_offered": ["All undergraduate programs"],
+  "program_period": {
+    "Undergraduate": "4 years"
+  },
+  "deadline": "November (annual)",
+  "coverage": {
+    "scholarship_amount": "$1,000 to $12,500 per year",
+    "total_award": "$4,000 to $50,000 (over 4 years)",
+    "additional_info": "500 scholarships awarded annually based on merit and financial need"
+  },
+  "eligibility": {
+    "language_requirement": "English",
+    "eligible_countries": "United States",
+    "academic_requirement": {
+      "High_School": "Must be a current U.S. high school senior (or equivalent)",
+      "Additional": "Must be a U.S. citizen; high school graduates are not eligible"
+    }
+  },
+  "required_documents": [
+    "Online application form",
+    "Academic records",
+    "Proof of U.S. citizenship",
+    "Details of leadership and community service activities"
+  ],
+  "apply_link": "http://newalbanyelks.org/scholarships/",
+  "official_website": "https://newalbanyelks.org/",
+  "notes": "Partially funded undergraduate scholarship awarded to 500 U.S. high school seniors annually. Selection is based on academic excellence, leadership, and community service. Finalists may attend a Leadership Weekend in Chicago."
+}

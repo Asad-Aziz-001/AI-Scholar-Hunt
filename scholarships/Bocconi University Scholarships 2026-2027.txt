@@ -1,0 +1,54 @@
+{
+  "scholarship_name": "Bocconi University Scholarships 2026-2027",
+  "level_of_study": ["Undergraduate", "Master's"],
+  "institution": "Bocconi University",
+  "study_in": "Italy",
+  "courses_offered": ["Bachelor's Programs", "Master of Science Programs"],
+  "program_period": {
+    "Undergraduate": "Depends on program",
+    "Master's": "Depends on program"
+  },
+  "deadline": {
+    "Undergraduate": "April 14",
+    "Masters": ["April 21", "May 27"]
+  },
+  "coverage": {
+    "type": "Fully funded / Partial",
+    "Merit_Award": {
+      "tuition_fee": "Full waiver",
+      "Undergraduate_value": "Up to €12,000 per year",
+      "Masters_value": "Up to €13,000 per year",
+      "accommodation": "Possible free accommodation"
+    },
+    "International_Award": {
+      "tuition_fee": "50% reduction"
+    },
+    "renewal": {
+      "Undergraduate": "Up to 2 years",
+      "Masters": "Second year (based on academic progress)"
+    }
+  },
+  "eligibility": {
+    "language_requirement": "English",
+    "eligible_countries": "All Countries",
+    "academic_requirement": "Outstanding academic record",
+    "other_requirements": [
+      "Must be admitted to Bachelor or Master of Science program",
+      "Selection based on academic excellence",
+      "Complete application dossier is evaluated",
+      "Scholarship awarded automatically (no separate application required)"
+    ]
+  },
+  "required_documents": [
+    "Admission application",
+    "Academic transcripts",
+    "Supporting documents for admission"
+  ],
+  "apply_link": "https://www.unibocconi.it/en/applying-bocconi",
+  "official_website": [
+    "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/funding",
+    "http://unibocconi.it/en/current-students/funding/funding-master-science-programs/bocconi-graduate-merit-awards",
+    "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/funding"
+  ],
+  "notes": "Scholarships include Merit Awards (full tuition waiver + possible accommodation) and International Awards (50% tuition reduction). Automatically awarded based on academic excellence and admission profile. Renewable based on academic performance."
+}

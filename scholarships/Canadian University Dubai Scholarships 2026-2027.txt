@@ -1,0 +1,37 @@
+{
+  "scholarship_name": "Canadian University Dubai Scholarships 2026-2027",
+  "level_of_study": ["Undergraduate", "Master's"],
+  "institution": "Canadian University Dubai",
+  "study_in": "United Arab Emirates (UAE)",
+  "courses_offered": ["All programs offered at Canadian University Dubai"],
+  "program_period": {
+    "Undergraduate": "Varies by program",
+    "Master's": "Varies by program"
+  },
+  "deadline": "July 7 (Fall semester) / December 20 (Spring semester)",
+  "coverage": {
+    "tuition": "Up to 50% tuition fee reduction"
+  },
+  "eligibility": {
+    "language_requirement": "English",
+    "eligible_countries": "All countries",
+    "academic_requirement": {
+      "High_School": "Minimum 75% academic achievement (for new applicants)",
+      "University": "Minimum CGPA 2.8 (for returning students)",
+      "Additional": "Must meet admission requirements; some scholarships require community service commitment (up to 15 hours/month)"
+    }
+  },
+  "required_documents": [
+    "Scholarship application form",
+    "Admission application",
+    "Academic records",
+    "Passport and visa copies",
+    "Bank statements",
+    "Rental contract",
+    "Salary certificate of family members",
+    "Sibling tuition fee certificates"
+  ],
+  "apply_link": "https://www.cud.ac.ae/scholarships",
+  "official_website": "https://www.cud.ac.ae/",
+  "notes": "Partially funded scholarship offering up to 50% tuition reduction. Includes multiple scholarship types such as academic excellence, financial hardship, sports, and special talent awards. Students may reapply each semester depending on eligibility."
+}

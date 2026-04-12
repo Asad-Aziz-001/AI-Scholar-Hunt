@@ -1,0 +1,43 @@
+{
+  "scholarship_name": "Macquarie University Vice-Chancellor’s International Scholarship 2026-2027",
+  "level_of_study": ["Undergraduate", "Postgraduate"],
+  "institution": "Macquarie University",
+  "study_in": "Australia",
+  "courses_offered": ["All Courses (Undergraduate & Postgraduate Coursework Programs)"],
+  "program_period": {
+    "Undergraduate": "Standard program duration",
+    "Postgraduate": "Standard program duration"
+  },
+  "deadline": "Varies by course (check official website)",
+  "coverage": {
+    "tuition": "Partial tuition fee reduction up to AUD $10,000",
+    "registration_fees": "Not specified",
+    "living_expenses": "Not covered",
+    "other_benefits": [
+      "Recognition of academic excellence",
+      "Opportunity to study at a top Australian university"
+    ]
+  },
+  "eligibility": {
+    "language_requirement": "Meet Macquarie University English requirements",
+    "eligible_countries": "All Countries (International students only)",
+    "academic_requirement": {
+      "Undergraduate": "ATAR equivalent of 85",
+      "Postgraduate": "WAM equivalent of 65"
+    },
+    "additional_conditions": [
+      "Must be an international student",
+      "Must hold an admission offer from Macquarie University",
+      "Must not receive any other Macquarie University scholarship"
+    ]
+  },
+  "required_documents": [
+    "Admission offer letter",
+    "Completed online scholarship application form",
+    "Academic transcripts",
+    "Supporting documents (as required by university)"
+  ],
+  "apply_link": "https://www.mq.edu.au/",
+  "official_website": "https://www.mq.edu.au/",
+  "notes": "Highly competitive merit-based scholarship offering partial tuition fee reduction for international students at Macquarie University."
+}

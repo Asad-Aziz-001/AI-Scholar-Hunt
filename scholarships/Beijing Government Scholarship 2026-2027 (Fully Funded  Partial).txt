@@ -1,0 +1,63 @@
+{
+  "scholarship_name": "Beijing Government Scholarship 2026-2027 (Fully Funded / Partial)",
+  "level_of_study": ["Undergraduate", "Master's", "PhD"],
+  "institution": "Beijing Universities",
+  "study_in": "China",
+  "courses_offered": [
+    "Philosophy",
+    "Economics",
+    "Law",
+    "Education",
+    "Literature",
+    "History",
+    "Management",
+    "Science",
+    "Engineering",
+    "Agriculture",
+    "Medicine",
+    "Art"
+  ],
+  "program_period": {
+    "Undergraduate": "Up to 4 years",
+    "Master's": "Up to 4 years",
+    "PhD": "Up to 4 years"
+  },
+  "deadline": "February – June (varies by university)",
+  "coverage": {
+    "tuition": "Full or partial depending on category (A, B, C)",
+    "registration_fees": "Covered (varies by category)",
+    "living_expenses": "Covered in Category A only",
+    "other_benefits": [
+      "Category A: Tuition + accommodation + living expenses + medical insurance",
+      "Category B: Tuition + accommodation + medical insurance",
+      "Category C: Tuition + medical insurance"
+    ]
+  },
+  "eligibility": {
+    "language_requirement": "Depends on program and university requirements",
+    "eligible_countries": "All countries except China",
+    "academic_requirement": {
+      "Undergraduate": "High school diploma, age under 30",
+      "Master": "Bachelor’s degree, age under 35",
+      "PhD": "Master’s degree, age under 40"
+    },
+    "additional_conditions": [
+      "Must be non-Chinese citizen and in good health",
+      "Must meet admission requirements of selected university",
+      "Must not hold another Chinese government scholarship",
+      "Additional requirements for language study, exchange, and visiting scholars"
+    ]
+  },
+  "required_documents": [
+    "Scholarship application form",
+    "Academic transcripts",
+    "Highest diploma",
+    "Physical examination form",
+    "Study plan or research proposal",
+    "Portfolio (for arts applicants)",
+    "Guardian documents (if under 18)"
+  ],
+  "choices_of_universities": "https://english.beijing.gov.cn/studyinginbeijing/choices/",
+  "official_website": "https://english.beijing.gov.cn/studyinginbeijing/news/202601/t20260123_4459326.html",
+  "notes": "Scholarship available in three categories (A, B, C) with different funding levels. Requires application through selected Beijing universities."
+}

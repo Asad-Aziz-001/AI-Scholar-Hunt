@@ -1,0 +1,37 @@
+{
+  "scholarship_name": "Harvard Academy Scholars Program 2026-2027 (Fully Funded)",
+  "level_of_study": ["Postdoctoral", "PhD"],
+  "institution": "Harvard University",
+  "study_in": "United States of America (USA)",
+  "courses_offered": ["Law", "Social Sciences"],
+  "program_period": {
+    "Postdoctoral": "2 years",
+    "PhD": "2 years (for advanced doctoral candidates)"
+  },
+  "deadline": "September 20, 2026",
+  "coverage": {
+    "stipend": "$75,000 per year",
+    "research_support": "Funding for research assistants and research expenses",
+    "travel": "Conference and research travel funding",
+    "health_insurance": "Provided"
+  },
+  "eligibility": {
+    "language_requirement": "English",
+    "eligible_countries": "All countries",
+    "academic_requirement": {
+      "PhD": "Must hold or be near completion of a PhD or equivalent doctoral degree (within specified timeframe)",
+      "Additional": "Focus on social sciences or law with regional expertise outside USA/Canada"
+    }
+  },
+  "required_documents": [
+    "Online application form",
+    "Cover letter",
+    "Curriculum Vitae (CV) with publications",
+    "Research proposal (max 2500 words)",
+    "PhD transcript",
+    "Three recommendation letters"
+  ],
+  "apply_link": "https://academy.wcfia.harvard.edu/programs/academy_scholar",
+  "official_website": "https://academy.wcfia.harvard.edu/",
+  "notes": "Fully funded postdoctoral fellowship at Harvard University offering a $75,000 annual stipend. Focused on early-career researchers in law and social sciences with international or comparative research interests. Requires residency in Cambridge/Boston during the program."
+}

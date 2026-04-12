@@ -1,0 +1,47 @@
+{
+  "scholarship_name": "Boston University Presidential Scholarship 2026-2027",
+  "level_of_study": ["Undergraduate"],
+  "institution": "Boston University",
+  "study_in": "United States of America (USA)",
+  "courses_offered": [
+    "Engineering",
+    "Communication",
+    "Arts & Sciences",
+    "Fine Arts",
+    "General Studies",
+    "Health & Rehabilitation Sciences",
+    "Global Studies",
+    "Business",
+    "Administration",
+    "Education & Human Development"
+  ],
+  "program_period": {
+    "Undergraduate": "4 years"
+  },
+  "deadline": "December 01, 2026",
+  "coverage": {
+    "tuition": "$25,000 per year (renewable for up to 4 years)"
+  },
+  "eligibility": {
+    "language_requirement": "English",
+    "eligible_countries": "All countries",
+    "academic_requirement": {
+      "High_School": "Top 5% of class",
+      "Tests": "SAT >1500 or ACT >33",
+      "Additional": "Outstanding extracurricular achievements, leadership qualities, must be an incoming first-year student"
+    }
+  },
+  "required_documents": [
+    "Common or Coalition Application",
+    "High school transcripts and senior year grades",
+    "English proficiency test scores (TOEFL/IELTS)",
+    "SAT or ACT scores",
+    "Passport copy",
+    "Counselor recommendation and school report",
+    "Teacher recommendation",
+    "Proof of financial support"
+  ],
+  "apply_link": "https://www.bu.edu/admissions/",
+  "official_website": "https://www.bu.edu/",
+  "notes": "Merit-based undergraduate scholarship at Boston University offering $25,000 annually. No separate application required; candidates are automatically considered upon admission. Focus on academic excellence, leadership, and extracurricular impact."
+}

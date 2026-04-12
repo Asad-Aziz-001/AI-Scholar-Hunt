@@ -1,0 +1,52 @@
+{
+  "scholarship_name": "Central South University (CSU) Scholarships 2026-2027 (Fully Funded / Partial)",
+  "level_of_study": ["Undergraduate", "Master's", "PhD"],
+  "institution": "Central South University (CSU)",
+  "study_in": "China",
+  "courses_offered": ["All Programs offered by CSU"],
+  "program_period": {
+    "Undergraduate": "4–5 years",
+    "Master's": "3 years",
+    "PhD": "4 years"
+  },
+  "deadline": "May 31",
+  "coverage": {
+    "tuition": "Full (Full Scholarship) or covered (Partial)",
+    "registration_fees": "Not specified",
+    "living_expenses": "CNY 3000/month (Master), CNY 3500/month (PhD)",
+    "other_benefits": [
+      "On-campus accommodation",
+      "Medical insurance",
+      "Partial scholarship (tuition + accommodation + insurance only)"
+    ]
+  },
+  "eligibility": {
+    "language_requirement": "Chinese (HSK4/HSK5 depending on program) or English (IELTS ≥ 6.0 / TOEFL ≥ 85)",
+    "eligible_countries": "All countries (non-Chinese citizens)",
+    "academic_requirement": {
+      "Undergraduate": "High school diploma, age 18–25",
+      "Master": "Bachelor’s degree, age 18–35",
+      "PhD": "Master’s degree, age 18–40"
+    },
+    "additional_conditions": [
+      "Must be in good health with no criminal record",
+      "Strong academic background required",
+      "Research capability required for postgraduate programs",
+      "Language preparatory year required if criteria not met",
+      "Annual scholarship review based on performance"
+    ]
+  },
+  "required_documents": [
+    "Passport copy",
+    "Physical examination form",
+    "Highest diploma and transcripts",
+    "Non-criminal record certificate",
+    "Language proficiency certificate (HSK/IELTS/TOEFL)",
+    "Recommendation letters (for graduate applicants)",
+    "Study plan or research proposal",
+    "Additional supporting documents (publications, etc.)"
+  ],
+  "apply_link": "https://intl.csu.edu.cn/English/Scholarship/University_Scholarship.htm",
+  "official_website": "https://intl.csu.edu.cn/English/Scholarship/University_Scholarship.htm",
+  "notes": "Offers both fully funded and partial scholarships. Includes monthly stipend, accommodation, and insurance. Requires application through CSU portal with multi-step review process."
+}

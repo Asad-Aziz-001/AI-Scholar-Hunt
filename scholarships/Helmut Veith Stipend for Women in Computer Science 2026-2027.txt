@@ -1,0 +1,51 @@
+{
+  "scholarship_name": "Helmut Veith Stipend for Women in Computer Science 2026-2027",
+  "level_of_study": ["Master's"],
+  "institution": "TU Wien",
+  "study_in": "Austria",
+  "courses_offered": [
+    "Master in Logic and Computation",
+    "Master in Business Informatics",
+    "Master in Computer Engineering",
+    "Master in Data Science",
+    "Master in Media and Human-Centered Computing"
+  ],
+  "program_period": {
+    "Master's": "2 years"
+  },
+  "deadline": "November 30, 2026",
+  "coverage": {
+    "tuition": "Full tuition fee waiver",
+    "registration_fees": "Not specified",
+    "living_expenses": "EUR 7000 per year",
+    "other_benefits": [
+      "Fully funded scholarship for women in computer science"
+    ]
+  },
+  "eligibility": {
+    "language_requirement": "English (TOEFL or equivalent)",
+    "eligible_countries": "All countries (female applicants only)",
+    "academic_requirement": {
+      "Bachelor": "Degree in Computer Science or Mathematics or equivalent"
+    },
+    "additional_conditions": [
+      "Must be unconditionally admitted to TU Wien master’s program",
+      "Must demonstrate strong interest in research areas like AI, security, logic, verification, complexity theory",
+      "Must reside in Austria during study period",
+      "Only female applicants are eligible"
+    ]
+  },
+  "required_documents": [
+    "Curriculum Vitae (CV)",
+    "Cover Letter",
+    "Motivation Letter",
+    "Academic diplomas/certificates",
+    "Transcripts",
+    "Two referees contact details",
+    "Passport copy",
+    "English language certificate",
+    "Certified translations (if required)"
+  ],
+  "official_website": "https://www.vcla.at/helmut-veith-stipend/",
+  "notes": "Fully funded scholarship specifically for women in computer science. Includes tuition waiver and annual stipend. Requires strong academic and research background."
+}

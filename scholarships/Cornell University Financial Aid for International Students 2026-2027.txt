@@ -1,0 +1,43 @@
+{
+  "scholarship_name": "Cornell University Financial Aid for International Students 2026-2027",
+  "level_of_study": ["Undergraduate"],
+  "institution": "Cornell University",
+  "study_in": "New York, United States of America (USA)",
+  "courses_offered": [
+    "Architecture, Art, and Planning",
+    "Agriculture and Life Sciences",
+    "Arts and Sciences",
+    "Business (Hotel Administration)",
+    "Business (Applied Economics and Management)",
+    "Engineering",
+    "Human Ecology",
+    "Industrial and Labor Relations"
+  ],
+  "program_period": {
+    "Undergraduate": "4 years"
+  },
+  "deadline": "October 1, 2026 / January 2, 2027",
+  "coverage": {
+    "financial_aid": "Need-based financial aid covering partial to full cost depending on demonstrated financial need"
+  },
+  "eligibility": {
+    "language_requirement": "English (TOEFL ≥100 iBT or IELTS ≥7)",
+    "eligible_countries": "All countries",
+    "academic_requirement": {
+      "High_School": "Minimum 3 years of high school records with strong academic performance",
+      "Tests": "SAT or ACT required; SAT Subject Tests may be required depending on major (Math required for Engineering)",
+      "Additional": "Must submit CSS Profile to demonstrate financial need"
+    }
+  },
+  "required_documents": [
+    "Common Application form",
+    "CSS Profile",
+    "Academic transcripts and certificates",
+    "SAT or ACT scores",
+    "English proficiency test scores (TOEFL/IELTS)",
+    "Personal statement (max 650 words)"
+  ],
+  "apply_link": "https://admissions.cornell.edu/how-to-apply",
+  "official_website": "https://admissions.cornell.edu/",
+  "notes": "Need-based financial aid program for international undergraduate students at Cornell University. Applicants must demonstrate financial need and meet academic and testing requirements. Financial aid amount varies depending on individual circumstances."
+}

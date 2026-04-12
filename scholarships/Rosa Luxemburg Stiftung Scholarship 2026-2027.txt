@@ -1,0 +1,57 @@
+{
+  "scholarship_name": "Rosa Luxemburg Stiftung Scholarship 2026-2027",
+  "level_of_study": ["Master's", "PhD"],
+  "institution": "Rosa Luxemburg Stiftung",
+  "study_in": "Germany",
+  "courses_offered": ["All fields except Medicine, Dentistry, Veterinary Medicine"],
+  "program_period": {
+    "Masters": "Up to 3 years",
+    "PhD": "Up to 4 years"
+  },
+  "deadline": "October 1, 2026",
+  "coverage": {
+    "type": "Fully funded",
+    "Masters": {
+      "monthly_stipend": "€850",
+      "study_allowance": "€20 per month",
+      "health_subsidy": "Up to €86"
+    },
+    "PhD": {
+      "monthly_stipend": "€1,350",
+      "research_allowance": "€100 per month",
+      "health_subsidy": "Provided"
+    },
+    "additional_benefits": [
+      "Funding for research stays and conferences",
+      "German language courses",
+      "Workshops and academic training programs"
+    ]
+  },
+  "eligibility": {
+    "language_requirement": "English (strong) and German (minimum B2 level)",
+    "eligible_countries": "All Countries (priority to specific groups)",
+    "academic_requirement": "Above-average academic performance",
+    "other_requirements": [
+      "Must be enrolled or accepted at a German university",
+      "Strong political, social, or community engagement required",
+      "Preference for women, migrants, socially disadvantaged, and disabled applicants",
+      "Application must be submitted in German or English",
+      "Alignment with foundation values (social justice, equality)"
+    ]
+  },
+  "required_documents": [
+    "Online application form",
+    "CV",
+    "Academic transcripts",
+    "Letter of admission/enrollment",
+    "Language certificates (English & German)",
+    "Personal statement",
+    "Proof of social/political engagement"
+  ],
+  "apply_link": "https://www.rosalux.de/stipendienbewerbung",
+  "official_website": [
+    "http://rosalux.de/en/foundation/studienwerk",
+    "http://rosalux.de/"
+  ],
+  "notes": "Fully funded scholarship with strong focus on political and social engagement. Provides stipend, research funding, and additional academic development opportunities. Requires German proficiency (B2 minimum). Preference given to underrepresented and socially active candidates."
+}

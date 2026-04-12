@@ -1,0 +1,47 @@
+{
+  "scholarship_name": "Abu Dhabi University Scholarships 2026-2027 (Chairman’s & Other Scholarships)",
+  "level_of_study": ["Undergraduate", "Master's"],
+  "institution": "Abu Dhabi University",
+  "study_in": "United Arab Emirates (UAE)",
+  "courses_offered": [
+    "Engineering",
+    "Business",
+    "Health Sciences",
+    "Law",
+    "Arts and Sciences",
+    "Information Technology",
+    "Education"
+  ],
+  "program_period": {
+    "Undergraduate": "4 years",
+    "Master's": "1–2 years (varies by program)"
+  },
+  "deadline": "April–May 2026 (early deadline for Chairman’s Scholarship, varies by program)",
+  "coverage": {
+    "Chairman_scholarship": "100% tuition, registration fees, and service fees",
+    "academic_scholarship": "Up to 50% tuition fee",
+    "athletic_scholarship": "Up to 25% tuition fee",
+    "family_waiver": "Up to 25% tuition fee"
+  },
+  "eligibility": {
+    "language_requirement": "English (IELTS/TOEFL or equivalent)",
+    "eligible_countries": "All countries",
+    "academic_requirement": {
+      "Undergraduate": "Minimum GPA 97% for Chairman’s Scholarship",
+      "Master": "Minimum CGPA 3.60 (for academic scholarship)",
+      "Additional": "Leadership, extracurricular activities, or sports achievements depending on scholarship type"
+    }
+  },
+  "required_documents": [
+    "Online admission application",
+    "Academic transcripts and certificates",
+    "Passport copy",
+    "Statement of Purpose or personal essay",
+    "English proficiency test scores",
+    "Recommendation letters (for graduate programs)",
+    "Proof of leadership or extracurricular activities"
+  ],
+  "apply_link": "https://www.adu.ac.ae/",
+  "official_website": "https://www.adu.ac.ae/",
+  "notes": "Multiple scholarships available at Abu Dhabi University including fully funded Chairman’s Scholarship. Awards are merit-based and may include leadership, academic, athletic, or family criteria. Early application is highly recommended due to competition."
+}

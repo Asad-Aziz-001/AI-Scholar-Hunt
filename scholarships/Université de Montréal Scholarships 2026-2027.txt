@@ -1,0 +1,54 @@
+{
+  "scholarship_name": "Université de Montréal Scholarships 2026-2027",
+  "level_of_study": ["Undergraduate", "Master's", "PhD"],
+  "institution": "Université de Montréal",
+  "study_in": "Canada",
+  "courses_offered": ["All subjects offered by Université de Montréal"],
+  "program_period": {
+    "Undergraduate": "Depends on program",
+    "Master's": "Depends on program",
+    "PhD": "Depends on program"
+  },
+  "deadline": {
+    "Fall_2026": "September 1, 2026",
+    "Winter_2027": "February 1, 2027"
+  },
+  "coverage": {
+    "type": "Tuition fee reduction / exemption",
+    "max_value": "Up to $27,300 per year",
+    "Undergraduate": {
+      "Level_A": "$13,740.60 per year",
+      "Level_B": "$6,548.40 per year"
+    },
+    "Masters": {
+      "Research": "$15,150 per year",
+      "Non_Research": "$10,788.75 per year"
+    },
+    "PhD": {
+      "Full_Exemption": "$22,908.60 per year (tuition fee waiver)"
+    }
+  },
+  "eligibility": {
+    "language_requirement": "English proficiency required",
+    "eligible_countries": "All Countries",
+    "academic_requirement": "Based on academic merit",
+    "other_requirements": [
+      "Must hold a valid Canadian study permit",
+      "Must not be Canadian citizen or permanent resident",
+      "Must be enrolled full-time",
+      "Must not receive another tuition fee exemption",
+      "Scholarship is automatically awarded based on admission evaluation"
+    ]
+  },
+  "required_documents": [
+    "Admission application",
+    "Academic transcripts",
+    "Proof of English proficiency"
+  ],
+  "apply_link": "https://admission.umontreal.ca/en/",
+  "official_website": [
+    "https://admission.umontreal.ca/en/",
+    "https://esp.umontreal.ca"
+  ],
+  "notes": "This is a tuition fee exemption scholarship automatically awarded upon admission. No separate application is required. The scholarship amount depends on academic performance and level of study. Renewable if academic performance and enrollment conditions are maintained."
+}

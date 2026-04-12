@@ -1,0 +1,48 @@
+{
+  "scholarship_name": "Danish Government Scholarship 2026-2027",
+  "level_of_study": ["Master's"],
+  "institution": "University of Southern Denmark",
+  "study_in": "Denmark",
+  "courses_offered": [
+    "MSc in Engineering – Mechatronics",
+    "MSc in Engineering – Electronics",
+    "MSc in Engineering – Mechanical Engineering"
+  ],
+  "program_period": {
+    "Master's": "Depends on program"
+  },
+  "deadline": {
+    "February_Intake": "October 15, 2026",
+    "September_Intake": "February 01, 2027"
+  },
+  "coverage": {
+    "type": "Fully funded",
+    "tuition_fee": "Full waiver",
+    "monthly_stipend": "DKK 6,090 per month (before tax)"
+  },
+  "eligibility": {
+    "language_requirement": "English (IELTS ≥ 6.5 or TOEFL equivalent or equivalent proof)",
+    "eligible_countries": "All Countries (primarily non-EU/EEA students paying tuition fees)",
+    "academic_requirement": {
+      "degree": "Minimum 180 ECTS credits (equivalent to 3 years of university study)"
+    },
+    "other_requirements": [
+      "Must be admitted to a Master's program at SDU",
+      "Must meet English language requirements",
+      "Exchange/guest students must meet entry requirements",
+      "Scholarship automatically awarded upon admission (no separate application required)"
+    ]
+  },
+  "required_documents": [
+    "Admission application",
+    "Language requirement form",
+    "Passport or ID copy",
+    "Academic transcripts"
+  ],
+  "apply_link": "https://www.sdu.dk/en/uddannelse/fees_and_funding/scholarships",
+  "official_website": [
+    "https://www.sdu.dk/en/uddannelse/fees_and_funding/scholarships",
+    "https://www.sdu.dk/"
+  ],
+  "notes": "Fully funded Danish Government Scholarship including tuition fee waiver and monthly stipend. Automatically awarded to eligible admitted students. Primarily targeted at non-EU/EEA students."
+}

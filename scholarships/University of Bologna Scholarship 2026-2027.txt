@@ -1,0 +1,42 @@
+{
+  "scholarship_name": "University of Bologna Scholarship 2026-2027",
+  "level_of_study": ["Undergraduate", "Master's"],
+  "institution": "University of Bologna",
+  "study_in": "Italy",
+  "courses_offered": ["First Cycle, Single Cycle, and Second Cycle Degree Programs"],
+  "program_period": {
+    "Undergraduate": "Depends on program",
+    "Master's": "Depends on program"
+  },
+  "deadline": "May, 2026",
+  "coverage": {
+    "type": "Fully funded / Tuition + Grant",
+    "study_grant": "€11,000 (Unibo Action 2)",
+    "tuition_fee": "Full tuition fee waiver (Unibo Action 1)"
+  },
+  "eligibility": {
+    "language_requirement": "English",
+    "eligible_countries": "All Countries",
+    "academic_requirement": {
+      "Undergraduate": "Valid qualification equivalent to Italian high school diploma (SAT/TOLC required)",
+      "Master's": "Valid bachelor's degree (GRE required)"
+    },
+    "age_limit": "Less than 30 years",
+    "other_requirements": [
+      "Qualification must be obtained outside Italian education system",
+      "Must meet specific program admission requirements",
+      "Must pass required admission tests (SAT, TOLC, or GRE depending on program)"
+    ]
+  },
+  "required_documents": [
+    "Admission application",
+    "Academic transcripts",
+    "SAT / TOLC / GRE scores (depending on program)"
+  ],
+  "apply_link": "https://www.unibo.it/en/study",
+  "official_website": [
+    "https://www.unibo.it/it",
+    "https://www.unibo.it/en/study"
+  ],
+  "notes": "Fully funded scholarship including €11,000 grant and tuition fee waiver. Requires entrance tests (SAT, TOLC, or GRE). Applicants must be under 30 years old and apply through the university portal."
+}

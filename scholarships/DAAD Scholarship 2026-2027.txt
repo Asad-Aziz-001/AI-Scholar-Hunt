@@ -1,0 +1,67 @@
+{
+  "scholarship_name": "DAAD Scholarship 2026-2027",
+  "level_of_study": ["Master's", "PhD"],
+  "institution": "DAAD (German Academic Exchange Service) with German Universities",
+  "study_in": "Germany",
+  "courses_offered": [
+    "Economic Sciences and Law",
+    "Agriculture and Forestry",
+    "Art and Design",
+    "Engineering and Natural Sciences",
+    "Humanities and Social Sciences",
+    "Language and Cultural Studies",
+    "Mathematics and Natural Sciences",
+    "Medicine and Health Sciences"
+  ],
+  "program_period": {
+    "Masters": "12 - 36 months",
+    "PhD": "12 - 36 months"
+  },
+  "deadline": "Varies by program (typically August - October)",
+  "coverage": {
+    "type": "Fully funded",
+    "monthly_stipend": {
+      "Masters": "€992 per month",
+      "PhD": "€1,400 per month"
+    },
+    "travel_allowance": "Provided",
+    "health_insurance": "Full coverage",
+    "study_allowance": "One-time payment",
+    "additional_benefits": [
+      "Monthly rent subsidy (if applicable)",
+      "Family allowance (if applicable)"
+    ]
+  },
+  "eligibility": {
+    "language_requirement": "English (IELTS/TOEFL) or German (DSH/TestDaF)",
+    "eligible_countries": "Developing and newly industrialized countries",
+    "academic_requirement": {
+      "Masters": "Bachelor's degree (usually 4 years)",
+      "PhD": "Master's degree required"
+    },
+    "experience_requirement": "Minimum 2 years of professional work experience",
+    "other_requirements": [
+      "Must demonstrate development-related motivation",
+      "Must show leadership potential and social responsibility",
+      "Must apply to up to 3 relevant programs",
+      "Applications must be submitted to universities first",
+      "Final selection done by DAAD"
+    ]
+  },
+  "required_documents": [
+    "DAAD application form",
+    "Europass CV",
+    "Motivation letter",
+    "Recommendation letter from employer",
+    "Employment certificates (minimum 2 years experience)",
+    "Proof of language proficiency (IELTS/TOEFL or German tests)",
+    "Academic transcripts and degree certificates",
+    "APS certificate (for Chinese applicants)"
+  ],
+  "apply_link": "https://www2.daad.de/",
+  "official_website": [
+    "https://www2.daad.de/",
+    "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50076777"
+  ],
+  "notes": "Fully funded German government scholarship covering stipend, travel, insurance, and additional benefits. Requires at least 2 years of work experience. Highly competitive and requires application to universities before DAAD selection."
+}

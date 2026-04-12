@@ -1,0 +1,52 @@
+{
+  "scholarship_name": "MBZUAI Scholarships 2026-2027 (Fully Funded)",
+  "level_of_study": ["Master's", "PhD"],
+  "institution": "Muhammad Bin Zayed University of Artificial Intelligence (MBZUAI)",
+  "study_in": "Abu Dhabi, United Arab Emirates (UAE)",
+  "courses_offered": [
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Computer Vision",
+    "Natural Language Processing",
+    "Robotics"
+  ],
+  "program_period": {
+    "Master's": "2 years (approx)",
+    "PhD": "4 years (approx)"
+  },
+  "deadline": "April 30, 2026",
+  "coverage": {
+    "tuition": "Full tuition fee waiver",
+    "stipend": {
+      "Master's": "AED 8,000 per month",
+      "PhD": "AED 10,000–12,000 per month"
+    },
+    "accommodation": "Free on-campus housing",
+    "health_insurance": "Provided",
+    "visa": "UAE visa sponsorship",
+    "additional_benefits": "Access to research labs, industry collaborations, internships"
+  },
+  "eligibility": {
+    "language_requirement": "English (IELTS/TOEFL or equivalent)",
+    "eligible_countries": "All countries",
+    "academic_requirement": {
+      "Master": "Bachelor’s degree in Computer Science, Engineering, Mathematics, or related field",
+      "PhD": "Master’s degree in relevant field + research proposal",
+      "Additional": "Strong academic record, GRE optional but recommended"
+    }
+  },
+  "required_documents": [
+    "Online application form",
+    "Degree certificates",
+    "Academic transcripts",
+    "Curriculum Vitae (CV)",
+    "Statement of Purpose (SOP)",
+    "Research proposal (for PhD)",
+    "Two recommendation letters",
+    "English proficiency test scores",
+    "GRE score (optional)"
+  ],
+  "apply_link": "https://mbzuai.ac.ae/admissions/",
+  "official_website": "https://mbzuai.ac.ae/",
+  "notes": "Fully funded AI-focused scholarship at MBZUAI covering tuition, stipend, accommodation, and insurance. Highly competitive and research-oriented, with strong industry collaboration opportunities."
+}

@@ -1,0 +1,54 @@
+{
+  "scholarship_name": "Eastern Mediterranean University Scholarships 2026-2027",
+  "level_of_study": ["Master's", "PhD"],
+  "institution": "Eastern Mediterranean University (EMU)",
+  "study_in": "Turkey",
+  "courses_offered": [
+    "Business & Economics",
+    "Communication and Media Studies",
+    "Education",
+    "Architecture",
+    "Arts & Sciences",
+    "Dentistry",
+    "Health Sciences",
+    "Law",
+    "Medicine",
+    "Engineering",
+    "Pharmacy",
+    "Tourism"
+  ],
+  "program_period": {
+    "Master's": "1–2 years",
+    "PhD": "2–5 years"
+  },
+  "deadline": "January 09, 2026 / September 01, 2026",
+  "coverage": {
+    "Master's": "50% tuition fee scholarship",
+    "PhD": "100% or 50% tuition fee scholarship"
+  },
+  "eligibility": {
+    "language_requirement": "English (or internal EMU assessment if no certificate)",
+    "eligible_countries": "All countries",
+    "academic_requirement": {
+      "Master": "Bachelor’s degree with minimum CGPA 3.00/4.00",
+      "PhD": "Bachelor’s/Master’s degree with minimum CGPA 3.00/4.00",
+      "Additional": "Program-specific requirements may apply (e.g., portfolio for Architecture, proposal for PhD)"
+    }
+  },
+  "required_documents": [
+    "Online application form",
+    "Degree certificates (translated if required)",
+    "Academic transcripts",
+    "Three recommendation letters",
+    "Statement of Purpose",
+    "English proficiency test scores",
+    "Passport or ID copy",
+    "Photographs",
+    "Research proposal (for PhD)",
+    "Portfolio (for Architecture programs)",
+    "Scholarship/grant documentation (if applicable)"
+  ],
+  "apply_link": "https://grad.emu.edu.tr/en/fees/scholarships",
+  "official_website": "https://grad.emu.edu.tr/",
+  "notes": "Funded scholarship offering 50% tuition for Master's and up to 100% for PhD programs. Multiple scholarships available per program. English proficiency may be assessed internally if no test score is provided."
+}

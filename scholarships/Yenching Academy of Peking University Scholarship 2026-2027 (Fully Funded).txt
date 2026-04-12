@@ -1,0 +1,55 @@
+{
+  "scholarship_name": "Yenching Academy of Peking University Scholarship 2026-2027 (Fully Funded)",
+  "level_of_study": ["Master's"],
+  "institution": "Peking University (Yenching Academy)",
+  "study_in": "China",
+  "courses_offered": [
+    "China in Transition",
+    "Field Study",
+    "Literature and Culture",
+    "History and Archaeology",
+    "Philosophy and Religion",
+    "Law and Society",
+    "Economics and Management",
+    "Politics and International Relations"
+  ],
+  "program_period": {
+    "Master's": "2 years"
+  },
+  "deadline": "December 1, 2026",
+  "coverage": {
+    "tuition": "Full tuition fees",
+    "registration_fees": "Covered",
+    "living_expenses": "Monthly stipend",
+    "other_benefits": [
+      "Round-trip airfare",
+      "Accommodation",
+      "Health insurance"
+    ]
+  },
+  "eligibility": {
+    "language_requirement": "English (IELTS ≥ 7.0, TOEFL ≥ 100, Cambridge ≥ 185, CET6 ≥ 600, TEM4 ≥ 良好)",
+    "eligible_countries": "All countries",
+    "academic_requirement": {
+      "Bachelor": "Bachelor’s degree (or final year student completing before deadline)"
+    },
+    "additional_conditions": [
+      "Outstanding academic record",
+      "Strong interest in interdisciplinary China studies",
+      "Leadership, extracurricular, and community engagement preferred"
+    ]
+  },
+  "required_documents": [
+    "Online application form",
+    "Personal statement (≤750 words)",
+    "Research statement (≤1500 words)",
+    "CV",
+    "Academic transcripts",
+    "Degree certificates or enrollment proof",
+    "Two recommendation letters",
+    "English proficiency certificate"
+  ],
+  "apply_link": "https://yenchingacademy.pku.edu.cn/",
+  "official_website": "https://yenchingacademy.pku.edu.cn/",
+  "notes": "Highly prestigious fully funded scholarship selecting around 120 students annually. Covers tuition, travel, stipend, accommodation, and insurance."
+}

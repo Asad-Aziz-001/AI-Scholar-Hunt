@@ -1,0 +1,81 @@
+{
+  "scholarship_name": "Simmons University Kotzen Scholarship 2026-2027 (Fully Funded)",
+  "level_of_study": ["Undergraduate"],
+  "institution": "Simmons University",
+  "study_in": "United States of America (USA)",
+  "courses_offered": [
+    "African Studies",
+    "Accounting",
+    "Biology",
+    "Art",
+    "Biochemistry",
+    "Arts Administration",
+    "Biostatistics",
+    "Business",
+    "Business Management",
+    "Chemistry",
+    "Computer Science",
+    "Data Science and Analytics",
+    "Economics",
+    "Education",
+    "English",
+    "Environmental Science",
+    "Exercise Science",
+    "Finance",
+    "Health Informatics",
+    "History",
+    "Information Technology",
+    "International Relations",
+    "Mathematics",
+    "Marketing",
+    "Media Arts",
+    "Music",
+    "Neuroscience",
+    "Nursing",
+    "Nutrition",
+    "Philosophy",
+    "Physics",
+    "Political Science",
+    "Psychology",
+    "Public Health",
+    "Public Relations",
+    "Retail Management",
+    "Social Work",
+    "Sociology",
+    "Spanish",
+    "Women’s and Gender Studies",
+    "Web Design & Development"
+  ],
+  "program_period": {
+    "Undergraduate": "4 years"
+  },
+  "deadline": "December 01, 2026",
+  "coverage": {
+    "tuition": "Full tuition fees",
+    "accommodation": "Room and board covered",
+    "additional_grant": "$3,000 per year for study abroad, internships, or research"
+  },
+  "eligibility": {
+    "language_requirement": "English (TOEFL required for non-native speakers)",
+    "eligible_countries": "All countries",
+    "academic_requirement": {
+      "High_School": "GPA ≥ 3.3, strong academic record with advanced coursework (AP/IB)",
+      "Tests": "SAT ≥1300 or ACT ≥28",
+      "Additional": "Must apply as a first-year undergraduate student with leadership potential"
+    }
+  },
+  "required_documents": [
+    "Admission application",
+    "Scholarship application",
+    "Academic transcripts",
+    "SAT/ACT scores",
+    "English proficiency test scores (TOEFL)",
+    "Resume (CV)",
+    "Essay (300-500 words)",
+    "Email submission documents",
+    "Interview (for shortlisted candidates)"
+  ],
+  "apply_link": "https://www.simmons.edu/undergraduate/admission-and-financial-aid/tuition-financial-aid/types-financial-aid/scholarships/distinguished-scholar",
+  "official_website": "https://www.simmons.edu/",
+  "notes": "Fully funded undergraduate scholarship covering tuition, room, and board, plus a $3,000 annual grant. Highly competitive and based on academic excellence, leadership, and extracurricular achievements. Includes interview stage for finalists."
+}

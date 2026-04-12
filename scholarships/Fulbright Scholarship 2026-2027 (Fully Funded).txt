@@ -1,0 +1,38 @@
+{
+  "scholarship_name": "Fulbright Scholarship 2026-2027 (Fully Funded)",
+  "level_of_study": ["Master's", "PhD"],
+  "institution": "USA Universities and Academic Institutions",
+  "study_in": "United States of America (USA)",
+  "courses_offered": ["All fields including interdisciplinary programs"],
+  "program_period": {
+    "Master's": "2 years (approx, varies by program)",
+    "PhD": "2–5 years (varies by program)"
+  },
+  "deadline": "Varies by country (typically January to October annually)",
+  "coverage": {
+    "tuition": "Full tuition fees",
+    "living_expenses": "Monthly stipend",
+    "accommodation": "Covered",
+    "airfare": "Round-trip airfare",
+    "health_insurance": "Provided"
+  },
+  "eligibility": {
+    "language_requirement": "English (TOEFL required after shortlisting, IELTS not accepted)",
+    "eligible_countries": "International students from 155 countries",
+    "academic_requirement": {
+      "Bachelor": "4-year undergraduate degree or equivalent",
+      "Master": "Required for PhD applicants (MS/MPhil)"
+    }
+  },
+  "required_documents": [
+    "Online application form",
+    "Academic transcripts and degrees",
+    "GRE General Test score",
+    "Two essays",
+    "Three recommendation letters",
+    "Academic resume (CV)"
+  ],
+  "apply_link": "https://foreign.fulbrightonline.org/apply",
+  "official_website": "https://foreign.fulbrightonline.org/",
+  "notes": "Fully funded merit-based scholarship sponsored by the U.S. Department of State. Covers all major expenses including tuition, stipend, airfare, and insurance. Selection criteria and process vary by country."
+}

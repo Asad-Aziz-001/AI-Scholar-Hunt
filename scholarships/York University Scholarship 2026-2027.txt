@@ -1,0 +1,44 @@
+{
+  "scholarship_name": "York University Scholarship 2026-2027",
+  "level_of_study": ["Undergraduate"],
+  "institution": "York University",
+  "study_in": "Canada",
+  "courses_offered": ["All undergraduate programs offered by York University"],
+  "program_period": {
+    "Undergraduate": "3-4 years"
+  },
+  "deadline": {
+    "Winter_2027": "November 15, 2026"
+  },
+  "coverage": {
+    "annual_amount": "$45,000 per year",
+    "total_value": "$180,000 (over 4 years)"
+  },
+  "eligibility": {
+    "language_requirement": "English proficiency required",
+    "eligible_countries": "All Countries",
+    "academic_requirement": {
+      "gpa": "Minimum cumulative GPA of 7.80",
+      "academic_status": "Must be in good academic standing"
+    },
+    "other_requirements": [
+      "Must demonstrate financial need due to unforeseen circumstances",
+      "Must be beyond first year of study",
+      "Must have international student status",
+      "Must hold a valid study permit",
+      "Must be paying international tuition fees",
+      "Must be enrolled in undergraduate degree",
+      "Must be registered in courses at time of application"
+    ]
+  },
+  "required_documents": [
+    "Resume",
+    "Reference letters",
+    "Personal statement",
+    "Academic transcripts",
+    "English proficiency certificate"
+  ],
+  "apply_link": "https://futurestudents.yorku.ca/financialsupport/app",
+  "official_website": "https://futurestudents.yorku.ca/",
+  "notes": "Fully funded undergraduate scholarship offering significant financial support. Selection is based on academic merit, financial need, and eligibility criteria set by the university."
+}

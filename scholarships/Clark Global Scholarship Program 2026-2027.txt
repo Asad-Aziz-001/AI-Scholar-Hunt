@@ -1,0 +1,33 @@
+{
+  "scholarship_name": "Clark Global Scholarship Program 2026-2027",
+  "level_of_study": ["Undergraduate"],
+  "institution": "Clark University",
+  "study_in": "Massachusetts, United States of America (USA)",
+  "courses_offered": ["All eligible Bachelor's programs offered at Clark University"],
+  "program_period": {
+    "Undergraduate": "4 years"
+  },
+  "deadline": "November 01, 2026 / January 15, 2027",
+  "coverage": {
+    "tuition": "$15,000 to $25,000 per year",
+    "additional_aid": "Up to $5,000 need-based financial aid (if eligible)"
+  },
+  "eligibility": {
+    "language_requirement": "English",
+    "eligible_countries": "All countries",
+    "academic_requirement": {
+      "High_School": "Must be a first-year applicant who studied overseas for at least 4 years",
+      "Additional": "Strong academic record, leadership potential, and community impact commitment"
+    }
+  },
+  "required_documents": [
+    "Online application form",
+    "CSS/Financial Aid PROFILE form",
+    "Academic records",
+    "Short essay (topic provided after application)"
+  ],
+  "official_website": "https://www.clarku.edu/",
+  "apply_link": "https://www.clarku.edu/financial-aid/",
+
+  "notes": "Partially funded undergraduate scholarship providing $15,000–$25,000 annually for up to four years. Additional need-based aid may be available. Applicants must demonstrate academic excellence and leadership potential."
+}

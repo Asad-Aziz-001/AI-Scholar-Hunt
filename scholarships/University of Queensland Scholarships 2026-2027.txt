@@ -1,0 +1,55 @@
+{
+  "scholarship_name": "University of Queensland Scholarships 2026-2027",
+  "level_of_study": ["Undergraduate", "Master's"],
+  "institution": "University of Queensland (UQ)",
+  "study_in": "Australia",
+  "courses_offered": [
+    "All study areas (Vice-Chancellor’s Scholarship)",
+    "Agriculture and Environment",
+    "Architecture, Planning and Design",
+    "Science and Mathematics"
+  ],
+  "program_period": {
+    "Undergraduate": "1 year (scholarship duration)",
+    "Master's": "1 year (scholarship duration)"
+  },
+  "deadline": "Multiple: Aug–Nov (Vice-Chancellor), Nov–22 Jan 2026 (Sem 1), 26 Feb–24 Jun 2026 (Sem 2)",
+  "coverage": {
+    "tuition": "Partial funding up to AUD $10,000 (varies by scholarship)",
+    "registration_fees": "Not specified",
+    "living_expenses": "Not covered",
+    "other_benefits": [
+      "Science International Scholarship: AUD $3,000",
+      "Vice-Chancellor’s Scholarship: Value varies (fund-based)"
+    ]
+  },
+  "eligibility": {
+    "language_requirement": "English",
+    "eligible_countries": "All countries",
+    "academic_requirement": {
+      "Undergraduate": "Strong academic performance (Vice-Chancellor requires ATAR 99.90 or equivalent)",
+      "Master's": "Strong academic performance required"
+    },
+    "additional_conditions": [
+      "Must be classified as an international student (for Science International Scholarship)",
+      "Must receive admission offer from UQ",
+      "Must enroll in eligible program (Faculty of Science for Science Scholarship)",
+      "Must be commencing first semester at UQ",
+      "Program must be longer than one year (for Science Scholarship)",
+      "Not eligible if already enrolled and changing program",
+      "Not eligible for exchange or non-award programs",
+      "Vice-Chancellor scholarship has specific eligibility including Australian study background and QTAC application"
+    ]
+  },
+  "required_documents": [
+    "Admission application to UQ",
+    "UQ Student ID and offer letter",
+    "Scholarship application form",
+    "Academic documents",
+    "QTAC application details (for Vice-Chancellor scholarship)",
+    "Proof of achievements (leadership, community service)"
+  ],
+  "apply_link": "https://scholarships.uq.edu.au/",
+  "official_website": "https://scholarships.uq.edu.au/",
+  "notes": "Multiple scholarships under UQ including Science International Scholarship and Vice-Chancellor’s Scholarship. Partial funding with different eligibility and benefits depending on scholarship type."
+}

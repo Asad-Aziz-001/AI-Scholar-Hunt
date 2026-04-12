@@ -1,0 +1,67 @@
+{
+  "scholarship_name": "Khalifa University Scholarship 2026-2027 (Fully Funded)",
+  "level_of_study": ["Master's", "PhD"],
+  "institution": "Khalifa University",
+  "study_in": "Abu Dhabi, United Arab Emirates (UAE)",
+  "courses_offered": [
+    "Chemical Engineering",
+    "Electrical and Computer Engineering",
+    "Engineering Systems and Management",
+    "Information Security",
+    "Materials Science and Engineering",
+    "Mechanical Engineering",
+    "Nuclear Engineering",
+    "Petroleum Engineering",
+    "Sustainable Infrastructure",
+    "Water and Environmental Engineering",
+    "Computing and Information Science",
+    "Applied Chemistry",
+    "Petroleum Geoscience",
+    "Aerospace Engineering",
+    "Biomedical Engineering",
+    "Civil Engineering",
+    "Robotics",
+    "Multidisciplinary Engineering",
+    "Medicine (MD)"
+  ],
+  "program_period": {
+    "Master's": "2 years (full-time) / 3 years (part-time)",
+    "PhD": "Varies by program"
+  },
+  "deadline": "April 14, 2026",
+  "coverage": {
+    "tuition": "Full tuition fees",
+    "stipend": "Up to AED 40,000 per month (PhD: 20,000 basic + up to 20,000 additional)",
+    "accommodation": "Free university accommodation (for eligible full-time students)",
+    "health_insurance": "Provided",
+    "travel": "Round-trip airfare (subject to approval)",
+    "visa": "UAE visa application fees covered",
+    "academic_expenses": "Textbooks and research conference support"
+  },
+  "eligibility": {
+    "language_requirement": "English (IELTS, TOEFL or EmSAT)",
+    "eligible_countries": "All countries",
+    "academic_requirement": {
+      "Master": "Bachelor’s degree required",
+      "PhD": "Master’s degree required + research statement (500–1000 words)",
+      "Additional": "Admission interview required"
+    }
+  },
+  "required_documents": [
+    "Online application form",
+    "Bachelor’s/Master’s degree certificates",
+    "Equivalency certificate (if applicable)",
+    "Academic transcripts",
+    "English proficiency test scores",
+    "GRE score report",
+    "Curriculum Vitae (CV)",
+    "Passport copy",
+    "Photograph",
+    "Statement of Purpose",
+    "Research statement (for PhD)",
+    "UAE visa/ID (if applicable)"
+  ],
+  "apply_link": "https://www.ku.ac.ae/scholarships-postgraduate",
+  "official_website": "https://www.ku.ac.ae/",
+  "notes": "Fully funded scholarship covering tuition, stipend, accommodation, travel, and research support. Includes post-graduation work commitment. Open to international students for Master's and PhD programs in engineering, science, and medicine."
+}

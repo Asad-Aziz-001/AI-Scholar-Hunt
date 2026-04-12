@@ -1,0 +1,48 @@
+{
+  "scholarship_name": "Friedrich Ebert Stiftung Scholarship 2026-2027",
+  "level_of_study": ["Undergraduate", "Master's", "PhD", "Diploma"],
+  "institution": "Friedrich Ebert Stiftung",
+  "study_in": "Germany",
+  "courses_offered": ["All subjects (excluding non-EU study abroad programs)"],
+  "program_period": {
+    "General": "According to BAföG standard funding duration"
+  },
+  "deadline": {
+    "Masters": ["April 30, 2026 (Summer)", "October 31, 2026 (Winter)"],
+    "Undergraduate_Diploma": "After first semester up to 3 semesters before program end",
+    "Medical": "After 4th semester until end of 6th semester",
+    "PhD": "Any time"
+  },
+  "coverage": {
+    "type": "Fully funded",
+    "monthly_stipend": {
+      "Undergraduate": "€750 per month",
+      "Masters": "€850 per month"
+    },
+    "health_insurance": "Covered",
+    "family_allowance": "€276 per month (if applicable)",
+    "repayment": "No repayment required"
+  },
+  "eligibility": {
+    "language_requirement": "English and German (DSH-2 / TestDaF 4 / Goethe C1 required)",
+    "eligible_countries": "Africa, Asia, Latin America, Eastern Europe",
+    "academic_requirement": "Above-average academic performance",
+    "other_requirements": [
+      "Admission to a German state-recognized university",
+      "Strong commitment to social democracy values",
+      "Demonstrated social and political engagement",
+      "Strong personality traits (critical thinking, openness, teamwork)",
+      "High academic and professional potential"
+    ]
+  },
+  "required_documents": [
+    "Online application form (initial stage)",
+    "Academic transcripts and certificates",
+    "Proof of German language proficiency",
+    "Expert reports (professors or teachers)",
+    "Motivation and socio-political engagement details"
+  ],
+  "apply_link": "https://www.fes.de/studienfoerderung/bewerbung",
+  "official_website": "https://www.fes.de/studienfoerderung/bewerbung",
+  "notes": "Fully funded German scholarship supporting academically strong and socially engaged students. Includes stipend, insurance, and family allowance. Selection involves document screening and interviews. Requires German proficiency even for English-taught programs."
+}

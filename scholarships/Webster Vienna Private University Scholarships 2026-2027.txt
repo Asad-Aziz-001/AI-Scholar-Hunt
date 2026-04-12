@@ -1,0 +1,49 @@
+{
+  "scholarship_name": "Webster Vienna Private University Scholarships 2026-2027",
+  "level_of_study": ["Undergraduate", "Master's"],
+  "institution": "Webster Vienna Private University",
+  "study_in": "Austria",
+  "courses_offered": ["All Courses Offered at the University"],
+  "program_period": {
+    "Undergraduate": "4 years",
+    "Master's": "Standard program duration"
+  },
+  "deadline": "May 31, November 30",
+  "coverage": {
+    "tuition": "Partial funding up to €21,000 per year (varies by scholarship type)",
+    "registration_fees": "Not specified",
+    "living_expenses": "Not covered",
+    "other_benefits": [
+      "Webster Vienna Scholarship: Up to €7,000 (Master's) and €10,000 (Undergraduate) per year",
+      "Borealis Social Scholarship: Up to €21,000 per year",
+      "Borealis Excellence Award: €10,000 per year"
+    ]
+  },
+  "eligibility": {
+    "language_requirement": "English (B2 level or TOEFL/IELTS/CAE)",
+    "eligible_countries": "All countries",
+    "academic_requirement": {
+      "Undergraduate": "GPA 3.0+ (general), up to 3.5–4.0 for Borealis scholarships",
+      "Master's": "Strong academic background required"
+    },
+    "additional_conditions": [
+      "Must be accepted into a full-time degree program at Webster Vienna",
+      "Must demonstrate financial need (for some scholarships)",
+      "Must submit essays and recommendations",
+      "Must maintain required GPA for continuation",
+      "Extra-curricular activities considered (for excellence award)",
+      "Not eligible if on probation or requiring ESL classes (for some scholarships)"
+    ]
+  },
+  "required_documents": [
+    "Admission/acceptance letter",
+    "Scholarship application form",
+    "Financial motivation letter",
+    "Official financial documents",
+    "Essay (1000–1200 words)",
+    "Academic transcripts",
+    "English proficiency certificate"
+  ],
+  "apply_link": "https://webster.ac.at/",
+  "notes": "Multiple partial scholarships available with different funding levels. Focus on financial need, academic merit, and extracurricular achievements."
+}

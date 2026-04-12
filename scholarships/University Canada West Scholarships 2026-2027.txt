@@ -1,0 +1,52 @@
+{
+  "scholarship_name": "University Canada West Scholarships 2026-2027",
+  "level_of_study": ["Undergraduate", "Master's"],
+  "institution": "University Canada West",
+  "study_in": "Canada",
+  "courses_offered": [
+    "MBA",
+    "Bachelor of Commerce",
+    "Business Communication",
+    "Associate of Arts"
+  ],
+  "program_period": {
+    "Undergraduate": "4 years",
+    "Master's": "2 years"
+  },
+  "deadline": "Follows university admission deadlines",
+  "coverage": {
+    "type": "Tier-based scholarship",
+    "Undergraduate": {
+      "Tier_1": {
+        "Associate_of_Arts": "$10,000",
+        "Commerce_and_Business_Communication": "$20,000"
+      },
+      "Tier_2": {
+        "Associate_of_Arts": "$4,000",
+        "Commerce_and_Business_Communication": "$8,000"
+      }
+    },
+    "Masters": {
+      "Tier_1": "$10,000 (MBA)",
+      "Tier_2": "$5,000 (MBA)"
+    }
+  },
+  "eligibility": {
+    "language_requirement": "English",
+    "eligible_countries": "All Countries (excluding USA for some awards)",
+    "academic_requirement": "Must meet UCW admission requirements",
+    "other_requirements": [
+      "Must receive an offer letter from University Canada West",
+      "Scholarship amount depends on quality of personal statement",
+      "Must demonstrate potential to contribute to home country development"
+    ]
+  },
+  "required_documents": [
+    "Scholarship & Award Application Form",
+    "Personal Statement",
+    "Admission application documents"
+  ],
+  "apply_link": "https://www.ucanwest.ca/admissions/awards-scholarships#fs-panel-2078",
+  "official_website": "https://www.ucanwest.ca/",
+  "notes": "Scholarship is tier-based and awarded based on the strength of the applicant's personal statement. Covers partial funding for undergraduate and MBA programs. Requires a separate scholarship application."
+}

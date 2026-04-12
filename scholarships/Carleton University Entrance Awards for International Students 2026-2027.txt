@@ -1,0 +1,42 @@
+{
+  "scholarship_name": "Carleton University Entrance Awards for International Students 2026-2027",
+  "level_of_study": ["Undergraduate"],
+  "institution": "Carleton University",
+  "study_in": "Canada",
+  "courses_offered": ["All undergraduate programs offered by Carleton University"],
+  "program_period": {
+    "Undergraduate": "4 years"
+  },
+  "deadline": "Matches admission deadlines (January - April, varies by program)",
+  "coverage": {
+    "type": "Merit-based scholarship",
+    "total_value_range": "CAD $4,000 - $16,000",
+    "breakdown": {
+      "80-84.9%": "$4,000 total ($1,000 x 4 years)",
+      "85-89.9%": "$8,000 total ($2,000 x 4 years)",
+      "90-94.9%": "$12,000 total ($3,000 x 4 years)",
+      "95-100%": "$16,000 total ($4,000 x 4 years)"
+    }
+  },
+  "eligibility": {
+    "language_requirement": "Not specified",
+    "eligible_countries": "All Countries",
+    "academic_requirement": {
+      "minimum_average": "80% or higher"
+    },
+    "other_requirements": [
+      "Must be admitted directly from high school",
+      "Must be entering first undergraduate degree",
+      "Must have international student status",
+      "Must maintain full-time enrollment (at least 4.0 credits per year)",
+      "Scholarship is automatically awarded based on admission average"
+    ]
+  },
+  "required_documents": [
+    "Admission application",
+    "Academic transcripts"
+  ],
+  "apply_link": "https://carleton.ca/",
+  "official_website": "https://carleton.ca/",
+  "notes": "Merit-based entrance scholarship automatically awarded to international students. No separate application is required. Scholarship value depends on admission average and is distributed over four years."
+}

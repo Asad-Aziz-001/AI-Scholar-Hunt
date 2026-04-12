@@ -1,0 +1,59 @@
+{
+  "scholarship_name": "Australia Awards Scholarships 2026-2027 (Fully Funded)",
+  "level_of_study": ["Undergraduate", "Master's", "PhD"],
+  "institution": "Participating Australian Institutions",
+  "study_in": "Australia",
+  "courses_offered": [
+    "Engineering & Technology",
+    "Arts",
+    "Business & Law",
+    "Medical and Applied Sciences",
+    "Nursing and Midwifery",
+    "Human, Health and Social Sciences"
+  ],
+  "program_period": {
+    "Undergraduate": "Depends on chosen degree",
+    "Master's": "Depends on chosen degree",
+    "PhD": "Depends on chosen degree"
+  },
+  "deadline": "April 30, 2026",
+  "coverage": {
+    "tuition": "Full tuition fees",
+    "registration_fees": "Not specified",
+    "living_expenses": "Fortnightly contribution to living expenses (CLE), accommodation, study materials covered",
+    "other_benefits": [
+      "Return air travel (economy class)",
+      "Establishment allowance",
+      "Pre-course English (PCE) fees",
+      "Overseas Student Health Cover (OSHC)",
+      "Introductory Academic Program (IAP)",
+      "Supplementary academic support",
+      "Fieldwork support (if required)"
+    ]
+  },
+  "eligibility": {
+    "language_requirement": "English",
+    "eligible_countries": "Asia, Pacific, Africa, and Middle East participating countries",
+    "academic_requirement": {
+      "general": "Must meet admission requirements of chosen institution"
+    },
+    "additional_conditions": [
+      "Minimum 18 years of age",
+      "Not an Australian citizen or permanent resident",
+      "Must reside in eligible country at time of application",
+      "Not married/engaged to Australian or New Zealand citizen/resident",
+      "Not previously received long-term Australia Award (with conditions)",
+      "Not current military personnel",
+      "Must meet visa requirements",
+      "Must meet country-specific requirements"
+    ]
+  },
+  "required_documents": [
+    "Online application form (OASIS)",
+    "Supporting documents (as per country requirements)",
+    "Referee reports (if required)"
+  ],
+  "apply_link": "https://oasis.dfat.gov.au/",
+  "official_website": "https://www.dfat.gov.au/people-to-people/australia-awards/australia-awards-scholarships",
+  "notes": "Fully funded scholarship covering tuition, travel, living expenses, and additional academic support. Designed for students from developing countries to study in Australia."
+}
