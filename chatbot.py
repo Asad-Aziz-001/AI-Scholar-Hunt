@@ -1,263 +1,334 @@
-from flask import Flask, render_template, request, jsonify
+"""
+chatbot.py — Scholarship Chatbot Engine
+========================================
+Handles loading scholarship data from .txt files and
+searching/responding to user queries.
+
+⚠️  IMPORTANT: Do NOT create Flask() app here.
+    This module is imported by app.py and used there.
+
+Functions:
+    load_scholarships()                 → Load all .txt files from scholarships/
+    search_scholarships(query)          → Score and rank matching scholarships
+    get_response(query, matched_list)   → Build formatted reply string
+"""
+
 import json
 import os
 import re
 
-app = Flask(__name__)
 
-# Global list to store all scholarships
+# ==============================================================
+#   Global Scholarship List
+#   Populated once at startup via load_scholarships()
+# ==============================================================
 scholarships = []
 
-def load_scholarships():
-    global scholarships        # ← yeh line ADD karo sabse pehle
-    scholarships = []          # ab yeh global ko update karega
-    folder = 'scholarships' # Folder containing scholarship .txt files
-    
-    # Check if scholarships folder exists
+
+# ==============================================================
+#   Load Scholarships from Files
+# ==============================================================
+
+def load_scholarships(folder: str = 'scholarships') -> list:
+    """
+    Load all scholarship .txt files from the given folder.
+    Each file should contain JSON data, or plain text as fallback.
+
+    Args:
+        folder: Path to the scholarships folder (relative to app root).
+
+    Returns:
+        List of scholarship dictionaries.
+    """
+    global scholarships
+    scholarships = []
+
+    # Check if folder exists
     if not os.path.exists(folder):
-        print(f"❌ '{folder}' folder not found! Creating folder...")
+        print(f"❌ '{folder}' folder not found. Creating it...")
         os.makedirs(folder)
-        print(f"✅ Created '{folder}' folder. Please add scholarship .txt files.")
-        return scholarships  # Return empty list
+        print(f"✅ Created '{folder}'. Please add scholarship .txt files.")
+        return scholarships
 
-    # Iterate through all txt files in the folder
+    # Read each .txt file
     for filename in os.listdir(folder):
-        if filename.endswith(".txt"):
-            try:
-                filepath = os.path.join(folder, filename)
-                with open(filepath, 'r', encoding='utf-8') as f:
-                    content = f.read().strip()
-                    
-                    # Try to parse as JSON if content starts with {
-                    if content.startswith('{'):
-                        data = json.loads(content)
-                    else:
-                        # If not JSON, create basic structure from plain text
-                        data = {
-                            "scholarship_name": filename.replace('.txt', ''),
-                            "description": content,
-                            "_filename": filename
-                        }
-                    
-                    # Add filename to data for reference
-                    data['_filename'] = filename
-                    scholarships.append(data)
-                    print(f"✅ Loaded: {data.get('scholarship_name', filename)}")
-                    
-            except json.JSONDecodeError as e:
-                print(f"❌ JSON parsing error in {filename}: {e}")
-            except Exception as e:
-                print(f"❌ Error loading {filename}: {e}")
+        if not filename.endswith(".txt"):
+            continue
 
-    print(f"\n✅ Total {len(scholarships)} scholarships loaded successfully!\n")
-    return scholarships  # Return the list
+        filepath = os.path.join(folder, filename)
+        try:
+            with open(filepath, 'r', encoding='utf-8') as f:
+                content = f.read().strip()
 
-def normalize(text):
-    """Normalize text for case-insensitive searching"""
+            # Try JSON parsing first
+            if content.startswith('{'):
+                data = json.loads(content)
+            else:
+                # Fallback: plain text wrapped in basic structure
+                data = {
+                    "scholarship_name": filename.replace('.txt', ''),
+                    "description": content
+                }
+
+            data['_filename'] = filename
+            scholarships.append(data)
+            print(f"✅ Loaded: {data.get('scholarship_name', filename)}")
+
+        except json.JSONDecodeError as e:
+            print(f"❌ JSON error in {filename}: {e}")
+        except Exception as e:
+            print(f"❌ Error loading {filename}: {e}")
+
+    print(f"\n✅ Total {len(scholarships)} scholarships loaded.\n")
+    return scholarships
+
+
+# ==============================================================
+#   Text Normalization
+# ==============================================================
+
+def normalize(text: str) -> str:
+    """
+    Lowercase, strip punctuation, and strip whitespace for comparison.
+
+    Args:
+        text: Any string.
+
+    Returns:
+        Normalized lowercase string.
+    """
     return re.sub(r'[^a-z0-9\s]', '', str(text).lower().strip())
 
-def search_scholarships(query):
-    """Search all scholarships based on user query and return scored results"""
-    query_norm = normalize(query)
+
+# ==============================================================
+#   Scholarship Search (Scoring System)
+# ==============================================================
+
+def search_scholarships(query: str) -> list:
+    """
+    Search all loaded scholarships and return scored results.
+
+    Scoring weights:
+        Scholarship name match  → 100 pts
+        Country match           →  50 pts
+        Institution match       →  40 pts
+        Level of study match    →  30 pts
+        Full text word match    →  10 pts per word
+
+    Args:
+        query: User's search query string.
+
+    Returns:
+        List of (scholarship_dict, score) tuples, sorted by score (descending).
+    """
+    query_norm  = normalize(query)
     query_words = query_norm.split()
-    
-    scored_results = []
-    
+
+    scored = []
+
     for sch in scholarships:
         score = 0
-        
-        # Check scholarship name (highest priority - 100 points)
+
+        # Name match (highest priority)
         name = normalize(sch.get('scholarship_name', ''))
         if query_norm in name or name in query_norm:
             score += 100
-        
-        # Check country (50 points)
+
+        # Country match
         country = normalize(sch.get('study_in', ''))
         if any(word in country for word in query_words):
             score += 50
-        
-        # Check institution (40 points)
+
+        # Institution match
         institution = normalize(sch.get('institution', ''))
         if any(word in institution for word in query_words):
             score += 40
-        
-        # Check level of study (30 points)
-        level = json.dumps(sch.get('level_of_study', [])).lower()
-        if any(word in level for word in query_words):
+
+        # Level of study match
+        level_text = json.dumps(sch.get('level_of_study', [])).lower()
+        if any(word in level_text for word in query_words):
             score += 30
-        
-        # Check full text content (10 points per word match)
+
+        # Full JSON text match
         full_text = json.dumps(sch, ensure_ascii=False).lower()
         for word in query_words:
             if len(word) > 2 and word in full_text:
                 score += 10
-        
-        # Only include scholarships with a positive score
-        if score > 0:
-            scored_results.append((sch, score))
-    
-    # Sort by score in descending order (highest first)
-    scored_results.sort(key=lambda x: x[1], reverse=True)
-    return scored_results
 
-def get_complete_scholarship_text(sch):
-    """Convert complete scholarship data to formatted text for display"""
+        if score > 0:
+            scored.append((sch, score))
+
+    # Sort by score (highest first)
+    scored.sort(key=lambda x: x[1], reverse=True)
+    return scored
+
+
+# ==============================================================
+#   Format Single Scholarship Details
+# ==============================================================
+
+def format_scholarship_detail(sch: dict) -> str:
+    """
+    Format a complete scholarship dictionary into readable markdown-style text.
+
+    Args:
+        sch: Scholarship dictionary.
+
+    Returns:
+        Formatted string with all available scholarship fields.
+    """
     lines = []
-    
-    # Scholarship name
+
     lines.append(f"**🎓 {sch.get('scholarship_name', 'Scholarship')}**\n")
-    
-    # Country
+
     if sch.get('study_in'):
         lines.append(f"**🌍 Country:** {sch['study_in']}")
-    
-    # Institution
+
     if sch.get('institution'):
         lines.append(f"**🏛️ Institution:** {sch['institution']}")
-    
-    # Level of study
+
     if sch.get('level_of_study'):
         levels = ', '.join(sch['level_of_study']) if isinstance(sch['level_of_study'], list) else sch['level_of_study']
         lines.append(f"**📚 Level:** {levels}")
-    
-    # Courses offered
+
     if sch.get('courses_offered'):
         lines.append(f"\n**📖 Courses Offered:**")
         courses = sch['courses_offered'] if isinstance(sch['courses_offered'], list) else [sch['courses_offered']]
         for course in courses[:15]:
             lines.append(f"  • {course}")
         if len(courses) > 15:
-            lines.append(f"  • ... and {len(courses)-15} more")
-    
-    # Program duration
+            lines.append(f"  • ... and {len(courses) - 15} more")
+
     if sch.get('program_period'):
         lines.append(f"\n**⏳ Duration:**")
-        if isinstance(sch['program_period'], dict):
-            for level, duration in sch['program_period'].items():
+        period = sch['program_period']
+        if isinstance(period, dict):
+            for level, duration in period.items():
                 lines.append(f"  • {level}: {duration}")
         else:
-            lines.append(f"  • {sch['program_period']}")
-    
-    # Deadline
+            lines.append(f"  • {period}")
+
     if sch.get('deadline'):
         lines.append(f"\n**⏰ Deadline:** {sch['deadline']}")
-    
-    # Financial coverage
+
     if sch.get('coverage'):
         lines.append(f"\n**💰 Coverage:**")
-        if isinstance(sch['coverage'], dict):
-            for key, value in sch['coverage'].items():
+        coverage = sch['coverage']
+        if isinstance(coverage, dict):
+            for key, value in coverage.items():
+                label = key.replace('_', ' ').title()
                 if isinstance(value, dict):
-                    lines.append(f"  • {key.replace('_', ' ').title()}:")
-                    for sub_k, sub_v in value.items():
-                        lines.append(f"    - {sub_k}: {sub_v}")
+                    lines.append(f"  • {label}:")
+                    for k, v in value.items():
+                        lines.append(f"    - {k}: {v}")
                 elif isinstance(value, list):
-                    lines.append(f"  • {key.replace('_', ' ').title()}:")
+                    lines.append(f"  • {label}:")
                     for item in value:
                         lines.append(f"    - {item}")
                 else:
-                    lines.append(f"  • {key.replace('_', ' ').title()}: {value}")
+                    lines.append(f"  • {label}: {value}")
         else:
-            lines.append(f"  • {sch['coverage']}")
-    
-    # Eligibility criteria
+            lines.append(f"  • {coverage}")
+
     if sch.get('eligibility'):
         lines.append(f"\n**✅ Eligibility:**")
-        if isinstance(sch['eligibility'], dict):
-            for key, value in sch['eligibility'].items():
+        eligibility = sch['eligibility']
+        if isinstance(eligibility, dict):
+            for key, value in eligibility.items():
+                label = key.replace('_', ' ').title()
                 if isinstance(value, dict):
-                    lines.append(f"  • {key.replace('_', ' ').title()}:")
-                    for sub_k, sub_v in value.items():
-                        lines.append(f"    - {sub_k}: {sub_v}")
+                    lines.append(f"  • {label}:")
+                    for k, v in value.items():
+                        lines.append(f"    - {k}: {v}")
                 elif isinstance(value, list):
-                    lines.append(f"  • {key.replace('_', ' ').title()}:")
+                    lines.append(f"  • {label}:")
                     for item in value:
                         lines.append(f"    - {item}")
                 else:
-                    lines.append(f"  • {key.replace('_', ' ').title()}: {value}")
+                    lines.append(f"  • {label}: {value}")
         else:
-            lines.append(f"  • {sch['eligibility']}")
-    
-    # Required documents
+            lines.append(f"  • {eligibility}")
+
     if sch.get('required_documents'):
         lines.append(f"\n**📄 Required Documents:**")
         docs = sch['required_documents'] if isinstance(sch['required_documents'], list) else [sch['required_documents']]
         for doc in docs[:15]:
             lines.append(f"  • {doc}")
         if len(docs) > 15:
-            lines.append(f"  • ... and {len(docs)-15} more")
-    
-    # Application link
+            lines.append(f"  • ... and {len(docs) - 15} more")
+
     if sch.get('apply_link'):
         lines.append(f"\n**🔗 Apply:** {sch['apply_link']}")
-    
-    # Official website
+
     if sch.get('official_website'):
         lines.append(f"\n**🌐 Website:** {sch['official_website']}")
-    
-    # Additional notes
+
     if sch.get('notes'):
         lines.append(f"\n**📌 Notes:** {sch['notes']}")
-    
-    # Description (fallback field)
-    if sch.get('description') and not any(lines[1:]):
+
+    # Fallback: show description if no other fields
+    if sch.get('description') and len(lines) <= 2:
         lines.append(f"\n**📝 Description:** {sch['description']}")
-    
+
     return '\n'.join(lines)
 
-def get_response(user_query, matched_scholarships):
-    """Generate response using search results"""
-    
+
+# ==============================================================
+#   Response Builder
+# ==============================================================
+
+def get_response(user_query: str, matched_scholarships: list) -> str:
+    """
+    Build a formatted reply string based on search results.
+
+    - If no results: show available scholarships list.
+    - If exact match found: show full scholarship details.
+    - If general query: show top 3 results with summary.
+
+    Args:
+        user_query:           The original user query.
+        matched_scholarships: Output from search_scholarships().
+
+    Returns:
+        Formatted reply string (markdown-compatible).
+    """
+    # ── No results ───────────────────────────────────────────
     if not matched_scholarships:
-        # No matches found - show available scholarships
-        all_names = [sch.get('scholarship_name', 'Unknown') for sch in scholarships[:15]]
-        reply = f"❌ No scholarship found matching '{user_query}' in my database.\n\n"
-        
+        reply = f"❌ No scholarship found matching **'{user_query}'**.\n\n"
         if scholarships:
-            reply += f"📚 **I have {len(scholarships)} scholarships available:**\n"
-            for name in all_names[:10]:
-                reply += f"  • {name}\n"
+            reply += f"📚 **Available scholarships ({len(scholarships)} total):**\n"
+            for s in scholarships[:10]:
+                reply += f"  • {s.get('scholarship_name', 'Unknown')}\n"
             if len(scholarships) > 10:
-                reply += f"  • ... and {len(scholarships)-10} more\n"
-            reply += "\n💡 **Try searching by:**\n• Scholarship name\n• Country name\n• Study level\n• Institution name"
+                reply += f"  • ... and {len(scholarships) - 10} more\n"
+            reply += "\n💡 **Try searching by:** scholarship name · country · study level · institution"
         else:
-            reply += "📁 **No scholarships loaded yet!**\n\n"
-            reply += "Please add scholarship data files to the 'scholarships' folder.\n"
-            reply += "Each file should be a .txt file with scholarship information."
-        
+            reply += "📁 No scholarships are loaded yet. Please add .txt files to the **scholarships** folder."
         return reply
-    
-    # Check if user is asking about a specific scholarship by name
+
+    # ── Exact / Specific match ────────────────────────────────
     query_lower = user_query.lower()
-    specific_scholarship = None
-    
-    # Try to find exact match by name
+    specific = None
     for sch, score in matched_scholarships:
         sch_name = sch.get('scholarship_name', '').lower()
         if sch_name in query_lower or query_lower in sch_name:
-            specific_scholarship = sch
+            specific = sch
             break
-    
-    # If asking about specific scholarship, show complete details
-    if specific_scholarship:
-        reply = f"**📚 Complete details for: {specific_scholarship.get('scholarship_name')}**\n\n"
-        reply += get_complete_scholarship_text(specific_scholarship)
-        
-        # Show other related scholarships
-        other_matches = [s for s in matched_scholarships if s[0] != specific_scholarship]
-        if other_matches:
-            reply += f"\n\n---\n📌 **Found {len(other_matches)} other related scholarships.** Ask me about them!"
-        
+
+    if specific:
+        reply = f"**📚 Complete details: {specific.get('scholarship_name')}**\n\n"
+        reply += format_scholarship_detail(specific)
+        others = [s for s in matched_scholarships if s[0] != specific]
+        if others:
+            reply += f"\n\n---\n📌 **{len(others)} other related scholarships found.** Ask me about them!"
         return reply
-    
-    # General query - show top matches with summaries
-    top_matches = matched_scholarships[:3]
-    
+
+    # ── General query: top 3 results ─────────────────────────
+    top = matched_scholarships[:3]
     reply = f"🔍 **Found {len(matched_scholarships)} scholarship(s) matching '{user_query}'**\n\n"
-    
-    for i, (sch, score) in enumerate(top_matches, 1):
+
+    for i, (sch, score) in enumerate(top, 1):
         reply += f"**{i}. 🎓 {sch.get('scholarship_name', 'Scholarship')}**\n"
-        
         if sch.get('study_in'):
             reply += f"   🌍 Country: {sch['study_in']}\n"
         if sch.get('institution'):
@@ -267,24 +338,9 @@ def get_response(user_query, matched_scholarships):
             reply += f"   📚 Level: {levels}\n"
         if sch.get('deadline'):
             reply += f"   ⏰ Deadline: {sch['deadline']}\n"
-        
-        reply += f"\n   💡 **Ask me:** \"Tell me more about {sch.get('scholarship_name')}\" for complete details!\n\n"
-    
+        reply += f"\n   💡 Ask: **\"Tell me about {sch.get('scholarship_name')}\"** for full details!\n\n"
+
     if len(matched_scholarships) > 3:
-        reply += f"📌 ... and {len(matched_scholarships)-3} more scholarships found.\n"
-    
+        reply += f"📌 ... and {len(matched_scholarships) - 3} more found.\n"
+
     return reply
-
-
-if __name__ == '__main__':
-    load_scholarships()
-    
-    print("\n" + "="*50)
-    print("🎓 AI SCHOLAR HUNT")
-    print("="*50)
-    print(f"📚 Total scholarships loaded: {len(scholarships)}")
-    print("🌐 Server running at: http://127.0.0.1:5000")
-    print("💡 Press Ctrl+C to stop the server")
-    print("="*50 + "\n")
-    
-    app.run(debug=True, host='127.0.0.1', port=5000)
