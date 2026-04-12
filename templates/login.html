@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
     <title>Log In | AI Scholar Hunt</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -50,7 +51,7 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         /* Header/Navbar */
         header {
             position: fixed;
@@ -243,11 +244,25 @@
         }
 
         @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-5px); }
-            100% { transform: translateX(0); }
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            50% {
+                transform: translateX(5px);
+            }
+
+            75% {
+                transform: translateX(-5px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
         }
 
         /* Custom Popup Modal Styles */
@@ -542,6 +557,7 @@
             .footer-content {
                 grid-template-columns: repeat(2, 1fr);
             }
+
             .footer-about {
                 grid-column: span 2;
             }
@@ -551,15 +567,19 @@
             .navbar {
                 padding: 15px 0;
             }
+
             .nav-links {
                 display: none;
             }
+
             .mobile-menu-btn {
                 display: block;
             }
+
             .footer-content {
                 grid-template-columns: 1fr;
             }
+
             .footer-about {
                 grid-column: span 1;
             }
@@ -569,450 +589,576 @@
 
 <body>
 
-<style>
-/* Animated Dots Background */
-.bg-animation {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-    overflow: hidden;
-}
-
-.dots-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-.dot {
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background: #3b82f6;
-    border-radius: 50%;
-    opacity: 0.3;
-    animation: move-dots 20s infinite linear;
-}
-
-.dot:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
-.dot:nth-child(2) { top: 20%; left: 20%; animation-delay: 1s; }
-.dot:nth-child(3) { top: 30%; left: 30%; animation-delay: 2s; }
-.dot:nth-child(4) { top: 40%; left: 40%; animation-delay: 3s; }
-.dot:nth-child(5) { top: 50%; left: 50%; animation-delay: 4s; }
-.dot:nth-child(6) { top: 60%; left: 60%; animation-delay: 5s; }
-.dot:nth-child(7) { top: 70%; left: 70%; animation-delay: 6s; }
-.dot:nth-child(8) { top: 80%; left: 80%; animation-delay: 7s; }
-.dot:nth-child(9) { top: 90%; left: 90%; animation-delay: 8s; }
-.dot:nth-child(10) { top: 15%; left: 85%; animation-delay: 9s; }
-
-@keyframes move-dots {
-    0% {
-        transform: translate(0, 0);
-        opacity: 0.3;
-    }
-    25% {
-        transform: translate(50px, 30px);
-        opacity: 0.4;
-    }
-    50% {
-        transform: translate(0, 60px);
-        opacity: 0.2;
-    }
-    75% {
-        transform: translate(-50px, 30px);
-        opacity: 0.4;
-    }
-    100% {
-        transform: translate(0, 0);
-        opacity: 0.3;
-    }
-}
-
-/* Grid Pattern with Animation */
-.grid-pattern {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        linear-gradient(to right, rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: grid-move 30s infinite linear;
-}
-
-@keyframes grid-move {
-    0% {
-        transform: translate(0, 0);
-    }
-    100% {
-        transform: translate(25px, 25px);
-    }
-}
-
-/* Floating Emoji Animation Styles */
-.floating-emoji {
-    position: fixed;
-    font-size: 2.5rem;
-    user-select: none;
-    pointer-events: none;
-    z-index: 10;
-    opacity: 0.7;
-    animation: floatEmoji 14s infinite ease-in-out;
-    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
-}
-
-.floating-emoji-1 { top: 15%; left: 5%; animation-duration: 16s; animation-delay: 0s; }
-.floating-emoji-2 { bottom: 20%; right: 3%; animation-duration: 18s; animation-delay: 1s; }
-.floating-emoji-3 { top: 40%; right: 8%; animation-duration: 14s; animation-delay: 2s; }
-.floating-emoji-4 { bottom: 35%; left: 4%; animation-duration: 20s; animation-delay: 0.5s; }
-.floating-emoji-5 { top: 65%; left: 12%; animation-duration: 17s; animation-delay: 3s; }
-.floating-emoji-6 { top: 25%; right: 12%; animation-duration: 15s; animation-delay: 1.5s; }
-.floating-emoji-7 { bottom: 10%; right: 18%; animation-duration: 19s; animation-delay: 2.5s; }
-.floating-emoji-8 { top: 75%; left: 8%; animation-duration: 13s; animation-delay: 4s; }
-
-@keyframes floatEmoji {
-    0% { transform: translate(0, 0) rotate(0deg); opacity: 0.4; }
-    25% { transform: translate(20px, -25px) rotate(5deg); opacity: 0.8; }
-    50% { transform: translate(-15px, -40px) rotate(-5deg); opacity: 0.6; }
-    75% { transform: translate(15px, -15px) rotate(3deg); opacity: 0.9; }
-    100% { transform: translate(0, 0) rotate(0deg); opacity: 0.4; }
-}
-
-.floating-emoji:hover {
-    animation-play-state: paused;
-    transform: scale(1.2);
-    filter: drop-shadow(0 0 8px rgba(30,64,175,0.5));
-    transition: all 0.3s ease;
-    opacity: 1;
-}
-
-@media (max-width: 768px) {
-    .floating-emoji { font-size: 1.8rem; opacity: 0.5; }
-}
-</style>
-
-<div class="bg-animation">
-    <div class="dots-container">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-    </div>
-    <div class="grid-pattern"></div>
-</div>
-
-<div class="floating-emoji floating-emoji-1">📚</div>
-<div class="floating-emoji floating-emoji-2">🎓</div>
-<div class="floating-emoji floating-emoji-3">📝</div>
-<div class="floating-emoji floating-emoji-4">🎒</div>
-<div class="floating-emoji floating-emoji-5">📚</div>
-<div class="floating-emoji floating-emoji-6">🎓</div>
-<div class="floating-emoji floating-emoji-7">📝</div>
-<div class="floating-emoji floating-emoji-8">🎒</div>
-
-<!-- Custom Popup Modal Structure -->
-<div id="customPopup" class="popup-overlay">
-    <div class="popup-card">
-        <div class="popup-header">
-            <div class="popup-icon" id="popupIcon">🎓</div>
-            <h3 class="popup-title" id="popupTitle">Notification</h3>
-        </div>
-        <div class="popup-body">
-            <p class="popup-message" id="popupMessage">This is a custom message</p>
-        </div>
-        <div class="popup-footer">
-            <button class="popup-btn primary" id="popupCloseBtn">Got it</button>
-        </div>
-    </div>
-</div>
-
-<header id="header">
-    <div class="container">
-        <nav class="navbar">
-            <a href="/" class="logo">
-                <div class="logo-icon">🎓</div>
-                <span class="logo-text">AI Scholar Hunt</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/signup">Signup</a></li>
-            </ul>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </div>
-</header>
-
-<section class="login-section">
-    <div class="login-container">
-        <h2>Login to Your Account</h2>
-        <form id="loginForm" novalidate>
-            <div class="form-group">
-                <label for="username"><i class="fas fa-user"></i> Email or Username</label>
-                <input type="text" id="username" name="username" placeholder="Enter your email or username" required>
-                <div class="error-message" id="usernameError">Please enter a valid email or username.</div>
-            </div>
-            <div class="form-group">
-                <label for="password"><i class="fas fa-lock"></i> Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
-                <div class="error-message" id="passwordError">Password must be at least 8 characters long.</div>
-            </div>
-            <button type="submit" class="btn">Login</button>
-        </form>
-        <div class="extra-links">
-            <p><a href="#" id="forgotPasswordLink">Forgot Password?</a> | <a href="/signup">Create New Account</a></p>
-        </div>
-    </div>
-</section>
-
-<script>
-// Custom Popup System - replaces all alerts
-class CustomPopup {
-    constructor() {
-        this.overlay = document.getElementById('customPopup');
-        this.iconEl = document.getElementById('popupIcon');
-        this.titleEl = document.getElementById('popupTitle');
-        this.messageEl = document.getElementById('popupMessage');
-        this.closeBtn = document.getElementById('popupCloseBtn');
-        
-        this.closeBtn.addEventListener('click', () => this.hide());
-        this.overlay.addEventListener('click', (e) => {
-            if (e.target === this.overlay) this.hide();
-        });
-    }
-    
-    show({ type = 'info', title, message, onClose = null }) {
-        // Set icon and styling based on type
-        let iconHtml = '';
-        let iconClass = '';
-        
-        switch(type) {
-            case 'success':
-                iconHtml = '<i class="fas fa-check-circle"></i>';
-                iconClass = 'success';
-                break;
-            case 'error':
-                iconHtml = '<i class="fas fa-exclamation-triangle"></i>';
-                iconClass = 'error';
-                break;
-            case 'warning':
-                iconHtml = '<i class="fas fa-exclamation-circle"></i>';
-                iconClass = 'warning';
-                break;
-            case 'info':
-            default:
-                iconHtml = '<i class="fas fa-info-circle"></i>';
-                iconClass = 'info';
-                break;
+    <style>
+        /* Animated Dots Background */
+        .bg-animation {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            overflow: hidden;
         }
-        
-        this.iconEl.innerHTML = iconHtml;
-        this.iconEl.className = `popup-icon ${iconClass}`;
-        this.titleEl.textContent = title || (type === 'success' ? 'Success!' : type === 'error' ? 'Error!' : type === 'warning' ? 'Warning!' : 'Information');
-        this.messageEl.textContent = message;
-        
-        // Change button style based on type
-        this.closeBtn.className = `popup-btn ${type === 'error' ? 'error-btn' : type === 'success' ? 'success-btn' : 'primary'}`;
-        this.closeBtn.textContent = 'Got it';
-        
-        this.overlay.classList.add('active');
-        
-        // Store onClose callback
-        if (onClose) {
-            const originalClick = this.closeBtn.onclick;
-            this.closeBtn.onclick = () => {
-                this.hide();
-                if (onClose) onClose();
-            };
-        } else {
-            this.closeBtn.onclick = () => this.hide();
+
+        .dots-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
         }
-    }
-    
-    hide() {
-        this.overlay.classList.remove('active');
-    }
-}
 
-// Initialize popup
-const popup = new CustomPopup();
-
-// Override alert function globally to use custom popup (optional, but keeps consistency)
-window.alert = function(message) {
-    popup.show({ type: 'info', title: 'Notice', message: message });
-};
-
-// Helper function to show different types of popups
-function showPopup(type, title, message, onClose = null) {
-    popup.show({ type, title, message, onClose });
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById('loginForm');
-    if (!form) return;
-    
-    // Forgot password link handler
-    const forgotLink = document.getElementById('forgotPasswordLink');
-    if (forgotLink) {
-        forgotLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            sendPasswordToCurrentInput();
-        });
-    }
-    
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const usernameInput = document.getElementById('username');
-        const passwordInput = document.getElementById('password');
-        const usernameError = document.getElementById('usernameError');
-        const passwordError = document.getElementById('passwordError');
-        const btn = document.querySelector('.btn');
-        
-        let isValid = true;
-        
-        // Reset errors
-        usernameInput.classList.remove('invalid');
-        passwordInput.classList.remove('invalid');
-        usernameError.style.display = 'none';
-        passwordError.style.display = 'none';
-        
-        // Validate username/email
-        if (!usernameInput.value.trim()) {
-            usernameInput.classList.add('invalid');
-            usernameError.textContent = "Email or username is required.";
-            usernameError.style.display = 'block';
-            isValid = false;
+        .dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #3b82f6;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: move-dots 20s infinite linear;
         }
-        
-        // Validate password
-        if (passwordInput.value.trim().length < 8) {
-            passwordInput.classList.add('invalid');
-            passwordError.textContent = "Password must be at least 8 characters.";
-            passwordError.style.display = 'block';
-            isValid = false;
+
+        .dot:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
         }
-        
-        if (!isValid) return;
-        
-        btn.textContent = "Logging in...";
-        btn.disabled = true;
-        
-        try {
-            const response = await fetch('/auth/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    username: usernameInput.value.trim(),
-                    password: passwordInput.value
-                })
-            });
-            
-            const data = await response.json();
-            
-            if (response.ok && data.redirect) {
-                // Show success popup before redirect
-                showPopup('success', 'Login Successful!', 'Redirecting you to your dashboard...', () => {
-                    window.location.href = data.redirect;
-                });
-                // Auto redirect after 1.5 seconds if they don't click button
-                setTimeout(() => {
-                    window.location.href = data.redirect;
-                }, 1500);
-            } else {
-                showPopup('error', 'Login Failed', data.error || "Invalid credentials. Please try again.");
-                btn.textContent = "Login";
-                btn.disabled = false;
+
+        .dot:nth-child(2) {
+            top: 20%;
+            left: 20%;
+            animation-delay: 1s;
+        }
+
+        .dot:nth-child(3) {
+            top: 30%;
+            left: 30%;
+            animation-delay: 2s;
+        }
+
+        .dot:nth-child(4) {
+            top: 40%;
+            left: 40%;
+            animation-delay: 3s;
+        }
+
+        .dot:nth-child(5) {
+            top: 50%;
+            left: 50%;
+            animation-delay: 4s;
+        }
+
+        .dot:nth-child(6) {
+            top: 60%;
+            left: 60%;
+            animation-delay: 5s;
+        }
+
+        .dot:nth-child(7) {
+            top: 70%;
+            left: 70%;
+            animation-delay: 6s;
+        }
+
+        .dot:nth-child(8) {
+            top: 80%;
+            left: 80%;
+            animation-delay: 7s;
+        }
+
+        .dot:nth-child(9) {
+            top: 90%;
+            left: 90%;
+            animation-delay: 8s;
+        }
+
+        .dot:nth-child(10) {
+            top: 15%;
+            left: 85%;
+            animation-delay: 9s;
+        }
+
+        @keyframes move-dots {
+            0% {
+                transform: translate(0, 0);
+                opacity: 0.3;
             }
-        } catch (err) {
-            console.error(err);
-            showPopup('error', 'Connection Error', "Unable to connect to server. Please check your internet connection and try again.");
-            btn.textContent = "Login";
-            btn.disabled = false;
-        }
-    });
-    
-    // Forgot Password - Send reset link to entered email with custom popup
-    window.sendPasswordToCurrentInput = function() {
-        const usernameInput = document.getElementById('username');
-        const email = usernameInput.value.trim();
-        const usernameError = document.getElementById('usernameError');
-        
-        usernameInput.classList.remove('invalid');
-        usernameError.style.display = 'none';
-        
-        if (!email) {
-            usernameInput.classList.add('invalid');
-            usernameError.textContent = "Please enter your email first.";
-            usernameError.style.display = 'block';
-            showPopup('warning', 'Email Required', 'Please enter your email address to reset your password.');
-            return;
-        }
-        
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(email)) {
-            usernameInput.classList.add('invalid');
-            usernameError.textContent = "Please enter a valid email address.";
-            usernameError.style.display = 'block';
-            showPopup('warning', 'Invalid Email', 'Please enter a valid email address (e.g., name@example.com).');
-            return;
-        }
-        
-        // Show loading state
-        const originalValue = usernameInput.value;
-        usernameInput.value = "Sending...";
-        usernameInput.disabled = true;
-        
-        fetch('/auth/forgot-password', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: email })
-        })
-        .then(res => res.json())
-        .then(data => {
-            showPopup('success', 'Reset Link Sent', data.message || "If an account exists with that email, a password reset link has been sent.");
-        })
-        .catch(() => {
-            showPopup('error', 'Request Failed', "Unable to send reset link. Please try again later.");
-        })
-        .finally(() => {
-            usernameInput.value = originalValue;
-            usernameInput.disabled = false;
-        });
-    };
-});
 
-// Make sendPasswordToCurrentInput globally available
-window.sendPasswordToCurrentInput = window.sendPasswordToCurrentInput || function() {
-    const usernameInput = document.getElementById('username');
-    const email = usernameInput?.value.trim();
-    if (!email) {
-        showPopup('warning', 'Email Required', 'Please enter your email address first.');
-        const usernameError = document.getElementById('usernameError');
-        if (usernameError) {
-            usernameInput.classList.add('invalid');
-            usernameError.textContent = "Please enter your email first.";
-            usernameError.style.display = 'block';
+            25% {
+                transform: translate(50px, 30px);
+                opacity: 0.4;
+            }
+
+            50% {
+                transform: translate(0, 60px);
+                opacity: 0.2;
+            }
+
+            75% {
+                transform: translate(-50px, 30px);
+                opacity: 0.4;
+            }
+
+            100% {
+                transform: translate(0, 0);
+                opacity: 0.3;
+            }
         }
-        return;
-    }
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-        showPopup('warning', 'Invalid Email', 'Please enter a valid email address.');
-        return;
-    }
-    showPopup('info', 'Reset Password', `A password reset link would be sent to ${email}. (Demo mode)`);
-};
-</script>
+
+        /* Grid Pattern with Animation */
+        .grid-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(to right, rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: grid-move 30s infinite linear;
+        }
+
+        @keyframes grid-move {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(25px, 25px);
+            }
+        }
+
+        /* Floating Emoji Animation Styles */
+        .floating-emoji {
+            position: fixed;
+            font-size: 2.5rem;
+            user-select: none;
+            pointer-events: none;
+            z-index: 10;
+            opacity: 0.7;
+            animation: floatEmoji 14s infinite ease-in-out;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+        }
+
+        .floating-emoji-1 {
+            top: 15%;
+            left: 5%;
+            animation-duration: 16s;
+            animation-delay: 0s;
+        }
+
+        .floating-emoji-2 {
+            bottom: 20%;
+            right: 3%;
+            animation-duration: 18s;
+            animation-delay: 1s;
+        }
+
+        .floating-emoji-3 {
+            top: 40%;
+            right: 8%;
+            animation-duration: 14s;
+            animation-delay: 2s;
+        }
+
+        .floating-emoji-4 {
+            bottom: 35%;
+            left: 4%;
+            animation-duration: 20s;
+            animation-delay: 0.5s;
+        }
+
+        .floating-emoji-5 {
+            top: 65%;
+            left: 12%;
+            animation-duration: 17s;
+            animation-delay: 3s;
+        }
+
+        .floating-emoji-6 {
+            top: 25%;
+            right: 12%;
+            animation-duration: 15s;
+            animation-delay: 1.5s;
+        }
+
+        .floating-emoji-7 {
+            bottom: 10%;
+            right: 18%;
+            animation-duration: 19s;
+            animation-delay: 2.5s;
+        }
+
+        .floating-emoji-8 {
+            top: 75%;
+            left: 8%;
+            animation-duration: 13s;
+            animation-delay: 4s;
+        }
+
+        @keyframes floatEmoji {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0.4;
+            }
+
+            25% {
+                transform: translate(20px, -25px) rotate(5deg);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: translate(-15px, -40px) rotate(-5deg);
+                opacity: 0.6;
+            }
+
+            75% {
+                transform: translate(15px, -15px) rotate(3deg);
+                opacity: 0.9;
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0.4;
+            }
+        }
+
+        .floating-emoji:hover {
+            animation-play-state: paused;
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 8px rgba(30, 64, 175, 0.5));
+            transition: all 0.3s ease;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .floating-emoji {
+                font-size: 1.8rem;
+                opacity: 0.5;
+            }
+        }
+    </style>
+
+    <div class="bg-animation">
+        <div class="dots-container">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <div class="grid-pattern"></div>
+    </div>
+
+    <div class="floating-emoji floating-emoji-1">📚</div>
+    <div class="floating-emoji floating-emoji-2">🎓</div>
+    <div class="floating-emoji floating-emoji-3">📝</div>
+    <div class="floating-emoji floating-emoji-4">🎒</div>
+    <div class="floating-emoji floating-emoji-5">📚</div>
+    <div class="floating-emoji floating-emoji-6">🎓</div>
+    <div class="floating-emoji floating-emoji-7">📝</div>
+    <div class="floating-emoji floating-emoji-8">🎒</div>
+
+    <!-- Custom Popup Modal Structure -->
+    <div id="customPopup" class="popup-overlay">
+        <div class="popup-card">
+            <div class="popup-header">
+                <div class="popup-icon" id="popupIcon">🎓</div>
+                <h3 class="popup-title" id="popupTitle">Notification</h3>
+            </div>
+            <div class="popup-body">
+                <p class="popup-message" id="popupMessage">This is a custom message</p>
+            </div>
+            <div class="popup-footer">
+                <button class="popup-btn primary" id="popupCloseBtn">Got it</button>
+            </div>
+        </div>
+    </div>
+
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="/" class="logo">
+                    <div class="logo-icon">🎓</div>
+                    <span class="logo-text">AI Scholar Hunt</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/signup">Signup</a></li>
+                </ul>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="login-section">
+        <div class="login-container">
+            <h2>Login to Your Account</h2>
+            <form id="loginForm" novalidate>
+                <div class="form-group">
+                    <label for="username"><i class="fas fa-user"></i> Email or Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your email or username"
+                        required>
+                    <div class="error-message" id="usernameError">Please enter a valid email or username.</div>
+                </div>
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <div class="error-message" id="passwordError">Password must be at least 8 characters long.</div>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <div class="extra-links">
+                <p><a href="#" id="forgotPasswordLink">Forgot Password?</a> | <a href="/signup">Create New Account</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Custom Popup System - replaces all alerts
+        class CustomPopup {
+            constructor() {
+                this.overlay = document.getElementById('customPopup');
+                this.iconEl = document.getElementById('popupIcon');
+                this.titleEl = document.getElementById('popupTitle');
+                this.messageEl = document.getElementById('popupMessage');
+                this.closeBtn = document.getElementById('popupCloseBtn');
+
+                this.closeBtn.addEventListener('click', () => this.hide());
+                this.overlay.addEventListener('click', (e) => {
+                    if (e.target === this.overlay) this.hide();
+                });
+            }
+
+            show({ type = 'info', title, message, onClose = null }) {
+                // Set icon and styling based on type
+                let iconHtml = '';
+                let iconClass = '';
+
+                switch (type) {
+                    case 'success':
+                        iconHtml = '<i class="fas fa-check-circle"></i>';
+                        iconClass = 'success';
+                        break;
+                    case 'error':
+                        iconHtml = '<i class="fas fa-exclamation-triangle"></i>';
+                        iconClass = 'error';
+                        break;
+                    case 'warning':
+                        iconHtml = '<i class="fas fa-exclamation-circle"></i>';
+                        iconClass = 'warning';
+                        break;
+                    case 'info':
+                    default:
+                        iconHtml = '<i class="fas fa-info-circle"></i>';
+                        iconClass = 'info';
+                        break;
+                }
+
+                this.iconEl.innerHTML = iconHtml;
+                this.iconEl.className = `popup-icon ${iconClass}`;
+                this.titleEl.textContent = title || (type === 'success' ? 'Success!' : type === 'error' ? 'Error!' : type === 'warning' ? 'Warning!' : 'Information');
+                this.messageEl.textContent = message;
+
+                // Change button style based on type
+                this.closeBtn.className = `popup-btn ${type === 'error' ? 'error-btn' : type === 'success' ? 'success-btn' : 'primary'}`;
+                this.closeBtn.textContent = 'Got it';
+
+                this.overlay.classList.add('active');
+
+                // Store onClose callback
+                if (onClose) {
+                    const originalClick = this.closeBtn.onclick;
+                    this.closeBtn.onclick = () => {
+                        this.hide();
+                        if (onClose) onClose();
+                    };
+                } else {
+                    this.closeBtn.onclick = () => this.hide();
+                }
+            }
+
+            hide() {
+                this.overlay.classList.remove('active');
+            }
+        }
+
+        // Initialize popup
+        const popup = new CustomPopup();
+
+        // Override alert function globally to use custom popup (optional, but keeps consistency)
+        window.alert = function (message) {
+            popup.show({ type: 'info', title: 'Notice', message: message });
+        };
+
+        // Helper function to show different types of popups
+        function showPopup(type, title, message, onClose = null) {
+            popup.show({ type, title, message, onClose });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById('loginForm');
+            if (!form) return;
+
+            // Forgot password link handler
+            const forgotLink = document.getElementById('forgotPasswordLink');
+            if (forgotLink) {
+                forgotLink.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    sendPasswordToCurrentInput();
+                });
+            }
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                const usernameInput = document.getElementById('username');
+                const passwordInput = document.getElementById('password');
+                const usernameError = document.getElementById('usernameError');
+                const passwordError = document.getElementById('passwordError');
+                const btn = document.querySelector('.btn');
+
+                let isValid = true;
+
+                // Reset errors
+                usernameInput.classList.remove('invalid');
+                passwordInput.classList.remove('invalid');
+                usernameError.style.display = 'none';
+                passwordError.style.display = 'none';
+
+                // Validate username/email
+                if (!usernameInput.value.trim()) {
+                    usernameInput.classList.add('invalid');
+                    usernameError.textContent = "Email or username is required.";
+                    usernameError.style.display = 'block';
+                    isValid = false;
+                }
+
+                // Validate password
+                if (passwordInput.value.trim().length < 8) {
+                    passwordInput.classList.add('invalid');
+                    passwordError.textContent = "Password must be at least 8 characters.";
+                    passwordError.style.display = 'block';
+                    isValid = false;
+                }
+
+                if (!isValid) return;
+
+                btn.textContent = "Logging in...";
+                btn.disabled = true;
+
+                try {
+                    const response = await fetch('/auth/login', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            username: usernameInput.value.trim(),
+                            password: passwordInput.value
+                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok && data.redirect) {
+                        // Show success popup before redirect
+                        showPopup('success', 'Login Successful!', 'Redirecting you to your dashboard...', () => {
+                            window.location.href = data.redirect;
+                        });
+                        // Auto redirect after 1.5 seconds if they don't click button
+                        setTimeout(() => {
+                            window.location.href = data.redirect;
+                        }, 1500);
+                    } else {
+                        showPopup('error', 'Login Failed', data.error || "Invalid credentials. Please try again.");
+                        btn.textContent = "Login";
+                        btn.disabled = false;
+                    }
+                } catch (err) {
+                    console.error(err);
+                    showPopup('error', 'Connection Error', "Unable to connect to server. Please check your internet connection and try again.");
+                    btn.textContent = "Login";
+                    btn.disabled = false;
+                }
+            });
+
+            // Forgot Password - Send reset link to entered email with custom popup
+            window.sendPasswordToCurrentInput = function () {
+                const usernameInput = document.getElementById('username');
+                const email = usernameInput.value.trim();
+                const usernameError = document.getElementById('usernameError');
+
+                usernameInput.classList.remove('invalid');
+                usernameError.style.display = 'none';
+
+                if (!email) {
+                    usernameInput.classList.add('invalid');
+                    usernameError.textContent = "Please enter your email first.";
+                    usernameError.style.display = 'block';
+                    showPopup('warning', 'Email Required', 'Please enter your email address to reset your password.');
+                    return;
+                }
+
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(email)) {
+                    usernameInput.classList.add('invalid');
+                    usernameError.textContent = "Please enter a valid email address.";
+                    usernameError.style.display = 'block';
+                    showPopup('warning', 'Invalid Email', 'Please enter a valid email address (e.g., name@example.com).');
+                    return;
+                }
+
+                // Show loading state
+                const originalValue = usernameInput.value;
+                usernameInput.value = "Sending...";
+                usernameInput.disabled = true;
+
+                fetch('/auth/forgot-password', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: email })
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        showPopup('success', 'Reset Link Sent', data.message || "If an account exists with that email, a password reset link has been sent.");
+                    })
+                    .catch(() => {
+                        showPopup('error', 'Request Failed', "Unable to send reset link. Please try again later.");
+                    })
+                    .finally(() => {
+                        usernameInput.value = originalValue;
+                        usernameInput.disabled = false;
+                    });
+            };
+        });
+
+        // Make sendPasswordToCurrentInput globally available
+        window.sendPasswordToCurrentInput = window.sendPasswordToCurrentInput || function () {
+            const usernameInput = document.getElementById('username');
+            const email = usernameInput?.value.trim();
+            if (!email) {
+                showPopup('warning', 'Email Required', 'Please enter your email address first.');
+                const usernameError = document.getElementById('usernameError');
+                if (usernameError) {
+                    usernameInput.classList.add('invalid');
+                    usernameError.textContent = "Please enter your email first.";
+                    usernameError.style.display = 'block';
+                }
+                return;
+            }
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                showPopup('warning', 'Invalid Email', 'Please enter a valid email address.');
+                return;
+            }
+            showPopup('info', 'Reset Password', `A password reset link would be sent to ${email}. (Demo mode)`);
+        };
+    </script>
 
 </body>
+
 </html>
