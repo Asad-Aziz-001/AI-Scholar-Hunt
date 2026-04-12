@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+    <title>Essay Generator </title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #0d62ff, #4a8cff);
+            --primary-color: #0d62ff;
+            --secondary-color: #f8fafc;
+            --text-primary: #0a2540;
+            --text-secondary: #64748b;
+            --card-bg: rgba(255, 255, 255, 0.98);
+            --sidebar-bg: rgba(255, 255, 255, 0.95);
+            --shadow: 0 10px 40px rgba(13, 98, 255, 0.15);
+            --border-radius: 16px;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 50%, #ffffff 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Advanced Background Animation - BRIGHTER */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .floating-element {
+            position: absolute;
+            animation: float 25s infinite linear;
+        }
+
+        .element-1 {
+            top: 10%;
+            left: 5%;
+            font-size: 60px;
+            color: rgb(255, 13, 13); /* Brighter */
+            animation-delay: 0s;
+            text-shadow: 0 0 20px rgba(13, 98, 255, 0.3);
+        }
+
+        .element-2 {
+            top: 20%;
+            right: 10%;
+            font-size: 70px;
+            color: rgb(255, 13, 13); /* Brighter */
+            animation-delay: 3s;
+            text-shadow: 0 0 20px rgba(13, 98, 255, 0.3);
+        }
+
+        .element-3 {
+            bottom: 30%;
+            left: 15%;
+            font-size: 55px;
+            color: rgb(255, 13, 13); /* Brighter */
+            animation-delay: 6s;
+            text-shadow: 0 0 20px rgba(13, 98, 255, 0.3);
+        }
+
+        .element-4 {
+            bottom: 15%;
+            right: 20%;
+            font-size: 65px;
+            color: rgb(255, 13, 13); /* Brighter */
+            animation-delay: 9s;
+            text-shadow: 0 0 20px rgba(13, 98, 255, 0.3);
+        }
+
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px); /* More visible blur */
+            animation: pulse 8s infinite alternate;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(13, 98, 255, 0.25) 0%, rgba(13, 98, 255, 0) 70%); /* Brighter */
+            top: -150px;
+            left: -150px;
+        }
+
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(74, 140, 255, 0.2) 0%, rgba(74, 140, 255, 0) 70%); /* Brighter */
+            bottom: -200px;
+            right: -200px;
+            animation-delay: 2s;
+        }
+
+        /* Floating particles */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(13, 98, 255, 0.4); /* Brighter */
+            border-radius: 50%;
+            animation: particleMove 20s linear infinite;
+            box-shadow: 0 0 10px rgba(13, 98, 255, 0.3);
+        }
+
+        .particle:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+        .particle:nth-child(2) { top: 30%; left: 70%; animation-delay: 3s; }
+        .particle:nth-child(3) { top: 60%; left: 10%; animation-delay: 6s; }
+        .particle:nth-child(4) { top: 80%; left: 50%; animation-delay: 9s; }
+        .particle:nth-child(5) { top: 40%; left: 90%; animation-delay: 12s; }
+        .particle:nth-child(6) { top: 20%; left: 40%; animation-delay: 15s; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            25% { transform: translate(30px, -30px) rotate(90deg) scale(1.1); }
+            50% { transform: translate(0, -50px) rotate(180deg) scale(1); }
+            75% { transform: translate(-30px, -30px) rotate(270deg) scale(1.1); }
+            100% { transform: translate(0, 0) rotate(360deg) scale(1); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 0.6; }
+        }
+
+        @keyframes particleMove {
+            0% { transform: translate(0, 0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translate(150px, -150px); opacity: 0; }
+        }
+
+        /* Container */
+        .essay-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            position: relative;
+            z-index: 10;
+            flex: 1;
+        }
+
+        /* Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-gradient);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 26px;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(13, 98, 255, 0.3);
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 32px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(13, 98, 255, 0.2);
+        }
+
+        .page-title {
+            font-size: 28px;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Two Column Layout */
+        .essay-builder {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) {
+            .essay-builder {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Form Section - NO INNER TEXTAREAS */
+        .form-section {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: var(--shadow);
+            height: fit-content;
+            position: sticky;
+            top: 30px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Form Elements - CLEANER DESIGN */
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-label i {
+            color: var(--primary-color);
+            font-size: 16px;
+        }
+
+        /* Clean Input Fields - NO INNER TEXTAREAS */
+        .form-control {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid rgba(13, 98, 255, 0.15);
+            border-radius: 12px;
+            font-size: 15px;
+            color: var(--text-primary);
+            background: white;
+            transition: all 0.3s ease;
+            min-height: 50px;
+            box-shadow: 0 2px 10px rgba(13, 98, 255, 0.05);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(13, 98, 255, 0.15);
+        }
+
+        .form-control::placeholder {
+            color: var(--text-secondary);
+            opacity: 0.7;
+        }
+
+        /* Word Counter */
+        .word-counter {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .word-count {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .word-count.good { color: var(--success-color); }
+        .word-count.warning { color: var(--warning-color); }
+        .word-count.danger { color: var(--danger-color); }
+
+        /* Body Paragraphs - CLEANER */
+        .body-paragraphs {
+            margin-top: 30px;
+        }
+
+        .paragraph-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(13, 98, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .paragraph-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 5px 20px rgba(13, 98, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .paragraph-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .paragraph-title {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .remove-btn {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger-color);
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .remove-btn:hover {
+            background: rgba(239, 68, 68, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .add-btn {
+            width: 100%;
+            padding: 14px;
+            background: rgba(13, 98, 255, 0.05);
+            border: 2px dashed rgba(13, 98, 255, 0.3);
+            border-radius: 12px;
+            color: var(--primary-color);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .add-btn:hover {
+            background: rgba(13, 98, 255, 0.1);
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Actions */
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 16px 30px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient);
+            color: white;
+            box-shadow: 0 8px 20px rgba(13, 98, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(13, 98, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            border: 2px solid rgba(13, 98, 255, 0.1);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #10b981, #34d399);
+            color: white;
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-success:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Preview Section */
+        .preview-section {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: var(--shadow);
+            height: fit-content;
+        }
+
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .preview-stats {
+            display: flex;
+            gap: 20px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px 20px;
+            background: rgba(13, 98, 255, 0.05);
+            border-radius: 10px;
+            min-width: 100px;
+            border: 1px solid rgba(13, 98, 255, 0.1);
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .preview-content {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            border: 1px solid rgba(13, 98, 255, 0.1);
+            min-height: 400px;
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-primary);
+            box-shadow: inset 0 2px 10px rgba(13, 98, 255, 0.05);
+        }
+
+        .preview-placeholder {
+            text-align: center;
+            color: var(--text-secondary);
+            padding: 40px;
+        }
+
+        .essay-title {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: var(--text-primary);
+        }
+
+        .essay-section {
+            margin-bottom: 25px;
+        }
+
+        .essay-hook {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .essay-thesis {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .essay-body {
+            margin-bottom: 30px;
+        }
+
+        .essay-paragraph {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .essay-conclusion {
+            background: rgba(13, 98, 255, 0.03);
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+            border: 1px solid rgba(13, 98, 255, 0.1);
+        }
+
+        /* Quality Score */
+        .quality-score {
+            margin-top: 30px;
+            padding: 25px;
+            background: rgba(13, 98, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(13, 98, 255, 0.1);
+        }
+
+        .score-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .score-title {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .score-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .score-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .score-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .score-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+
+        .score-info {
+            flex: 1;
+        }
+
+        .score-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+        }
+
+        .score-bar {
+            height: 6px;
+            background: rgba(13, 98, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .score-fill {
+            height: 100%;
+            background: var(--primary-gradient);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: var(--shadow);
+            margin-top: 30px;
+        }
+
+        .tips-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .tips-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+        }
+
+        .tips-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .tip-card {
+            background: rgba(13, 98, 255, 0.03);
+            border: 1px solid rgba(13, 98, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(13, 98, 255, 0.1);
+        }
+
+        .tip-card i {
+            color: var(--primary-color);
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .tip-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        /* FOOTER DESIGN */
+        .footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(13, 98, 255, 0.1);
+            padding: 40px 30px 30px;
+            margin-top: 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .footer-logo-text {
+            font-weight: 700;
+            font-size: 22px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-description {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links li a:hover {
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(13, 98, 255, 0.05);
+            border: 1px solid rgba(13, 98, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--primary-gradient);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(13, 98, 255, 0.3);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 25px;
+            border-top: 1px solid rgba(13, 98, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .footer-links-bottom {
+            display: flex;
+            gap: 25px;
+        }
+
+        .footer-links-bottom a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links-bottom a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .essay-container {
+                padding: 20px;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+            }
+            
+            .preview-stats {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .score-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .tips-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .footer-links-bottom {
+                justify-content: center;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(13, 98, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(13, 98, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(13, 98, 255, 0.3);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        /* Loading */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(13, 98, 255, 0.1);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Advanced Background Animation - BRIGHTER -->
+    <div class="background-animation">
+        <div class="floating-element element-1">📝</div>
+        <div class="floating-element element-2">🎓</div>
+        <div class="floating-element element-3">💡</div>
+        <div class="floating-element element-4">🏆</div>
+        
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+    </div>
+
+    <!-- Essay Builder Container -->
+    <div class="essay-container">
+        <!-- Header -->
+        <div class="page-header animate-fadeIn">
+            <div class="logo-container">
+                <div class="logo-icon">🎓</div>
+                <div class="logo-text">AI Scholar Hunt</div>
+            </div>
+            <h1 class="page-title">Scholarship Essay Generator</h1>
+            <p class="page-subtitle">Create compelling scholarship essays with AI assistance. Real-time preview and analysis included.</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="essay-builder">
+            <!-- Left Column: Form -->
+            <div class="form-section animate-fadeIn" style="animation-delay: 0.1s">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h2 class="section-title">Essay Details</h2>
+                </div>
+
+                <form id="essayForm">
+                    <!-- Scholarship Name -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fas fa-university"></i>
+                            Scholarship Name
+                        </label>
+                        <input type="text" class="form-control" id="scholarshipName" 
+                               placeholder="e.g., MIT Presidential Scholarship" 
+                               value="MIT Presidential Scholarship">
+                        <div class="word-counter">
+                            <span>Required field</span>
+                        </div>
+                    </div>
+
+                    <!-- Essay Title -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fas fa-heading"></i>
+                            Essay Title
+                        </label>
+                        <input type="text" class="form-control" id="essayTitle" 
+                               placeholder="e.g., From Village Dreams to Global Impact" 
+                               value="From Village Dreams to Global Impact">
+                        <div class="word-counter">
+                            <span id="titleCounter">0 characters</span>
+                            <span>Optional but recommended</span>
+                        </div>
+                    </div>
+
+                    <!-- Hook -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fas fa-fish"></i>
+                            Engaging Hook
+                        </label>
+                        <textarea class="form-control" id="hook" 
+                                  placeholder="Start with a compelling story or fact that grabs attention..."></textarea>
+                        <div class="word-counter">
+                            <span id="hookCounter">0 words</span>
+                            <span class="word-count">Target: 20-40 words</span>
+                        </div>
+                    </div>
+
+                    <!-- Thesis -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fas fa-bullseye"></i>
+                            Thesis Statement
+                        </label>
+                        <textarea class="form-control" id="thesis" 
+                                  placeholder="State your main argument or purpose clearly..."></textarea>
+                        <div class="word-counter">
+                            <span id="thesisCounter">0 words</span>
+                            <span class="word-count">Target: 1-2 sentences</span>
+                        </div>
+                    </div>
+
+                    <!-- Body Paragraphs -->
+                    <div class="body-paragraphs">
+                        <label class="form-label">
+                            <i class="fas fa-paragraph"></i>
+                            Body Paragraphs
+                        </label>
+                        
+                        <div id="bodyContainer">
+                            <!-- Paragraph 1 -->
+                            <div class="paragraph-card" data-index="1">
+                                <div class="paragraph-header">
+                                    <span class="paragraph-title">Paragraph 1</span>
+                                    <button type="button" class="remove-btn" onclick="removeParagraph(1)">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                                <textarea class="form-control body-content" 
+                                          placeholder="Describe your background, challenges, and achievements..."></textarea>
+                                <div class="word-counter">
+                                    <span class="para-counter" data-index="1">0 words</span>
+                                    <span class="word-count">Target: 80-120 words</span>
+                                </div>
+                            </div>
+
+                            <!-- Paragraph 2 -->
+                            <div class="paragraph-card" data-index="2">
+                                <div class="paragraph-header">
+                                    <span class="paragraph-title">Paragraph 2</span>
+                                    <button type="button" class="remove-btn" onclick="removeParagraph(2)">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                                <textarea class="form-control body-content" 
+                                          placeholder="Discuss your academic interests, research, or projects..."></textarea>
+                                <div class="word-counter">
+                                    <span class="para-counter" data-index="2">0 words</span>
+                                    <span class="word-count">Target: 80-120 words</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" class="add-btn" id="addParagraph">
+                            <i class="fas fa-plus"></i>
+                            Add Another Paragraph
+                        </button>
+                    </div>
+
+                    <!-- Conclusion -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fas fa-flag-checkered"></i>
+                            Conclusion
+                        </label>
+                        <textarea class="form-control" id="conclusion" 
+                                  placeholder="Summarize your main points and future aspirations..."></textarea>
+                        <div class="word-counter">
+                            <span id="conclusionCounter">0 words</span>
+                            <span class="word-count">Target: 60-100 words</span>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="clearForm">
+                            <i class="fas fa-redo"></i>
+                            Clear All
+                        </button>
+                        <button type="button" class="btn btn-primary" id="generateEssay">
+                            <i class="fas fa-magic"></i>
+                            Generate Essay
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Right Column: Preview -->
+            <div class="preview-section animate-fadeIn" style="animation-delay: 0.2s">
+                <div class="preview-header">
+                    <div class="section-header">
+                        <div class="section-icon" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa);">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h2 class="section-title">Live Preview</h2>
+                    </div>
+                    
+                    <div class="preview-stats">
+                        <div class="stat-item">
+                            <div class="stat-value" id="totalWords">0</div>
+                            <div class="stat-label">Words</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="totalChars">0</div>
+                            <div class="stat-label">Chars</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="readTime">0</div>
+                            <div class="stat-label">Min Read</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preview-content" id="previewContent">
+                    <div class="preview-placeholder">
+                        <i class="fas fa-file-alt" style="font-size: 48px; color: var(--text-secondary); margin-bottom: 20px;"></i>
+                        <h3 style="color: var(--text-secondary); margin-bottom: 10px;">Your Essay Preview</h3>
+                        <p style="color: var(--text-secondary);">Start filling the form to see your essay appear here in real-time.</p>
+                    </div>
+                </div>
+
+                <!-- Quality Score -->
+                <div class="quality-score">
+                    <div class="score-header">
+                        <i class="fas fa-chart-line" style="color: var(--primary-color);"></i>
+                        <h3 class="score-title">Essay Quality Score</h3>
+                    </div>
+                    <div class="score-value" id="qualityScore">0%</div>
+                    <div class="score-details">
+                        <div class="score-item">
+                            <div class="score-icon" style="background: linear-gradient(135deg, #0d62ff, #4a8cff);">
+                                <i class="fas fa-pen-fancy"></i>
+                            </div>
+                            <div class="score-info">
+                                <div class="score-label">Content Quality</div>
+                                <div class="score-bar">
+                                    <div class="score-fill" id="contentScore" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <div class="score-icon" style="background: linear-gradient(135deg, #10b981, #34d399);">
+                                <i class="fas fa-spell-check"></i>
+                            </div>
+                            <div class="score-info">
+                                <div class="score-label">Grammar & Style</div>
+                                <div class="score-bar">
+                                    <div class="score-fill" id="grammarScore" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <div class="score-icon" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div class="score-info">
+                                <div class="score-label">Focus & Structure</div>
+                                <div class="score-bar">
+                                    <div class="score-fill" id="structureScore" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <div class="score-icon" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa);">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="score-info">
+                                <div class="score-label">Impact & Emotion</div>
+                                <div class="score-bar">
+                                    <div class="score-fill" id="impactScore" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Download Actions -->
+                <div class="form-actions" style="margin-top: 30px;">
+                    <button type="button" class="btn btn-secondary" id="copyEssay">
+                        <i class="fas fa-copy"></i>
+                        Copy Text
+                    </button>
+                    <button type="button" class="btn btn-success" id="downloadEssay">
+                        <i class="fas fa-download"></i>
+                        Download DOCX
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tips Section -->
+        <div class="tips-section animate-fadeIn" style="animation-delay: 0.3s">
+            <div class="tips-header">
+                <div class="tips-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h2 class="section-title">Essay Writing Tips</h2>
+            </div>
+            
+            <div class="tips-list">
+                <div class="tip-card">
+                    <i class="fas fa-bullhorn"></i>
+                    <p class="tip-text"><strong>Start Strong:</strong> Your opening sentence should grab the reader's attention immediately. Use a personal story, surprising fact, or compelling question.</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-chart-line"></i>
+                    <p class="tip-text"><strong>Show, Don't Tell:</strong> Instead of saying "I'm hardworking," describe a specific situation where you demonstrated hard work and its impact.</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-heart"></i>
+                    <p class="tip-text"><strong>Be Authentic:</strong> Scholarship committees read thousands of essays. What makes yours stand out is your unique voice and genuine passion.</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-edit"></i>
+                    <p class="tip-text"><strong>Proofread Carefully:</strong> Errors distract from your message. Read aloud, use spell check, and ask someone else to review your essay.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- Logo & Description -->
+            <div class="footer-section">
+        <div class="footer-bottom">
+            <div class="copyright">
+                © 2026 AI Scholar Hunt. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize variables
+        let paragraphCount = 2;
+
+        // Real-time word counting
+        function updateWordCount(textElement, counterElement, isTitle = false) {
+            const text = textElement.value.trim();
+            const words = text ? text.split(/\s+/).filter(word => word.length > 0).length : 0;
+            const chars = text.length;
+            
+            if (isTitle) {
+                counterElement.textContent = `${chars} characters`;
+                updateWordClass(counterElement.parentElement.querySelector('.word-count'), chars, 5, 60);
+            } else {
+                counterElement.textContent = `${words} words`;
+                
+                // Set target ranges based on field type
+                let minTarget, maxTarget;
+                if (textElement.id === 'hook') {
+                    minTarget = 20; maxTarget = 40;
+                } else if (textElement.id === 'thesis') {
+                    minTarget = 10; maxTarget = 30;
+                } else if (textElement.id === 'conclusion') {
+                    minTarget = 60; maxTarget = 100;
+                } else if (textElement.classList.contains('body-content')) {
+                    minTarget = 80; maxTarget = 120;
+                }
+                
+                if (minTarget && maxTarget) {
+                    updateWordClass(counterElement.parentElement.querySelector('.word-count'), words, minTarget, maxTarget);
+                }
+            }
+            
+            updatePreview();
+            return { words, chars };
+        }
+
+        // Update word count color class
+        function updateWordClass(element, count, min, max) {
+            element.classList.remove('good', 'warning', 'danger');
+            
+            if (count === 0) {
+                element.classList.add('danger');
+            } else if (count < min) {
+                element.classList.add('warning');
+            } else if (count > max) {
+                element.classList.add('danger');
+            } else {
+                element.classList.add('good');
+            }
+        }
+
+        // Add paragraph
+        document.getElementById('addParagraph').addEventListener('click', () => {
+            paragraphCount++;
+            const newParagraph = document.createElement('div');
+            newParagraph.className = 'paragraph-card';
+            newParagraph.dataset.index = paragraphCount;
+            newParagraph.innerHTML = `
+                <div class="paragraph-header">
+                    <span class="paragraph-title">Paragraph ${paragraphCount}</span>
+                    <button type="button" class="remove-btn" onclick="removeParagraph(${paragraphCount})">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <textarea class="form-control body-content" 
+                          placeholder="Add another supporting paragraph with evidence or examples..."></textarea>
+                <div class="word-counter">
+                    <span class="para-counter" data-index="${paragraphCount}">0 words</span>
+                    <span class="word-count">Target: 80-120 words</span>
+                </div>
+            `;
+            
+            document.getElementById('bodyContainer').appendChild(newParagraph);
+            
+            // Add event listener to new textarea
+            const textarea = newParagraph.querySelector('textarea');
+            textarea.addEventListener('input', () => {
+                const counter = newParagraph.querySelector('.para-counter');
+                updateWordCount(textarea, counter);
+            });
+            
+            // Trigger input to update counts
+            textarea.dispatchEvent(new Event('input'));
+        });
+
+        // Remove paragraph
+        window.removeParagraph = function(index) {
+            if (paragraphCount <= 1) {
+                showNotification('warning', 'You need at least one paragraph');
+                return;
+            }
+            
+            const paragraph = document.querySelector(`.paragraph-card[data-index="${index}"]`);
+            if (paragraph) {
+                paragraph.remove();
+                paragraphCount--;
+                
+                // Renumber remaining paragraphs
+                const paragraphs = document.querySelectorAll('.paragraph-card');
+                paragraphs.forEach((para, idx) => {
+                    const newIndex = idx + 1;
+                    para.dataset.index = newIndex;
+                    para.querySelector('.paragraph-title').textContent = `Paragraph ${newIndex}`;
+                    const counter = para.querySelector('.para-counter');
+                    counter.dataset.index = newIndex;
+                    
+                    // Update remove button onclick
+                    const removeBtn = para.querySelector('.remove-btn');
+                    removeBtn.onclick = () => removeParagraph(newIndex);
+                });
+                
+                updatePreview();
+            }
+        };
+
+        // Clear form
+        document.getElementById('clearForm').addEventListener('click', () => {
+            if (confirm('Are you sure you want to clear all form fields?')) {
+                document.getElementById('essayForm').reset();
+                
+                // Remove all but first paragraph
+                const paragraphs = document.querySelectorAll('.paragraph-card');
+                paragraphs.forEach((para, idx) => {
+                    if (idx > 0) para.remove();
+                });
+                
+                paragraphCount = 1;
+                document.querySelector('.paragraph-card').dataset.index = "1";
+                document.querySelector('.paragraph-title').textContent = "Paragraph 1";
+                
+                // Reset all counters
+                document.querySelectorAll('.word-counter span:first-child').forEach(span => {
+                    if (span.id === 'titleCounter') {
+                        span.textContent = '0 characters';
+                    } else {
+                        span.textContent = '0 words';
+                    }
+                });
+                
+                // Reset word count classes
+                document.querySelectorAll('.word-count').forEach(span => {
+                    span.classList.remove('good', 'warning', 'danger');
+                    span.classList.add('danger');
+                });
+                
+                // Reset preview
+                document.getElementById('previewContent').innerHTML = `
+                    <div class="preview-placeholder">
+                        <i class="fas fa-file-alt" style="font-size: 48px; color: var(--text-secondary); margin-bottom: 20px;"></i>
+                        <h3 style="color: var(--text-secondary); margin-bottom: 10px;">Your Essay Preview</h3>
+                        <p style="color: var(--text-secondary);">Start filling the form to see your essay appear here in real-time.</p>
+                    </div>
+                `;
+                
+                // Reset stats
+                updateStats();
+                updateQualityScore();
+                
+                showNotification('info', 'Form cleared successfully');
+            }
+        });
+
+        // Generate essay with AI
+        document.getElementById('generateEssay').addEventListener('click', async function() {
+            const btn = this;
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<div class="loading"></div> Generating...';
+            btn.disabled = true;
+            
+            // Get form data
+            const formData = {
+                scholarship: document.getElementById('scholarshipName').value,
+                title: document.getElementById('essayTitle').value,
+                hook: document.getElementById('hook').value,
+                thesis: document.getElementById('thesis').value,
+                body: Array.from(document.querySelectorAll('.body-content')).map(t => t.value),
+                conclusion: document.getElementById('conclusion').value
+            };
+            
+            try {
+                // Simulate AI generation (replace with actual API call)
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // Generate improved content
+                const improvedContent = generateAIContent(formData);
+                
+                // Update form fields with AI suggestions
+                if (improvedContent.hook && confirm('Update hook with AI suggestion?')) {
+                    document.getElementById('hook').value = improvedContent.hook;
+                    document.getElementById('hook').dispatchEvent(new Event('input'));
+                }
+                
+                if (improvedContent.body && confirm('Add AI-generated paragraph?')) {
+                    const newPara = document.createElement('div');
+                    newPara.className = 'paragraph-card';
+                    paragraphCount++;
+                    newPara.dataset.index = paragraphCount;
+                    newPara.innerHTML = `
+                        <div class="paragraph-header">
+                            <span class="paragraph-title">AI-Suggested Paragraph</span>
+                            <button type="button" class="remove-btn" onclick="removeParagraph(${paragraphCount})">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <textarea class="form-control body-content" 
+                                  placeholder="AI-generated content...">${improvedContent.body}</textarea>
+                        <div class="word-counter">
+                            <span class="para-counter" data-index="${paragraphCount}">0 words</span>
+                            <span class="word-count">Target: 80-120 words</span>
+                        </div>
+                    `;
+                    
+                    document.getElementById('bodyContainer').appendChild(newPara);
+                    
+                    // Add event listener
+                    const textarea = newPara.querySelector('textarea');
+                    textarea.addEventListener('input', () => {
+                        const counter = newPara.querySelector('.para-counter');
+                        updateWordCount(textarea, counter);
+                    });
+                    textarea.dispatchEvent(new Event('input'));
+                }
+                
+                showNotification('success', 'AI suggestions generated! Check the new paragraph and hook suggestions.');
+                
+            } catch (error) {
+                showNotification('error', 'Failed to generate AI content. Please try again.');
+                console.error('AI Generation error:', error);
+            } finally {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
+        });
+
+        // Copy essay text
+        document.getElementById('copyEssay').addEventListener('click', async function() {
+            const essayText = getEssayText();
+            
+            try {
+                await navigator.clipboard.writeText(essayText);
+                showNotification('success', 'Essay copied to clipboard!');
+                
+                // Visual feedback
+                this.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-copy"></i> Copy Text';
+                }, 2000);
+            } catch (err) {
+                showNotification('error', 'Failed to copy. Please select and copy manually.');
+            }
+        });
+
+        // Download essay
+        document.getElementById('downloadEssay').addEventListener('click', async function() {
+            const btn = this;
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<div class="loading"></div> Preparing...';
+            btn.disabled = true;
+            
+            try {
+                // Simulate document generation (replace with actual API call)
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                // Create and download a text file
+                const essayText = getEssayText();
+                const blob = new Blob([essayText], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `Scholarship_Essay_${new Date().toISOString().split('T')[0]}.txt`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                showNotification('success', 'Essay downloaded successfully!');
+                
+                btn.innerHTML = '<i class="fas fa-check"></i> Downloaded!';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }, 2000);
+                
+            } catch (error) {
+                showNotification('error', 'Download failed. Please try again.');
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
+        });
+
+        // Update preview in real-time
+        function updatePreview() {
+            const scholarship = document.getElementById('scholarshipName').value.trim();
+            const title = document.getElementById('essayTitle').value.trim();
+            const hook = document.getElementById('hook').value.trim();
+            const thesis = document.getElementById('thesis').value.trim();
+            const bodyParagraphs = Array.from(document.querySelectorAll('.body-content'))
+                .map(el => el.value.trim())
+                .filter(text => text.length > 0);
+            const conclusion = document.getElementById('conclusion').value.trim();
+            
+            // Only update if there's content
+            if (!hook && !thesis && bodyParagraphs.length === 0 && !conclusion) {
+                return;
+            }
+            
+            let html = '';
+            
+            // Title
+            if (title) {
+                html += `<h2 class="essay-title">${title}</h2>`;
+            }
+            
+            // Scholarship name
+            if (scholarship) {
+                html += `<p style="text-align: center; color: var(--text-secondary); margin-bottom: 30px;">
+                            <em>Application for: ${scholarship}</em>
+                         </p>`;
+            }
+            
+            // Hook and thesis
+            if (hook || thesis) {
+                html += `<div class="essay-section">`;
+                if (hook) {
+                    html += `<p class="essay-hook">${hook}</p>`;
+                }
+                if (thesis) {
+                    html += `<p class="essay-thesis">${thesis}</p>`;
+                }
+                html += `</div>`;
+            }
+            
+            // Body paragraphs
+            if (bodyParagraphs.length > 0) {
+                html += `<div class="essay-body">`;
+                bodyParagraphs.forEach((para, index) => {
+                    if (para) {
+                        html += `<p class="essay-paragraph">${para}</p>`;
+                    }
+                });
+                html += `</div>`;
+            }
+            
+            // Conclusion
+            if (conclusion) {
+                html += `<div class="essay-conclusion">
+                            <p>${conclusion}</p>
+                         </div>`;
+            }
+            
+            // Update preview content
+            const previewDiv = document.getElementById('previewContent');
+            previewDiv.innerHTML = html || `
+                <div class="preview-placeholder">
+                    <i class="fas fa-file-alt" style="font-size: 48px; color: var(--text-secondary); margin-bottom: 20px;"></i>
+                    <h3 style="color: var(--text-secondary); margin-bottom: 10px;">Your Essay Preview</h3>
+                    <p style="color: var(--text-secondary);">Start filling the form to see your essay appear here in real-time.</p>
+                </div>
+            `;
+            
+            // Update stats
+            updateStats();
+            updateQualityScore();
+        }
+
+        // Update statistics
+        function updateStats() {
+            const essayText = getEssayText();
+            const words = essayText.split(/\s+/).filter(word => word.length > 0).length;
+            const chars = essayText.length;
+            const readTime = Math.ceil(words / 200); // Average reading speed: 200 WPM
+            
+            document.getElementById('totalWords').textContent = words;
+            document.getElementById('totalChars').textContent = chars;
+            document.getElementById('readTime').textContent = readTime;
+        }
+
+        // Update quality score
+        function updateQualityScore() {
+            const essayText = getEssayText();
+            const words = essayText.split(/\s+/).filter(word => word.length > 0).length;
+            
+            // Calculate scores based on content
+            let contentScore = 0;
+            let grammarScore = 0;
+            let structureScore = 0;
+            let impactScore = 0;
+            
+            if (words > 0) {
+                // Content score based on word count and paragraph structure
+                contentScore = Math.min(words / 6, 100);
+                
+                // Grammar score (simulated)
+                grammarScore = 70 + Math.random() * 25;
+                
+                // Structure score based on paragraph count
+                const paraCount = document.querySelectorAll('.body-content').length;
+                structureScore = Math.min(paraCount * 25, 100);
+                
+                // Impact score (simulated)
+                impactScore = 60 + Math.random() * 35;
+            }
+            
+            // Update scores
+            const totalScore = Math.round((contentScore + grammarScore + structureScore + impactScore) / 4);
+            
+            document.getElementById('qualityScore').textContent = `${totalScore}%`;
+            document.getElementById('contentScore').style.width = `${contentScore}%`;
+            document.getElementById('grammarScore').style.width = `${grammarScore}%`;
+            document.getElementById('structureScore').style.width = `${structureScore}%`;
+            document.getElementById('impactScore').style.width = `${impactScore}%`;
+        }
+
+        // Get full essay text
+        function getEssayText() {
+            const title = document.getElementById('essayTitle').value.trim();
+            const hook = document.getElementById('hook').value.trim();
+            const thesis = document.getElementById('thesis').value.trim();
+            const bodyParagraphs = Array.from(document.querySelectorAll('.body-content'))
+                .map(el => el.value.trim())
+                .filter(text => text.length > 0);
+            const conclusion = document.getElementById('conclusion').value.trim();
+            
+            return [title, hook, thesis, ...bodyParagraphs, conclusion]
+                .filter(text => text.length > 0)
+                .join('\n\n');
+        }
+
+        // AI content generator (simulated)
+        function generateAIContent(formData) {
+            return {
+                hook: `As I watched the sunset over my village, where many still rely on kerosene lamps for light, I realized that true progress isn't just about advancing technology—it's about making it accessible to everyone.`,
+                body: `My commitment to accessible technology led me to initiate "Project Light," a community-driven effort to install solar-powered study stations in three local schools. Through crowdfunding and partnerships with engineering students from nearby cities, we successfully provided sustainable lighting for over 300 students. This project taught me that innovation thrives at the intersection of technical expertise and community understanding. At MIT, I aim to deepen this intersection by studying under professors whose research focuses on appropriate technology for developing regions.`
+            };
+        }
+
+        // Initialize event listeners
+        function initEventListeners() {
+            // Input fields
+            const inputFields = [
+                'scholarshipName', 'essayTitle', 'hook', 'thesis', 'conclusion'
+            ];
+            
+            inputFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                const counter = document.getElementById(`${fieldId}Counter`);
+                
+                if (field && counter) {
+                    field.addEventListener('input', () => {
+                        updateWordCount(field, counter, fieldId === 'essayTitle');
+                    });
+                    // Trigger initial count
+                    field.dispatchEvent(new Event('input'));
+                }
+            });
+            
+            // Body paragraph textareas
+            document.querySelectorAll('.body-content').forEach((textarea, index) => {
+                const counter = document.querySelector(`.para-counter[data-index="${index + 1}"]`);
+                if (counter) {
+                    textarea.addEventListener('input', () => {
+                        updateWordCount(textarea, counter);
+                    });
+                    textarea.dispatchEvent(new Event('input'));
+                }
+            });
+            
+            // Real-time preview updates
+            document.querySelectorAll('.form-control').forEach(field => {
+                field.addEventListener('input', updatePreview);
+            });
+        }
+
+        // Notification function
+        function showNotification(type, message) {
+            const existing = document.querySelector('.notification');
+            if (existing) existing.remove();
+            
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <div style="position:fixed; top:20px; right:20px; background:white; padding:15px 25px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.15); z-index:1000; display:flex; align-items:center; gap:12px; max-width:400px; animation:slideIn 0.3s ease;">
+                    <div style="width:40px; height:40px; border-radius:10px; background:${
+                        type === 'success' ? '#10b981' : 
+                        type === 'error' ? '#ef4444' : 
+                        type === 'warning' ? '#f59e0b' : '#0d62ff'
+                    }; display:flex; align-items:center; justify-content:center; color:white; font-size:18px;">
+                        <i class="fas fa-${
+                            type === 'success' ? 'check-circle' : 
+                            type === 'error' ? 'exclamation-triangle' : 
+                            type === 'warning' ? 'exclamation-circle' : 'info-circle'
+                        }"></i>
+                    </div>
+                    <div>
+                        <p style="margin:0; color:#0a2540; font-weight:500;">${message}</p>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            if (!document.querySelector('#notification-style')) {
+                const style = document.createElement('style');
+                style.id = 'notification-style';
+                style.textContent = `
+                    @keyframes slideIn {
+                        from {
+                            transform: translateX(100px);
+                            opacity: 0;
+                        }
+                        to {
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateX(100px)';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Initialize on load
+        window.addEventListener('load', () => {
+            initEventListeners();
+            updatePreview();
+            
+            // Fade in animation
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1619 @@
+# ============================================================
+# Edit Profile Page - AI Scholar Hunt
+# Complete HTML template with real-time functionality
+# ============================================================
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Profile </title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ========================================================
+           CSS Variables for theming
+           ======================================================== */
+        :root {
+            --primary: #1e40af;
+            --primary-light: #3b82f6;
+            --secondary: #f59e0b;
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --text: #1e293b;
+            --gray: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #e74c3c;
+            --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Dark theme variables */
+        .dark-theme {
+            --bg: #1a1a1a;
+            --white: #2d2d2d;
+            --text: #e0e0e0;
+            --gray: #404040;
+            --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ========================================================
+           Base Styles
+           ======================================================== */
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ========================================================
+           Header Styles
+           ======================================================== */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* ========================================================
+           Main Content Layout
+           ======================================================== */
+        .edit-profile-section {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding-top: 120px;
+            padding-bottom: 60px;
+        }
+
+        .edit-profile-container {
+            display: flex;
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+            align-items: stretch;
+        }
+
+        /* ========================================================
+           Sidebar Styles
+           ======================================================== */
+        .profile-sidebar {
+            flex: 1;
+            max-width: 300px;
+            min-width: 280px;
+        }
+
+        .sidebar-card {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            position: sticky;
+            top: 140px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .sidebar-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            padding: 30px 20px;
+            color: var(--white);
+            text-align: center;
+        }
+
+        /* Make sidebar and form card equal height */
+        .sidebar-card,
+        .form-card {
+            height: fit-content;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-card .sidebar-nav {
+            flex: 1;
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 15px;
+        }
+
+        .avatar-circle {
+            width: 100%;
+            height: 100%;
+            background-color: var(--white);
+            color: var(--primary);
+            font-size: 3rem;
+            font-weight: bold;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+        }
+
+        .avatar-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .change-avatar-btn {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .change-avatar-btn:hover {
+            background: #d97706;
+            transform: scale(1.1);
+        }
+
+        .sidebar-nav {
+            padding: 20px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 5px;
+            color: var(--text);
+        }
+
+        .nav-item:hover {
+            background: #f1f5f9;
+        }
+
+        .dark-theme .nav-item:hover {
+            background: #3d3d3d;
+        }
+
+        .nav-item.active {
+            background: #dbeafe;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .dark-theme .nav-item.active {
+            background: #1e3a8a;
+            color: white;
+        }
+
+        .nav-item i {
+            width: 20px;
+            text-align: center;
+        }
+
+        /* ========================================================
+           Main Form Styles
+           ======================================================== */
+        .profile-form-container {
+            flex: 2;
+            min-width: 0;
+        }
+
+        .form-card {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            margin-bottom: 30px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-header {
+            padding: 25px 30px;
+            border-bottom: 1px solid var(--gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .form-header h2 {
+            margin: 0;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .progress-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .progress-bar {
+            width: 150px;
+            height: 6px;
+            background: var(--gray);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary), var(--primary-light));
+            width: 75%;
+            transition: width 0.3s;
+        }
+
+        .form-body {
+            padding: 30px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #334155;
+            font-size: 0.95rem;
+        }
+
+        .dark-theme .form-label {
+            color: #cbd5e1;
+        }
+
+        .form-label .required {
+            color: var(--error);
+            margin-left: 2px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--gray);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+            background: var(--white);
+            color: var(--text);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-control.error {
+            border-color: var(--error);
+        }
+
+        .form-control.success {
+            border-color: var(--success);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-hint {
+            display: block;
+            margin-top: 6px;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .form-error {
+            display: block;
+            margin-top: 6px;
+            font-size: 0.85rem;
+            color: var(--error);
+            display: none;
+        }
+
+        .error .form-error {
+            display: block;
+        }
+
+        /* ========================================================
+           Form Sections
+           ======================================================== */
+        .form-section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .form-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            color: var(--primary);
+            font-size: 1.25rem;
+        }
+
+        .section-title i {
+            font-size: 1.1rem;
+        }
+
+        /* ========================================================
+           Theme Selection Styles
+           ======================================================== */
+        .theme-options {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .theme-option {
+            flex: 1;
+            cursor: pointer;
+            border: 2px solid var(--gray);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .theme-option:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .theme-option.selected {
+            border-color: var(--primary);
+            background-color: #dbeafe;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.1);
+        }
+
+        .dark-theme .theme-option.selected {
+            background-color: #1e3a8a;
+            color: white;
+        }
+
+        .theme-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .theme-light .theme-icon {
+            color: #f59e0b;
+        }
+
+        .theme-dark .theme-icon {
+            color: #4b5563;
+        }
+
+        .dark-theme .theme-dark .theme-icon {
+            color: #fbbf24;
+        }
+
+        .theme-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .theme-description {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .dark-theme .theme-description {
+            color: #94a3b8;
+        }
+
+        /* ========================================================
+           Language Selection Styles
+           ======================================================== */
+        .language-select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--gray);
+            border-radius: 10px;
+            font-size: 1rem;
+            background: var(--white);
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        .language-select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* ========================================================
+           Real-time Save Indicator
+           ======================================================== */
+        .save-indicator {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--success);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 20px rgba(16, 185, 129, 0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .save-indicator.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .save-indicator.saving {
+            background: var(--warning);
+        }
+
+        /* ========================================================
+           Action Buttons
+           ======================================================== */
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px;
+            background: #f8fafc;
+            border-top: 1px solid var(--gray);
+        }
+
+        .dark-theme .form-actions {
+            background: #363636;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* ========================================================
+           Password Toggle
+           ======================================================== */
+        .password-input {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .dark-theme .password-toggle {
+            color: #94a3b8;
+        }
+
+        /* ========================================================
+           Real-time Validation
+           ======================================================== */
+        .validation-status {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 5px;
+            font-size: 0.85rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .validation-status.show {
+            opacity: 1;
+        }
+
+        .validation-status.valid {
+            color: var(--success);
+        }
+
+        .validation-status.invalid {
+            color: var(--error);
+        }
+
+        /* ========================================================
+           Loading Animation
+           ======================================================== */
+        .loading {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid var(--gray);
+            border-top: 2px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ========================================================
+           Responsive Design
+           ======================================================== */
+        @media (max-width: 992px) {
+            .edit-profile-container {
+                flex-direction: column;
+            }
+
+            .profile-sidebar {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .edit-profile-section {
+                padding-top: 100px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-actions {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .save-indicator {
+                bottom: 20px;
+                right: 20px;
+                left: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body class="{{ 'dark-theme' if user and user.theme == 'dark' else '' }}">
+    <!-- ========================================================
+         Header Section
+         ======================================================== -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="{{ url_for('dashboard') }}" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    AI Scholar Hunt
+                </a>
+                <div class="nav-links">
+                    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+                    <a href="{{ url_for('profile') }}">Profile</a>
+                    <a href="{{ url_for('edit_profile') }}" class="active">Edit Profile</a>
+                    <a href="{{ url_for('search') }}">Scholarships</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ========================================================
+         Main Content Section
+         ======================================================== -->
+    <div class="container edit-profile-section">
+        <div class="edit-profile-container">
+            <!-- ====================================================
+                 Sidebar Navigation
+                 ==================================================== -->
+            <div class="profile-sidebar">
+                <div class="sidebar-card">
+                    <div class="sidebar-header">
+                        <div class="avatar-container">
+                            <div class="avatar-circle" id="avatarPreview">
+                                {% if user and user.avatar %}
+                                <img src="{{ user.avatar }}" alt="{{ user.name }}">
+                                {% else %}
+                                {{ user.name[0] | upper if user and user.name else 'U' }}
+                                {% endif %}
+                            </div>
+                            <button class="change-avatar-btn" onclick="triggerAvatarUpload()"
+                                title="Change profile picture">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                        <h3 style="margin: 0 0 5px 0;">{{ user.name if user else 'User' }}</h3>
+                        <p style="opacity: 0.9; margin: 0; font-size: 0.9rem;">Edit Your Profile</p>
+                    </div>
+                    <div class="sidebar-nav">
+                        <div class="nav-item active" data-section="personal">
+                            <i class="fas fa-user"></i>
+                            <span>Personal Info</span>
+                        </div>
+                        <div class="nav-item" data-section="preferences">
+                            <i class="fas fa-sliders-h"></i>
+                            <span>Preferences</span>
+                        </div>
+                        <div class="nav-item" data-section="security">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Security</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====================================================
+                 Main Form Section
+                 ==================================================== -->
+            <div class="profile-form-container">
+                <form id="profileForm" class="form-card" onsubmit="return saveProfile(event)">
+                    <div class="form-header">
+                        <h2>Edit Profile</h2>
+                        <div class="progress-indicator">
+                            <span>Profile Complete</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="profileProgress"></div>
+                            </div>
+                            <span id="progressPercent">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="form-body">
+                        <!-- ================================================
+                             Personal Information Section
+                             ================================================ -->
+                        <div class="form-section" id="personalSection">
+                            <h3 class="section-title">
+                                <i class="fas fa-user"></i>
+                                Personal Information
+                            </h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Full Name <span class="required">*</span></label>
+                                    <input type="text" class="form-control" name="name"
+                                        value="{{ user.name if user else '' }}" required
+                                        oninput="validateField(this, 'name')">
+                                    <span class="form-hint">Your full name as it appears on official documents</span>
+                                    <span class="form-error" id="nameError"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Email Address <span class="required">*</span></label>
+                                    <input type="email" class="form-control" name="email"
+                                        value="{{ user.email if user else '' }}" required
+                                        oninput="validateField(this, 'email')">
+                                    <span class="form-hint">Your primary email for communication</span>
+                                    <span class="form-error" id="emailError"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Country of Citizenship</label>
+                                    <select class="form-control" name="country" id="countrySelect">
+                                        <option value="">Select Country</option>
+                                        {% if countries %}
+                                        {% for country in countries %}
+                                        <option value="{{ country.code }}" {% if user and user.country==country.code
+                                            %}selected{% endif %}>
+                                            {{ country.name }}
+                                        </option>
+                                        {% endfor %}
+                                        {% endif %}
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">City</label>
+                                    <input type="text" class="form-control" name="city"
+                                        value="{{ user.city if user else '' }}" oninput="markUnsaved()">
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label class="form-label">Bio</label>
+                                    <textarea class="form-control" name="bio" rows="4"
+                                        oninput="markUnsaved()">{{ user.bio if user else '' }}</textarea>
+                                    <span class="form-hint">Tell us a little about yourself</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ================================================
+                             Preferences Section
+                             ================================================ -->
+                        <div class="form-section" id="preferencesSection" style="display: none;">
+                            <h3 class="section-title">
+                                <i class="fas fa-sliders-h"></i>
+                                Preferences
+                            </h3>
+                            <div class="form-grid">
+                                <!-- Theme Selection -->
+                                <div class="form-group full-width">
+                                    <label class="form-label">Theme Preference</label>
+                                    <div class="theme-options">
+                                        <!-- Light Theme Option -->
+                                        <div class="theme-option theme-light" data-theme="light"
+                                            onclick="selectTheme('light')">
+                                            <div class="theme-icon">
+                                                <i class="fas fa-sun"></i>
+                                            </div>
+                                            <div class="theme-name">Light Mode</div>
+                                            <div class="theme-description">Bright and clean interface</div>
+                                        </div>
+
+                                        <!-- Dark Theme Option -->
+                                        <div class="theme-option theme-dark" data-theme="dark"
+                                            onclick="selectTheme('dark')">
+                                            <div class="theme-icon">
+                                                <i class="fas fa-moon"></i>
+                                            </div>
+                                            <div class="theme-name">Dark Mode</div>
+                                            <div class="theme-description">Easy on the eyes in low light</div>
+                                        </div>
+                                    </div>
+                                    <!-- Hidden input to store selected theme -->
+                                    <input type="hidden" name="theme" id="themeInput"
+                                        value="{{ user.theme if user and user.theme else 'light' }}">
+                                </div>
+
+                                <!-- Language Selection -->
+                                <div class="form-group">
+                                    <label class="form-label">Language Preference</label>
+                                    <select class="language-select" name="language" id="languageSelect"
+                                        onchange="markUnsaved()">
+                                        <option value="en" {% if user and user.language=='en' %}selected{% endif %}>
+                                            English</option>
+                                        <option value="es" {% if user and user.language=='es' %}selected{% endif %}>
+                                            Español</option>
+                                        <option value="fr" {% if user and user.language=='fr' %}selected{% endif %}>
+                                            Français</option>
+                                        <option value="de" {% if user and user.language=='de' %}selected{% endif %}>
+                                            Deutsch</option>
+                                        <option value="zh" {% if user and user.language=='zh' %}selected{% endif %}>中文
+                                        </option>
+                                        <option value="ar" {% if user and user.language=='ar' %}selected{% endif %}>
+                                            العربية</option>
+                                        <option value="ur" {% if user and user.language=='ur' %}selected{% endif %}>اردو
+                                        </option>
+                                        <option value="hi" {% if user and user.language=='hi' %}selected{% endif %}>
+                                            हिन्दी</option>
+                                    </select>
+                                    <span class="form-hint">Select your preferred interface language</span>
+                                </div>
+
+                                <!-- Notification Preferences -->
+                                <div class="form-group">
+                                    <label class="form-label">Email Notifications</label>
+                                    <select class="form-control" name="email_notifications" onchange="markUnsaved()">
+                                        <option value="all" {% if user and user.email_notifications=='all' %}selected{%
+                                            endif %}>All notifications</option>
+                                        <option value="important" {% if user and user.email_notifications=='important'
+                                            %}selected{% endif %}>Important only</option>
+                                        <option value="none" {% if user and user.email_notifications=='none'
+                                            %}selected{% endif %}>None</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ================================================
+                             Security Section
+                             ================================================ -->
+                        <div class="form-section" id="securitySection" style="display: none;">
+                            <h3 class="section-title">
+                                <i class="fas fa-shield-alt"></i>
+                                Security Settings
+                            </h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Current Password</label>
+                                    <div class="password-input">
+                                        <input type="password" class="form-control" name="current_password"
+                                            id="currentPassword" placeholder="Enter current password">
+                                        <button type="button" class="password-toggle"
+                                            onclick="togglePassword('currentPassword')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">New Password</label>
+                                    <div class="password-input">
+                                        <input type="password" class="form-control" name="new_password" id="newPassword"
+                                            placeholder="Enter new password" oninput="validatePassword(this)">
+                                        <button type="button" class="password-toggle"
+                                            onclick="togglePassword('newPassword')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                    <div class="validation-status" id="passwordValidation">
+                                        <i class="fas fa-info-circle"></i>
+                                        <span>Password strength: </span>
+                                        <span id="passwordStrength"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Confirm New Password</label>
+                                    <div class="password-input">
+                                        <input type="password" class="form-control" name="confirm_password"
+                                            id="confirmPassword" placeholder="Confirm new password"
+                                            oninput="checkPasswordMatch()">
+                                        <button type="button" class="password-toggle"
+                                            onclick="togglePassword('confirmPassword')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                    <div class="validation-status" id="passwordMatch">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Passwords match</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <button type="button" class="btn-primary" onclick="updatePassword()"
+                                        style="background: var(--primary);">
+                                        <i class="fas fa-key"></i>
+                                        Update Password
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary" id="saveButton">
+                            <i class="fas fa-save"></i>
+                            Save Changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Real-time Save Indicator -->
+    <div class="save-indicator" id="saveIndicator">
+        <i class="fas fa-check-circle"></i>
+        <span>Changes saved successfully!</span>
+    </div>
+
+    <!-- Hidden Avatar Upload Input -->
+    <input type="file" id="avatarUpload" accept="image/*" style="display: none;" onchange="handleAvatarUpload(event)">
+
+    <!-- ========================================================
+         JavaScript Section
+         ======================================================== -->
+    <script>
+        // ========================================================
+        // Global Variables
+        // ========================================================
+        let autoSaveTimeout;
+        let hasUnsavedChanges = false;
+
+        // ========================================================
+        // DOM Content Loaded - Initialize everything
+        // ========================================================
+        document.addEventListener('DOMContentLoaded', function () {
+            initializeForm();
+            calculateProfileProgress();
+            setupAutoSave();
+            initializeTheme();
+            initializeNavigation();
+        });
+
+        // ========================================================
+        // Navigation Functionality
+        // ========================================================
+        function initializeNavigation() {
+            const navItems = document.querySelectorAll('.nav-item');
+            const sections = document.querySelectorAll('.form-section');
+
+            navItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    const sectionId = this.dataset.section + 'Section';
+
+                    // Update active navigation item
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Show corresponding section and hide others
+                    sections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+
+                    const targetSection = document.getElementById(sectionId);
+                    if (targetSection) {
+                        targetSection.style.display = 'block';
+                    }
+                });
+            });
+        }
+
+        // ========================================================
+        // Form Field Validation
+        // ========================================================
+        function validateField(input, fieldName) {
+            const errorElement = document.getElementById(fieldName + 'Error');
+            let isValid = true;
+            let errorMessage = '';
+
+            switch (fieldName) {
+                case 'name':
+                    if (input.value.trim().length < 2) {
+                        errorMessage = 'Name must be at least 2 characters';
+                        isValid = false;
+                    } else if (input.value.trim().length > 100) {
+                        errorMessage = 'Name must be less than 100 characters';
+                        isValid = false;
+                    }
+                    break;
+
+                case 'email':
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(input.value)) {
+                        errorMessage = 'Please enter a valid email address';
+                        isValid = false;
+                    }
+                    break;
+            }
+
+            if (isValid) {
+                input.classList.remove('error');
+                input.classList.add('success');
+                if (errorElement) errorElement.textContent = '';
+            } else {
+                input.classList.remove('success');
+                input.classList.add('error');
+                if (errorElement) errorElement.textContent = errorMessage;
+            }
+
+            calculateProfileProgress();
+            markUnsaved();
+            return isValid;
+        }
+
+        // ========================================================
+        // Mark unsaved changes
+        // ========================================================
+        function markUnsaved() {
+            hasUnsavedChanges = true;
+        }
+
+        // ========================================================
+        // Password Validation Functions
+        // ========================================================
+        function validatePassword(input) {
+            const password = input.value;
+            const validation = document.getElementById('passwordValidation');
+            const strength = document.getElementById('passwordStrength');
+
+            if (!password) {
+                validation.classList.remove('show');
+                return;
+            }
+
+            // Calculate password strength score
+            let score = 0;
+            if (password.length >= 8) score++;
+            if (password.length >= 12) score++;
+            if (/[A-Z]/.test(password)) score++;
+            if (/[a-z]/.test(password)) score++;
+            if (/[0-9]/.test(password)) score++;
+            if (/[^A-Za-z0-9]/.test(password)) score++;
+
+            let strengthText = '';
+            let strengthClass = '';
+
+            switch (score) {
+                case 0:
+                case 1:
+                    strengthText = 'Very Weak';
+                    strengthClass = 'invalid';
+                    break;
+                case 2:
+                    strengthText = 'Weak';
+                    strengthClass = 'invalid';
+                    break;
+                case 3:
+                case 4:
+                    strengthText = 'Good';
+                    strengthClass = 'valid';
+                    break;
+                case 5:
+                case 6:
+                    strengthText = 'Strong';
+                    strengthClass = 'valid';
+                    break;
+            }
+
+            strength.textContent = strengthText;
+            validation.className = 'validation-status ' + strengthClass + ' show';
+        }
+
+        // ========================================================
+        // Check if passwords match
+        // ========================================================
+        function checkPasswordMatch() {
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const matchIndicator = document.getElementById('passwordMatch');
+
+            if (!newPassword || !confirmPassword) {
+                matchIndicator.classList.remove('show');
+                return;
+            }
+
+            if (newPassword === confirmPassword) {
+                matchIndicator.classList.add('valid');
+                matchIndicator.classList.remove('invalid');
+                matchIndicator.innerHTML = '<i class="fas fa-check-circle"></i><span>Passwords match</span>';
+            } else {
+                matchIndicator.classList.add('invalid');
+                matchIndicator.classList.remove('valid');
+                matchIndicator.innerHTML = '<i class="fas fa-exclamation-circle"></i><span>Passwords do not match</span>';
+            }
+            matchIndicator.classList.add('show');
+        }
+
+        // ========================================================
+        // Toggle Password Visibility
+        // ========================================================
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const button = input.nextElementSibling;
+            const icon = button.querySelector('i');
+
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.className = 'fas fa-eye-slash';
+            } else {
+                input.type = 'password';
+                icon.className = 'fas fa-eye';
+            }
+        }
+
+        // ========================================================
+        // Update Password API Call
+        // ========================================================
+        async function updatePassword() {
+            const currentPassword = document.getElementById('currentPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Validation
+            if (!currentPassword) {
+                alert('Please enter current password');
+                return;
+            }
+
+            if (!newPassword) {
+                alert('Please enter new password');
+                return;
+            }
+
+            if (newPassword.length < 8) {
+                alert('Password must be at least 8 characters');
+                return;
+            }
+
+            if (newPassword !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+
+            try {
+                const response = await fetch('/profile/security/password', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        current_password: currentPassword,
+                        new_password: newPassword
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    alert('Password updated successfully');
+                    // Clear password fields
+                    document.getElementById('currentPassword').value = '';
+                    document.getElementById('newPassword').value = '';
+                    document.getElementById('confirmPassword').value = '';
+                    document.getElementById('passwordValidation').classList.remove('show');
+                    document.getElementById('passwordMatch').classList.remove('show');
+                } else {
+                    alert(data.error || 'Failed to update password');
+                }
+            } catch (error) {
+                console.error('Password update error:', error);
+                alert('Failed to update password. Please try again.');
+            }
+        }
+
+        // ========================================================
+        // Calculate Profile Completion Percentage
+        // ========================================================
+        function calculateProfileProgress() {
+            const form = document.getElementById('profileForm');
+            const requiredFields = form.querySelectorAll('[required]');
+            let filledCount = 0;
+
+            requiredFields.forEach(field => {
+                if (field.value && field.value.trim() !== '') {
+                    filledCount++;
+                }
+            });
+
+            // Additional fields for progress calculation
+            const country = document.querySelector('select[name="country"]');
+            if (country && country.value) filledCount++;
+
+            const city = document.querySelector('input[name="city"]');
+            if (city && city.value) filledCount++;
+
+            const bio = document.querySelector('textarea[name="bio"]');
+            if (bio && bio.value) filledCount++;
+
+            const totalFields = requiredFields.length + 3; // name, email, country, city, bio
+            const progressPercent = Math.min(100, Math.round((filledCount / totalFields) * 100));
+
+            const progressElement = document.getElementById('progressPercent');
+            const progressFill = document.getElementById('profileProgress');
+
+            if (progressElement) progressElement.textContent = progressPercent + '%';
+            if (progressFill) progressFill.style.width = progressPercent + '%';
+
+            return progressPercent;
+        }
+
+        // ========================================================
+        // Auto-save Setup
+        // ========================================================
+        function setupAutoSave() {
+            const form = document.getElementById('profileForm');
+            const inputs = form.querySelectorAll('input:not([type="password"]), textarea, select');
+
+            inputs.forEach(input => {
+                input.addEventListener('input', function () {
+                    hasUnsavedChanges = true;
+
+                    clearTimeout(autoSaveTimeout);
+                    autoSaveTimeout = setTimeout(() => {
+                        autoSave();
+                    }, 2000);
+                });
+
+                input.addEventListener('change', function () {
+                    hasUnsavedChanges = true;
+
+                    clearTimeout(autoSaveTimeout);
+                    autoSaveTimeout = setTimeout(() => {
+                        autoSave();
+                    }, 2000);
+                });
+            });
+
+            // Warn user before leaving page with unsaved changes
+            window.addEventListener('beforeunload', function (e) {
+                if (hasUnsavedChanges) {
+                    e.preventDefault();
+                    e.returnValue = 'You have unsaved changes. Are you sure you want to leave?';
+                }
+            });
+        }
+
+        // ========================================================
+        // Auto-save Function
+        // ========================================================
+        async function autoSave() {
+            if (!hasUnsavedChanges) return;
+
+            const saveIndicator = document.getElementById('saveIndicator');
+            const saveButton = document.getElementById('saveButton');
+
+            saveIndicator.innerHTML = '<i class="fas fa-spinner loading"></i><span>Saving changes...</span>';
+            saveIndicator.classList.add('saving');
+            saveIndicator.classList.add('show');
+            if (saveButton) saveButton.disabled = true;
+
+            try {
+                // Collect form data
+                const formData = new FormData(document.getElementById('profileForm'));
+                const data = {};
+
+                formData.forEach((value, key) => {
+                    if (key !== 'current_password' && key !== 'new_password' && key !== 'confirm_password') {
+                        data[key] = value;
+                    }
+                });
+
+                const response = await fetch('/api/profile/update', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    hasUnsavedChanges = false;
+                    saveIndicator.innerHTML = '<i class="fas fa-check-circle"></i><span>Changes saved successfully!</span>';
+                    saveIndicator.classList.remove('saving');
+
+                    // Update progress if returned
+                    if (result.progress) {
+                        document.getElementById('progressPercent').textContent = result.progress + '%';
+                        document.getElementById('profileProgress').style.width = result.progress + '%';
+                    }
+
+                    setTimeout(() => {
+                        saveIndicator.classList.remove('show');
+                    }, 3000);
+                } else {
+                    throw new Error(result.error || 'Save failed');
+                }
+            } catch (error) {
+                console.error('Auto-save error:', error);
+                saveIndicator.innerHTML = '<i class="fas fa-exclamation-circle"></i><span>Failed to save changes</span>';
+                saveIndicator.classList.add('saving');
+
+                setTimeout(() => {
+                    saveIndicator.classList.remove('show');
+                }, 3000);
+            } finally {
+                if (saveButton) saveButton.disabled = false;
+            }
+        }
+
+        // ========================================================
+        // Manual Save Function
+        // ========================================================
+        async function saveProfile(event) {
+            event.preventDefault();
+
+            // Validate required fields
+            const requiredFields = document.querySelectorAll('[required]');
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                if (!validateField(field, field.name)) {
+                    isValid = false;
+                }
+            });
+
+            if (!isValid) {
+                alert('Please fix the errors before saving.');
+                return false;
+            }
+
+            const saveButton = document.getElementById('saveButton');
+            const originalText = saveButton.innerHTML;
+
+            saveButton.innerHTML = '<i class="fas fa-spinner loading"></i> Saving...';
+            saveButton.disabled = true;
+
+            try {
+                // Collect form data
+                const formData = new FormData(document.getElementById('profileForm'));
+                const data = {};
+
+                formData.forEach((value, key) => {
+                    if (key !== 'current_password' && key !== 'new_password' && key !== 'confirm_password') {
+                        data[key] = value;
+                    }
+                });
+
+                const response = await fetch('/api/profile/save', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    showSaveIndicator('success', 'Profile updated successfully!');
+                    calculateProfileProgress();
+                    hasUnsavedChanges = false;
+
+                    setTimeout(() => {
+                        window.location.href = '/profile';
+                    }, 1500);
+                } else {
+                    throw new Error(result.error || 'Save failed');
+                }
+            } catch (error) {
+                console.error('Save error:', error);
+                showSaveIndicator('error', 'Failed to save changes. Please try again.');
+                saveButton.innerHTML = originalText;
+                saveButton.disabled = false;
+            }
+
+            return false;
+        }
+
+        // ========================================================
+        // Show Save Indicator
+        // ========================================================
+        function showSaveIndicator(type, message) {
+            const indicator = document.getElementById('saveIndicator');
+            const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+
+            indicator.innerHTML = `<i class="fas ${icon}"></i><span>${message}</span>`;
+            indicator.className = 'save-indicator show';
+
+            if (type === 'error') {
+                indicator.classList.add('saving');
+            }
+
+            setTimeout(() => {
+                indicator.classList.remove('show');
+            }, 3000);
+        }
+
+        // ========================================================
+        // Theme Selection
+        // ========================================================
+        function initializeTheme() {
+            const currentTheme = document.getElementById('themeInput').value || 'light';
+            selectTheme(currentTheme, false);
+        }
+
+        function selectTheme(theme, save = true) {
+            // Remove 'selected' class from all theme options
+            document.querySelectorAll('.theme-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+
+            // Add 'selected' class to chosen theme
+            const selectedOption = document.querySelector(`.theme-option[data-theme="${theme}"]`);
+            if (selectedOption) {
+                selectedOption.classList.add('selected');
+            }
+
+            // Update hidden input value
+            document.getElementById('themeInput').value = theme;
+
+            // Apply theme to body for preview
+            document.body.classList.remove('dark-theme');
+            if (theme === 'dark') {
+                document.body.classList.add('dark-theme');
+            }
+
+            if (save) {
+                // Save theme to server
+                fetch('/profile/preferences/theme', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ theme })
+                });
+
+                markUnsaved();
+            }
+        }
+
+        // ========================================================
+        // Avatar Upload Functions
+        // ========================================================
+        function triggerAvatarUpload() {
+            document.getElementById('avatarUpload').click();
+        }
+
+        async function handleAvatarUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            // Validate file type
+            if (!file.type.startsWith('image/')) {
+                alert('Please select an image file.');
+                return;
+            }
+
+            // Validate file size (5MB limit)
+            if (file.size > 5 * 1024 * 1024) {
+                alert('Image size should be less than 5MB.');
+                return;
+            }
+
+            // Preview uploaded image
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const avatarPreview = document.getElementById('avatarPreview');
+                avatarPreview.innerHTML = `<img src="${e.target.result}" alt="Avatar">`;
+
+                // Upload to server
+                uploadAvatar(file);
+            };
+            reader.readAsDataURL(file);
+        }
+
+        async function uploadAvatar(file) {
+            const formData = new FormData();
+            formData.append('avatar', file);
+
+            try {
+                const response = await fetch('/api/profile/avatar', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    showSaveIndicator('success', 'Profile picture updated!');
+                } else {
+                    throw new Error(result.error || 'Upload failed');
+                }
+            } catch (error) {
+                console.error('Avatar upload error:', error);
+                showSaveIndicator('error', 'Failed to update profile picture.');
+            }
+        }
+
+        // ========================================================
+        // Initialize Form
+        // ========================================================
+        function initializeForm() {
+            // Set initial theme
+            initializeTheme();
+
+            // Calculate initial progress
+            calculateProfileProgress();
+
+            console.log('Edit profile form initialized');
+        }
+    </script>
+</body>
+
+</html>

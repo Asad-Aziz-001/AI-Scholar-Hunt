@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+  <title>Scholarship Finder</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(to bottom, #f0f9ff, #e0f2fe);
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    .sticky-header {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-blue-50 to-white text-gray-800">
+
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-blue-900 border-b border-blue-800 shadow-lg sticky-header">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+    
+    <!-- Left side: Back button + Title -->
+    <div class="flex items-center gap-4 w-full sm:w-auto">
+      <a href="javascript:history.back()" 
+         class="flex items-center gap-2 px-3 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-white transition duration-200 font-medium">
+        ← Back
+      </a>
+      
+      <div>
+        <h1 class="text-2xl sm:text-3xl font-bold text-white">🎓AI Scholars Hunt</h1>
+        <p class="text-blue-200 text-sm sm:text-base">120+ Fully & Partially Funded Opportunities</p>
+      </div>
+    </div>
+    
+    <!-- Right side: Sirf Search input -->
+    <div class="w-full sm:w-auto">
+      <input 
+        type="text" 
+        id="searchInput"
+        placeholder="Search scholarship..." 
+        class="w-full sm:w-80 px-4 py-2 rounded-lg border border-blue-700 bg-white/10 text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
+      />
+    </div>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+  <!-- Stats Bar -->
+  <div class="bg-white rounded-xl shadow-md p-6 mb-10 border border-blue-100">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+      <div>
+        <p class="text-3xl font-bold text-blue-700">120+</p>
+        <p class="text-gray-600 text-sm">Scholarships</p>
+      </div>
+      <div>
+        <p class="text-3xl font-bold text-green-600">25+</p>
+        <p class="text-gray-600 text-sm">Countries</p>
+      </div>
+      <div>
+        <p class="text-3xl font-bold text-purple-600">80%+</p>
+        <p class="text-gray-600 text-sm">Fully Funded</p>
+      </div>
+      <div>
+        <p class="text-3xl font-bold text-amber-600">2026</p>
+        <p class="text-gray-600 text-sm">Intakes</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards Grid - 120 Scholarships -->
+  <div id="scholarshipGrid" class="card-grid">
+
+    <!-- Card 1 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Fulbright Scholarship (USEFP)</h4>
+        <p class="text-slate-600 mt-2">🇺🇸 USA | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://usefp.org" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Chevening Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇬🇧 UK | Masters</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://chevening.org" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Commonwealth Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇬🇧 UK | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://cscuk.fcdo.gov.uk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">DAAD Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇩🇪 Germany | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Fully/Partially Funded</p>
+        <a href="https://daad.de" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Chinese Govt Scholarship (CSC)</h4>
+        <p class="text-slate-600 mt-2">🇨🇳 China | Bachelors, Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://campuschina.org" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Türkiye Bursları</h4>
+        <p class="text-slate-600 mt-2">🇹🇷 Turkey | Bachelors, Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://turkiyeburslari.gov.tr" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">MEXT Scholarship (Japan)</h4>
+        <p class="text-slate-600 mt-2">🇯🇵 Japan | Bachelors, Masters, PhD, Research</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://mext.jp" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Korean Govt Scholarship (KGSP/GKS)</h4>
+        <p class="text-slate-600 mt-2">🇰🇷 South Korea | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://studyinkorea.go.kr" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Australia Awards Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇦🇺 Australia | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://australiaawards.gov.au" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 10 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Swedish Institute Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇸🇪 Sweden | Masters</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://si.se" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 11 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Netherlands Fellowship Programmes</h4>
+        <p class="text-slate-600 mt-2">🇳🇱 Netherlands | Masters, Short Courses</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://nuffic.nl" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 12 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Swiss Govt Excellence Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇨🇭 Switzerland | PhD, Postdoc</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://swissuniversity.ch" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 13 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Eiffel Excellence Scholarship</h4>
+        <p class="text-slate-600 mt-2">🇫🇷 France | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://campusfrance.org" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 14 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Hungarian Govt Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇭🇺 Hungary | All Levels</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://stipendiumhungaricum.hu" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 15 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Italian Govt Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇮🇹 Italy | Masters, PhD, Courses</p>
+        <p class="text-slate-500 text-sm mt-1">Tuition + Stipend</p>
+        <a href="https://esteri.it" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 16 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">New Zealand Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇳🇿 New Zealand | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://mfat.govt.nz" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 17 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Gates Cambridge Scholarship</h4>
+        <p class="text-slate-600 mt-2">🇬🇧 UK | PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://gatescambridge.org" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 18 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Rhodes Scholarship</h4>
+        <p class="text-slate-600 mt-2">🇬🇧 UK (Oxford) | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://rhodeshouse.ox.ac.uk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 19 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Clarendon Fund (Oxford)</h4>
+        <p class="text-slate-600 mt-2">🇬🇧 UK | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://ox.ac.uk/clarendon" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 20 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Cambridge Trust Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇬🇧 UK | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Fully/Partially Funded</p>
+        <a href="https://cambridgetrust.org" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 21 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Edinburgh Global Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇬🇧 UK | Masters</p>
+        <p class="text-slate-500 text-sm mt-1">Partial to Full</p>
+        <a href="https://ed.ac.uk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 22 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Warwick Chancellor's Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇬🇧 UK | PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://warwick.ac.uk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 23 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Bristol Think Big Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇬🇧 UK | Bachelors, Masters</p>
+        <p class="text-slate-500 text-sm mt-1">Tuition Award</p>
+        <a href="https://bristol.ac.uk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 24 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">UCL Global Masters Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇬🇧 UK | Masters</p>
+        <p class="text-slate-500 text-sm mt-1">Tuition Award</p>
+        <a href="https://ucl.ac.uk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 25 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Imperial College Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇬🇧 UK | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Various</p>
+        <a href="https://imperial.ac.uk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 26 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">University of Manchester Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇬🇧 UK | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Various</p>
+        <a href="https://manchester.ac.uk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 27 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Knight-Hennessy Scholars</h4>
+        <p class="text-slate-600 mt-2">🇺🇸 USA | All Graduate Degrees</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://kh.stanford.edu" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 28 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">MIT Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇺🇸 USA | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://mit.edu" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 29 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Harvard University Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇺🇸 USA | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Need-Based</p>
+        <a href="https://harvard.edu" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 30 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Yale Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇺🇸 USA | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Need-Based</p>
+        <a href="https://yale.edu" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 31 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">University of Chicago Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇺🇸 USA | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Various</p>
+        <a href="https://uchicago.edu" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 32 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Columbia University Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇺🇸 USA | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Various</p>
+        <a href="https://columbia.edu" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 33 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">UBC Leader of Tomorrow Award</h4>
+        <p class="text-slate-600 mt-2">🇨🇦 Canada | Bachelors</p>
+        <p class="text-slate-500 text-sm mt-1">Need-Based</p>
+        <a href="https://ubc.ca" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 34 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">U of Toronto Pearson Scholarship</h4>
+        <p class="text-slate-600 mt-2">🇨🇦 Canada | Bachelors</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://utoronto.ca" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 35 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">University of Alberta Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇨🇦 Canada | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Funded</p>
+        <a href="https://ualberta.ca" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 36 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">University of Calgary Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇨🇦 Canada | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Funded</p>
+        <a href="https://ucalgary.ca" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 37 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">McGill University Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇨🇦 Canada | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Various</p>
+        <a href="https://mcgill.ca" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 38 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">University of Waterloo Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇨🇦 Canada | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Funded</p>
+        <a href="https://uwaterloo.ca" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 39 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Vanier Canada Graduate Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇨🇦 Canada | PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://vanier.gc.ca" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 40 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Melbourne Research Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇦🇺 Australia | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://unimelb.edu.au" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 41 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Sydney Scholars Awards</h4>
+        <p class="text-slate-600 mt-2">🇦🇺 Australia | Bachelors</p>
+        <p class="text-slate-500 text-sm mt-1">Tuition Award</p>
+        <a href="https://sydney.edu.au" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 42 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">ANU Chancellor's Scholarship</h4>
+        <p class="text-slate-600 mt-2">🇦🇺 Australia | Bachelors, Masters</p>
+        <p class="text-slate-500 text-sm mt-1">Tuition Award</p>
+        <a href="https://anu.edu.au" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 43 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Monash International Merit Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇦🇺 Australia | Bachelors, Masters</p>
+        <p class="text-slate-500 text-sm mt-1">Tuition Award</p>
+        <a href="https://monash.edu" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 44 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Adelaide Global Excellence Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇦🇺 Australia | Bachelors, Masters</p>
+        <p class="text-slate-500 text-sm mt-1">Tuition Award</p>
+        <a href="https://adelaide.edu.au" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 45 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Research Training Program (RTP)</h4>
+        <p class="text-slate-600 mt-2">🇦🇺 Australia | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Stipend</p>
+        <a href="https://education.gov.au" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 46 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">ETH Zurich Excellence Scholarship</h4>
+        <p class="text-slate-600 mt-2">🇨🇭 Switzerland | Masters</p>
+        <p class="text-slate-500 text-sm mt-1">Tuition + Stipend</p>
+        <a href="https://ethz.ch" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 47 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">EPFL Excellence Fellowships</h4>
+        <p class="text-slate-600 mt-2">🇨🇭 Switzerland | Masters</p>
+        <p class="text-slate-500 text-sm mt-1">Tuition + Stipend</p>
+        <a href="https://epfl.ch" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 48 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">University of Lausanne Master's Grants</h4>
+        <p class="text-slate-600 mt-2">🇨🇭 Switzerland | Masters</p>
+        <p class="text-slate-500 text-sm mt-1">Stipend</p>
+        <a href="https://unil.ch" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 49 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Utrecht Excellence Scholarship</h4>
+        <p class="text-slate-600 mt-2">🇳🇱 Netherlands | Masters</p>
+        <p class="text-slate-500 text-sm mt-1">Tuition</p>
+        <a href="https://uu.nl" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 50 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Leiden University Excellence Scholarship</h4>
+        <p class="text-slate-600 mt-2">🇳🇱 Netherlands | Masters</p>
+        <p class="text-slate-500 text-sm mt-1">Tuition Award</p>
+        <a href="https://leiden.edu" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 51 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">University of Amsterdam Excellence Scholarship</h4>
+        <p class="text-slate-600 mt-2">🇳🇱 Netherlands | Masters</p>
+        <p class="text-slate-500 text-sm mt-1">Tuition Award</p>
+        <a href="https://uva.nl" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 52 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Delft University Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇳🇱 Netherlands | Masters</p>
+        <p class="text-slate-500 text-sm mt-1">Various</p>
+        <a href="https://tudelft.nl" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 53 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Radboud University Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇳🇱 Netherlands | Masters</p>
+        <p class="text-slate-500 text-sm mt-1">Partial to Full</p>
+        <a href="https://ru.nl" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 54 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">University of Oslo Quota Scheme</h4>
+        <p class="text-slate-600 mt-2">🇳🇴 Norway | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+        <a href="https://uio.no" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 55 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">NTNU Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇳🇴 Norway | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Various</p>
+        <a href="https://ntnu.edu" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 56 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">University of Bergen Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇳🇴 Norway | Masters, PhD</p>
+        <p class="text-slate-500 text-sm mt-1">Various</p>
+        <a href="https://uib.no" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 57 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">University of Helsinki Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇫🇮 Finland | Masters</p>
+        <p class="text-slate-500 text-sm mt-1">Tuition Award</p>
+        <a href="https://helsinki.fi" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 58 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Aalto University Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇫🇮 Finland | Masters</p>
+        <p class="text-slate-500 text-sm mt-1">Tuition Award</p>
+        <a href="https://aalto.fi" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 59 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Lund University Global Scholarship</h4>
+        <p class="text-slate-600 mt-2">🇸🇪 Sweden | Masters</p>
+        <p class="text-slate-500 text-sm mt-1">Tuition Award</p>
+        <a href="https://lunduniversity.lu.se" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+
+    <!-- Card 60 -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+        <h4 class="font-bold text-lg text-blue-800">Uppsala University Scholarships</h4>
+        <p class="text-slate-600 mt-2">🇸🇪 Sweden | Masters</p>
+        <p class="text-slate-500 text-sm mt-1">Tuition Award</p>
+        <a href="https://uu.se" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+    </div>
+    <!-- Card 61 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">KTH Royal Institute Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇸🇪 Sweden | Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Tuition Award</p>
+    <a href="https://kth.se" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 62 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Chalmers IPOET Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇸🇪 Sweden | Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Tuition Award</p>
+    <a href="https://chalmers.se" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 63 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">University of Copenhagen Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇩🇰 Denmark | Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Tuition + Stipend</p>
+    <a href="https://ku.dk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 64 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">DTU Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇩🇰 Denmark | Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Tuition Award</p>
+    <a href="https://dtu.dk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 65 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Aarhus University Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇩🇰 Denmark | Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Tuition Award</p>
+    <a href="https://au.dk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 66 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">HEC Paris Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇫🇷 France | Masters, MBA</p>
+    <p class="text-slate-500 text-sm mt-1">Various</p>
+    <a href="https://hec.edu" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 67 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Sciences Po Emile Boutmy Scholarship</h4>
+    <p class="text-slate-600 mt-2">🇫🇷 France | Bachelors, Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Tuition Award</p>
+    <a href="https://sciencespo.fr" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 68 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Grenoble Institute Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇫🇷 France | Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Tuition Waiver</p>
+    <a href="https://grenoble-inp.fr" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 69 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">University of Bologna Study Grants</h4>
+    <p class="text-slate-600 mt-2">🇮🇹 Italy | All Levels</p>
+    <p class="text-slate-500 text-sm mt-1">Tuition + Grant</p>
+    <a href="https://unibo.it" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 70 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Politecnico di Milano Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇮🇹 Italy | Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Tuition Award</p>
+    <a href="https://polimi.it" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 71 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Bocconi University Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇮🇹 Italy | Bachelors, Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Need-Based</p>
+    <a href="https://unibocconi.eu" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 72 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">University of Padua Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇮🇹 Italy | All Levels</p>
+    <p class="text-slate-500 text-sm mt-1">Tuition Waiver</p>
+    <a href="https://unipd.it" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 73 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">University of Vienna Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇦🇹 Austria | All Levels</p>
+    <p class="text-slate-500 text-sm mt-1">Various</p>
+    <a href="https://univie.ac.at" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 74 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">TU Wien Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇦🇹 Austria | Masters, PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Various</p>
+    <a href="https://tuwien.ac.at" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 75 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">KU Leuven Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇧🇪 Belgium | Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Various</p>
+    <a href="https://kuleuven.be" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 76 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Ghent University Top-up Grants</h4>
+    <p class="text-slate-600 mt-2">🇧🇪 Belgium | Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Stipend</p>
+    <a href="https://ugent.be" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 77 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">University of Barcelona Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇪🇸 Spain | Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Tuition Waiver</p>
+    <a href="https://ub.edu" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 78 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Autonomous University of Madrid Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇪🇸 Spain | Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Tuition Waiver</p>
+    <a href="https://uam.es" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 79 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">University of Malaya Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇲🇾 Malaysia | Masters, PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Various</p>
+    <a href="https://um.edu.my" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 80 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Malaysian International Scholarship (MIS)</h4>
+    <p class="text-slate-600 mt-2">🇲🇾 Malaysia | Masters, PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+    <a href="https://educationmalaysia.gov.my" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 81 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">USM Global Fellowship</h4>
+    <p class="text-slate-600 mt-2">🇲🇾 Malaysia | PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+    <a href="https://usm.my" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 82 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">UPM Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇲🇾 Malaysia | Masters, PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Various</p>
+    <a href="https://upm.edu.my" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 83 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">University of Auckland Excellence Scholarship</h4>
+    <p class="text-slate-600 mt-2">🇳🇿 New Zealand | Bachelors, Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Tuition Award</p>
+    <a href="https://auckland.ac.nz" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 84 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">University of Otago Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇳🇿 New Zealand | Masters, PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Various</p>
+    <a href="https://otago.ac.nz" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 85 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Victoria University Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇳🇿 New Zealand | Masters, PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Various</p>
+    <a href="https://wgtn.ac.nz" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 86 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">University of Waikato Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇳🇿 New Zealand | Masters, PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Various</p>
+    <a href="https://waikato.ac.nz" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 87 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Moscow Government Scholarship (HSE)</h4>
+    <p class="text-slate-600 mt-2">🇷🇺 Russia | Bachelors, Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+    <a href="https://hse.ru" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 88 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">KAUST Fellowship</h4>
+    <p class="text-slate-600 mt-2">🇸🇦 Saudi Arabia | Masters, PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+    <a href="https://kaust.edu.sa" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 89 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Qatar University Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇶🇦 Qatar | Bachelors, Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+    <a href="https://qu.edu.qa" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 90 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Singapore Graduate Award (SINGA)</h4>
+    <p class="text-slate-600 mt-2">🇸🇬 Singapore | PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+    <a href="https://a-star.edu.sg" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 91 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Nanyang Scholarship (NTU)</h4>
+    <p class="text-slate-600 mt-2">🇸🇬 Singapore | Bachelors</p>
+    <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+    <a href="https://ntu.edu.sg" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 92 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Erasmus Mundus Joint Masters</h4>
+    <p class="text-slate-600 mt-2">🌍 Multiple EU Countries | Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+    <a href="https://erasmusplus.eu" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 93 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Erasmus+ Mobility Grants</h4>
+    <p class="text-slate-600 mt-2">🌍 Multiple EU Countries | Exchange, Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Grant</p>
+    <a href="https://erasmusplus.eu" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 94 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Erasmus+ Masters Loans</h4>
+    <p class="text-slate-600 mt-2">🌍 Multiple EU Countries | Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Loan</p>
+    <a href="https://erasmusplus.eu" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 95 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Aga Khan Foundation Scholarship</h4>
+    <p class="text-slate-600 mt-2">🌍 Multiple Countries | Masters, PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Loan-Scholarship</p>
+    <a href="https://akdn.org" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 96 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Joint Japan World Bank Scholarship</h4>
+    <p class="text-slate-600 mt-2">🌍 Multiple Countries | Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+    <a href="https://worldbank.org" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 97 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">ADB-Japan Scholarship</h4>
+    <p class="text-slate-600 mt-2">🌍 Multiple Countries | Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+    <a href="https://adb.org" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 98 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">World Bank McNamara Fellowship</h4>
+    <p class="text-slate-600 mt-2">🌍 Multiple Countries | PhD Research</p>
+    <p class="text-slate-500 text-sm mt-1">Fellowship</p>
+    <a href="https://worldbank.org" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 99 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Google Scholarships</h4>
+    <p class="text-slate-600 mt-2">🌍 Multiple Countries | Bachelors, Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Tuition Award</p>
+    <a href="https://buildyourfuture.withgoogle.com" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 100 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Microsoft Scholarships</h4>
+    <p class="text-slate-600 mt-2">🌍 Multiple Countries | Bachelors</p>
+    <p class="text-slate-500 text-sm mt-1">Tuition Award</p>
+    <a href="https://microsoft.com" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 101 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Inlaks Foundation Scholarships</h4>
+    <p class="text-slate-600 mt-2">🌍 Multiple Countries | Masters, PhD, Fine Arts</p>
+    <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+    <a href="https://inlaksfoundation.org" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 102 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Felix Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇬🇧 UK, Netherlands | Masters, PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+    <a href="https://felixscholarship.org" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 103 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">IOE-ISH Centenary Masters Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇬🇧 UK | Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Partial to Full</p>
+    <a href="https://ucl.ac.uk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 104 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Beit Trust Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇬🇧 UK, Africa | Masters, PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+    <a href="https://beittrust.org.uk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 105 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Charles Wallace Pakistan Trust Grants</h4>
+    <p class="text-slate-600 mt-2">🇬🇧 UK | Short Courses, Research</p>
+    <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+    <a href="https://wallace-trusts.org.uk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 106 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">HEC Need-Based Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇵🇰 Pakistan | PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+    <a href="https://hec.gov.pk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 107 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">HEC Overseas Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇵🇰 Pakistan | Masters, PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+    <a href="https://hec.gov.pk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 108 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Punjab Educational Endowment Fund</h4>
+    <p class="text-slate-600 mt-2">🇵🇰 Pakistan | Bachelors, Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+    <a href="https://peef.org.pk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 109 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">Sindh Endowment Fund Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇵🇰 Pakistan | Bachelors, Masters</p>
+    <p class="text-slate-500 text-sm mt-1">Fully Funded</p>
+    <a href="https://sindhendowmentfund.com" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 110 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">University of Glasgow Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇬🇧 UK | Masters, PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Various</p>
+    <a href="https://glasgow.ac.uk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 111 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">University of Sheffield Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇬🇧 UK | Masters, PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Various</p>
+    <a href="https://sheffield.ac.uk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 112 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">University of Nottingham Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇬🇧 UK | Masters, PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Various</p>
+    <a href="https://nottingham.ac.uk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 113 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">University of Leeds Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇬🇧 UK | Masters, PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Various</p>
+    <a href="https://leeds.ac.uk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 114 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">University of Southampton Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇬🇧 UK | Masters, PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Various</p>
+    <a href="https://southampton.ac.uk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 115 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">University of Liverpool Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇬🇧 UK | Masters, PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Various</p>
+    <a href="https://liverpool.ac.uk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 116 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">University of Birmingham Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇬🇧 UK | Masters, PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Various</p>
+    <a href="https://birmingham.ac.uk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 117 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">University of Bristol Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇬🇧 UK | Masters, PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Various</p>
+    <a href="https://bristol.ac.uk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 118 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">University of Exeter Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇬🇧 UK | Masters, PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Various</p>
+    <a href="https://exeter.ac.uk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 119 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">University of York Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇬🇧 UK | Masters, PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Various</p>
+    <a href="https://york.ac.uk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+<!-- Card 120 -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-6 shadow-md text-center hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+    <h4 class="font-bold text-lg text-blue-800">University of Bath Scholarships</h4>
+    <p class="text-slate-600 mt-2">🇬🇧 UK | Masters, PhD</p>
+    <p class="text-slate-500 text-sm mt-1">Various</p>
+    <a href="https://bath.ac.uk" target="_blank" class="inline-block mt-4 text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+</div>
+
+  </div>
+
+  <!-- No Results Message -->
+  <div id="noResults" class="hidden text-center py-16">
+    <p class="text-xl text-gray-600">No scholarships found matching your search 😔</p>
+    <p class="text-gray-500 mt-2">Try different keywords</p>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-blue-900 text-white py-8 mt-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <p>© 2026 AI Scholar Hunt | Final Year Project - Department of AI</p>
+    <p class="mt-2 text-blue-200 text-sm">Your intelligent companion for studying abroad from documents to deadlines</p>
+  </div>
+</footer>
+
+<!-- Search Script -->
+<script>
+  const searchInput = document.getElementById('searchInput');
+  const grid = document.getElementById('scholarshipGrid');
+  const noResults = document.getElementById('noResults');
+
+  function filterCards() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+
+    const cards = grid.querySelectorAll('div[class*="rounded-xl"]');
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const title = card.querySelector('h4').textContent.toLowerCase();
+      const subtitle = card.querySelector('p.text-slate-600').textContent.toLowerCase();
+
+      const matches = title.includes(searchTerm) || subtitle.includes(searchTerm);
+
+      if (matches) {
+        card.style.display = '';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    noResults.classList.toggle('hidden', visibleCount > 0);
+  }
+
+  searchInput.addEventListener('input', filterCards);
+</script>
+
+</body>
+</html>

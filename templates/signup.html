@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+    <title>Create Account </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1e40af;
+            --primary-light: #3b82f6;
+            --primary-dark: #1e3a8a;
+            --secondary: #f59e0b;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --gray: #e2e8f0;
+            --success: #10b981;
+            --error: #e74c3c;
+            --warning: #f59e0b;
+            --info: #3b82f6;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 38px; height: 38px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            font-weight: 500;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0; height: 2px;
+            bottom: -4px; left: 0;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+
+        .mobile-menu-btn { display: none; font-size: 1.6rem; color: var(--primary); background: none; border: none; cursor: pointer; }
+
+        /* Signup */
+        .signup-section {
+            min-height: calc(100vh - 180px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 140px 20px 60px;
+        }
+
+        .signup-container {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 480px;
+            position: relative;
+            z-index: 20;
+        }
+
+        h2 { text-align: center; color: var(--primary); margin-bottom: 8px; }
+        .subtitle { text-align: center; color: var(--text-light); margin-bottom: 32px; }
+
+        .form-group { margin-bottom: 24px; }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid var(--gray);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+        }
+
+        .form-group input.invalid { border-color: var(--error); }
+
+        .error-message {
+            color: var(--error);
+            font-size: 0.82rem;
+            margin-top: 6px;
+            display: none;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+
+        .btn:hover:not(:disabled) {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn:disabled { background: #cbd5e1; cursor: not-allowed; }
+
+        .extra-links { text-align: center; margin-top: 24px; font-size: 0.95rem; }
+        .extra-links a { color: var(--primary-light); }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 60px 0 30px;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 6px;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .footer-about p { opacity: 0.85; margin-bottom: 20px; }
+
+        .social-links { display: flex; gap: 16px; }
+        .social-link {
+            color: white;
+            font-size: 1.4rem;
+            opacity: 0.8;
+            transition: all 0.3s;
+        }
+        .social-link:hover { opacity: 1; transform: translateY(-2px); }
+
+        .footer-links h3 {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            line-height: 2.1;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--secondary); }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 992px) {
+            .footer-content { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 16px 0; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .signup-container { padding: 32px 24px; }
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
+        }
+
+        /* Custom Popup Modal Styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-card {
+            background: var(--white);
+            width: 90%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+            transform: scale(0.7);
+            transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            overflow: hidden;
+        }
+
+        .popup-overlay.active .popup-card {
+            transform: scale(1);
+        }
+
+        .popup-header {
+            padding: 20px 20px 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid var(--gray);
+        }
+
+        .popup-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        .popup-icon.success {
+            background-color: rgba(16, 185, 129, 0.15);
+            color: var(--success);
+        }
+
+        .popup-icon.error {
+            background-color: rgba(231, 76, 60, 0.15);
+            color: var(--error);
+        }
+
+        .popup-icon.warning {
+            background-color: rgba(245, 158, 11, 0.15);
+            color: var(--warning);
+        }
+
+        .popup-icon.info {
+            background-color: rgba(59, 130, 246, 0.15);
+            color: var(--info);
+        }
+
+        .popup-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .popup-body {
+            padding: 25px 20px;
+        }
+
+        .popup-message {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--text-light);
+        }
+
+        .popup-footer {
+            padding: 15px 20px 25px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .popup-btn {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+        }
+
+        .popup-btn.primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .popup-btn.primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .popup-btn.success-btn {
+            background: var(--success);
+            color: white;
+        }
+
+        .popup-btn.error-btn {
+            background: var(--error);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<style>
+/* Animated Dots Background */
+.bg-animation {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    overflow: hidden;
+}
+
+.dots-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #3b82f6;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: move-dots 20s infinite linear;
+}
+
+.dot:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+.dot:nth-child(2) { top: 20%; left: 20%; animation-delay: 1s; }
+.dot:nth-child(3) { top: 30%; left: 30%; animation-delay: 2s; }
+.dot:nth-child(4) { top: 40%; left: 40%; animation-delay: 3s; }
+.dot:nth-child(5) { top: 50%; left: 50%; animation-delay: 4s; }
+.dot:nth-child(6) { top: 60%; left: 60%; animation-delay: 5s; }
+.dot:nth-child(7) { top: 70%; left: 70%; animation-delay: 6s; }
+.dot:nth-child(8) { top: 80%; left: 80%; animation-delay: 7s; }
+.dot:nth-child(9) { top: 90%; left: 90%; animation-delay: 8s; }
+.dot:nth-child(10) { top: 15%; left: 85%; animation-delay: 9s; }
+
+@keyframes move-dots {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0.3;
+    }
+    25% {
+        transform: translate(50px, 30px);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translate(0, 60px);
+        opacity: 0.2;
+    }
+    75% {
+        transform: translate(-50px, 30px);
+        opacity: 0.4;
+    }
+    100% {
+        transform: translate(0, 0);
+        opacity: 0.3;
+    }
+}
+
+/* Grid Pattern with Animation */
+.grid-pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(to right, rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: grid-move 30s infinite linear;
+}
+
+@keyframes grid-move {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(25px, 25px);
+    }
+}
+
+/* Floating Emoji Animation Styles (📚 🎓 📝 🎒) */
+.floating-emoji {
+    position: fixed;
+    font-size: 2.5rem;
+    user-select: none;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.7;
+    animation: floatEmoji 14s infinite ease-in-out;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+}
+
+.floating-emoji-1 { top: 15%; left: 5%; animation-duration: 16s; animation-delay: 0s; }
+.floating-emoji-2 { bottom: 20%; right: 3%; animation-duration: 18s; animation-delay: 1s; }
+.floating-emoji-3 { top: 40%; right: 8%; animation-duration: 14s; animation-delay: 2s; }
+.floating-emoji-4 { bottom: 35%; left: 4%; animation-duration: 20s; animation-delay: 0.5s; }
+.floating-emoji-5 { top: 65%; left: 12%; animation-duration: 17s; animation-delay: 3s; }
+.floating-emoji-6 { top: 25%; right: 12%; animation-duration: 15s; animation-delay: 1.5s; }
+.floating-emoji-7 { bottom: 10%; right: 18%; animation-duration: 19s; animation-delay: 2.5s; }
+.floating-emoji-8 { top: 75%; left: 8%; animation-duration: 13s; animation-delay: 4s; }
+
+@keyframes floatEmoji {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 0.4; }
+    25% { transform: translate(20px, -25px) rotate(5deg); opacity: 0.8; }
+    50% { transform: translate(-15px, -40px) rotate(-5deg); opacity: 0.6; }
+    75% { transform: translate(15px, -15px) rotate(3deg); opacity: 0.9; }
+    100% { transform: translate(0, 0) rotate(0deg); opacity: 0.4; }
+}
+
+.floating-emoji:hover {
+    animation-play-state: paused;
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 8px rgba(30,64,175,0.5));
+    transition: all 0.3s ease;
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .floating-emoji { font-size: 1.8rem; opacity: 0.5; }
+}
+</style>
+
+<div class="bg-animation">
+    <div class="dots-container">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+    <div class="grid-pattern"></div>
+</div>
+
+<!-- Floating Emojis: 📚 🎓 📝 🎒 -->
+<div class="floating-emoji floating-emoji-1">📚</div>
+<div class="floating-emoji floating-emoji-2">🎓</div>
+<div class="floating-emoji floating-emoji-3">📝</div>
+<div class="floating-emoji floating-emoji-4">🎒</div>
+<div class="floating-emoji floating-emoji-5">📚</div>
+<div class="floating-emoji floating-emoji-6">🎓</div>
+<div class="floating-emoji floating-emoji-7">📝</div>
+<div class="floating-emoji floating-emoji-8">🎒</div>
+
+<!-- Custom Popup Modal Structure -->
+<div id="customPopup" class="popup-overlay">
+    <div class="popup-card">
+        <div class="popup-header">
+            <div class="popup-icon" id="popupIcon">🎓</div>
+            <h3 class="popup-title" id="popupTitle">Notification</h3>
+        </div>
+        <div class="popup-body">
+            <p class="popup-message" id="popupMessage">This is a custom message</p>
+        </div>
+        <div class="popup-footer">
+            <button class="popup-btn primary" id="popupCloseBtn">Got it</button>
+        </div>
+    </div>
+</div>
+
+<header id="header">
+    <div class="container">
+        <nav class="navbar">
+            <a href="/" class="logo">
+                <div class="logo-icon">🎓</div>
+                AI Scholar Hunt
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/login">Login</a></li>
+            </ul>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </nav>
+    </div>
+</header>
+
+<section class="signup-section">
+    <div class="signup-container">
+        <h2>Create Your Account</h2>
+        <p class="subtitle">Join students worldwide hunting global scholarships</p>
+
+        <form id="signupForm" novalidate>
+            <div class="form-group">
+                <label for="fullname"><i class="fas fa-user"></i> Full Name</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+                <div class="error-message" id="fullnameError">Name should be 3–50 characters</div>
+            </div>
+
+            <div class="form-group">
+                <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                <div class="error-message" id="emailError">Please enter a valid email</div>
+            </div>
+
+            <div class="form-group">
+                <label for="password"><i class="fas fa-lock"></i> Password</label>
+                <input type="password" id="password" name="password" placeholder="At least 8 characters" required>
+                <div class="error-message" id="passwordError">Password must be at least 8 characters</div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm"><i class="fas fa-lock"></i> Confirm Password</label>
+                <input type="password" id="confirm" name="confirm" placeholder="Re-type password" required>
+                <div class="error-message" id="confirmError">Passwords do not match</div>
+            </div>
+
+            <button type="submit" class="btn">Create Account</button>
+        </form>
+
+        <div class="extra-links">
+            <p>Already have an account? <a href="/login">Log In</a></p>
+        </div>
+    </div>
+</section>
+
+<!-- Signup JS with Custom Popup Messages -->
+<script>
+// Custom Popup System - replaces all alerts
+class CustomPopup {
+    constructor() {
+        this.overlay = document.getElementById('customPopup');
+        this.iconEl = document.getElementById('popupIcon');
+        this.titleEl = document.getElementById('popupTitle');
+        this.messageEl = document.getElementById('popupMessage');
+        this.closeBtn = document.getElementById('popupCloseBtn');
+        
+        this.closeBtn.addEventListener('click', () => this.hide());
+        this.overlay.addEventListener('click', (e) => {
+            if (e.target === this.overlay) this.hide();
+        });
+    }
+    
+    show({ type = 'info', title, message, onClose = null }) {
+        let iconHtml = '';
+        let iconClass = '';
+        
+        switch(type) {
+            case 'success':
+                iconHtml = '<i class="fas fa-check-circle"></i>';
+                iconClass = 'success';
+                break;
+            case 'error':
+                iconHtml = '<i class="fas fa-exclamation-triangle"></i>';
+                iconClass = 'error';
+                break;
+            case 'warning':
+                iconHtml = '<i class="fas fa-exclamation-circle"></i>';
+                iconClass = 'warning';
+                break;
+            case 'info':
+            default:
+                iconHtml = '<i class="fas fa-info-circle"></i>';
+                iconClass = 'info';
+                break;
+        }
+        
+        this.iconEl.innerHTML = iconHtml;
+        this.iconEl.className = `popup-icon ${iconClass}`;
+        this.titleEl.textContent = title || (type === 'success' ? 'Success!' : type === 'error' ? 'Error!' : type === 'warning' ? 'Warning!' : 'Information');
+        this.messageEl.textContent = message;
+        
+        this.closeBtn.className = `popup-btn ${type === 'error' ? 'error-btn' : type === 'success' ? 'success-btn' : 'primary'}`;
+        this.closeBtn.textContent = 'Got it';
+        
+        this.overlay.classList.add('active');
+        
+        if (onClose) {
+            const originalClick = this.closeBtn.onclick;
+            this.closeBtn.onclick = () => {
+                this.hide();
+                if (onClose) onClose();
+            };
+        } else {
+            this.closeBtn.onclick = () => this.hide();
+        }
+    }
+    
+    hide() {
+        this.overlay.classList.remove('active');
+    }
+}
+
+// Initialize popup
+const popup = new CustomPopup();
+
+// Helper function to show different types of popups
+function showPopup(type, title, message, onClose = null) {
+    popup.show({ type, title, message, onClose });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const form = document.getElementById('signupForm');
+    if (!form) {
+        console.error("Signup form not found!");
+        return;
+    }
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const fullname = document.getElementById('fullname').value.trim();
+        const email    = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+        const confirm  = document.getElementById('confirm').value;
+
+        // Reset errors
+        document.querySelectorAll('.form-group input')
+            .forEach(el => el.classList.remove('invalid'));
+
+        document.querySelectorAll('.error-message')
+            .forEach(el => el.style.display = 'none');
+
+        let isValid = true;
+
+        // ---------- Full Name Validation ----------
+        if (fullname.length < 3 || fullname.length > 50 || !/^[a-zA-Z\s]+$/.test(fullname)) {
+            document.getElementById('fullname').classList.add('invalid');
+            document.getElementById('fullnameError').style.display = 'block';
+            isValid = false;
+        }
+
+        // ---------- Email Validation ----------
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            document.getElementById('email').classList.add('invalid');
+            document.getElementById('emailError').style.display = 'block';
+            isValid = false;
+        }
+
+        // ---------- Password Validation ----------
+        if (password.length < 8) {
+            document.getElementById('password').classList.add('invalid');
+            document.getElementById('passwordError').style.display = 'block';
+            isValid = false;
+        }
+
+        // ---------- Confirm Password ----------
+        if (password !== confirm) {
+            document.getElementById('confirm').classList.add('invalid');
+            document.getElementById('confirmError').style.display = 'block';
+            isValid = false;
+        }
+
+        if (!isValid) {
+            showPopup('warning', 'Validation Error', 'Please check the form fields and try again.');
+            return;
+        }
+
+        const btn = document.querySelector('.btn');
+        btn.textContent = "Creating Account...";
+        btn.disabled = true;
+
+        // Auto-generate username from fullname (simple slug)
+        const username = fullname.toLowerCase().replace(/\s+/g, '') + Math.floor(Math.random() * 1000);
+
+        try {
+            const response = await fetch('/auth/signup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    username: username,
+                    name: fullname,
+                    email: email,
+                    password: password
+                })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                showPopup('success', 'Account Created!', 'Your account has been created successfully! Redirecting to login page...', () => {
+                    window.location.href = "/login";
+                });
+                // Auto redirect after 2 seconds if user doesn't click button
+                setTimeout(() => {
+                    window.location.href = "/login";
+                }, 2000);
+            } else {
+                showPopup('error', 'Signup Failed', data.error || "Something went wrong. Please try again.");
+            }
+
+        } catch (err) {
+            console.error(err);
+            showPopup('error', 'Connection Error', "Unable to connect to server. Please check your internet connection and try again.");
+        } finally {
+            btn.textContent = "Create Account";
+            btn.disabled = false;
+        }
+
+    });
+
+});
+</script>
+</body>
+</html>
