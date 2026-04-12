@@ -736,8 +736,8 @@
                 </a>
                 <div class="nav-links">
                     <a href="{{ url_for('dashboard') }}">Dashboard</a>
-                    <a href="{{ url_for('profile') }}">Profile</a>
-                    <a href="{{ url_for('edit_profile') }}" class="active">Edit Profile</a>
+                    <a href="{{ url_for('profile_bp.profile') }}">Profile</a>
+                    <a href="{{ url_for('profile_bp.profile') }}" class="active">Edit Profile</a>
                     <a href="{{ url_for('search') }}">Scholarships</a>
                 </div>
             </nav>
@@ -831,36 +831,8 @@
                                     <span class="form-hint">Your primary email for communication</span>
                                     <span class="form-error" id="emailError"></span>
                                 </div>
-
-                                <div class="form-group">
-                                    <label class="form-label">Country of Citizenship</label>
-                                    <select class="form-control" name="country" id="countrySelect">
-                                        <option value="">Select Country</option>
-                                        {% if countries %}
-                                        {% for country in countries %}
-                                        <option value="{{ country.code }}" {% if user and user.country==country.code
-                                            %}selected{% endif %}>
-                                            {{ country.name }}
-                                        </option>
-                                        {% endfor %}
-                                        {% endif %}
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="form-label">City</label>
-                                    <input type="text" class="form-control" name="city"
-                                        value="{{ user.city if user else '' }}" oninput="markUnsaved()">
-                                </div>
-
-                                <div class="form-group full-width">
-                                    <label class="form-label">Bio</label>
-                                    <textarea class="form-control" name="bio" rows="4"
-                                        oninput="markUnsaved()">{{ user.bio if user else '' }}</textarea>
-                                    <span class="form-hint">Tell us a little about yourself</span>
-                                </div>
-                            </div>
-                        </div>
+                            </div><!-- /.form-grid -->
+                        </div><!-- /#personalSection -->
 
                         <!-- ================================================
                              Preferences Section
@@ -898,44 +870,6 @@
                                     <!-- Hidden input to store selected theme -->
                                     <input type="hidden" name="theme" id="themeInput"
                                         value="{{ user.theme if user and user.theme else 'light' }}">
-                                </div>
-
-                                <!-- Language Selection -->
-                                <div class="form-group">
-                                    <label class="form-label">Language Preference</label>
-                                    <select class="language-select" name="language" id="languageSelect"
-                                        onchange="markUnsaved()">
-                                        <option value="en" {% if user and user.language=='en' %}selected{% endif %}>
-                                            English</option>
-                                        <option value="es" {% if user and user.language=='es' %}selected{% endif %}>
-                                            Español</option>
-                                        <option value="fr" {% if user and user.language=='fr' %}selected{% endif %}>
-                                            Français</option>
-                                        <option value="de" {% if user and user.language=='de' %}selected{% endif %}>
-                                            Deutsch</option>
-                                        <option value="zh" {% if user and user.language=='zh' %}selected{% endif %}>中文
-                                        </option>
-                                        <option value="ar" {% if user and user.language=='ar' %}selected{% endif %}>
-                                            العربية</option>
-                                        <option value="ur" {% if user and user.language=='ur' %}selected{% endif %}>اردو
-                                        </option>
-                                        <option value="hi" {% if user and user.language=='hi' %}selected{% endif %}>
-                                            हिन्दी</option>
-                                    </select>
-                                    <span class="form-hint">Select your preferred interface language</span>
-                                </div>
-
-                                <!-- Notification Preferences -->
-                                <div class="form-group">
-                                    <label class="form-label">Email Notifications</label>
-                                    <select class="form-control" name="email_notifications" onchange="markUnsaved()">
-                                        <option value="all" {% if user and user.email_notifications=='all' %}selected{%
-                                            endif %}>All notifications</option>
-                                        <option value="important" {% if user and user.email_notifications=='important'
-                                            %}selected{% endif %}>Important only</option>
-                                        <option value="none" {% if user and user.email_notifications=='none'
-                                            %}selected{% endif %}>None</option>
-                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -1023,9 +957,6 @@
         <i class="fas fa-check-circle"></i>
         <span>Changes saved successfully!</span>
     </div>
-
-    <!-- Hidden Avatar Upload Input -->
-    <input type="file" id="avatarUpload" accept="image/*" style="display: none;" onchange="handleAvatarUpload(event)">
 
     <!-- ========================================================
          JavaScript Section
@@ -1576,29 +1507,6 @@
                 uploadAvatar(file);
             };
             reader.readAsDataURL(file);
-        }
-
-        async function uploadAvatar(file) {
-            const formData = new FormData();
-            formData.append('avatar', file);
-
-            try {
-                const response = await fetch('/api/profile/avatar', {
-                    method: 'POST',
-                    body: formData
-                });
-
-                const result = await response.json();
-
-                if (result.success) {
-                    showSaveIndicator('success', 'Profile picture updated!');
-                } else {
-                    throw new Error(result.error || 'Upload failed');
-                }
-            } catch (error) {
-                console.error('Avatar upload error:', error);
-                showSaveIndicator('error', 'Failed to update profile picture.');
-            }
         }
 
         // ========================================================
