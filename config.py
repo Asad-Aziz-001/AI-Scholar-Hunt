@@ -58,7 +58,7 @@ class Config:
     # Email Credentials
     # ⚠️ Never hardcode passwords in real production
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME", "aischolarhunt@gmail.com")
-    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD", "ywbareuukyyfpoyf")  # Must be App Password
+    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD", "xxxxxxxxxxxxx")  # Must be App Password
 
     # Default sender email
     MAIL_DEFAULT_SENDER = os.environ.get(
