@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
     <title>CV Builder — AI Scholar Hunt</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
-            --sky:       #0ea5e9;
+            --sky: #0ea5e9;
             --sky-light: #bae6fd;
-            --sky-pale:  #e0f2fe;
-            --sky-dark:  #0369a1;
-            --white:     #ffffff;
-            --slate:     #0f172a;
-            --muted:     #64748b;
-            --border:    #cbd5e1;
-            --card-bg:   #f8faff;
-            --shadow-sm: 0 2px 8px rgba(14,165,233,0.08);
-            --shadow-md: 0 8px 30px rgba(14,165,233,0.15);
-            --shadow-lg: 0 20px 60px rgba(14,165,233,0.2);
-            --radius:    18px;
+            --sky-pale: #e0f2fe;
+            --sky-dark: #0369a1;
+            --white: #ffffff;
+            --slate: #0f172a;
+            --muted: #64748b;
+            --border: #cbd5e1;
+            --card-bg: #f8faff;
+            --shadow-sm: 0 2px 8px rgba(14, 165, 233, 0.08);
+            --shadow-md: 0 8px 30px rgba(14, 165, 233, 0.15);
+            --shadow-lg: 0 20px 60px rgba(14, 165, 233, 0.2);
+            --radius: 18px;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -38,18 +46,23 @@
         body::before {
             content: '';
             position: fixed;
-            top: -200px; right: -200px;
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(14,165,233,0.12) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, transparent 70%);
             pointer-events: none;
             z-index: 0;
         }
+
         body::after {
             content: '';
             position: fixed;
-            bottom: -150px; left: -150px;
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(14,165,233,0.08) 0%, transparent 70%);
+            bottom: -150px;
+            left: -150px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 70%);
             pointer-events: none;
             z-index: 0;
         }
@@ -62,8 +75,9 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 20px rgba(3,105,161,0.3);
+            box-shadow: 0 4px 20px rgba(3, 105, 161, 0.3);
         }
+
         .header-inner {
             max-width: 1200px;
             margin: 0 auto;
@@ -72,6 +86,7 @@
             justify-content: space-between;
             height: 68px;
         }
+
         .logo {
             display: flex;
             align-items: center;
@@ -82,33 +97,39 @@
             color: white;
             text-decoration: none;
         }
+
         .logo-icon {
-            width: 36px; height: 36px;
-            background: rgba(255,255,255,0.2);
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1.1rem;
             backdrop-filter: blur(10px);
         }
+
         .back-btn {
             display: flex;
             align-items: center;
             gap: 6px;
-            color: rgba(255,255,255,0.85);
+            color: rgba(255, 255, 255, 0.85);
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: 600;
             padding: 8px 16px;
             border-radius: 20px;
-            border: 1.5px solid rgba(255,255,255,0.3);
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
             transition: all 0.2s;
             backdrop-filter: blur(10px);
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
         }
+
         .back-btn:hover {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             color: white;
-            border-color: rgba(255,255,255,0.5);
+            border-color: rgba(255, 255, 255, 0.5);
         }
 
         /* ── Hero ── */
@@ -118,6 +139,7 @@
             position: relative;
             z-index: 1;
         }
+
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -133,6 +155,7 @@
             margin-bottom: 20px;
             animation: fadeDown 0.6s ease both;
         }
+
         .hero h1 {
             font-family: 'Nunito', sans-serif;
             font-size: clamp(2rem, 5vw, 3rem);
@@ -142,12 +165,14 @@
             margin-bottom: 16px;
             animation: fadeDown 0.6s 0.1s ease both;
         }
+
         .hero h1 span {
             background: linear-gradient(135deg, var(--sky-dark), var(--sky));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
         .hero p {
             color: var(--muted);
             font-size: 1.05rem;
@@ -171,7 +196,11 @@
             max-width: 520px;
             animation: fadeUp 0.6s 0.3s ease both;
         }
-        .stat { text-align: center; }
+
+        .stat {
+            text-align: center;
+        }
+
         .stat-num {
             font-family: 'Nunito', sans-serif;
             font-size: 1.5rem;
@@ -179,6 +208,7 @@
             color: var(--sky);
             line-height: 1;
         }
+
         .stat-label {
             font-size: 0.72rem;
             color: var(--muted);
@@ -208,10 +238,23 @@
             transition: box-shadow 0.3s, transform 0.3s;
             animation: fadeUp 0.5s ease both;
         }
-        .group-section:nth-child(1) { animation-delay: 0.1s; }
-        .group-section:nth-child(2) { animation-delay: 0.2s; }
-        .group-section:nth-child(3) { animation-delay: 0.3s; }
-        .group-section:nth-child(4) { animation-delay: 0.4s; }
+
+        .group-section:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .group-section:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .group-section:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .group-section:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
         .group-section:hover {
             box-shadow: var(--shadow-md);
             transform: translateY(-2px);
@@ -225,16 +268,24 @@
             padding-bottom: 16px;
             border-bottom: 1.5px solid var(--sky-pale);
         }
+
         .group-icon {
-            width: 48px; height: 48px;
+            width: 48px;
+            height: 48px;
             background: linear-gradient(135deg, var(--sky-pale), var(--sky-light));
             border-radius: 14px;
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1.4rem;
             flex-shrink: 0;
             border: 1.5px solid var(--sky-light);
         }
-        .group-info { flex: 1; }
+
+        .group-info {
+            flex: 1;
+        }
+
         .group-title {
             font-family: 'Nunito', sans-serif;
             font-weight: 800;
@@ -242,12 +293,14 @@
             color: var(--slate);
             margin-bottom: 4px;
         }
+
         .group-desc {
             font-size: 0.8rem;
             color: var(--muted);
             font-weight: 500;
             line-height: 1.4;
         }
+
         .group-tag {
             flex-shrink: 0;
             background: var(--sky-pale);
@@ -280,6 +333,7 @@
             position: relative;
             overflow: hidden;
         }
+
         .country-card::before {
             content: '';
             position: absolute;
@@ -288,12 +342,16 @@
             opacity: 0;
             transition: opacity 0.25s;
         }
+
         .country-card:hover {
             transform: translateY(-6px) scale(1.03);
             box-shadow: var(--shadow-md);
             border-color: var(--sky);
         }
-        .country-card:hover::before { opacity: 1; }
+
+        .country-card:hover::before {
+            opacity: 1;
+        }
 
         .country-flag {
             font-size: 2.6rem;
@@ -302,6 +360,7 @@
             position: relative;
             z-index: 1;
         }
+
         .country-name {
             font-family: 'Nunito', sans-serif;
             font-weight: 800;
@@ -311,6 +370,7 @@
             position: relative;
             z-index: 1;
         }
+
         .country-badge {
             font-size: 0.65rem;
             color: var(--sky-dark);
@@ -323,6 +383,7 @@
             position: relative;
             z-index: 1;
         }
+
         .country-card:hover .country-badge {
             background: var(--sky);
             color: white;
@@ -334,10 +395,12 @@
             margin-top: 48px;
             animation: fadeUp 0.6s 0.5s ease both;
         }
+
         .section-label {
             text-align: center;
             margin-bottom: 28px;
         }
+
         .section-label h3 {
             font-family: 'Nunito', sans-serif;
             font-size: 1.5rem;
@@ -345,6 +408,7 @@
             color: var(--slate);
             margin-bottom: 6px;
         }
+
         .section-label p {
             color: var(--muted);
             font-size: 0.9rem;
@@ -355,6 +419,7 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 16px;
         }
+
         .feature-card {
             background: white;
             border-radius: 16px;
@@ -363,20 +428,26 @@
             transition: all 0.25s;
             text-align: center;
         }
+
         .feature-card:hover {
             box-shadow: var(--shadow-md);
             border-color: var(--sky-light);
             transform: translateY(-4px);
         }
+
         .feature-icon {
-            width: 52px; height: 52px;
+            width: 52px;
+            height: 52px;
             background: linear-gradient(135deg, var(--sky-pale), var(--sky-light));
             border-radius: 16px;
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1.5rem;
             margin: 0 auto 14px;
             border: 1.5px solid var(--sky-light);
         }
+
         .feature-card h4 {
             font-family: 'Nunito', sans-serif;
             font-weight: 800;
@@ -384,6 +455,7 @@
             font-size: 0.95rem;
             margin-bottom: 8px;
         }
+
         .feature-card p {
             color: var(--muted);
             font-size: 0.8rem;
@@ -401,30 +473,72 @@
             position: relative;
             z-index: 1;
         }
-        .footer a { color: var(--sky-light); text-decoration: none; }
-        .footer a:hover { color: white; }
+
+        .footer a {
+            color: var(--sky-light);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: white;
+        }
 
         /* ── Animations ── */
         @keyframes fadeDown {
-            from { opacity: 0; transform: translateY(-16px); }
-            to   { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to   { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* ── Responsive ── */
         @media (max-width: 640px) {
-            .hero { padding: 40px 16px 32px; }
-            .stats-bar { gap: 24px; padding: 16px 24px; }
-            .group-section { padding: 20px 16px; }
-            .group-tag { display: none; }
-            .country-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; }
-            .features-grid { grid-template-columns: 1fr 1fr; }
+            .hero {
+                padding: 40px 16px 32px;
+            }
+
+            .stats-bar {
+                gap: 24px;
+                padding: 16px 24px;
+            }
+
+            .group-section {
+                padding: 20px 16px;
+            }
+
+            .group-tag {
+                display: none;
+            }
+
+            .country-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                gap: 10px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Header -->
@@ -471,7 +585,8 @@
                 <div class="group-icon">📄</div>
                 <div class="group-info">
                     <div class="group-title">Group A — ATS-Friendly Format</div>
-                    <div class="group-desc">No photo required · ATS-optimized · Education & Research focus · 1–2 pages</div>
+                    <div class="group-desc">No photo required · ATS-optimized · Education & Research focus · 1–2 pages
+                    </div>
                 </div>
                 <div class="group-tag">🇺🇸 🇨🇦 🇦🇺 🇮🇪</div>
             </div>
@@ -494,7 +609,8 @@
                 <div class="group-icon">📸</div>
                 <div class="group-info">
                     <div class="group-title">Group B — Photo + Personal Details</div>
-                    <div class="group-desc">Photo required · DOB, Nationality, Marital Status · Formal Lebenslauf style</div>
+                    <div class="group-desc">Photo required · DOB, Nationality, Marital Status · Formal Lebenslauf style
+                    </div>
                 </div>
                 <div class="group-tag">🇩🇪 🇦🇹 🇹🇷</div>
             </div>
@@ -517,7 +633,8 @@
                 <div class="group-icon">🛂</div>
                 <div class="group-info">
                     <div class="group-title">Group C — Passport & Visa Details</div>
-                    <div class="group-desc">Photo + Passport number · Nationality & Visa status · CSC format for China</div>
+                    <div class="group-desc">Photo + Passport number · Nationality & Visa status · CSC format for China
+                    </div>
                 </div>
                 <div class="group-tag">🇨🇳 🇦🇪 🇯🇵</div>
             </div>
@@ -595,4 +712,5 @@
     </footer>
 
 </body>
+
 </html>
