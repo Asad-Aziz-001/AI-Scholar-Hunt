@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
     <title>{{ country.name }} CV Builder - Scholarship Application</title>
     <style>
         * {
@@ -31,7 +33,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .header-title h1 {
@@ -49,7 +51,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             color: white;
             padding: 10px 20px;
             border-radius: 10px;
@@ -59,7 +61,7 @@
         }
 
         .back-btn:hover {
-            background: rgba(255,255,255,0.3);
+            background: rgba(255, 255, 255, 0.3);
             transform: translateX(-3px);
         }
 
@@ -75,14 +77,21 @@
             background: white;
             border-radius: 20px;
             padding: 35px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             animation: fadeIn 0.4s ease;
             border: 1px solid #e0e8f0;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .form-header {
@@ -173,7 +182,7 @@
         .form-group select:focus {
             outline: none;
             border-color: #1e88e5;
-            box-shadow: 0 0 0 3px rgba(30,136,229,0.1);
+            box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.1);
         }
 
         .form-group textarea {
@@ -255,7 +264,7 @@
         .btn-pdf:hover {
             background: #c82333;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(220,53,69,0.3);
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
         }
 
         .btn-doc {
@@ -266,7 +275,7 @@
         .btn-doc:hover {
             background: #218838;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(40,167,69,0.3);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
         }
 
         .btn-reset {
@@ -300,8 +309,13 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .info-note {
@@ -362,6 +376,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Main Header -->
     <header class="main-header">
@@ -379,7 +394,8 @@
             <div class="form-header">
                 <h2><span>{{ country.flag }}</span> {{ country.name }} Scholarship CV</h2>
                 <p>{{ template_config.description }}</p>
-                <span class="template-badge">📋 {{ template_config.name }} Template | Max {{ template_config.max_pages }} pages</span>
+                <span class="template-badge">📋 {{ template_config.name }} Template | Max {{ template_config.max_pages
+                    }} pages</span>
             </div>
 
             <form id="cvForm">
@@ -453,7 +469,7 @@
 
             if (file) {
                 const reader = new FileReader();
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     storedPhotoData = e.target.result;
                     if (previewImg) {
                         previewImg.src = storedPhotoData;
@@ -1002,4 +1018,5 @@
         loadForm();
     </script>
 </body>
+
 </html>
