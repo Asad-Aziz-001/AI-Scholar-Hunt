@@ -455,13 +455,13 @@ Pillow==10.0.0
 
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=1000&color=0EA5E9&width=500&lines=Final+Year+Project+2026;Department+of+Artificial+Intelligence;Built+with+❤️+by+the+team" alt="Authors" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=1000&color=0EA5E9&width=500&lines=Final+Year+Project+2026;Department+of+Artificial+Intelligence;Built+with+❤️+by+the+team" alt="Authors"/>
 
 <br/>
 
 ### 🧑‍💻 Asad Aziz
 
-[![GitHub](https://img.shields.io/badge/GitHub-asadaziz-181717?style=for-the-badge&logo=github&logoColor=white)](github.com/Asad-Aziz-001)
+[![GitHub](https://img.shields.io/badge/GitHub-asadaziz-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Asad-Aziz-001)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-asadaziz-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/asad-aziz-ai)
 
 
@@ -484,7 +484,7 @@ Pillow==10.0.0
 |---|---|
 | **Project Type** | Final Year Project (FYP) |
 | **Year** | 2026 |
-| **Domain** | AI + Web Development |
+| **Domain** | Gen AI |
 | **Focus** | EdTech — Scholarship Discovery for Pakistani Students |
 | **AI Techniques** | LLM · RAG · Prompt Engineering |
 | **External API** | ❌ None Required |
