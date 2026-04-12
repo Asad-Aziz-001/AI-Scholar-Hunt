@@ -1,0 +1,43 @@
+{
+  "scholarship_name": "Abertay University Scholarship 2026-2027",
+  "level_of_study": ["Master's", "PhD"],
+  "institution": "Abertay University",
+  "study_in": "Austria",
+  "courses_offered": ["All Postgraduate Programs offered by the university"],
+  "program_period": {
+    "Master's": "Standard program duration",
+    "PhD": "Standard program duration"
+  },
+  "deadline": "Multiple: Nov 30 / Dec 15 (Feb intake), Mar 31 / Apr 30 (June intake), Jul 31 / Aug 31 (Oct intake)",
+  "coverage": {
+    "tuition": "Partial funding (£3,000 total award)",
+    "registration_fees": "Not specified",
+    "living_expenses": "Not covered",
+    "other_benefits": [
+      "£3,000 award paid in two instalments (January and April)"
+    ]
+  },
+  "eligibility": {
+    "language_requirement": "English (proof required if not native)",
+    "eligible_countries": "All countries",
+    "academic_requirement": {
+      "Bachelor": "Equivalent to UK 2:1 degree or above"
+    },
+    "additional_conditions": [
+      "Must be enrolled as a full-time postgraduate student",
+      "Must be an international (overseas fee) student",
+      "Must not already hold a UK postgraduate degree",
+      "Must meet all admission conditions",
+      "Not available to current postgraduate students or Abertay alumni"
+    ]
+  },
+  "required_documents": [
+    "Admission application",
+    "Academic transcripts",
+    "English language certificate",
+    "Supporting documents as required by university"
+  ],
+  "apply_link": "https://www.abertay.ac.uk/study-apply/money-fees-and-funding/scholarships/abertay-international-scholarship/",
+  "official_website": "https://www.abertay.ac.uk/study-apply/money-fees-and-funding/scholarships/abertay-international-scholarship/",
+  "notes": "Partial scholarship for international postgraduate students with fixed £3,000 award. Automatically considered after admission."
+}
