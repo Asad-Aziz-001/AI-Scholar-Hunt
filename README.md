@@ -35,6 +35,8 @@
 
 <br/>
 
+[![Add](https://img.shields.io/badge/Add-0EA5E9?style=for-the-badge&logo=googlechrome&logoColor=white)](https://ai-scholar-hunt.vly.site/)
+
 ---
 
 </div>
