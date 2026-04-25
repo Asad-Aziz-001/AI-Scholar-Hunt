@@ -25,6 +25,9 @@
   <img src="https://img.shields.io/badge/Flask--Mail-Email_Service-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/>
   <img src="https://img.shields.io/badge/Final_Year-Project_2026-0369A1?style=for-the-badge&logo=bookstack&logoColor=white"/>
   <img src="https://img.shields.io/badge/Made_in-Pakistan_🇵🇰-14B8A6?style=for-the-badge"/>
+  
+![Profile Views](https://komarev.com/ghpvc/?username=Asad-Aziz-001&color=3b82f6&style=for-the-badge&label=PROFILE+VIEWS)
+
 </p>
 
 <br/>
@@ -35,8 +38,9 @@
 
 <br/>
 
-[![Add](https://img.shields.io/badge/Add-0EA5E9?style=for-the-badge&logo=googlechrome&logoColor=white)](https://ai-scholar-hunt.vly.site/)
+[![Vedio-Add](https://img.shields.io/badge/Add-0EA5E9?style=for-the-badge&logo=googlechrome&logoColor=white)](https://ai-scholar-hunt.vly.site/)
 
+> [![AI-Scholar-Hunt](https://img.shields.io/badge/🌐_AI-Scholar_Hunt-3b82f6?style=for-the-badge)](https://asad-aziz-ai-scholar-hunt.hf.space/)
 ---
 
 </div>
