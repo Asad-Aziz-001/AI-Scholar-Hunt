@@ -4,7 +4,7 @@
 
 <br/>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Syne&weight=700&size=22&pause=1000&color=3B82F6&center=true&vCenter=true&width=600&lines=AI+Scholar+Hunt;Intelligent+Scholarship+Platform;LLM+%2B+RAG+%2B+Prompt+Engineering;Built+for+Pakistani+Students)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Syne&weight=700&size=22&pause=1000&color=3B82F6&center=true&vCenter=true&width=600&lines=AI+Scholar+Hunt;Intelligent+Scholarship+Platform;LLM+%2B+RAG+%2B+Prompt+Engineering;Built+for+Pakistani+Students)](https://asad-aziz-ai-scholar-hunt.hf.space/)
 
 <br/>
 
