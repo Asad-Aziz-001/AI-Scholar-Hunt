@@ -1,8 +1,10 @@
 <div align="center">
 
-<p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=36&pause=1000&color=0EA5E9&center=true&vCenter=true&width=700&lines=AI+Scholar+Hunt;Intelligent+Scholarship+Platform;LLM+%2B+RAG+%2B+Prompt+Engineering;Built+for+Pakistani+Students" alt="Typing SVG" />
-</p>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=3b82f6&height=200&section=header&text=Asad%20Aziz&fontSize=60&fontColor=ffffff&fontAlignY=38&desc=AI%20Engineer%20%E2%80%94%20Building%20Systems%20That%20Actually%20Work&descAlignY=58&descSize=16&descColor=93c5fd" width="100%"/>
+
+<br/>
+
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Syne&weight=700&size=22&pause=1000&color=3B82F6&center=true&vCenter=true&width=600&lines=AI+Scholar+Hunt;Intelligent+Scholarship+Platform;LLM+%2B+RAG+%2B+Prompt+Engineering;Built+for+Pakistani+Students)](https://git.io/typing-svg)
 
 <br/>
 
