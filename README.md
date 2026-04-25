@@ -204,54 +204,51 @@ User Query: "DAAD deadline Germany masters"
 ```
 AI-Scholar-Hunt/
 │
-├── 📁 auth/                        # Authentication blueprint
-│   ├── __init__.py
-│   └── routes.py                   # /login, /signup, /forgot-password, /reset-password
+├── 🚀 app.py                          # Main Flask Application
+├── 🤖 chatbot.py                      # AI Chatbot Core Logic
+├── 📊 comparison.py                   # Scholarship Comparison Tool
+├── 💰 cost_estimator.py              # Application Cost Estimator
+├── 📅 timeline_visualizer.py         # Timeline Generator
+├── 📋 checklist_generator.py         # Document Checklist
+├── 👤 mentor.py                       # AI Scholarship Mentor
+├── 🧠 models.py                       # Database Models (SQLAlchemy)
+├── 📧 email_service.py               # Email Service for Password Reset
+├── 🔧 utils.py                        # Utility Functions
+├── 🗄️ database/                       # SQLite Database
+│   └── scholarhunt.db
 │
-├── 📁 blueprints/                  # Feature blueprints
-│   └── cv.py                       # Multi-country CV builder (14 countries, PDF+DOCX)
+├── 📁 scholarships/                   # 51 Scholarship Files
+│   ├── abertay_university.txt
+│   ├── bilkent_university.txt
+│   ├── daad_scholarship.txt
+│   └── ... (48 more files)
 │
-├── 📁 cv_templates/                # Country-specific CV generation logic
-│   ├── usa.py                      # ATS-friendly (USA, Canada, Australia, Ireland)
-│   ├── germany.py                  # Photo + Personal Details (Germany, Austria, Turkey)
-│   ├── uae.py                      # Passport/Visa format (UAE, China, Japan)
-│   └── china.py                    # CSC format
+├── 📁 templates/                      # HTML Templates
+│   ├── dashboard.html                # Main Dashboard
+│   ├── login.html                    # Login Page
+│   ├── signup.html                   # Registration Page
+│   ├── chatbot.html                  # Chatbot Interface
+│   ├── comparison.html               # Compare Scholarships Page
+│   ├── cost_estimator.html           # Cost Estimator UI
+│   ├── timeline_visualizer.html      # Timeline UI
+│   ├── checklist_generator.html      # Document Checklist UI
+│   ├── mentor.html                   # AI Mentor Page
+│   ├── profile.html                  # User Profile Page
+│   ├── tracker.html                  # Application Tracker
+│   ├── cv_builder.html               # CV Builder Landing
+│   └── cv_form.html                  # CV Builder Form
 │
-├── 📁 scholarships/                # 📚 RAG Knowledge Base
-│   └── *.txt                       # 51+ scholarship files in JSON format
+├── 📁 auth/                           # Authentication Blueprint
+│   └── routes.py                     # Login/Signup Routes
 │
-├── 📁 user_profile/                # Profile management blueprints
-│   ├── routes.py                   # /profile, /edit-profile
-│   ├── preferences.py              # Theme, language preferences
-│   └── security.py                 # Password change
+├── 📁 user_profile/                   # User Profile Blueprint
+│   └── routes.py                     # Profile Routes
 │
-├── 📁 templates/                   # Jinja2 HTML templates
-│   ├── index.html                  # Landing page
-│   ├── dashboard.html              # User dashboard
-│   ├── chat.html                   # AI Chatbot UI
-│   ├── cv-builder.html             # CV Builder country selection
-│   ├── cv_form.html                # CV form (per country)
-│   ├── ats.html                    # ATS CV Checker
-│   ├── essay.html                  # Essay Writing Assistant
-│   ├── eligibility.html            # Eligibility Checker
-│   ├── search.html                 # Scholarship Search
-│   ├── scholarships.html           # Scholarship listing
-│   ├── profile.html                # User profile view
-│   ├── edit_profile.html           # Edit profile
-│   ├── login.html                  # Login page
-│   ├── signup.html                 # Signup page
-│   ├── 404.html                    # Error pages
-│   └── 500.html
+├── 📁 blueprints/                     # Additional Blueprints
+│   └── cv.py                         # CV Builder Routes
 │
-├── 📁 static/                      # CSS, JS, images, fonts
-│
-├── 🚀 app.py                       # Main Flask application entry point
-├── 🤖 chatbot.py                   # RAG engine — load, search, respond
-├── 🗄️ models.py                    # SQLAlchemy User model
-├── ⚙️ config.py                    # App configuration (DB, Mail, Secret)
-├── 📧 email_service.py             # Email sending with SMTP fallback
-├── 📦 requirements.txt             # Python dependencies
-└── 📖 README.md
+├── ⚙️ config.py                       # Configuration Settings
+└── 📦 requirements.txt                # Python Dependencies
 ```
 
 ---
