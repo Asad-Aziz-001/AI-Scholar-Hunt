@@ -1,16 +1,29 @@
 # ==============================================================
 #                       AI Scholar Hunt
 #                    Main Application File
-#
-#  This is the ONLY entry point for the Flask app.
-#  Do NOT create Flask() in any other file (chatbot, ats, etc.)
 # ==============================================================
 
-from flask import Flask, jsonify, render_template, request, redirect, url_for
+import traceback
+from flask import Flask, json, jsonify, render_template, request, redirect, url_for
+from mats import calculate_ats
 from flask_login import LoginManager, login_required, current_user, logout_user
 from flask_mail import Mail
 from flask_cors import CORS
 from itsdangerous import URLSafeTimedSerializer
+
+from comparison import get_all_scholarship_names, get_scholarship_details  # Import functions
+from cost_estimator import load_all_scholarships_cost
+
+from timeline_visualizer import load_all_scholarships_timeline
+
+# Add these imports for the new features
+from scholarship_tracker import load_all_scholarships_tracker
+from deadline_calendar import load_all_scholarships_for_calendar
+from checklist_generator import load_all_scholarships_for_checklist
+
+# Eassy analysis and plagiarism detection imports
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 # ==============================================================
 #   App Creation — Must happen FIRST before any blueprint import
@@ -25,6 +38,8 @@ CORS(app, supports_credentials=True, origins="*")
 # ==============================================================
 #   Extensions Initialization
 # ==============================================================
+from comparison import get_all_scholarship_names, get_all_scholarship_names, get_scholarship_details
+from comparison import get_scholarship_details
 from models import db, User
 
 db.init_app(app)          # SQLAlchemy database
@@ -58,14 +73,14 @@ from user_profile.preferences import preferences_bp # Theme settings
 from user_profile.security import security_bp       # Password change
 from user_profile.routes import profile_bp          # Profile view & update
 from blueprints.cv import cv_bp                    # CV Builder
+from essay import essay_bp
 
 app.register_blueprint(auth_bp)
 app.register_blueprint(preferences_bp)
 app.register_blueprint(security_bp)
 app.register_blueprint(profile_bp)
 app.register_blueprint(cv_bp, url_prefix='/cv-builder')
-
-
+app.register_blueprint(essay_bp)
 # ==============================================================
 #   Flask-Login: User Loader
 # ==============================================================
@@ -263,41 +278,239 @@ def analyze_resume():
 # ==============================================================
 #   Chatbot Routes
 # ==============================================================
+from chatbot import get_response, search_scholarships, load_scholarships
+scholarships = load_scholarships()
+
 @app.route('/chatbot')
 @login_required
 def chatbot_page():
     """Chatbot UI page."""
     return render_template('chat.html')
 
-
 @app.route('/chat', methods=['POST'])
 def chat():
-    """Handle chatbot messages from frontend."""
     user_message = request.json.get('message', '').strip()
     if not user_message:
         return jsonify({"reply": "👋 Hello! Please ask me about any scholarship!"})
     matched = search_scholarships(user_message)
-    reply = get_response(user_message, matched)
+    reply   = get_response(user_message, matched)
     return jsonify({"reply": reply})
-
-
+ 
+ 
 @app.route('/list_all', methods=['GET'])
 def list_all_scholarships():
-    """List all loaded scholarships (for testing/debug)."""
     if not scholarships:
         return jsonify({"message": "No scholarships loaded", "count": 0, "scholarships": []})
     data = [
         {
-            "name": s.get('scholarship_name', 'Unknown'),
-            "country": s.get('study_in', 'Not specified'),
-            "institution": s.get('institution', 'Not specified'),
-            "level": s.get('level_of_study', [])
+            "name"       : s.get('name', 'Unknown'),
+            "filename"   : s.get('filename', ''),
         }
         for s in scholarships
     ]
     return jsonify({"count": len(scholarships), "scholarships": data})
 
+# ==============================================================
+#   comparison page and API
+# ==============================================================
 
+@app.route('/comparison')
+def comparison_page():
+    """Render comparison page with heatmap"""
+    scholarship_names = get_all_scholarship_names()
+    return render_template('comparison.html', scholarships=scholarship_names)
+
+# Add this API endpoint
+@app.route('/api/scholarship/<scholarship_name>')
+def get_scholarship_api(scholarship_name):
+    """API endpoint to get scholarship details for comparison"""
+    details = get_scholarship_details(scholarship_name)
+    if details:
+        return jsonify({"success": True, "data": details})
+    else:
+        return jsonify({"success": False, "error": "Scholarship not found"}), 404
+
+# ==============================================================
+#   Cost Estimator page and Timeline Visualizer page routes
+# ==============================================================
+@app.route('/cost-estimator')
+def cost_estimator_page():
+    """Render cost estimator page"""
+    scholarships = load_all_scholarships_cost()
+    return render_template('cost_estimator.html', scholarships=scholarships)
+
+
+# ============ NEW ROUTE 2: Timeline Visualizer ============
+@app.route('/timeline-visualizer')
+def timeline_visualizer_page():
+    """Render timeline visualizer page"""
+    scholarships = load_all_scholarships_timeline()
+    return render_template('timeline_visualizer.html', scholarships=scholarships)
+
+# ============ NEW ROUTE 3: Scholarship Tracker ============
+# Add this import
+from scholarship_tracker import load_all_scholarships_tracker
+
+# Add this route
+@app.route('/tracker')
+def tracker_page():
+    """Scholarship application tracker with Kanban board"""
+    scholarships = load_all_scholarships_tracker()
+    return render_template('tracker.html', scholarships=scholarships)
+
+# ============ NEW ROUTE 4: Deadline Calendar ============
+
+@app.route('/deadline-calendar')
+def deadline_calendar():
+    scholarships = load_all_scholarships_for_calendar()
+    return render_template('deadline_calendar.html', scholarships=scholarships)
+
+# ============ NEW ROUTE 5: Checklist Generator ============
+
+@app.route('/checklist-generator')
+def checklist_generator():
+    scholarships = load_all_scholarships_for_checklist()
+    
+    # Convert to JSON string manually
+    scholarships_list = []
+    for s in scholarships:
+        scholarships_list.append({
+            'name': s.get('name', ''),
+            'documents': s.get('documents', []),
+            'deadline': s.get('deadline', 'Not specified'),
+            'apply_link': s.get('apply_link', '#')
+        })
+    
+    scholarships_json = json.dumps(scholarships_list, ensure_ascii=False)
+    print(f"DEBUG: JSON length: {len(scholarships_json)}")  # Debug
+    
+    return render_template('checklist_generator.html', 
+                         scholarships=scholarships, 
+                         scholarships_json=scholarships_json)
+
+# ==============================================================
+#   Helper Functions for Deadline Calendar & Checklist Generator
+# ==============================================================
+
+@app.route('/api/scholarship-documents')
+def api_scholarship_documents():
+    """API endpoint to get scholarship documents"""
+    name = request.args.get('name', '')
+    
+    # Find the scholarship
+    scholarships = load_all_scholarships_for_checklist()
+    for s in scholarships:
+        if s['name'] == name:
+            return jsonify({
+                'success': True,
+                'documents': s['documents'],
+                'deadline': s['deadline'],
+                'apply_link': s['apply_link']
+            })
+    
+    return jsonify({'success': False, 'error': 'Not found'})
+
+# ==============================================================
+@app.route('/api/scholarship-deadline')
+def api_scholarship_deadline():
+    """API endpoint to get scholarship deadline and country"""
+    name = request.args.get('name', '')
+    
+    scholarships = load_all_scholarships_for_calendar()
+    for s in scholarships:
+        if s['name'] == name:
+            return jsonify({
+                'success': True,
+                'deadline': s.get('deadline', 'Not specified'),
+                'country': s.get('country', 'Not specified'),
+                'apply_link': s.get('apply_link', '#')
+            })
+    
+    return jsonify({'success': False, 'error': 'Not found'}), 404
+# ==============================================================
+#   API Endpoints for Checklist Generator
+# ==============================================================
+
+@app.route('/api/scholarship-docs')
+def api_scholarship_docs():
+    """API endpoint to get scholarship documents"""
+    name = request.args.get('name', '')
+    
+    print(f"API called for: {name}")  # Debug print
+    
+    scholarships = load_all_scholarships_for_checklist()
+    for s in scholarships:
+        if s['name'] == name:
+            return jsonify({
+                'success': True,
+                'documents': s['documents'],
+                'deadline': s['deadline'],
+                'apply_link': s['apply_link']
+            })
+    
+    return jsonify({'success': False, 'error': 'Not found'}), 404
+
+
+# ==============================================================
+#   Mentor Page and API
+# ==============================================================
+from mentor import get_mentor_recommendations
+
+@app.route('/mentor')
+def mentor_page():
+    """AI Mentor page"""
+    return render_template('mentor.html')
+
+@app.route('/api/mentor-analyze', methods=['POST'])
+def api_mentor_analyze():
+    """API endpoint for mentor analysis"""
+    try:
+        data = request.get_json()
+        cgpa = data.get('cgpa', 0)
+        ielts = data.get('ielts', 0)
+        degree = data.get('degree', 'Master')
+        budget = data.get('budget', 'medium')
+        country_pref = data.get('country_pref', '')
+        
+        recommendations = get_mentor_recommendations(cgpa, ielts, degree, budget, country_pref)
+        
+        return jsonify({
+            'success': True,
+            'profile_score': recommendations['profile_score'],
+            'country_scores': recommendations['country_scores'],
+            'scholarships': recommendations['scholarships'],
+            'action_plan': recommendations['action_plan'],
+            'weaknesses': recommendations['weaknesses']
+        })
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({'success': False, 'error': str(e)}), 500
+    
+
+# ==============================================================
+#  Calculating ATS Score
+# ==============================================================
+@app.route('/analyze', methods=['POST'])
+def analyze():
+    try:
+        data = request.get_json()
+        resume_text = data.get('resume_text', '')
+        job_description = data.get('job_description', '')
+        
+        if not resume_text:
+            return jsonify({'error': 'Resume text is required'}), 400
+        
+        result = calculate_ats(resume_text, job_description)
+        return jsonify(result)
+        
+    except Exception as e:
+        print("Error:", traceback.format_exc())
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/health', methods=['GET'])
+def health():
+    return jsonify({'status': 'ok', 'message': 'ATS API is running'})
+ 
 # ==============================================================
 #   Error Handlers
 # ==============================================================
@@ -309,6 +522,7 @@ def page_not_found(e):
 @app.errorhandler(500)
 def internal_server_error(e):
     return render_template('500.html'), 500
+
 
 
 # ==============================================================
