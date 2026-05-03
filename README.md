@@ -302,39 +302,6 @@ A complete user management system with registration, secure login, profile editi
 ### 🏠 Landing Page
 ![Landing Page](screenshots/home.png)
 
-### 🤖 AI Chatbot Interface
-![Chatbot](screenshots/chatbot.png)
-
-### ✅ Eligibility Checker
-![Eligibility](screenshots/eligibility.png)
-
-### 💪 Application Strength Analyzer
-![Strength Analyzer](screenshots/strength_analyzer.png)
-
-### 📊 Scholarship Comparison
-![Comparison](screenshots/comparison.png)
-
-### 📅 Timeline Visualizer
-![Timeline](screenshots/timeline.png)
-
-### 💰 Cost Estimator
-![Cost Estimator](screenshots/cost_estimator.png)
-
-### 📋 Document Checklist
-![Checklist](screenshots/checklist.png)
-
-### 🧑‍🏫 AI Mentor
-![Mentor](screenshots/mentor.png)
-
-### 📌 Application Tracker
-![Tracker](screenshots/tracker.png)
-
-### 🌍 CV Builder
-![CV Builder](screenshots/cv_builder.png)
-
-### 👤 User Profile
-![Profile](screenshots/profile.png)
-
 </div>
 
 ---
