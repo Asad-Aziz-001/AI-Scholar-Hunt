@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
-    <title>{{ country.name }} CV Builder - Scholarship Application</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+    <title>{{ country.name }} CV Builder - AI Scholar Hunt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -15,165 +16,196 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #e8f4f8 0%, #d1e9f0 100%);
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             min-height: 100vh;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
         }
 
-        /* Main Header */
-        .main-header {
-            background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
-            color: white;
-            padding: 20px 30px;
+        /* ========== HEADER ========== */
+        header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+            height: 72px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            justify-content: space-between;
         }
 
-        .header-title h1 {
-            font-size: 1.5rem;
-            font-weight: 600;
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
         }
 
-        .header-title p {
-            font-size: 0.8rem;
-            opacity: 0.9;
-            margin-top: 5px;
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
         }
+
+        .logo-icon i { color: white; font-size: 20px; }
+
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-title { font-size: 18px; font-weight: 700; color: #1e3a8a; line-height: 1.2; }
+        .logo-sub { font-size: 10px; color: #3b82f6; letter-spacing: 0.5px; }
+
+        nav { display: flex; align-items: center; gap: 4px; }
+
+        nav a {
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            color: #64748b;
+            padding: 8px 16px;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover { color: #3b82f6; background: #eff6ff; }
+        nav a.active { color: #1e40af; background: #dbeafe; }
 
         .back-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 10px 20px;
+            background: rgba(59, 130, 246, 0.1);
+            color: #1e40af;
+            padding: 8px 18px;
             border-radius: 10px;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
 
         .back-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(59, 130, 246, 0.2);
             transform: translateX(-3px);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 40px 24px 20px;
+        }
+
+        .hero-section h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+
+        .hero-section p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .hero-section .flag {
+            font-size: 2rem;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .template-badge {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-top: 12px;
+            font-weight: 500;
         }
 
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 30px 20px;
-            flex: 1;
+            padding: 20px 32px 60px;
         }
 
         /* CV Form Container */
         .cv-form-container {
-            background: white;
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 28px;
             padding: 35px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            animation: fadeIn 0.4s ease;
-            border: 1px solid #e0e8f0;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .form-header {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #e0e8f0;
-            text-align: center;
-        }
-
-        .form-header h2 {
-            color: #1e88e5;
-            font-size: 1.8rem;
-            margin-bottom: 8px;
-        }
-
-        .form-header h2 span {
-            font-size: 2rem;
-        }
-
-        .form-header p {
-            color: #6c7a8a;
-            font-size: 0.9rem;
-        }
-
-        .template-badge {
-            display: inline-block;
-            background: #e3f2fd;
-            color: #1e88e5;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-top: 10px;
-            font-weight: 500;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            box-shadow: 0 20px 40px rgba(30, 64, 175, 0.08);
+            transition: all 0.3s ease;
         }
 
         .form-section {
-            margin-bottom: 25px;
+            margin-bottom: 28px;
             padding: 20px;
-            background: #f8fcff;
-            border-radius: 12px;
-            border-left: 4px solid #1e88e5;
-            border: 1px solid #e8f0f5;
+            background: rgba(248, 250, 252, 0.8);
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
         }
 
         .form-section h3 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+            color: #1e3a8a;
+            margin-bottom: 16px;
+            font-size: 1rem;
+            font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+        }
+
+        .form-section h3 i {
+            color: #3b82f6;
         }
 
         .form-row {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
-            margin-bottom: 15px;
+            gap: 16px;
+            margin-bottom: 16px;
         }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 6px;
-            color: #4a627a;
+            color: #475569;
             font-weight: 500;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+        }
+
+        .required::after {
+            content: " *";
+            color: #dc2626;
         }
 
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #d0dde5;
-            border-radius: 8px;
+            padding: 12px 14px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 12px;
             font-size: 0.9rem;
-            font-family: inherit;
-            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s ease;
             background: white;
         }
 
@@ -181,29 +213,19 @@
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
-            border-color: #1e88e5;
-            box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
-
-        .required::after {
-            content: " *";
-            color: #dc3545;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
 
         .help-text {
             font-size: 0.7rem;
-            color: #8a9bb0;
+            color: #94a3b8;
             margin-top: 4px;
         }
 
-        /* Photo Preview Styles */
+        /* Photo Preview */
         .photo-preview {
-            margin-top: 10px;
+            margin-top: 12px;
             display: none;
         }
 
@@ -214,84 +236,98 @@
         .photo-preview img {
             max-width: 100px;
             max-height: 120px;
-            border: 2px solid #1e88e5;
-            border-radius: 8px;
-            padding: 3px;
+            border: 2px solid #3b82f6;
+            border-radius: 12px;
+            padding: 4px;
             background: white;
         }
 
         .remove-photo {
-            background: #dc3545;
+            background: #ef4444;
             color: white;
             border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
+            padding: 5px 12px;
+            border-radius: 8px;
             font-size: 0.7rem;
             cursor: pointer;
-            margin-top: 5px;
+            margin-top: 8px;
+            transition: all 0.2s;
         }
 
         .remove-photo:hover {
-            background: #c82333;
+            background: #dc2626;
         }
 
+        /* Button Group */
         .button-group {
             display: flex;
-            gap: 15px;
+            gap: 16px;
             margin-top: 30px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 12px 30px;
+            padding: 12px 28px;
             border: none;
-            border-radius: 10px;
-            font-size: 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-weight: 600;
             display: inline-flex;
             align-items: center;
             gap: 8px;
         }
 
         .btn-pdf {
-            background: #dc3545;
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
             color: white;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
         }
 
         .btn-pdf:hover {
-            background: #c82333;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.4);
         }
 
         .btn-doc {
-            background: #28a745;
+            background: linear-gradient(135deg, #16a34a, #15803d);
             color: white;
+            box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
         }
 
         .btn-doc:hover {
-            background: #218838;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+            box-shadow: 0 8px 20px rgba(22, 163, 74, 0.4);
         }
 
         .btn-reset {
-            background: #6c757d;
+            background: linear-gradient(135deg, #64748b, #475569);
             color: white;
+            box-shadow: 0 4px 12px rgba(100, 116, 139, 0.3);
         }
 
         .btn-reset:hover {
-            background: #5a6268;
+            transform: translateY(-2px);
         }
 
+        /* Info Note */
+        .info-note {
+            background: #fef3c7;
+            border: 1px solid #fde68a;
+            border-radius: 16px;
+            padding: 14px 18px;
+            margin-top: 24px;
+            font-size: 0.8rem;
+            color: #92400e;
+        }
+
+        /* Loading */
         .loading {
             display: none;
             text-align: center;
-            margin-top: 20px;
-            padding: 20px;
+            padding: 40px;
         }
 
         .loading.active {
@@ -299,8 +335,8 @@
         }
 
         .spinner {
-            border: 4px solid #e0e8f0;
-            border-top: 4px solid #1e88e5;
+            border: 4px solid #e2e8f0;
+            border-top: 4px solid #3b82f6;
             border-radius: 50%;
             width: 40px;
             height: 40px;
@@ -309,714 +345,385 @@
         }
 
         @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
-        .info-note {
-            background: #fff8e1;
-            border: 1px solid #ffc107;
-            border-radius: 10px;
-            padding: 12px 15px;
-            margin-top: 20px;
-            font-size: 0.85rem;
-            color: #856404;
-        }
-
-        /* Main Footer */
-        .main-footer {
-            background: #1a237e;
-            color: #b0bec5;
+        /* Footer */
+        footer {
+            background: rgba(30, 58, 138, 0.95);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
             text-align: center;
-            padding: 20px;
-            margin-top: 30px;
-            font-size: 0.8rem;
+            padding: 32px 20px;
+            margin-top: 50px;
         }
 
-        .main-footer p {
-            margin: 5px 0;
+        footer p {
+            color: #93c5fd;
+            font-size: 0.85rem;
+            line-height: 1.6;
         }
 
         @media (max-width: 768px) {
-            .main-header {
-                flex-direction: column;
-                text-align: center;
-                padding: 15px;
+            .header-inner {
+                padding: 0 16px;
             }
-
+            nav {
+                display: none;
+            }
+            .hero-section h1 {
+                font-size: 1.5rem;
+            }
             .cv-form-container {
                 padding: 20px;
             }
-
-            .form-header h2 {
-                font-size: 1.4rem;
-            }
-
             .button-group {
                 flex-direction: column;
             }
-
             .btn {
                 width: 100%;
                 justify-content: center;
             }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .form-section {
-                padding: 15px;
-            }
         }
     </style>
 </head>
-
 <body>
-    <!-- Main Header -->
-    <header class="main-header">
-        <div class="header-title">
-            <h1>🌍 Scholarship CV Builder</h1>
-            <p>Create your professional CV for international scholarships</p>
-        </div>
-        <a href="{{ url_for('cv.cv_index') }}" class="back-btn" target="_parent">
-            ← Back to Country Selection
-        </a>
-    </header>
 
-    <div class="container">
-        <div class="cv-form-container">
-            <div class="form-header">
-                <h2><span>{{ country.flag }}</span> {{ country.name }} Scholarship CV</h2>
-                <p>{{ template_config.description }}</p>
-                <span class="template-badge">📋 {{ template_config.name }} Template | Max {{ template_config.max_pages
-                    }} pages</span>
+<!-- Header -->
+<header>
+    <div class="header-inner">
+        <a href="/" class="logo">
+            <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="logo-text">
+                <span class="logo-title">AI Scholar Hunt</span>
+                <span class="logo-sub">Pakistan's Smart Scholarship Platform</span>
             </div>
+        </a>
+        <nav>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/ats">Ats Checker</a>
+            <a href="/essay">Writing Essay</a>
+            <a href="/cv-builder" class="active">📄 CV Builder</a>
+        </nav>
+    </div>
+</header>
 
-            <form id="cvForm">
-                <div id="dynamicFields"></div>
+<!-- Hero Section -->
+<div class="hero-section">
+    <span class="flag">{{ country.flag }}</span>
+    <h1>{{ country.name }} Scholarship CV</h1>
+    <p>{{ template_config.description }}</p>
+    <span class="template-badge"><i class="fas fa-file-alt"></i> {{ template_config.name }} Template | Max {{ template_config.max_pages }} pages</span>
+</div>
 
-                <div class="button-group">
-                    <button type="button" class="btn btn-pdf" onclick="generateCV('pdf')">📄 Download as PDF</button>
-                    <button type="button" class="btn btn-doc" onclick="generateCV('doc')">📝 Download as DOC</button>
-                    <button type="button" class="btn btn-reset" onclick="resetForm()">🔄 Reset Form</button>
-                </div>
-            </form>
+<div class="container">
+    <div class="cv-form-container">
+        <form id="cvForm">
+            <div id="dynamicFields"></div>
 
-            <div class="info-note" id="infoNote"></div>
-        </div>
+            <div class="button-group">
+                <button type="button" class="btn btn-pdf" onclick="generateCV('pdf')"><i class="fas fa-file-pdf"></i> Download as PDF</button>
+                <button type="button" class="btn btn-doc" onclick="generateCV('doc')"><i class="fas fa-file-word"></i> Download as DOC</button>
+                <button type="button" class="btn btn-reset" onclick="resetForm()"><i class="fas fa-undo-alt"></i> Reset Form</button>
+            </div>
+        </form>
 
-        <div class="loading" id="loading">
-            <div class="spinner"></div>
-            <p style="margin-top: 10px; color: #5a6e7a;">Generating your professional CV...</p>
-        </div>
+        <div id="infoNote" class="info-note"></div>
     </div>
 
-    <!-- Main Footer -->
-    <footer class="main-footer">
-        <p>© 2026 Scholarship CV Builder | For International Students</p>
-        <p style="font-size: 0.7rem;">Create country-specific CVs for scholarships worldwide</p>
-    </footer>
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p style="margin-top: 12px; color: #64748b;">Generating your professional CV...</p>
+    </div>
+</div>
 
-    <script>
-        const countryId = "{{ country.id }}";
-        const templateType = "{{ template_type }}";
-        const countryName = "{{ country.name }}";
-        let storedPhotoData = null;
+<!-- Footer -->
+<footer>
+    <p>© 2026 AI Scholar Hunt 🎓 | Pakistan's First AI-Powered Scholarship Platform</p>
+    <p style="margin-top: 8px;">📄 Build country-specific CVs tailored for scholarship applications worldwide</p>
+</footer>
 
+<script>
+    const countryId = "{{ country.id }}";
+    const templateType = "{{ template_type }}";
+    const countryName = "{{ country.name }}";
+    let storedPhotoData = null;
+
+    function loadForm() {
+        let fieldsHtml = '';
         let infoNoteHtml = '';
 
-        // Generate form based on template type
-        function loadForm() {
-            let fieldsHtml = '';
-
-            if (templateType === 'ats') {
-                fieldsHtml = getATSTemplate();
-                infoNoteHtml = '📌 Tip: USA/Canada/Australia/Ireland use ATS systems. Use keywords from scholarship description. No photo needed. Keep to 1-2 pages.';
-            }
-            else if (templateType === 'photo_personal') {
-                fieldsHtml = getPhotoPersonalTemplate();
-                infoNoteHtml = '📸 Tip: Germany/Austria/Turkey require a professional passport-size photo. Include all personal details. Marital status is standard in these countries.';
-            }
-            else if (templateType === 'passport') {
-                fieldsHtml = getPassportTemplate();
-                infoNoteHtml = '🛂 Tip: China/UAE/Japan require passport details. For China CSC scholarship, ensure passport is valid for at least 18 months.';
-            }
-            else if (templateType === 'europass') {
-                fieldsHtml = getEuropassTemplate();
-                infoNoteHtml = '🌍 Tip: European countries value language skills. List all languages with proficiency levels (A1-C2). Europass format is widely recognized.';
-            }
-
-            document.getElementById('dynamicFields').innerHTML = fieldsHtml;
-            document.getElementById('infoNote').innerHTML = infoNoteHtml;
-
-            // Attach photo preview handler if photo input exists
-            const photoInput = document.getElementById('photo_input');
-            if (photoInput) {
-                photoInput.addEventListener('change', handlePhotoUpload);
-            }
+        if (templateType === 'ats') {
+            fieldsHtml = getATSTemplate();
+            infoNoteHtml = '📌 <strong>ATS-Friendly Tip:</strong> USA/Canada/Australia/Ireland use ATS systems. Use keywords from scholarship description. No photo needed. Keep to 1-2 pages.';
+        }
+        else if (templateType === 'photo_personal') {
+            fieldsHtml = getPhotoPersonalTemplate();
+            infoNoteHtml = '📸 <strong>Photo Required:</strong> Germany/Austria/Turkey require a professional passport-size photo. Include all personal details. Marital status is standard in these countries.';
+        }
+        else if (templateType === 'passport') {
+            fieldsHtml = getPassportTemplate();
+            infoNoteHtml = '🛂 <strong>Visa Details:</strong> China/UAE/Japan require passport details. For China CSC scholarship, ensure passport is valid for at least 18 months.';
+        }
+        else if (templateType === 'europass') {
+            fieldsHtml = getEuropassTemplate();
+            infoNoteHtml = '🌍 <strong>Europass Format:</strong> European countries value language skills. List all languages with proficiency levels (A1-C2). Europass format is widely recognized.';
         }
 
-        function handlePhotoUpload(event) {
-            const file = event.target.files[0];
-            const previewDiv = document.getElementById('photo_preview');
-            const previewImg = document.getElementById('preview_img');
+        document.getElementById('dynamicFields').innerHTML = fieldsHtml;
+        document.getElementById('infoNote').innerHTML = infoNoteHtml;
 
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    storedPhotoData = e.target.result;
-                    if (previewImg) {
-                        previewImg.src = storedPhotoData;
-                        previewDiv.classList.add('active');
-                    }
-                };
-                reader.readAsDataURL(file);
-            }
+        const photoInput = document.getElementById('photo_input');
+        if (photoInput) {
+            photoInput.addEventListener('change', handlePhotoUpload);
         }
+    }
 
-        function removePhoto() {
-            storedPhotoData = null;
-            const photoInput = document.getElementById('photo_input');
-            const previewDiv = document.getElementById('photo_preview');
-            if (photoInput) photoInput.value = '';
-            if (previewDiv) previewDiv.classList.remove('active');
-        }
+    function handlePhotoUpload(event) {
+        const file = event.target.files[0];
+        const previewDiv = document.getElementById('photo_preview');
+        const previewImg = document.getElementById('preview_img');
 
-        // Template A: ATS-Friendly
-        function getATSTemplate() {
-            return `
-                <div class="form-section">
-                    <h3>📞 Contact Information</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required">Full Name</label>
-                            <input type="text" name="full_name" required placeholder="John Smith">
-                        </div>
-                        <div class="form-group">
-                            <label class="required">Email</label>
-                            <input type="email" name="email" required placeholder="john@example.com">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required">Phone (with country code)</label>
-                            <input type="tel" name="phone" required placeholder="+92 300 1234567">
-                        </div>
-                        <div class="form-group">
-                            <label>LinkedIn URL</label>
-                            <input type="url" name="linkedin" placeholder="https://linkedin.com/in/...">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>GitHub/Portfolio</label>
-                            <input type="url" name="github" placeholder="https://github.com/...">
-                        </div>
-                        <div class="form-group">
-                            <label>Location (City, Country)</label>
-                            <input type="text" name="location" placeholder="Lahore, Pakistan">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>🎓 Education</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required">Degree</label>
-                            <input type="text" name="degree" required placeholder="BS Artificial Intelligence">
-                        </div>
-                        <div class="form-group">
-                            <label class="required">University</label>
-                            <input type="text" name="university" required placeholder="University Name">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required">GPA (out of 4.0)</label>
-                            <input type="text" name="gpa" required placeholder="3.6/4.0">
-                        </div>
-                        <div class="form-group">
-                            <label class="required">Expected Graduation</label>
-                            <input type="text" name="graduation_year" required placeholder="June 2026">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Relevant Coursework</label>
-                        <input type="text" name="coursework" placeholder="Machine Learning, Data Structures, Algorithms">
-                        <div class="help-text">Comma separated</div>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>💻 Projects</h3>
-                    <div class="form-group">
-                        <label class="required">Projects (one per line)</label>
-                        <textarea name="projects" rows="5" required placeholder="• Scholarship CV Builder - A web app generating country-specific CVs&#10;• Machine Learning Model for Student Performance Prediction&#10;• Deep Learning Image Classifier using CNN"></textarea>
-                        <div class="help-text">Describe each project with technologies used and your role</div>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>⚙️ Skills</h3>
-                    <div class="form-group">
-                        <label class="required">Technical Skills</label>
-                        <textarea name="skills" rows="3" required placeholder="Python, Machine Learning, Deep Learning, Data Analysis, SQL, Flask"></textarea>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>📜 Research & Publications</h3>
-                    <div class="form-group">
-                        <label>Research Experience / Publications</label>
-                        <textarea name="publications" rows="3" placeholder="• Research Assistant in AI Lab (2024-2025)&#10;• Published paper in XYZ Conference"></textarea>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>🏆 Certifications & Awards</h3>
-                    <div class="form-group">
-                        <label>Certifications</label>
-                        <textarea name="certifications" rows="2" placeholder="• Google Data Analytics Professional Certificate&#10;• Deep Learning Specialization (Coursera)"></textarea>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>🌐 Languages</h3>
-                    <div class="form-group">
-                        <label>Languages</label>
-                        <textarea name="languages" rows="2" placeholder="English (Fluent, IELTS 7.0)&#10;Urdu (Native)"></textarea>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Template B: Photo + Personal Details (WITH ACTUAL PHOTO UPLOAD)
-        function getPhotoPersonalTemplate() {
-            return `
-                <div class="form-section">
-                    <h3>📸 Personal Information (Photo Required)</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required">Full Name</label>
-                            <input type="text" name="full_name" required placeholder="Asad Aziz">
-                        </div>
-                        <div class="form-group">
-                            <label class="required">Passport Size Photo</label>
-                            <input type="file" id="photo_input" name="photo" accept="image/jpeg,image/png,image/jpg" required>
-                            <div class="help-text">Upload professional photo (white background, JPEG/PNG, max 5MB)</div>
-                            <div id="photo_preview" class="photo-preview">
-                                <img id="preview_img" alt="Photo Preview">
-                                <br>
-                                <button type="button" class="remove-photo" onclick="removePhoto()">Remove Photo</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required">Date of Birth</label>
-                            <input type="date" name="dob" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="required">Nationality</label>
-                            <input type="text" name="nationality" required placeholder="Pakistani">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required">Marital Status</label>
-                            <select name="marital_status" required>
-                                <option value="">Select</option>
-                                <option value="Single">Single</option>
-                                <option value="Married">Married</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Military Service (Turkey specific)</label>
-                            <select name="military_status">
-                                <option value="">Select</option>
-                                <option value="Completed">Completed</option>
-                                <option value="Exempt">Exempt</option>
-                                <option value="Not yet">Not yet</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required">Email</label>
-                            <input type="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="required">Phone</label>
-                            <input type="tel" name="phone" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Full Address</label>
-                        <input type="text" name="address" placeholder="Street, City, Postal Code">
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>🎓 Education</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required">Degree</label>
-                            <input type="text" name="degree" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="required">University</label>
-                            <input type="text" name="university" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required">Duration</label>
-                            <input type="text" name="duration" required placeholder="10/2022 - Present">
-                        </div>
-                        <div class="form-group">
-                            <label>Grade (German Scale 1-5)</label>
-                            <input type="text" name="gpa" placeholder="1.5 (1 is best)">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>💼 Work Experience</h3>
-                    <div class="form-group">
-                        <label>Work/Internship Experience</label>
-                        <textarea name="work_experience" rows="4" placeholder="• Werkstudent at XYZ Company (2024-Present)&#10;• Internship at ABC (2023)"></textarea>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>💻 Projects & Skills</h3>
-                    <div class="form-group">
-                        <label class="required">Projects</label>
-                        <textarea name="projects" rows="4" required placeholder="• Project 1: Description&#10;• Project 2: Description"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label class="required">Technical Skills</label>
-                        <textarea name="skills" rows="3" required placeholder="Python, ML, DL, SQL, Flask"></textarea>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>🌐 Languages</h3>
-                    <div class="form-group">
-                        <label class="required">Languages</label>
-                        <textarea name="languages" rows="3" required placeholder="German (B1 - Intermediate)&#10;English (C1 - Advanced, IELTS 7.0)&#10;Urdu (Native)"></textarea>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Template C: Passport/Visa Details (WITH ACTUAL PHOTO UPLOAD)
-        function getPassportTemplate() {
-            return `
-                <div class="form-section">
-                    <h3>🛂 Passport & Personal Information</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required">Full Name (as in passport)</label>
-                            <input type="text" name="full_name" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="required">Passport Size Photo</label>
-                            <input type="file" id="photo_input" name="photo" accept="image/jpeg,image/png,image/jpg" required>
-                            <div class="help-text">Upload passport size photo (white background)</div>
-                            <div id="photo_preview" class="photo-preview">
-                                <img id="preview_img" alt="Photo Preview">
-                                <br>
-                                <button type="button" class="remove-photo" onclick="removePhoto()">Remove Photo</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required">Date of Birth</label>
-                            <input type="date" name="dob" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="required">Nationality</label>
-                            <input type="text" name="nationality" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required">Passport Number</label>
-                            <input type="text" name="passport_no" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Visa Status (UAE specific)</label>
-                            <input type="text" name="visa_status" placeholder="Student Visa / Resident">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required">Email</label>
-                            <input type="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="required">Phone</label>
-                            <input type="tel" name="phone" required>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>🎓 Education</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required">Degree</label>
-                            <input type="text" name="degree" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="required">University</label>
-                            <input type="text" name="university" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required">GPA/Percentage</label>
-                            <input type="text" name="gpa" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="required">Graduation Year</label>
-                            <input type="text" name="graduation_year" required>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>📚 Research & Publications</h3>
-                    <div class="form-group">
-                        <label>Publications / Research Papers</label>
-                        <textarea name="publications" rows="3" placeholder="List any published papers or research work"></textarea>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>💻 Projects & Skills</h3>
-                    <div class="form-group">
-                        <label class="required">Projects</label>
-                        <textarea name="projects" rows="4" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label class="required">Skills</label>
-                        <textarea name="skills" rows="3" required></textarea>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>🌐 Language Proficiency</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Chinese Proficiency (HSK Level)</label>
-                            <input type="text" name="chinese_level" placeholder="HSK 4 / None">
-                        </div>
-                        <div class="form-group">
-                            <label class="required">English Proficiency</label>
-                            <input type="text" name="english_level" required placeholder="IELTS 6.5 / TOEFL 90">
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Template D: Europass Style (No photo)
-        function getEuropassTemplate() {
-            return `
-                <div class="form-section">
-                    <h3>📞 Contact Information</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required">Full Name</label>
-                            <input type="text" name="full_name" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="required">Email</label>
-                            <input type="email" name="email" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required">Phone</label>
-                            <input type="tel" name="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Address</label>
-                            <input type="text" name="address" placeholder="City, Country">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>🎓 Education</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required">Degree</label>
-                            <input type="text" name="degree" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="required">University</label>
-                            <input type="text" name="university" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Dates</label>
-                            <input type="text" name="education_dates" placeholder="2022-2026">
-                        </div>
-                        <div class="form-group">
-                            <label>Grade</label>
-                            <input type="text" name="gpa" placeholder="GPA or percentage">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>💼 Work Experience</h3>
-                    <div class="form-group">
-                        <label>Work / Internship Experience</label>
-                        <textarea name="work_experience" rows="4" placeholder="• Position at Company (Dates)&#10;• Responsibilities and achievements"></textarea>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>💻 Projects & Skills</h3>
-                    <div class="form-group">
-                        <label class="required">Projects</label>
-                        <textarea name="projects" rows="4" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label class="required">Technical Skills</label>
-                        <textarea name="skills" rows="3" required></textarea>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>🌐 Language Skills (Very Important for Europe)</h3>
-                    <div class="form-group">
-                        <label class="required">Languages with Proficiency Levels</label>
-                        <textarea name="languages" rows="4" required placeholder="English: C1 (Advanced) - IELTS 7.0&#10;French: B1 (Intermediate)&#10;German: A2 (Basic)&#10;Urdu: Native"></textarea>
-                        <div class="help-text">Use CEFR levels: A1 (Beginner) to C2 (Proficient)</div>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>📜 Certifications & Additional Info</h3>
-                    <div class="form-group">
-                        <label>Certifications</label>
-                        <textarea name="certifications" rows="2" placeholder="List relevant certifications"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Driving License (if any)</label>
-                        <input type="text" name="driving_license" placeholder="Yes/No, category">
-                    </div>
-                </div>
-            `;
-        }
-
-        // Generate CV
-        async function generateCV(format) {
-            const form = document.getElementById('cvForm');
-            const formData = new FormData(form);
-            const cvData = {};
-
-            for (let [key, value] of formData.entries()) {
-                if (value instanceof File) {
-                    // Skip file input - we handle photo separately
-                    continue;
-                } else if (value.trim()) {
-                    cvData[key] = value;
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                storedPhotoData = e.target.result;
+                if (previewImg) {
+                    previewImg.src = storedPhotoData;
+                    previewDiv.classList.add('active');
                 }
-            }
+            };
+            reader.readAsDataURL(file);
+        }
+    }
 
-            // Validate required fields
-            const requiredFields = document.querySelectorAll('[required]');
-            let isValid = true;
-            requiredFields.forEach(field => {
-                if (field.type === 'file') {
-                    // For file input, check if photo is uploaded
-                    if (!storedPhotoData && templateType !== 'ats' && templateType !== 'europass') {
-                        field.style.borderColor = '#dc3545';
-                        isValid = false;
-                    } else {
-                        field.style.borderColor = '#d0dde5';
-                    }
-                } else if (!field.value.trim()) {
-                    field.style.borderColor = '#dc3545';
+    function removePhoto() {
+        storedPhotoData = null;
+        const photoInput = document.getElementById('photo_input');
+        const previewDiv = document.getElementById('photo_preview');
+        if (photoInput) photoInput.value = '';
+        if (previewDiv) previewDiv.classList.remove('active');
+    }
+
+    function getATSTemplate() {
+        return `
+            <div class="form-section">
+                <h3><i class="fas fa-address-card"></i> Contact Information</h3>
+                <div class="form-row">
+                    <div class="form-group"><label class="required">Full Name</label><input type="text" name="full_name" required placeholder="John Smith"></div>
+                    <div class="form-group"><label class="required">Email</label><input type="email" name="email" required placeholder="john@example.com"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label class="required">Phone (with country code)</label><input type="tel" name="phone" required placeholder="+92 300 1234567"></div>
+                    <div class="form-group"><label>LinkedIn URL</label><input type="url" name="linkedin" placeholder="https://linkedin.com/in/..."></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>GitHub/Portfolio</label><input type="url" name="github" placeholder="https://github.com/..."></div>
+                    <div class="form-group"><label>Location (City, Country)</label><input type="text" name="location" placeholder="Lahore, Pakistan"></div>
+                </div>
+            </div>
+            <div class="form-section"><h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                <div class="form-row"><div class="form-group"><label class="required">Degree</label><input type="text" name="degree" required placeholder="BS Artificial Intelligence"></div>
+                <div class="form-group"><label class="required">University</label><input type="text" name="university" required placeholder="University Name"></div></div>
+                <div class="form-row"><div class="form-group"><label class="required">GPA (out of 4.0)</label><input type="text" name="gpa" required placeholder="3.6/4.0"></div>
+                <div class="form-group"><label class="required">Expected Graduation</label><input type="text" name="graduation_year" required placeholder="June 2026"></div></div>
+                <div class="form-group"><label>Relevant Coursework</label><input type="text" name="coursework" placeholder="Machine Learning, Data Structures"><div class="help-text">Comma separated</div></div>
+            </div>
+            <div class="form-section"><h3><i class="fas fa-code"></i> Projects</h3>
+                <div class="form-group"><label class="required">Projects (one per line)</label><textarea name="projects" rows="5" required placeholder="• Project 1 - Description with technologies used&#10;• Project 2 - Description with technologies used"></textarea></div>
+            </div>
+            <div class="form-section"><h3><i class="fas fa-cogs"></i> Skills</h3>
+                <div class="form-group"><label class="required">Technical Skills</label><textarea name="skills" rows="3" required placeholder="Python, Machine Learning, SQL, Flask"></textarea></div>
+            </div>
+            <div class="form-section"><h3><i class="fas fa-file-alt"></i> Research & Publications</h3>
+                <div class="form-group"><label>Research Experience / Publications</label><textarea name="publications" rows="3" placeholder="• Research Assistant (2024-2025)&#10;• Published paper in XYZ Conference"></textarea></div>
+            </div>
+            <div class="form-section"><h3><i class="fas fa-trophy"></i> Certifications & Awards</h3>
+                <div class="form-group"><label>Certifications</label><textarea name="certifications" rows="2" placeholder="• Google Data Analytics Certificate&#10;• Deep Learning Specialization"></textarea></div>
+            </div>
+            <div class="form-section"><h3><i class="fas fa-language"></i> Languages</h3>
+                <div class="form-group"><label>Languages</label><textarea name="languages" rows="2" placeholder="English (Fluent, IELTS 7.0)&#10;Urdu (Native)"></textarea></div>
+            </div>
+        `;
+    }
+
+    function getPhotoPersonalTemplate() {
+        return `
+            <div class="form-section"><h3><i class="fas fa-camera"></i> Personal Information (Photo Required)</h3>
+                <div class="form-row"><div class="form-group"><label class="required">Full Name</label><input type="text" name="full_name" required></div>
+                <div class="form-group"><label class="required">Passport Size Photo</label><input type="file" id="photo_input" name="photo" accept="image/jpeg,image/png" required><div class="help-text">Professional photo, white background</div>
+                <div id="photo_preview" class="photo-preview"><img id="preview_img"><br><button type="button" class="remove-photo" onclick="removePhoto()">Remove Photo</button></div></div></div>
+                <div class="form-row"><div class="form-group"><label class="required">Date of Birth</label><input type="date" name="dob" required></div>
+                <div class="form-group"><label class="required">Nationality</label><input type="text" name="nationality" required></div></div>
+                <div class="form-row"><div class="form-group"><label class="required">Marital Status</label><select name="marital_status" required><option value="">Select</option><option value="Single">Single</option><option value="Married">Married</option></select></div>
+                <div class="form-group"><label>Military Service</label><select name="military_status"><option value="">Select</option><option value="Completed">Completed</option><option value="Exempt">Exempt</option></select></div></div>
+                <div class="form-row"><div class="form-group"><label class="required">Email</label><input type="email" name="email" required></div>
+                <div class="form-group"><label class="required">Phone</label><input type="tel" name="phone" required></div></div>
+            </div>
+            <div class="form-section"><h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                <div class="form-row"><div class="form-group"><label class="required">Degree</label><input type="text" name="degree" required></div>
+                <div class="form-group"><label class="required">University</label><input type="text" name="university" required></div></div>
+                <div class="form-row"><div class="form-group"><label class="required">Duration</label><input type="text" name="duration" required placeholder="10/2022 - Present"></div>
+                <div class="form-group"><label>Grade</label><input type="text" name="gpa" placeholder="German Scale 1-5"></div></div>
+            </div>
+            <div class="form-section"><h3><i class="fas fa-briefcase"></i> Work Experience</h3>
+                <div class="form-group"><label>Work/Internship Experience</label><textarea name="work_experience" rows="4" placeholder="• Position at Company (Dates)&#10;• Responsibilities"></textarea></div>
+            </div>
+            <div class="form-section"><h3><i class="fas fa-code"></i> Projects & Skills</h3>
+                <div class="form-group"><label class="required">Projects</label><textarea name="projects" rows="4" required></textarea></div>
+                <div class="form-group"><label class="required">Technical Skills</label><textarea name="skills" rows="3" required></textarea></div>
+            </div>
+            <div class="form-section"><h3><i class="fas fa-language"></i> Languages</h3>
+                <div class="form-group"><label class="required">Languages</label><textarea name="languages" rows="3" required placeholder="German (B1 - Intermediate)&#10;English (C1 - Advanced, IELTS 7.0)"></textarea></div>
+            </div>
+        `;
+    }
+
+    function getPassportTemplate() {
+        return `
+            <div class="form-section"><h3><i class="fas fa-passport"></i> Passport & Personal Information</h3>
+                <div class="form-row"><div class="form-group"><label class="required">Full Name (as in passport)</label><input type="text" name="full_name" required></div>
+                <div class="form-group"><label class="required">Passport Size Photo</label><input type="file" id="photo_input" name="photo" accept="image/jpeg,image/png" required><div id="photo_preview" class="photo-preview"><img id="preview_img"><br><button type="button" class="remove-photo" onclick="removePhoto()">Remove Photo</button></div></div></div>
+                <div class="form-row"><div class="form-group"><label class="required">Date of Birth</label><input type="date" name="dob" required></div>
+                <div class="form-group"><label class="required">Nationality</label><input type="text" name="nationality" required></div></div>
+                <div class="form-row"><div class="form-group"><label class="required">Passport Number</label><input type="text" name="passport_no" required></div>
+                <div class="form-group"><label>Visa Status</label><input type="text" name="visa_status" placeholder="Student Visa / Resident"></div></div>
+                <div class="form-row"><div class="form-group"><label class="required">Email</label><input type="email" name="email" required></div>
+                <div class="form-group"><label class="required">Phone</label><input type="tel" name="phone" required></div></div>
+            </div>
+            <div class="form-section"><h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                <div class="form-row"><div class="form-group"><label class="required">Degree</label><input type="text" name="degree" required></div>
+                <div class="form-group"><label class="required">University</label><input type="text" name="university" required></div></div>
+                <div class="form-row"><div class="form-group"><label class="required">GPA/Percentage</label><input type="text" name="gpa" required></div>
+                <div class="form-group"><label class="required">Graduation Year</label><input type="text" name="graduation_year" required></div></div>
+            </div>
+            <div class="form-section"><h3><i class="fas fa-file-alt"></i> Research & Publications</h3>
+                <div class="form-group"><label>Publications / Research Papers</label><textarea name="publications" rows="3"></textarea></div>
+            </div>
+            <div class="form-section"><h3><i class="fas fa-code"></i> Projects & Skills</h3>
+                <div class="form-group"><label class="required">Projects</label><textarea name="projects" rows="4" required></textarea></div>
+                <div class="form-group"><label class="required">Skills</label><textarea name="skills" rows="3" required></textarea></div>
+            </div>
+            <div class="form-section"><h3><i class="fas fa-language"></i> Language Proficiency</h3>
+                <div class="form-row"><div class="form-group"><label>Chinese Proficiency (HSK)</label><input type="text" name="chinese_level" placeholder="HSK 4 / None"></div>
+                <div class="form-group"><label class="required">English Proficiency</label><input type="text" name="english_level" required placeholder="IELTS 6.5 / TOEFL 90"></div></div>
+            </div>
+        `;
+    }
+
+    function getEuropassTemplate() {
+        return `
+            <div class="form-section"><h3><i class="fas fa-address-card"></i> Contact Information</h3>
+                <div class="form-row"><div class="form-group"><label class="required">Full Name</label><input type="text" name="full_name" required></div>
+                <div class="form-group"><label class="required">Email</label><input type="email" name="email" required></div></div>
+                <div class="form-row"><div class="form-group"><label class="required">Phone</label><input type="tel" name="phone" required></div>
+                <div class="form-group"><label>Address</label><input type="text" name="address" placeholder="City, Country"></div></div>
+            </div>
+            <div class="form-section"><h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                <div class="form-row"><div class="form-group"><label class="required">Degree</label><input type="text" name="degree" required></div>
+                <div class="form-group"><label class="required">University</label><input type="text" name="university" required></div></div>
+                <div class="form-row"><div class="form-group"><label>Dates</label><input type="text" name="education_dates" placeholder="2022-2026"></div>
+                <div class="form-group"><label>Grade</label><input type="text" name="gpa" placeholder="GPA or percentage"></div></div>
+            </div>
+            <div class="form-section"><h3><i class="fas fa-briefcase"></i> Work Experience</h3>
+                <div class="form-group"><label>Work / Internship Experience</label><textarea name="work_experience" rows="4" placeholder="• Position at Company (Dates)&#10;• Responsibilities and achievements"></textarea></div>
+            </div>
+            <div class="form-section"><h3><i class="fas fa-code"></i> Projects & Skills</h3>
+                <div class="form-group"><label class="required">Projects</label><textarea name="projects" rows="4" required></textarea></div>
+                <div class="form-group"><label class="required">Technical Skills</label><textarea name="skills" rows="3" required></textarea></div>
+            </div>
+            <div class="form-section"><h3><i class="fas fa-language"></i> Language Skills</h3>
+                <div class="form-group"><label class="required">Languages with Proficiency Levels</label><textarea name="languages" rows="4" required placeholder="English: C1 (Advanced) - IELTS 7.0&#10;French: B1 (Intermediate)&#10;Urdu: Native"></textarea><div class="help-text">Use CEFR levels: A1 (Beginner) to C2 (Proficient)</div></div>
+            </div>
+            <div class="form-section"><h3><i class="fas fa-certificate"></i> Certifications</h3>
+                <div class="form-group"><label>Certifications</label><textarea name="certifications" rows="2"></textarea></div>
+            </div>
+        `;
+    }
+
+    async function generateCV(format) {
+        const form = document.getElementById('cvForm');
+        const formData = new FormData(form);
+        const cvData = {};
+
+        for (let [key, value] of formData.entries()) {
+            if (!(value instanceof File) && value.trim()) {
+                cvData[key] = value;
+            }
+        }
+
+        const requiredFields = document.querySelectorAll('[required]');
+        let isValid = true;
+        requiredFields.forEach(field => {
+            if (field.type === 'file') {
+                if (!storedPhotoData && (templateType === 'photo_personal' || templateType === 'passport')) {
+                    field.style.borderColor = '#dc2626';
                     isValid = false;
                 } else {
-                    field.style.borderColor = '#d0dde5';
+                    field.style.borderColor = '#e2e8f0';
                 }
+            } else if (!field.value.trim()) {
+                field.style.borderColor = '#dc2626';
+                isValid = false;
+            } else {
+                field.style.borderColor = '#e2e8f0';
+            }
+        });
+
+        if (!isValid) {
+            alert('Please fill all required fields (*) and upload a photo if required');
+            return;
+        }
+
+        document.getElementById('loading').classList.add('active');
+
+        try {
+            const response = await fetch('/cv-builder/generate_cv', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    country_id: countryId,
+                    template_type: templateType,
+                    cv_data: cvData,
+                    format: format,
+                    photo_data: storedPhotoData
+                })
             });
 
-            if (!isValid) {
-                alert('Please fill all required fields (*) and upload a photo if required');
-                return;
+            if (response.ok) {
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `CV_${countryName}_${Date.now()}.${format === 'pdf' ? 'pdf' : 'docx'}`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+            } else {
+                const error = await response.json();
+                alert('Error generating CV: ' + (error.error || 'Please try again.'));
             }
-
-            document.getElementById('loading').classList.add('active');
-
-            try {
-                const response = await fetch('/cv-builder/generate_cv', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        country_id: countryId,
-                        template_type: templateType,
-                        cv_data: cvData,
-                        format: format,
-                        photo_data: storedPhotoData
-                    })
-                });
-
-                if (response.ok) {
-                    const blob = await response.blob();
-                    const url = window.URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = `CV_${countryName}_${Date.now()}.${format === 'pdf' ? 'pdf' : 'docx'}`;
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                    window.URL.revokeObjectURL(url);
-                } else {
-                    const error = await response.json();
-                    alert('Error generating CV: ' + (error.error || 'Please try again.'));
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Error generating CV. Please check your connection.');
-            } finally {
-                document.getElementById('loading').classList.remove('active');
-            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error generating CV. Please check your connection.');
+        } finally {
+            document.getElementById('loading').classList.remove('active');
         }
+    }
 
-        function resetForm() {
-            if (confirm('Reset all fields?')) {
-                document.getElementById('cvForm').reset();
-                document.querySelectorAll('input[type="file"]').forEach(input => input.value = '');
-                document.querySelectorAll('[required]').forEach(field => {
-                    field.style.borderColor = '#d0dde5';
-                });
-                storedPhotoData = null;
-                const previewDiv = document.getElementById('photo_preview');
-                if (previewDiv) previewDiv.classList.remove('active');
-            }
+    function resetForm() {
+        if (confirm('Reset all fields?')) {
+            document.getElementById('cvForm').reset();
+            document.querySelectorAll('[required]').forEach(field => field.style.borderColor = '#e2e8f0');
+            storedPhotoData = null;
+            const previewDiv = document.getElementById('photo_preview');
+            if (previewDiv) previewDiv.classList.remove('active');
         }
+    }
 
-        // Load form on page load
-        loadForm();
-    </script>
+    loadForm();
+</script>
 </body>
-
 </html>
