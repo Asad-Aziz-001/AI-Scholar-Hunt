@@ -1,3 +1,9 @@
+import sys
+
+sys.path.pop(0)
+import profile
+sys.path.insert(0, "")
+
 import re
 import json
 import os
