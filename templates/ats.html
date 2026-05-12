@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
-    <title>ATS Resume Analyzer | Smart Resume Scanner</title>
+    <title>AI Scholar Hunt | Smart ATS Resume Analyzer</title>
 
     <!-- PDF.js for text extraction (client side) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
@@ -394,8 +394,147 @@
             margin-bottom: 10px;
             display: flex;
             gap: 12px;
-            align-items: center;
+            align-items: flex-start;
             border-left: 4px solid #0d62ff;
+        }
+
+        /* Pro Tips Styles */
+        .tips-section {
+            margin-top: 28px;
+        }
+
+        .tip-card {
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            background: #f8f9fa;
+            border-left: 4px solid #0d62ff;
+        }
+
+        .tip-card.priority-high {
+            border-left-color: #dc3545;
+            background: #fff5f5;
+        }
+
+        .tip-card.priority-medium {
+            border-left-color: #ffc107;
+            background: #fffbf0;
+        }
+
+        .tip-card.priority-low {
+            border-left-color: #28a745;
+            background: #f0fff4;
+        }
+
+        .tip-title {
+            font-weight: bold;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .tip-description {
+            color: #555;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        /* Field Badge */
+        .field-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #0d62ff20, #3b82f620);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #0d62ff;
+            margin-bottom: 15px;
+        }
+
+        /* Popup Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 28px;
+            padding: 32px;
+            max-width: 400px;
+            text-align: center;
+            animation: modalFadeIn 0.3s ease;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .modal-icon.error {
+            color: #dc3545;
+        }
+
+        .modal-icon.warning {
+            color: #ffc107;
+        }
+
+        .modal-icon.success {
+            color: #28a745;
+        }
+
+        .modal-icon.info {
+            color: #0d62ff;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1e293b;
+        }
+
+        .modal-message {
+            color: #475569;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .modal-btn {
+            background: #0d62ff;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .modal-btn:hover {
+            background: #0848c4;
+            transform: scale(1.02);
         }
 
         .info-cards {
@@ -411,15 +550,67 @@
             padding: 28px;
             border-radius: 28px;
             transition: 0.2s;
+            text-align: center;
         }
 
-        .footer {
+        .info-card i {
+            font-size: 42px;
+            margin-bottom: 16px;
+        }
+
+        .info-card h3 {
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .info-card p {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(30, 58, 138, 0.95);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
             text-align: center;
-            margin-top: 60px;
-            padding: 28px;
-            color: #4b5563;
-            font-size: 13px;
-            border-top: 1px solid #e2edff;
+            padding: 32px 20px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            color: #93c5fd;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* NEW: Candidate Info Styles */
+        .candidate-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .candidate-info-item {
+            background: #f8fafc;
+            padding: 10px 12px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .candidate-info-label {
+            font-size: 11px;
+            color: #64748b;
+            margin-bottom: 4px;
+        }
+
+        .candidate-info-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: #0a2540;
+            word-break: break-all;
         }
 
         @media (max-width: 860px) {
@@ -443,58 +634,78 @@
         <div class="circle"></div>
     </div>
 
+    <!-- Popup Modal -->
+    <div id="popupModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon" id="modalIcon">⚠️</div>
+            <div class="modal-title" id="modalTitle">Alert</div>
+            <div class="modal-message" id="modalMessage">This is a message</div>
+            <button class="modal-btn" onclick="closeModal()">OK</button>
+        </div>
+    </div>
+
     <header class="header">
         <div class="nav-container">
             <div class="logo">
-                <div class="logo-icon"><i class="fas fa-file-alt"></i></div>
-                <div class="logo-text">ATS Resume Analyzer</div>
+                <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+                <div class="logo-text">AI Scholar Hunt</div>
             </div>
             <div><span style="background:#0d62ff10; padding:8px 18px; border-radius:40px; font-weight:500;"><i
-                        class="fas fa-chart-simple"></i> Real-time AI scan</span></div>
+                        class="fas fa-brain"></i> AI-Powered ATS Scanner</span></div>
         </div>
     </header>
 
     <div class="container">
         <div class="hero">
-            <h1>Smart ATS Resume Scanner</h1>
-            <p style="max-width:700px; margin:18px auto; color:#334155;">Upload your resume (PDF) – our algorithm checks
-                keyword density, structure, achievements, and ATS-friendly formatting. Instant score + personalized
+            <h1>Smart ATS Resume Analyzer</h1>
+            <p style="max-width:700px; margin:18px auto; color:#334155;">Upload your resume (PDF) – Our AI analyzes
+                keyword density, structure, achievements, and ATS formatting. Get real-time score + personalized AI
                 tips.</p>
             <div class="badge-group">
-                <div class="badge"><i class="fas fa-check-circle" style="color:#10b981;"></i> 100% Free</div>
-                <div class="badge"><i class="fas fa-lock"></i> Privacy safe</div>
-                <div class="badge"><i class="fas fa-bolt"></i> Instant analysis</div>
+                <div class="badge"><i class="fas fa-robot" style="color:#0d62ff;"></i> AI-Powered</div>
+                <div class="badge"><i class="fas fa-chart-line"></i> Real-time Analysis</div>
+                <div class="badge"><i class="fas fa-shield-alt"></i> Privacy Safe</div>
             </div>
         </div>
 
         <div class="content-grid">
-            <!-- Left: Upload -->
+            <!-- Left: Upload + Pro Tips + Candidate Info -->
             <div class="card">
                 <div class="section-title"><i class="fas fa-cloud-upload-alt" style="color:#0d62ff;"></i> Upload Resume
                 </div>
                 <div class="upload-area" id="uploadArea">
                     <div class="upload-icon"><i class="fas fa-file-pdf"></i></div>
                     <div class="upload-text" style="font-weight:600;">Click or drag PDF</div>
-                    <div class="upload-subtext" style="font-size:13px; color:#5b6e8c;">Supports .pdf, max 10MB</div>
+                    <div class="upload-subtext" style="font-size:13px; color:#5b6e8c;">Only PDF files are supported
+                    </div>
                     <input type="file" id="resumeFileInput" accept="application/pdf" style="display:none;">
                     <div class="file-name" id="fileNameDisplay" style="display:none;"></div>
                 </div>
+
                 <button class="submit-btn" id="analyzeBtn"><i class="fas fa-chart-line"></i> Analyze ATS Score</button>
                 <div id="loadingSpinner" style="display:none;" class="loading">
                     <div class="spinner"></div>
-                    <div class="loading-text">Analyzing resume text & keywords ...</div>
+                    <div class="loading-text">AI is analyzing your resume...</div>
                 </div>
-                <div style="margin-top: 28px; background:#f4f9fe; border-radius: 20px; padding:18px;">
-                    <i class="fas fa-lightbulb" style="color:#0d62ff;"></i> <strong>Pro tips</strong>
-                    <ul style="margin-top:12px; margin-left:20px; color:#2c3e66;">
-                        <li>Use standard fonts (Arial, Calibri)</li>
-                        <li>Include measurable achievements</li>
-                        <li>Tailor keywords to your industry</li>
-                    </ul>
+
+                <!-- NEW: Candidate Info Section (Replaces AI Extracted Info) -->
+                <div class="tips-section" id="candidateInfoSection" style="margin-top: 30px; display: none;">
+                    <h3 style="display:flex; gap:8px; margin-bottom:18px;"><i class="fas fa-user-circle"
+                            style="color:#0d62ff;"></i> Candidate Info</h3>
+                    <div class="candidate-info-grid" id="candidateInfoGrid">
+                        <!-- Filled by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Pro Tips Section (Left Side) -->
+                <div class="tips-section" id="proTipsSection" style="margin-top: 30px; display: none;">
+                    <h3 style="display:flex; gap:8px; margin-bottom:18px;"><i class="fas fa-lightbulb"
+                            style="color:#ffc107;"></i> Pro Tips</h3>
+                    <div id="proTipsContainer"></div>
                 </div>
             </div>
 
-            <!-- Right: Results -->
+            <!-- Right: Results + AI Suggestions -->
             <div class="card" id="resultCard">
                 <div class="section-title"><i class="fas fa-chart-pie"></i> ATS Score & Insights</div>
                 <div id="resultsPanel">
@@ -510,22 +721,35 @@
                         <div class="verdict" id="verdictBox"><i class="fas fa-hourglass-half"></i> <span>Waiting for
                                 upload</span></div>
                     </div>
-                    <div style="background:#f8fafc; border-radius: 24px; padding:18px; margin: 18px 0;">
-                        <div class="detail-item"><span class="detail-label">📄 Word count</span><span
-                                class="detail-value" id="wordCountSpan">—</span></div>
-                        <div class="detail-item"><span class="detail-label">🔑 Keywords detected</span><span
-                                class="detail-value" id="keywordCountSpan">—</span></div>
-                        <div class="detail-item"><span class="detail-label">✅ ATS format readiness</span><span
-                                class="detail-value" id="formatStatus">—</span></div>
+
+                    <!-- Detected Field -->
+                    <div style="text-align: center; margin-bottom: 15px;">
+                        <span class="field-badge" id="detectedField"><i class="fas fa-tag"></i> 📄 Not analyzed
+                            yet</span>
                     </div>
 
-                    <div class="keywords-section">
-                        <h3 style="display:flex; gap:8px; margin-bottom:14px;"><i class="fas fa-key"></i> Top Keywords
-                        </h3>
-                        <div class="keywords-grid" id="keywordsContainer"><span class="keyword">No data yet</span></div>
+                    <!-- Basic Stats -->
+                    <div style="background:#f8fafc; border-radius: 24px; padding:18px; margin: 18px 0;">
+                        <div class="detail-item"><span><i class="fas fa-file-word"></i> 📄 Word count</span><span
+                                id="wordCountSpan">—</span></div>
+                        <div class="detail-item"><span><i class="fas fa-key"></i> 🔑 Skills Found</span><span
+                                id="keywordCountSpan">—</span></div>
+                        <div class="detail-item"><span><i class="fas fa-briefcase"></i> 💼 Experience</span><span
+                                id="experienceSpan">—</span></div>
                     </div>
+
+                    <!-- Top Keywords Section - Shows EXACT skills from resume -->
+                    <div class="keywords-section">
+                        <h3 style="display:flex; gap:8px; margin-bottom:14px;"><i class="fas fa-tags"
+                                style="color:#0d62ff;"></i> Skills Found in Resume</h3>
+                        <div class="keywords-grid" id="keywordsContainer"><span class="keyword">No data yet</span>
+                        </div>
+                    </div>
+
+                    <!-- AI Suggestions Section (Right Side) -->
                     <div class="suggestions-section" style="margin-top: 28px;">
-                        <h3 style="display:flex; gap:10px;"><i class="fas fa-list-check"></i> Smart Suggestions</h3>
+                        <h3 style="display:flex; gap:10px;"><i class="fas fa-robot" style="color:#0d62ff;"></i> AI
+                            Suggestions</h3>
                         <ul id="suggestionsList" style="list-style:none; margin-top:16px;">
                             <li class="suggestion-item"><i class="fas fa-arrow-right"></i> Upload your resume to get
                                 actionable insights</li>
@@ -536,27 +760,30 @@
         </div>
 
         <div class="info-cards">
-            <div class="info-card"><i class="fas fa-robot" style="font-size:36px;"></i>
-                <h3>AI keyword analysis</h3>
-                <p>TF-IDF based keyword extraction to match recruiter expectations.</p>
+            <div class="info-card"><i class="fas fa-brain" style="color:#0d62ff;"></i>
+                <h3>AI-Powered Analysis</h3>
+                <p>Advanced AI (Llama 3.3) analyzes your resume against industry standards.</p>
             </div>
-            <div class="info-card"><i class="fas fa-chart-line"></i>
-                <h3>Realistic ATS scoring</h3>
-                <p>Based on structure, achievements, contact info, and keyword density.</p>
+            <div class="info-card"><i class="fas fa-chart-line" style="color:#0d62ff;"></i>
+                <h3>Real ATS Scoring</h3>
+                <p>Based on keyword matching, structure, achievements, and formatting.</p>
             </div>
-            <div class="info-card"><i class="fas fa-magic"></i>
-                <h3>Instant optimization tips</h3>
-                <p>Personalized advice to boost your score and land more interviews.</p>
+            <div class="info-card"><i class="fas fa-magic" style="color:#0d62ff;"></i>
+                <h3>Smart Recommendations</h3>
+                <p>Personalized tips to help you land more interviews.</p>
             </div>
         </div>
-        <footer class="footer">
-            <p>🔒 Your PDF is processed locally in your browser — never uploaded to any server. Full privacy.</p>
-            <p style="margin-top: 8px;">© 2026 ATS Resume Analyzer — Smart career tool</p>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 AI Scholar Hunt 🎓 | Pakistan's First AI-Powered Scholarship Platform</p>
+            <p style="margin-top: 8px;">
+                📄 Check CVs tailored for scholarship applications worldwide
+            </p>
         </footer>
     </div>
 
     <script>
-        // ------------------ PDF TEXT EXTRACTION (Client side) ------------------
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 
         let currentResumeText = "";
@@ -573,123 +800,57 @@
         const verdictBox = document.getElementById('verdictBox');
         const wordCountSpan = document.getElementById('wordCountSpan');
         const keywordCountSpan = document.getElementById('keywordCountSpan');
-        const formatStatusSpan = document.getElementById('formatStatus');
+        const experienceSpan = document.getElementById('experienceSpan');
         const keywordsContainer = document.getElementById('keywordsContainer');
         const suggestionsListEl = document.getElementById('suggestionsList');
+        const detectedFieldSpan = document.getElementById('detectedField');
+        const proTipsContainer = document.getElementById('proTipsContainer');
+        const proTipsSection = document.getElementById('proTipsSection');
+        const candidateInfoSection = document.getElementById('candidateInfoSection');
+        const candidateInfoGrid = document.getElementById('candidateInfoGrid');
 
-        // Helper: clean text
-        function cleanText(text) {
-            let cleaned = text.replace(/[^a-zA-Z0-9\s]/g, ' ');
-            cleaned = cleaned.replace(/\s+/g, ' ').toLowerCase().trim();
-            return cleaned;
-        }
+        // Modal functions
+        function showModal(type, title, message) {
+            const modal = document.getElementById('popupModal');
+            const modalIcon = document.getElementById('modalIcon');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalMessage = document.getElementById('modalMessage');
 
-        // extract keywords via TF-IDF simulation (simple frequency + uniqueness)
-        function extractKeywords(text, topN = 15) {
-            const cleaned = cleanText(text);
-            const words = cleaned.split(/\s+/).filter(w => w.length > 2);
-            if (words.length === 0) return [];
+            let iconHtml = '';
+            let iconClass = '';
 
-            // stopwords (basic)
-            const stopwords = new Set(['the', 'and', 'for', 'with', 'this', 'that', 'are', 'was', 'were', 'have', 'has', 'from', 'your', 'our', 'their', 'can', 'will', 'would', 'could', 'should', 'about', 'into', 'through', 'during', 'before', 'after', 'above', 'below', 'between', 'using', 'under', 'also', 'per', 'each', 'such', 'only', 'very', 'just', 'but', 'not', 'you', 'they', 'she', 'he', 'it', 'we', 'all', 'some', 'any', 'no', 'other', 'more', 'most', 'few', 'many', 'those', 'these', 'then', 'than', 'then', 'thence', 'there', 'therefore']);
-
-            const freq = new Map();
-            for (let w of words) {
-                if (w.length < 3) continue;
-                if (stopwords.has(w)) continue;
-                freq.set(w, (freq.get(w) || 0) + 1);
+            if (type === 'error') {
+                iconHtml = '❌';
+                iconClass = 'error';
+            } else if (type === 'warning') {
+                iconHtml = '⚠️';
+                iconClass = 'warning';
+            } else if (type === 'success') {
+                iconHtml = '✅';
+                iconClass = 'success';
+            } else {
+                iconHtml = 'ℹ️';
+                iconClass = 'info';
             }
-            const sorted = Array.from(freq.entries()).sort((a, b) => b[1] - a[1]);
-            const top = sorted.slice(0, topN).map(item => item[0]);
-            // remove duplicates and return unique
-            return [...new Set(top)];
+
+            modalIcon.innerHTML = iconHtml;
+            modalIcon.className = `modal-icon ${iconClass}`;
+            modalTitle.innerText = title;
+            modalMessage.innerText = message;
+            modal.style.display = 'flex';
         }
 
-        // core ATS scoring algorithm (matches python backend logic but pure JS)
-        function calculateATS(resumeTextRaw) {
-            const resume = cleanText(resumeTextRaw);
-            const words = resume.split(/\s+/).filter(w => w.length > 0);
-            const wordCount = words.length;
-
-            let indicators = {
-                contact_info: 0,
-                education: 0,
-                experience: 0,
-                skills: 0,
-                achievements: 0,
-                formatting: 0,
-                keywords: 0
-            };
-
-            // contact info
-            const contactRegex = /email|phone|mobile|linkedin|github|@|\+?\d{10,}/i;
-            if (contactRegex.test(resume)) indicators.contact_info = 5;
-
-            // education section
-            if (/(education|university|college|bachelor|master|phd|degree|bs|ba|msc|btech|mtech)/i.test(resume)) indicators.education = 15;
-
-            // experience
-            if (/(experience|work history|employment|position|role|responsibilities|worked at)/i.test(resume)) indicators.experience = 20;
-
-            // skills
-            if (/(skills|technical skills|core competencies|proficient|expertise|programming languages)/i.test(resume)) indicators.skills = 15;
-
-            // achievements (action verbs + numbers)
-            const achievementMatches = resume.match(/(increased|improved|developed|created|managed|led|achieved|boosted|reduced|delivered|built|launched|optimized|engineered|designed)/gi);
-            const hasNumbers = /[0-9]+%|\d{3,}|\$\d+/.test(resume);
-            let achievementScore = 0;
-            if (achievementMatches) achievementScore = Math.min(achievementMatches.length * 2, 12);
-            if (hasNumbers) achievementScore += 3;
-            indicators.achievements = Math.min(achievementScore, 15);
-
-            // formatting & length
-            if (wordCount >= 280 && wordCount <= 850) indicators.formatting = 15;
-            else if (wordCount > 120) indicators.formatting = 10;
-            else indicators.formatting = 4;
-
-            // keywords quality
-            const keywordsList = extractKeywords(resume, 18);
-            let keywordScore = Math.min(keywordsList.length * 1.5, 15);
-            indicators.keywords = Math.floor(keywordScore);
-
-            let total = Object.values(indicators).reduce((a, b) => a + b, 0);
-            let finalScore = Math.min(Math.floor(total + (wordCount > 100 ? 2 : 0)), 100);
-            finalScore = Math.max(finalScore, 18); // base min
-
-            // generate suggestions
-            const suggestions = [];
-            if (indicators.contact_info < 5) suggestions.push("📞 Add clear contact info (phone, email, LinkedIn) at the top.");
-            if (indicators.education < 15) suggestions.push("🎓 Include an Education section with degrees, institutions, and graduation dates.");
-            if (indicators.experience < 20) suggestions.push("💼 Add detailed Work Experience with bullet points and action verbs.");
-            if (indicators.skills < 15) suggestions.push("🛠️ Create a standalone 'Skills' section with relevant hard/soft skills.");
-            if (indicators.achievements < 10) suggestions.push("🏆 Quantify achievements (e.g., 'Increased sales by 30%' or 'Managed team of 12').");
-            if (indicators.keywords < 10) suggestions.push("🔍 Include more industry-specific keywords; tailor resume to target job descriptions.");
-            if (wordCount < 280) suggestions.push("📄 Expand resume details – aim for 300–800 words to show substance.");
-            if (wordCount > 900) suggestions.push("✂️ Keep concise: 1-2 pages ideal. Remove redundant bullet points.");
-            if (!/(bullet point|•|\-|\*)/.test(resume)) suggestions.push("📌 Use bullet points to improve readability and ATS parsing.");
-            if (!/(analytical|leadership|team|project|communication)/i.test(resume)) suggestions.push("🤝 Add soft skills like leadership, communication, problem-solving.");
-
-            // additional default tips if low score
-            if (finalScore < 55) suggestions.push("⚡ Consider using a cleaner, single-column layout without tables/graphics.");
-            if (finalScore > 0 && suggestions.length < 3) suggestions.push("✨ Add certifications or relevant projects to boost relevance.");
-
-            const uniqueSuggestions = [...new Set(suggestions)].slice(0, 8);
-
-            let formatReadiness = "Good";
-            if (indicators.formatting < 10) formatReadiness = "Needs improvement";
-            if (indicators.formatting >= 14) formatReadiness = "Excellent";
-
-            return {
-                score: finalScore,
-                wordCount: wordCount,
-                keywords: keywordsList.slice(0, 12),
-                suggestions: uniqueSuggestions,
-                indicators: indicators,
-                formatReadiness: formatReadiness
-            };
+        function closeModal() {
+            document.getElementById('popupModal').style.display = 'none';
         }
 
-        // animate score
+        window.onclick = function (event) {
+            const modal = document.getElementById('popupModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
         function animateScore(finalScore) {
             let current = 0;
             const step = Math.ceil(finalScore / 30);
@@ -705,46 +866,155 @@
             }, 18);
         }
 
-        function updateUIWithResults(result) {
-            const score = result.score;
+        // NEW: Display Candidate Info Function
+        function displayCandidateInfo(data) {
+            if (!candidateInfoGrid) return;
+            
+            if (!data.name && !data.email && !data.phone && !data.experience) {
+                candidateInfoSection.style.display = 'none';
+                return;
+            }
+            
+            candidateInfoSection.style.display = 'block';
+            
+            const infoItems = [
+                { label: '👤 Full Name', value: data.name || 'Not Detected', icon: 'user' },
+                { label: '📧 Email', value: data.email || 'Not Found', icon: 'envelope' },
+                { label: '📱 Phone', value: data.phone || 'Not Found', icon: 'phone-alt' },
+                { label: '💼 Total Experience', value: data.experience || 'Entry Level', icon: 'briefcase' }
+            ];
+            
+            candidateInfoGrid.innerHTML = infoItems.map(item => `
+                <div class="candidate-info-item">
+                    <div class="candidate-info-label"><i class="fas fa-${item.icon}"></i> ${item.label}</div>
+                    <div class="candidate-info-value">${escapeHtml(item.value)}</div>
+                </div>
+            `).join('');
+        }
+
+        function displayProTips(tips) {
+            if (!proTipsContainer) return;
+
+            if (!tips || tips.length === 0) {
+                proTipsSection.style.display = 'none';
+                return;
+            }
+
+            proTipsSection.style.display = 'block';
+            proTipsContainer.innerHTML = tips.map(tip => `
+                <div class="tip-card priority-${tip.priority || 'medium'}">
+                    <div class="tip-title">💡 ${escapeHtml(tip.title)}</div>
+                    <div class="tip-description">${escapeHtml(tip.description)}</div>
+                </div>
+            `).join('');
+        }
+
+        // Display skills from backend (exact skills from resume)
+        function displaySkills(skills) {
+            if (!keywordsContainer) return;
+
+            if (!skills || skills.length === 0) {
+                keywordsContainer.innerHTML = '<span class="keyword">No skills detected</span>';
+                keywordCountSpan.innerText = '0';
+                return;
+            }
+
+            keywordsContainer.innerHTML = skills.slice(0, 20).map(skill =>
+                `<span class="keyword">${escapeHtml(skill)}</span>`
+            ).join('');
+            keywordCountSpan.innerText = skills.length;
+        }
+
+        function displayAISuggestions(suggestions) {
+            if (!suggestionsListEl) return;
+
+            if (!suggestions || suggestions.length === 0) {
+                suggestionsListEl.innerHTML = '<li class="suggestion-item"><i class="fas fa-smile-wink"></i> Your resume looks great! Keep tailoring for each job.</li>';
+                return;
+            }
+
+            suggestionsListEl.innerHTML = suggestions.map(sug => `
+                <li class="suggestion-item">
+                    <i class="fas fa-chevron-circle-right" style="color:#0d62ff; margin-top: 2px;"></i>
+                    <div>
+                        <strong>${escapeHtml(sug.title || sug.type || 'Tip')}:</strong><br>
+                        ${escapeHtml(sug.description || sug.message || sug)}
+                        ${sug.action ? `<div style="font-size: 12px; color: #666; margin-top: 5px;">💡 ${escapeHtml(sug.action)}</div>` : ''}
+                    </div>
+                </li>
+            `).join('');
+        }
+
+        function updateUIWithResults(data) {
+            const score = Math.round(data.final_score || 0);
             mainScoreSpan.innerText = score;
             const deg = (score / 100) * 360;
             scoreRingDiv.style.background = `conic-gradient(#0d62ff 0deg ${deg}deg, #e2e8f0 ${deg}deg 360deg)`;
 
             let verdictClass = "danger";
-            let verdictIcon = "exclamation-circle";
-            let verdictMsg = "Needs significant improvement";
-            if (score >= 80) { verdictClass = "success"; verdictIcon = "check-circle"; verdictMsg = "🔥 Excellent ATS Score! Well optimized."; }
-            else if (score >= 70) { verdictClass = "success"; verdictIcon = "check-circle"; verdictMsg = "⭐ Strong ATS Score – great potential."; }
-            else if (score >= 60) { verdictClass = "warning"; verdictIcon = "info-circle"; verdictMsg = "👍 Good ATS Score, minor improvements possible."; }
-            else if (score >= 50) { verdictClass = "warning"; verdictIcon = "exclamation-triangle"; verdictMsg = "⚠️ Moderate Score – optimize keywords & structure."; }
-            else { verdictClass = "danger"; verdictIcon = "exclamation-circle"; verdictMsg = "❌ Low ATS Score – rework needed for interviews."; }
+            let verdictMsg = "❌ Low ATS Score – rework needed for interviews.";
+            if (score >= 80) { verdictClass = "success"; verdictMsg = "🔥 Excellent ATS Score! Well optimized."; }
+            else if (score >= 70) { verdictClass = "success"; verdictMsg = "⭐ Strong ATS Score – great potential."; }
+            else if (score >= 60) { verdictClass = "warning"; verdictMsg = "👍 Good ATS Score, minor improvements possible."; }
+            else if (score >= 50) { verdictClass = "warning"; verdictMsg = "⚠️ Moderate Score – optimize keywords & structure."; }
 
             verdictBox.className = `verdict ${verdictClass}`;
-            verdictBox.innerHTML = `<i class="fas fa-${verdictIcon}"></i> <span>${verdictMsg}</span>`;
+            verdictBox.innerHTML = `<i class="fas fa-chart-line"></i> <span>${verdictMsg}</span>`;
 
-            wordCountSpan.innerText = result.wordCount;
-            keywordCountSpan.innerText = result.keywords.length;
-            formatStatusSpan.innerText = result.formatReadiness;
+            // Display detected field
+            if (data.detected_field) {
+                let fieldIcon = '';
+                const field = data.detected_field.toLowerCase();
+                if (field.includes('ai') || field.includes('ml')) fieldIcon = '🤖';
+                else if (field.includes('software')) fieldIcon = '💻';
+                else if (field.includes('mechanical')) fieldIcon = '⚙️';
+                else if (field.includes('medical')) fieldIcon = '🏥';
+                else if (field.includes('finance')) fieldIcon = '💰';
+                else fieldIcon = '📄';
 
-            // keywords
-            if (result.keywords.length > 0) {
-                keywordsContainer.innerHTML = result.keywords.map(kw => `<span class="keyword">${escapeHtml(kw)}</span>`).join('');
+                detectedFieldSpan.innerHTML = `<i class="fas fa-tag"></i> ${fieldIcon} ${escapeHtml(data.detected_field)} Resume Detected`;
             } else {
-                keywordsContainer.innerHTML = '<span class="keyword">No strong keywords detected</span>';
+                detectedFieldSpan.innerHTML = `<i class="fas fa-tag"></i> 📄 Resume Analysis Complete`;
             }
 
-            // suggestions
-            if (result.suggestions.length) {
-                suggestionsListEl.innerHTML = result.suggestions.map(sug => `<li class="suggestion-item"><i class="fas fa-chevron-circle-right suggestion-icon" style="color:#0d62ff;"></i> <span>${escapeHtml(sug)}</span></li>`).join('');
-            } else {
-                suggestionsListEl.innerHTML = '<li class="suggestion-item"><i class="fas fa-smile-wink"></i> Your resume looks strong! Keep tailoring for each job.</li>';
+            // Word count
+            if (data.word_count) {
+                wordCountSpan.innerText = data.word_count;
             }
+
+            // Experience
+            if (data.experience) {
+                experienceSpan.innerText = data.experience;
+            }
+
+            // Display Candidate Info (Name, Email, Phone, Experience)
+            displayCandidateInfo({
+                name: data.name,
+                email: data.email,
+                phone: data.phone,
+                experience: data.experience
+            });
+
+            // Display Skills (exact from resume skills section)
+            displaySkills(data.skills || []);
+
+            // Display Pro Tips
+            displayProTips(data.ai_tips || []);
+
+            // Display AI Suggestions
+            displayAISuggestions(data.ai_suggestions || []);
         }
 
-        function escapeHtml(str) { return str.replace(/[&<>]/g, function (m) { if (m === '&') return '&amp;'; if (m === '<') return '&lt;'; if (m === '>') return '&gt;'; return m; }); }
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/[&<>]/g, function (m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            });
+        }
 
-        // PDF text extraction
         async function extractTextFromPdf(file) {
             return new Promise((resolve, reject) => {
                 const reader = new FileReader();
@@ -769,35 +1039,50 @@
             });
         }
 
-        // main analysis trigger
         async function performAnalysis() {
             if (!selectedFile) {
-                alert("Please select a PDF file first.");
+                showModal('warning', 'No File Selected', 'Please select a PDF file first.');
                 return;
             }
 
             analyzeBtn.disabled = true;
-            analyzeBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Processing...';
+            analyzeBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> AI Analyzing...';
             loadingSpinner.style.display = "block";
 
             try {
                 const extracted = await extractTextFromPdf(selectedFile);
+
                 if (!extracted || extracted.trim().length < 30) {
-                    throw new Error("Could not extract enough text. Make sure PDF contains selectable text.");
+                    showModal('error', 'Extraction Failed', 'PDF text not readable. Please ensure the PDF contains selectable text (not scanned images).');
+                    throw new Error("PDF text not readable");
                 }
-                currentResumeText = extracted;
-                const atsResult = calculateATS(currentResumeText);
-                updateUIWithResults(atsResult);
-                // animate after update
-                animateScore(atsResult.score);
+
+                const response = await fetch("/analyze", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        resume_text: extracted,
+                        job_description: ""
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                updateUIWithResults(data);
+                animateScore(Math.round(data.final_score || 0));
+
+                showModal('success', 'Analysis Complete', `Your resume has been analyzed! ATS Score: ${Math.round(data.final_score || 0)}/100`);
+
             } catch (err) {
-                console.error(err);
-                verdictBox.className = "verdict danger";
-                verdictBox.innerHTML = `<i class="fas fa-bug"></i> <span>Error: ${err.message || "Text extraction failed. Try another PDF."}</span>`;
-                suggestionsListEl.innerHTML = '<li class="suggestion-item">⚠️ Ensure your PDF is text-based (not scanned image). Try converting to text-friendly PDF.</li>';
-                keywordsContainer.innerHTML = '<span class="keyword">Extraction error</span>';
-                wordCountSpan.innerText = "Error";
-                keywordCountSpan.innerText = "—";
+                console.error("Error details:", err);
+                if (!err.message.includes("PDF text not readable")) {
+                    showModal('error', 'Connection Error', 'Make sure Flask server is running on port 7860');
+                }
             } finally {
                 analyzeBtn.disabled = false;
                 analyzeBtn.innerHTML = '<i class="fas fa-chart-line"></i> Analyze ATS Score';
@@ -805,13 +1090,16 @@
             }
         }
 
-        // file selection & UI
+        // File selection UI - Only PDF allowed
         uploadArea.addEventListener("click", () => fileInput.click());
         fileInput.addEventListener("change", (e) => {
             if (e.target.files && e.target.files[0]) {
                 const file = e.target.files[0];
                 if (file.type !== "application/pdf") {
-                    alert("Only PDF files are supported.");
+                    showModal('error', 'Invalid File Type', 'Only PDF files are supported. Please upload a PDF resume.');
+                    fileInput.value = '';
+                    selectedFile = null;
+                    fileNameDisplay.style.display = "none";
                     return;
                 }
                 selectedFile = file;
@@ -826,9 +1114,7 @@
 
         analyzeBtn.addEventListener("click", performAnalysis);
 
-        // initial reset placeholder
         window.onload = () => {
-            // default score ring 0%
             scoreRingDiv.style.background = `conic-gradient(#0d62ff 0deg 0deg, #e2e8f0 0deg 360deg)`;
             mainScoreSpan.innerText = "0";
         };
