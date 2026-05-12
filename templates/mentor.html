@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+    <title>AI Mentor - AI Scholar Hunt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg-start: #f0f9ff;
+            --bg-end: #e0f2fe;
+            --blue-900: #1e3a8a;
+            --blue-800: #1e40af;
+            --blue-700: #1d4ed8;
+            --blue-600: #2563eb;
+            --blue-500: #3b82f6;
+            --blue-400: #60a5fa;
+            --blue-300: #93c5fd;
+            --blue-200: #bfdbfe;
+            --blue-100: #dbeafe;
+            --blue-50: #eff6ff;
+            --gray-800: #1e293b;
+            --gray-700: #334155;
+            --gray-600: #475569;
+            --gray-500: #64748b;
+            --gray-400: #94a3b8;
+            --gray-300: #cbd5e1;
+            --gray-200: #e2e8f0;
+            --gray-100: #f1f5f9;
+            --white: #ffffff;
+            --orange-500: #f97316;
+            --orange-100: #ffedd5;
+            --green-600: #16a34a;
+            --green-100: #dcfce7;
+            --red-600: #dc2626;
+            --red-100: #fee2e2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--blue-500), var(--blue-800));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+        }
+
+        .logo-icon i {
+            color: white;
+            font-size: 20px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--blue-900);
+            line-height: 1.2;
+        }
+
+        .logo-sub {
+            font-size: 10px;
+            color: var(--blue-500);
+            letter-spacing: 0.5px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--gray-600);
+            padding: 8px 16px;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--blue-600);
+            background: var(--blue-50);
+        }
+
+        nav a.active {
+            color: var(--blue-700);
+            background: var(--blue-100);
+        }
+
+        .header-cta {
+            background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
+            color: white !important;
+            padding: 8px 18px !important;
+            border-radius: 10px !important;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
+        }
+
+        .header-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35);
+            background: var(--blue-600) !important;
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 40px 32px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--blue-800), var(--blue-500));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 12px;
+        }
+
+        .hero-section p {
+            font-size: 1rem;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Form Card */
+        .form-card {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            border-radius: 28px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 32px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(30, 64, 175, 0.08);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        /* Input Groups - Modern Style */
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-group label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .input-group label i {
+            color: var(--blue-500);
+            font-size: 12px;
+        }
+
+        .input-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .input-wrapper i.input-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--blue-400);
+            font-size: 14px;
+            pointer-events: none;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 14px 16px 14px 44px;
+            border: 1.5px solid var(--blue-100);
+            border-radius: 16px;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-800);
+            background: var(--white);
+            transition: all 0.2s ease;
+            appearance: none;
+        }
+
+        select {
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2360a5fa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--blue-400);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        }
+
+        .btn-analyze {
+            background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 16px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-analyze:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Results Grid */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .result-card {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 24px;
+            transition: all 0.2s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(30, 64, 175, 0.1);
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--blue-800);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--blue-100);
+        }
+
+        /* Score Circle */
+        .score-container {
+            text-align: center;
+        }
+
+        .score-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue-500), var(--blue-800));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .score-number {
+            font-size: 42px;
+            font-weight: 800;
+            color: white;
+        }
+
+        .score-label {
+            font-size: 12px;
+            color: var(--gray-500);
+            margin-top: 8px;
+        }
+
+        /* Scholarship Items */
+        .scholarship-item {
+            padding: 14px;
+            border-radius: 14px;
+            margin-bottom: 10px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: 1px solid var(--blue-100);
+            background: var(--white);
+        }
+
+        .scholarship-item:hover {
+            background: var(--blue-50);
+            transform: translateX(4px);
+            border-color: var(--blue-300);
+        }
+
+        .scholarship-name {
+            font-weight: 700;
+            color: var(--blue-800);
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+
+        .scholarship-country {
+            font-size: 12px;
+            color: var(--gray-500);
+        }
+
+        .match-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .match-high {
+            background: var(--green-100);
+            color: var(--green-600);
+        }
+
+        .match-medium {
+            background: var(--orange-100);
+            color: var(--orange-500);
+        }
+
+        .match-low {
+            background: var(--red-100);
+            color: var(--red-600);
+        }
+
+        /* Country Items */
+        .country-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--blue-100);
+        }
+
+        .country-name {
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+
+        .country-score {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* Action Plan */
+        .plan-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--blue-100);
+        }
+
+        .plan-priority {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .priority-high {
+            background: var(--red-600);
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+        }
+
+        .priority-medium {
+            background: var(--orange-500);
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+        }
+
+        .priority-low {
+            background: var(--green-600);
+            box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2);
+        }
+
+        .plan-task {
+            flex: 1;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--gray-800);
+        }
+
+        .plan-deadline {
+            font-size: 12px;
+            color: var(--gray-500);
+        }
+
+        /* Weakness Item */
+        .weakness-item {
+            padding: 14px;
+            border-radius: 14px;
+            margin-bottom: 12px;
+            background: var(--blue-50);
+            border-left: 4px solid;
+        }
+
+        .weakness-title {
+            font-weight: 700;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .weakness-detail {
+            font-size: 13px;
+            color: var(--gray-600);
+            margin-bottom: 8px;
+        }
+
+        .weakness-tip {
+            font-size: 12px;
+            color: var(--blue-600);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Full Width */
+        .full-width {
+            grid-column: span 2;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(59, 130, 246, 0.15);
+            text-align: center;
+            padding: 24px 32px;
+            margin-top: 48px;
+        }
+
+        footer p {
+            font-size: 13px;
+            color: var(--gray-500);
+            letter-spacing: 0.5px;
+        }
+
+        /* Loading State */
+        .loading-skeleton {
+            text-align: center;
+            padding: 40px;
+            color: var(--gray-400);
+        }
+
+        .loading-skeleton i {
+            font-size: 32px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .form-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full-width {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-inner {
+                padding: 0 20px;
+            }
+
+            .main-container {
+                padding: 24px 20px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+                <div class="logo-text">
+                    <span class="logo-title">AI Scholar Hunt</span>
+                    <span class="logo-sub">Pakistan's Smart Scholarship Platform</span>
+                </div>
+            </a>
+            <nav>
+                <a href="/dashboard">Dashboard</a>
+                <a href="/mentor" class="active">🤖 AI Mentor</a>
+                <a href="/chatbot" class="header-cta"><i class="fas fa-robot" style="margin-right:6px;"></i>Ask AI</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1><i class="fas fa-robot" style="margin-right:12px;"></i> AI Scholarship Mentor</h1>
+            <p>Your personal AI guide to find the best scholarships based on your academic profile</p>
+        </div>
+
+        <!-- Profile Form -->
+        <div class="form-card">
+            <div class="form-grid">
+                <div class="input-group">
+                    <label><i class="fas fa-chart-line"></i> CGPA (out of 4.0)</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-star input-icon"></i>
+                        <input type="number" id="cgpa" step="0.1" min="0" max="4" placeholder="e.g., 3.4">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label><i class="fas fa-language"></i> IELTS Score</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-file-alt input-icon"></i>
+                        <input type="number" id="ielts" step="0.5" min="0" max="9" placeholder="e.g., 6.5" value="">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label><i class="fas fa-graduation-cap"></i> Degree Level</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user-graduate input-icon"></i>
+                        <select id="degree">
+                            <option value="Bachelor">🎓 Bachelor's (Undergraduate)</option>
+                            <option value="Master" selected>🎓 Master's (Graduate)</option>
+                            <option value="PhD">🎓 PhD (Doctoral)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label><i class="fas fa-wallet"></i> Budget Preference</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-coins input-icon"></i>
+                        <select id="budget">
+                            <option value="low" selected>💰 Low (Need full scholarship)</option>
+                            <option value="medium">💰 Medium (Partial scholarship ok)</option>
+                            <option value="high">💰 High (Can self-fund)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label><i class="fas fa-globe"></i> Preferred Country</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-map-marker-alt input-icon"></i>
+                        <select id="country">
+                            <option value="">🌍 Any Country</option>
+                            <option value="Germany">🇩🇪 Germany</option>
+                            <option value="USA">🇺🇸 USA</option>
+                            <option value="UK">🇬🇧 United Kingdom</option>
+                            <option value="Canada">🇨🇦 Canada</option>
+                            <option value="Turkey">🇹🇷 Turkey</option>
+                            <option value="China">🇨🇳 China</option>
+                            <option value="Australia">🇦🇺 Australia</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group" style="justify-content: flex-end;">
+                    <button class="btn-analyze" onclick="analyzeProfile()">
+                        <i class="fas fa-magic"></i> Analyze My Profile
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Container -->
+        <div id="resultsContainer" style="display: none;">
+            <div class="results-grid">
+                <!-- Profile Score -->
+                <div class="result-card">
+                    <div class="card-title"><i class="fas fa-chart-simple"></i> Profile Strength Score</div>
+                    <div class="score-container">
+                        <div class="score-circle">
+                            <span id="profileScore" class="score-number">0</span>
+                        </div>
+                        <div class="score-label">out of 100</div>
+                        <p id="profileMessage" style="margin-top: 12px; font-size: 13px; color: var(--gray-500);"></p>
+                    </div>
+                </div>
+
+                <!-- Country Recommendations -->
+                <div class="result-card">
+                    <div class="card-title"><i class="fas fa-map-marked-alt"></i> Best Countries for You</div>
+                    <div id="countryList"></div>
+                </div>
+            </div>
+
+            <div class="results-grid">
+                <!-- Scholarship Recommendations -->
+                <div class="result-card full-width">
+                    <div class="card-title"><i class="fas fa-trophy"></i> Recommended Scholarships</div>
+                    <div id="scholarshipList"></div>
+                </div>
+            </div>
+
+            <div class="results-grid">
+                <!-- Action Plan -->
+                <div class="result-card">
+                    <div class="card-title"><i class="fas fa-calendar-check"></i> Your Action Plan</div>
+                    <div id="actionPlan"></div>
+                </div>
+
+                <!-- Weakness Analysis -->
+                <div class="result-card">
+                    <div class="card-title"><i class="fas fa-chart-line"></i> Areas for Improvement</div>
+                    <div id="weaknessList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 AI Scholar Hunt 🎓 | Pakistan's First AI-Powered Scholarship Platform</p>
+    </footer>
+
+    <script>
+        async function analyzeProfile() {
+            const cgpa = document.getElementById('cgpa').value;
+            const ielts = document.getElementById('ielts').value;
+            const degree = document.getElementById('degree').value;
+            const budget = document.getElementById('budget').value;
+            const country = document.getElementById('country').value;
+
+            if (!cgpa || !ielts) {
+                alert('Please enter your CGPA and IELTS score');
+                return;
+            }
+
+            if (cgpa < 0 || cgpa > 4) {
+                alert('CGPA must be between 0 and 4.0');
+                return;
+            }
+
+            if (ielts < 0 || ielts > 9) {
+                alert('IELTS must be between 0 and 9');
+                return;
+            }
+
+            // Show loading
+            document.getElementById('resultsContainer').style.display = 'block';
+            document.getElementById('profileScore').innerText = '...';
+            document.getElementById('scholarshipList').innerHTML = '<div class="loading-skeleton"><i class="fas fa-spinner fa-spin"></i>Analyzing your profile...</div>';
+            document.getElementById('countryList').innerHTML = '<div class="loading-skeleton"><i class="fas fa-spinner fa-spin"></i>Analyzing...</div>';
+            document.getElementById('actionPlan').innerHTML = '<div class="loading-skeleton"><i class="fas fa-spinner fa-spin"></i>Generating plan...</div>';
+            document.getElementById('weaknessList').innerHTML = '<div class="loading-skeleton"><i class="fas fa-spinner fa-spin"></i>Analyzing...</div>';
+
+            try {
+                const response = await fetch('/api/mentor-analyze', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        cgpa: parseFloat(cgpa),
+                        ielts: parseFloat(ielts),
+                        degree: degree,
+                        budget: budget,
+                        country_pref: country
+                    })
+                });
+                const data = await response.json();
+
+                if (data.success) {
+                    displayResults(data);
+                } else {
+                    document.getElementById('scholarshipList').innerHTML = '<div class="loading-skeleton" style="color: var(--red-600);"><i class="fas fa-exclamation-triangle"></i>Error loading recommendations</div>';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('scholarshipList').innerHTML = '<div class="loading-skeleton" style="color: var(--red-600);"><i class="fas fa-wifi"></i>Network error. Please try again.</div>';
+            }
+        }
+
+        function displayResults(data) {
+            // Profile Score
+            document.getElementById('profileScore').innerText = data.profile_score;
+            let message = '';
+            if (data.profile_score >= 80) message = '🎉 Excellent profile! You have strong chances.';
+            else if (data.profile_score >= 60) message = '📈 Good profile! Focus on improving weak areas.';
+            else if (data.profile_score >= 40) message = '📊 Average profile. Follow the action plan below.';
+            else message = '⚠️ Need significant improvement. Follow the action plan carefully.';
+            document.getElementById('profileMessage').innerHTML = message;
+
+            // Country Recommendations
+            let countryHtml = '';
+            if (data.country_scores && data.country_scores.length > 0) {
+                data.country_scores.forEach(c => {
+                    let scoreClass = c.score >= 70 ? 'match-high' : (c.score >= 50 ? 'match-medium' : 'match-low');
+                    countryHtml += `
+                    <div class="country-item">
+                        <span class="country-name">🌍 ${c.name}</span>
+                        <span class="country-score ${scoreClass}" style="padding: 3px 10px; border-radius: 20px; font-size: 12px;">${c.score}% match</span>
+                    </div>
+                `;
+                });
+            } else {
+                countryHtml = '<div style="text-align:center; padding:20px; color:var(--gray-500);">No country data available</div>';
+            }
+            document.getElementById('countryList').innerHTML = countryHtml;
+
+            // Scholarship Recommendations
+            let scholarshipHtml = '';
+            if (data.scholarships && data.scholarships.length > 0) {
+                data.scholarships.forEach(s => {
+                    let scoreClass = s.match_score >= 70 ? 'match-high' : (s.match_score >= 50 ? 'match-medium' : 'match-low');
+                    scholarshipHtml += `
+                    <div class="scholarship-item" onclick="window.open('${s.apply_link}', '_blank')">
+                        <div class="scholarship-name">🎓 ${s.name}</div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 6px;">
+                            <span class="scholarship-country"><i class="fas fa-map-marker-alt"></i> ${s.country}</span>
+                            <span class="match-badge ${scoreClass}">${s.match_score}% match</span>
+                        </div>
+                        <div class="scholarship-country" style="margin-top: 6px;"><i class="far fa-calendar-alt"></i> Deadline: ${s.deadline}</div>
+                    </div>
+                `;
+                });
+            } else {
+                scholarshipHtml = '<div style="text-align:center; padding:30px; color:var(--gray-500);"><i class="fas fa-search"></i> No scholarships found for your profile</div>';
+            }
+            document.getElementById('scholarshipList').innerHTML = scholarshipHtml;
+
+            // Action Plan
+            let planHtml = '';
+            if (data.action_plan && data.action_plan.length > 0) {
+                data.action_plan.forEach(p => {
+                    let priorityClass = p.priority === 'high' ? 'priority-high' : (p.priority === 'medium' ? 'priority-medium' : 'priority-low');
+                    planHtml += `
+                    <div class="plan-item">
+                        <div class="plan-priority ${priorityClass}"></div>
+                        <div class="plan-task">${p.task}</div>
+                        <div class="plan-deadline">📅 ${p.deadline}</div>
+                    </div>
+                `;
+                });
+            } else {
+                planHtml = '<div style="text-align:center; padding:30px; color:var(--gray-500);">Action plan generated based on your profile</div>';
+            }
+            document.getElementById('actionPlan').innerHTML = planHtml;
+
+            // Weaknesses
+            let weaknessHtml = '';
+            if (data.weaknesses && data.weaknesses.length > 0) {
+                data.weaknesses.forEach(w => {
+                    let borderColor = w.level === 'high' ? '#dc2626' : (w.level === 'medium' ? '#f97316' : '#f59e0b');
+                    weaknessHtml += `
+                    <div class="weakness-item" style="border-left-color: ${borderColor};">
+                        <div class="weakness-title">
+                            <span>⚠️</span> ${w.area}
+                        </div>
+                        <div class="weakness-detail">Current: ${w.current} | Target: ${w.target}</div>
+                        <div class="weakness-tip">
+                            <i class="fas fa-lightbulb"></i> ${w.tip}
+                        </div>
+                    </div>
+                `;
+                });
+            } else {
+                weaknessHtml = '<div style="text-align:center; padding:30px; color:var(--green-600);"><i class="fas fa-check-circle"></i> Your profile looks good! No major weaknesses found.</div>';
+            }
+            document.getElementById('weaknessList').innerHTML = weaknessHtml;
+        }
+
+        // Auto-analyze on page load with default values
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                analyzeProfile();
+            }, 500);
+        });
+    </script>
+</body>
+
+</html>

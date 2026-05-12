@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+    <title>Application Tracker - AI Scholar Hunt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg-start: #f0f9ff;
+            --bg-end: #e0f2fe;
+            --white: #ffffff;
+            --blue-50: #eff6ff;
+            --blue-100: #dbeafe;
+            --blue-200: #bfdbfe;
+            --blue-300: #93c5fd;
+            --blue-400: #60a5fa;
+            --blue-500: #3b82f6;
+            --blue-600: #2563eb;
+            --blue-700: #1d4ed8;
+            --blue-800: #1e40af;
+            --blue-900: #1e3a8a;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-800: #1e293b;
+            --col-wishlist: #3b82f6;
+            --col-documents: #f59e0b;
+            --col-applied: #8b5cf6;
+            --col-interview: #f97316;
+            --col-result: #10b981;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+            min-height: 100vh;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+        }
+
+        .logo-icon i { color: white; font-size: 20px; }
+
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-title { font-size: 18px; font-weight: 700; color: #1e3a8a; line-height: 1.2; }
+        .logo-sub { font-size: 10px; color: #3b82f6; letter-spacing: 0.5px; }
+
+        nav { display: flex; align-items: center; gap: 4px; }
+
+        nav a {
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            color: #64748b;
+            padding: 8px 16px;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover { color: #3b82f6; background: #eff6ff; }
+        nav a.active { color: #1e40af; background: #dbeafe; }
+
+        .header-cta {
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
+            color: white !important;
+            padding: 8px 18px !important;
+            border-radius: 10px !important;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
+        }
+        .header-cta:hover { 
+            transform: translateY(-1px); 
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35);
+            background: linear-gradient(135deg, #2563eb, #1e3a8a) !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 40px 24px 20px;
+        }
+
+        .hero-section h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+
+        .hero-section p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Stats Row */
+        .stats-row {
+            max-width: 1280px;
+            margin: 0 auto 28px;
+            padding: 0 32px;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(59, 130, 246, 0.15);
+            border-radius: 20px;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex: 1;
+            min-width: 130px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.15);
+        }
+
+        .stat-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .stat-num {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1e3a8a;
+            line-height: 1;
+        }
+
+        .stat-lbl {
+            font-size: 11px;
+            color: #64748b;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* Add Panel */
+        .add-panel {
+            max-width: 1280px;
+            margin: 0 auto 28px;
+            padding: 0 32px;
+        }
+
+        .add-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 24px 28px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            box-shadow: 0 10px 25px -5px rgba(30, 64, 175, 0.08);
+        }
+
+        .add-card-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .add-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .add-row select {
+            flex: 1;
+            min-width: 250px;
+            padding: 12px 16px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 14px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .add-row select:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .add-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 14px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+        }
+
+        .add-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35);
+        }
+
+        /* Kanban Board */
+        .board-wrap {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px 48px;
+        }
+
+        .kanban-board {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            align-items: start;
+        }
+
+        .kanban-col {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(59, 130, 246, 0.15);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .col-header {
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .col-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .col-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .col-name {
+            font-weight: 600;
+            color: #1e3a8a;
+            font-size: 13px;
+        }
+
+        .col-count {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 9px;
+            border-radius: 20px;
+            background: #eff6ff;
+            color: #3b82f6;
+        }
+
+        .col-body {
+            padding: 14px;
+            min-height: 400px;
+        }
+
+        .col-empty {
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1.5px dashed #e2e8f0;
+            border-radius: 14px;
+            color: #94a3b8;
+            font-size: 12px;
+            gap: 8px;
+        }
+
+        /* App Card */
+        .app-card {
+            background: white;
+            border-radius: 16px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: all 0.2s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .app-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border-color: #bfdbfe;
+        }
+
+        .app-card-accent {
+            height: 4px;
+        }
+
+        .app-card-body {
+            padding: 14px;
+        }
+
+        .app-card-name {
+            font-weight: 700;
+            color: #1e3a8a;
+            font-size: 13px;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .app-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: #94a3b8;
+            margin-bottom: 6px;
+        }
+
+        .app-card-note {
+            font-size: 11px;
+            color: #475569;
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 8px 10px;
+            margin: 8px 0;
+            border-left: 2px solid #3b82f6;
+        }
+
+        .app-card-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 5px 12px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: #f1f5f9;
+            color: #475569;
+        }
+
+        .btn-action:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-apply { background: #eff6ff; color: #3b82f6; border-color: #bfdbfe; }
+        .btn-apply:hover { background: #3b82f6; color: white; }
+        .btn-notes { background: #f8fafc; color: #64748b; border-color: #e2e8f0; }
+        .btn-notes:hover { background: #475569; color: white; }
+        .btn-delete { background: #fef2f2; color: #ef4444; border-color: #fecaca; }
+        .btn-delete:hover { background: #ef4444; color: white; }
+
+        .app-card-select {
+            width: 100%;
+            padding: 8px 10px;
+            margin-top: 10px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 12px;
+            font-family: 'Inter', sans-serif;
+            background: white;
+            cursor: pointer;
+        }
+
+        .app-card-select:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(30, 58, 138, 0.95);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+            text-align: center;
+            padding: 32px 20px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            color: #93c5fd;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .kanban-board {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .kanban-board {
+                grid-template-columns: 1fr;
+            }
+            .stats-row {
+                padding: 0 20px;
+            }
+            .add-panel {
+                padding: 0 20px;
+            }
+            .board-wrap {
+                padding: 0 20px 40px;
+            }
+            nav {
+                display: none;
+            }
+            .hero-section h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .app-card {
+            animation: fadeSlideUp 0.25s ease both;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="header-inner">
+        <a href="/" class="logo">
+            <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="logo-text">
+                <span class="logo-title">AI Scholar Hunt</span>
+                <span class="logo-sub">Pakistan's Smart Scholarship Platform</span>
+            </div>
+        </a>
+        <nav>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/tracker" class="active">📌 Tracker</a>
+            <a href="/mentor">🤖 AI Mentor</a>
+            <a href="/chatbot" class="header-cta"><i class="fas fa-robot" style="margin-right:6px;"></i>Ask AI</a>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<div class="hero-section">
+    <h1><i class="fas fa-tasks" style="margin-right: 12px;"></i> Application Tracker</h1>
+    <p>Manage your scholarship journey — from wishlist to acceptance</p>
+</div>
+
+<!-- Stats Row -->
+<div class="stats-row" id="statsRow">
+    <div class="stat-card">
+        <div class="stat-dot" style="background: var(--col-wishlist);"></div>
+        <div><div class="stat-num" id="cnt-wishlist">0</div><div class="stat-lbl">Wishlist</div></div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-dot" style="background: var(--col-documents);"></div>
+        <div><div class="stat-num" id="cnt-documents">0</div><div class="stat-lbl">Docs Ready</div></div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-dot" style="background: var(--col-applied);"></div>
+        <div><div class="stat-num" id="cnt-applied">0</div><div class="stat-lbl">Applied</div></div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-dot" style="background: var(--col-interview);"></div>
+        <div><div class="stat-num" id="cnt-interview">0</div><div class="stat-lbl">Interview</div></div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-dot" style="background: var(--col-result);"></div>
+        <div><div class="stat-num" id="cnt-result">0</div><div class="stat-lbl">Result</div></div>
+    </div>
+</div>
+
+<!-- Add Panel -->
+<div class="add-panel">
+    <div class="add-card">
+        <div class="add-card-title"><i class="fas fa-plus-circle"></i> Add Scholarship to Track</div>
+        <div class="add-row">
+            <select id="scholarshipSelect">
+                <option value="">— Select a scholarship to track —</option>
+                {% for scholarship in scholarships %}
+                <option value="{{ scholarship.name }}" data-deadline="{{ scholarship.deadline }}" data-link="{{ scholarship.apply_link }}">
+                    {{ scholarship.name }} ({{ scholarship.country }})
+                </option>
+                {% endfor %}
+            </select>
+            <button class="add-btn" onclick="addScholarship()">
+                <i class="fas fa-plus"></i> Add to Tracker
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Kanban Board -->
+<div class="board-wrap">
+    <div class="kanban-board">
+
+        <div class="kanban-col">
+            <div class="col-header">
+                <div class="col-header-left"><div class="col-dot" style="background:var(--col-wishlist);"></div><span class="col-name">Wishlist</span></div>
+                <span class="col-count" id="badge-wishlist">0</span>
+            </div>
+            <div class="col-body" id="wishlist"></div>
+        </div>
+
+        <div class="kanban-col">
+            <div class="col-header">
+                <div class="col-header-left"><div class="col-dot" style="background:var(--col-documents);"></div><span class="col-name">Docs Ready</span></div>
+                <span class="col-count" id="badge-documents">0</span>
+            </div>
+            <div class="col-body" id="documents"></div>
+        </div>
+
+        <div class="kanban-col">
+            <div class="col-header">
+                <div class="col-header-left"><div class="col-dot" style="background:var(--col-applied);"></div><span class="col-name">Applied</span></div>
+                <span class="col-count" id="badge-applied">0</span>
+            </div>
+            <div class="col-body" id="applied"></div>
+        </div>
+
+        <div class="kanban-col">
+            <div class="col-header">
+                <div class="col-header-left"><div class="col-dot" style="background:var(--col-interview);"></div><span class="col-name">Interview</span></div>
+                <span class="col-count" id="badge-interview">0</span>
+            </div>
+            <div class="col-body" id="interview"></div>
+        </div>
+
+        <div class="kanban-col">
+            <div class="col-header">
+                <div class="col-header-left"><div class="col-dot" style="background:var(--col-result);"></div><span class="col-name">Result</span></div>
+                <span class="col-count" id="badge-result">0</span>
+            </div>
+            <div class="col-body" id="result"></div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 AI Scholar Hunt 🎓 | Pakistan's First AI-Powered Scholarship Platform</p>
+    <p style="margin-top: 8px;">📌 Track your scholarship applications from wishlist to acceptance</p>
+</footer>
+
+<script>
+    const COLS = ['wishlist','documents','applied','interview','result'];
+    const COL_COLORS = {
+        wishlist:  '#3b82f6',
+        documents: '#f59e0b',
+        applied:   '#8b5cf6',
+        interview: '#f97316',
+        result:    '#10b981'
+    };
+    const COL_LABELS = {
+        wishlist:  '📌 Wishlist',
+        documents: '📝 Docs Ready',
+        applied:   '📤 Applied',
+        interview: '🎤 Interview',
+        result:    '✅ Result'
+    };
+
+    let applications = [];
+
+    function loadApplications() {
+        const saved = localStorage.getItem('scholarship_applications');
+        if (saved) applications = JSON.parse(saved);
+        renderBoard();
+    }
+
+    function saveApplications() {
+        localStorage.setItem('scholarship_applications', JSON.stringify(applications));
+    }
+
+    function addScholarship() {
+        const sel = document.getElementById('scholarshipSelect');
+        const name = sel.value;
+        if (!name) { alert('Please select a scholarship'); return; }
+        if (applications.find(a => a.name === name)) { alert('Already in tracker!'); return; }
+        const opt = sel.options[sel.selectedIndex];
+        applications.push({
+            id: Date.now(),
+            name,
+            deadline: opt.getAttribute('data-deadline') || 'Not specified',
+            applyLink: opt.getAttribute('data-link') || '#',
+            status: 'wishlist',
+            notes: '',
+            dateAdded: new Date().toLocaleDateString()
+        });
+        saveApplications();
+        renderBoard();
+        sel.value = '';
+    }
+
+    function updateStatus(id, newStatus) {
+        const app = applications.find(a => a.id === id);
+        if (app) { app.status = newStatus; saveApplications(); renderBoard(); }
+    }
+
+    function deleteApplication(id) {
+        if (confirm('Remove this scholarship from tracker?')) {
+            applications = applications.filter(a => a.id !== id);
+            saveApplications();
+            renderBoard();
+        }
+    }
+
+    function updateNotes(id) {
+        const app = applications.find(a => a.id === id);
+        if (app) {
+            const n = prompt('Add / Edit notes:', app.notes);
+            if (n !== null) { app.notes = n; saveApplications(); renderBoard(); }
+        }
+    }
+
+    function renderBoard() {
+        COLS.forEach(c => {
+            const el = document.getElementById(c);
+            if (el) el.innerHTML = '';
+        });
+
+        const counts = { wishlist:0, documents:0, applied:0, interview:0, result:0 };
+
+        applications.forEach(app => {
+            counts[app.status] = (counts[app.status] || 0) + 1;
+            const card = createCard(app);
+            const container = document.getElementById(app.status);
+            if (container) container.appendChild(card);
+        });
+
+        COLS.forEach(c => {
+            const n = counts[c] || 0;
+            const badge = document.getElementById('badge-' + c);
+            if (badge) badge.textContent = n;
+            const cntStat = document.getElementById('cnt-' + c);
+            if (cntStat) cntStat.textContent = n;
+            
+            const container = document.getElementById(c);
+            if (container && n === 0) {
+                const empty = document.createElement('div');
+                empty.className = 'col-empty';
+                empty.innerHTML = '<i class="fas fa-inbox"></i><span>No entries yet</span>';
+                container.appendChild(empty);
+            }
+        });
+    }
+
+    function createCard(app) {
+        const div = document.createElement('div');
+        div.className = 'app-card';
+        const color = COL_COLORS[app.status];
+        const shortName = app.name.length > 48 ? app.name.substring(0, 48) + '…' : app.name;
+
+        div.innerHTML = `
+            <div class="app-card-accent" style="background:${color};"></div>
+            <div class="app-card-body">
+                <div class="app-card-name">${escapeHtml(shortName)}</div>
+                <div class="app-card-meta"><i class="far fa-calendar-alt"></i> ${escapeHtml(app.deadline || 'Not specified')}</div>
+                <div class="app-card-meta"><i class="fas fa-plus-circle"></i> Added ${escapeHtml(app.dateAdded)}</div>
+                ${app.notes ? `<div class="app-card-note"><i class="fas fa-sticky-note"></i> ${escapeHtml(app.notes)}</div>` : ''}
+                <div class="app-card-actions">
+                    <a href="${escapeHtml(app.applyLink)}" target="_blank" class="btn-action btn-apply"><i class="fas fa-external-link-alt"></i> Apply</a>
+                    <button onclick="updateNotes(${app.id})" class="btn-action btn-notes"><i class="fas fa-pen"></i> Notes</button>
+                    <button onclick="deleteApplication(${app.id})" class="btn-action btn-delete"><i class="fas fa-trash"></i></button>
+                </div>
+                <select class="app-card-select" onchange="updateStatus(${app.id}, this.value)">
+                    ${COLS.map(c => `<option value="${c}" ${app.status===c?'selected':''}>${COL_LABELS[c]}</option>`).join('')}
+                </select>
+            </div>
+        `;
+        return div;
+    }
+
+    function escapeHtml(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    loadApplications();
+</script>
+</body>
+</html>

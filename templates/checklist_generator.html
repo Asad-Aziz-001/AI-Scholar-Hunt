@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+    <title>Document Checklist - AI Scholar Hunt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            min-height: 100vh;
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+        }
+
+        .logo-icon i { color: white; font-size: 20px; }
+
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-title { font-size: 18px; font-weight: 700; color: #1e3a8a; line-height: 1.2; }
+        .logo-sub { font-size: 10px; color: #3b82f6; letter-spacing: 0.5px; }
+
+        nav { display: flex; align-items: center; gap: 4px; }
+
+        nav a {
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            color: #64748b;
+            padding: 8px 16px;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover { color: #3b82f6; background: #eff6ff; }
+        nav a.active { color: #1e40af; background: #dbeafe; }
+
+        .header-cta {
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
+            color: white !important;
+            padding: 8px 18px !important;
+            border-radius: 10px !important;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
+        }
+        .header-cta:hover { 
+            transform: translateY(-1px); 
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35);
+            background: linear-gradient(135deg, #2563eb, #1e3a8a) !important;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 40px 32px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 12px;
+        }
+
+        .hero-section p {
+            color: #64748b;
+            font-size: 1rem;
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(59, 130, 246, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1e3a8a;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: #64748b;
+            margin-top: 4px;
+        }
+
+        /* Main Card */
+        .main-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 28px;
+            padding: 35px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            box-shadow: 0 20px 40px rgba(30, 64, 175, 0.08);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .main-card:hover {
+            box-shadow: 0 25px 50px rgba(30, 64, 175, 0.12);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        label i {
+            margin-right: 8px;
+            color: #3b82f6;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper i.input-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 16px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 14px 16px 14px 48px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 16px;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s ease;
+            background: white;
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 4px rgba(59,130,246,0.1);
+        }
+
+        /* Checklist Display */
+        #checklistContainer {
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .checklist-item {
+            padding: 14px 18px;
+            background: #f8fafc;
+            border-radius: 14px;
+            transition: all 0.2s ease;
+            border-left: 3px solid #3b82f6;
+        }
+
+        .checklist-item:hover {
+            background: #e0f2fe;
+            transform: translateX(6px);
+        }
+
+        /* Loading State */
+        .loading-state {
+            text-align: center;
+            padding: 50px;
+            color: #64748b;
+        }
+
+        .loading-state i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(30, 58, 138, 0.95);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+            text-align: center;
+            padding: 32px 20px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            color: #93c5fd;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="header-inner">
+        <a href="/" class="logo">
+            <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="logo-text">
+                <span class="logo-title">AI Scholar Hunt</span>
+                <span class="logo-sub">Pakistan's Smart Scholarship Platform</span>
+            </div>
+        </a>
+        <nav>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/checklist-generator" class="active">📋 Checklist</a>
+            <a href="/compare">🔍 Compare</a>
+            <a href="/chatbot" class="header-cta"><i class="fas fa-robot" style="margin-right:6px;"></i>Ask AI</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1><i class="fas fa-check-circle" style="margin-right: 12px;"></i> Scholarship Document Checklist</h1>
+        <p>View and track required documents for each scholarship application</p>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Scholarships</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">8+</div>
+            <div class="stat-label">Documents Each</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Organized</div>
+        </div>
+    </div>
+
+    <!-- Main Card -->
+    <div class="main-card">
+        <div class="form-group">
+            <label><i class="fas fa-search"></i> Search Scholarship</label>
+            <div class="input-wrapper">
+                <i class="fas fa-search input-icon"></i>
+                <input type="text" id="searchInput" placeholder="Type scholarship name to search...">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label><i class="fas fa-list"></i> Select Scholarship</label>
+            <div class="input-wrapper">
+                <i class="fas fa-graduation-cap input-icon"></i>
+                <select id="scholarshipSelect">
+                    <option value="">-- Select a scholarship --</option>
+                    {% for scholarship in scholarships %}
+                    <option value="{{ loop.index0 }}">{{ scholarship.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checklist Display -->
+    <div id="checklistContainer" class="main-card" style="display: none;">
+        <div id="scholarshipInfo" style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #e2e8f0;">
+            <h2 id="scholarshipName" style="font-size: 1.3rem; font-weight: 700; color: #1e3a8a; margin-bottom: 10px;"></h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 15px; font-size: 0.85rem; color: #64748b;">
+                <span><i class="far fa-calendar-alt" style="color: #f59e0b;"></i> Deadline: <span id="deadline"></span></span>
+                <span><i class="fas fa-link" style="color: #3b82f6;"></i> <a id="applyLink" href="#" target="_blank" style="color: #3b82f6; text-decoration: none;">Apply Now →</a></span>
+            </div>
+        </div>
+        
+        <h3 style="font-size: 1.1rem; font-weight: 600; color: #1e3a8a; margin-bottom: 15px;">
+            <i class="fas fa-file-alt"></i> Required Documents
+        </h3>
+        <div id="documentsList" style="display: flex; flex-direction: column; gap: 10px;"></div>
+    </div>
+
+    <!-- Empty State -->
+    <div id="emptyState" class="main-card" style="text-align: center; padding: 50px; color: #64748b;">
+        <i class="fas fa-folder-open" style="font-size: 3rem; margin-bottom: 15px; display: block; color: #94a3b8;"></i>
+        <p>Select a scholarship to view its required documents</p>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 AI Scholar Hunt 🎓 | Pakistan's First AI-Powered Scholarship Platform</p>
+    <p style="margin-top: 8px;">📋 Keep track of all required documents for a successful application</p>
+</footer>
+
+<script>
+    // Build scholarships data manually from select options
+    const scholarshipsData = [];
+    
+    // Get all options from select
+    const selectEl = document.getElementById('scholarshipSelect');
+    const options = selectEl.querySelectorAll('option');
+    
+    options.forEach((opt, idx) => {
+        if (opt.value !== '') {
+            scholarshipsData.push({
+                name: opt.textContent,
+                documents: [],
+                deadline: 'Not specified',
+                apply_link: '#'
+            });
+        }
+    });
+    
+    // Fetch actual data from server via AJAX
+    async function fetchAllScholarshipsData() {
+        for (let i = 0; i < scholarshipsData.length; i++) {
+            try {
+                const response = await fetch(`/api/scholarship-docs?name=${encodeURIComponent(scholarshipsData[i].name)}`);
+                const data = await response.json();
+                if (data.success) {
+                    scholarshipsData[i].documents = data.documents || [];
+                    scholarshipsData[i].deadline = data.deadline || 'Not specified';
+                    scholarshipsData[i].apply_link = data.apply_link || '#';
+                }
+            } catch(e) {
+                console.error("Error fetching data for:", scholarshipsData[i].name);
+            }
+        }
+        console.log("All scholarships data loaded:", scholarshipsData.length);
+    }
+    
+    fetchAllScholarshipsData();
+    
+    const searchInput = document.getElementById('searchInput');
+    const selectElement = document.getElementById('scholarshipSelect');
+    const checklistContainer = document.getElementById('checklistContainer');
+    const emptyState = document.getElementById('emptyState');
+    
+    function displayScholarship(index) {
+        if (index === null || index === undefined || index === '' || !scholarshipsData[index]) {
+            checklistContainer.style.display = 'none';
+            emptyState.style.display = 'block';
+            return;
+        }
+        
+        const scholarship = scholarshipsData[index];
+        
+        document.getElementById('scholarshipName').textContent = scholarship.name;
+        document.getElementById('deadline').textContent = scholarship.deadline || 'Not specified';
+        const applyLink = document.getElementById('applyLink');
+        applyLink.href = scholarship.apply_link || '#';
+        applyLink.textContent = scholarship.apply_link ? 'Apply Now →' : 'No link available';
+        
+        const documentsList = document.getElementById('documentsList');
+        
+        if (!scholarship.documents || scholarship.documents.length === 0) {
+            documentsList.innerHTML = `
+                <div style="text-align: center; padding: 30px; color: #64748b;">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 2rem;"></i>
+                    <p style="margin-top: 10px;">Loading documents...</p>
+                </div>
+            `;
+        } else {
+            let docsHtml = '';
+            scholarship.documents.forEach((doc) => {
+                let emoji = '📄';
+                const docLower = doc.toLowerCase();
+                if (docLower.includes('transcript')) emoji = '📊';
+                else if (docLower.includes('sop') || docLower.includes('statement')) emoji = '📝';
+                else if (docLower.includes('letter') || docLower.includes('recommendation')) emoji = '✉️';
+                else if (docLower.includes('cv') || docLower.includes('resume')) emoji = '📋';
+                else if (docLower.includes('passport')) emoji = '🛂';
+                else if (docLower.includes('ielts') || docLower.includes('toefl')) emoji = '🌐';
+                else if (docLower.includes('research') || docLower.includes('proposal')) emoji = '🔬';
+                
+                docsHtml += `
+                    <div class="checklist-item" style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: #f8fafc; border-radius: 12px;">
+                        <div style="width: 36px; height: 36px; background: #dbeafe; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                            <span style="font-size: 1.2rem;">${emoji}</span>
+                        </div>
+                        <span style="color: #1e293b;">${escapeHtml(doc)}</span>
+                    </div>
+                `;
+            });
+            documentsList.innerHTML = docsHtml;
+        }
+        
+        checklistContainer.style.display = 'block';
+        emptyState.style.display = 'none';
+    }
+    
+    function escapeHtml(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+    
+    selectElement.addEventListener('change', function() {
+        const index = this.value;
+        if (index === '') {
+            displayScholarship(null);
+            searchInput.value = '';
+            return;
+        }
+        displayScholarship(parseInt(index));
+        const selectedOption = selectElement.options[selectElement.selectedIndex];
+        searchInput.value = selectedOption.textContent;
+    });
+    
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase().trim();
+        
+        if (!searchTerm) {
+            selectElement.value = '';
+            displayScholarship(null);
+            return;
+        }
+        
+        let matchIndex = -1;
+        for (let i = 0; i < scholarshipsData.length; i++) {
+            if (scholarshipsData[i].name && scholarshipsData[i].name.toLowerCase().includes(searchTerm)) {
+                matchIndex = i;
+                break;
+            }
+        }
+        
+        if (matchIndex !== -1) {
+            selectElement.value = matchIndex;
+            displayScholarship(matchIndex);
+        } else {
+            selectElement.value = '';
+            displayScholarship(null);
+        }
+    });
+    
+    displayScholarship(null);
+</script>
+
+</body>
+</html>
