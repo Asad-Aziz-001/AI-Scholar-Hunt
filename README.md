@@ -534,13 +534,9 @@ Flask · Flask-Login · Flask-Mail · Flask-CORS · Flask-SQLAlchemy · itsdange
 
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=18&pause=1000&color=0EA5E9&width=600&center=true&lines=Final+Year+Project+·+2026;Department+of+Artificial+Intelligence;Built+with+precision%2C+purpose%2C+and+❤️" alt="Authors"/>
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=24&pause=1000&color=38BDF8&center=true&vCenter=true&width=800&lines=Project+Contributors+%C2%B7+2026;Meet+the+Contributors;Department+of+Artificial+Intelligence;Built+by+passionate+developers;Powered+by+teamwork+and+dedication;Collaboration+drives+innovation+%F0%9F%9A%80;Together+we+build+the+future;Built+with+teamwork%2C+passion%2C+and+%E2%9D%A4%EF%B8%8F" alt="Contributors" />
 
-<br/><br/>
-
-<table>
-<tr>
-<td align="center" width="50%">
+</div>
 
 ### 🧑‍💻 Asad Aziz
 
