@@ -598,7 +598,7 @@ Flask · Flask-Login · Flask-Mail · Flask-CORS · Flask-SQLAlchemy · itsdange
 
 <img src="https://img.shields.io/badge/⭐_Star_this_repo-It_helps_more_than_you_think-0ea5e9?style=for-the-badge"/>
 
-<br/><br/>
+<br/>
 
 <img src="https://img.shields.io/badge/Made_with-❤️_in_Pakistan_🇵🇰-14B8A6?style=for-the-badge"/>
 &nbsp;
