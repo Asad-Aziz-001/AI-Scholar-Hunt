@@ -44,6 +44,13 @@ class Config:
     SESSION_PERMANENT = False
     PERMANENT_SESSION_LIFETIME = 60   # Session expires in 2 hours
 
+    # HuggingFace / HTTPS for deployment
+    SESSION_COOKIE_SECURE = True
+    SESSION_COOKIE_SAMESITE = 'None'
+    REMEMBER_COOKIE_SECURE = True
+    REMEMBER_COOKIE_SAMESITE = 'None'
+
+
     # ==========================================================
     # 📧 Email (Gmail SMTP)
     # ==========================================================
