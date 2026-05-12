@@ -1,16 +1,54 @@
+# ============================================================
+# AI Scholar Hunt — Production Requirements
+# ============================================================
+
+# ── Core Web Framework ───────────────────────────────────────
 Flask==2.3.3
 Flask-Login==0.6.3
 Flask-SQLAlchemy==3.0.5
-Flask-CORS==4.0.0
+Flask-Cors==4.0.0
 Flask-Mail==0.9.1
 Werkzeug==2.3.7
 SQLAlchemy==2.0.19
-sentence-transformers==2.2.2
-faiss-cpu==1.7.4
-numpy==1.24.3
+
+# ── Environment & Utilities ─────────────────────────────────
 python-dotenv==1.0.0
-PyPDF2==3.0.1
-scikit-learn==1.3.0
+itsdangerous==2.2.0
+requests==2.33.1
+
+# ── NLP & AI (Core for your chatbot) ────────────────────────
+langchain==1.2.15
+langchain-community==0.4.1
+langchain-core==1.3.0
+langchain-text-splitters==1.1.1
+langchain-huggingface==1.2.2
+sentence-transformers==5.4.1
+transformers==4.41.2
+torch==2.1.0
+nltk==3.8.1
+
+# ── Vector DB / Retrieval ───────────────────────────────────
+faiss-cpu==1.7.4
+
+# ── Local LLM / Inference ───────────────────────────────────
+ctransformers==0.2.27
+groq==1.2.0
+python-dotenv==1.0.0
+
+# ── Document Processing ─────────────────────────────────────
 python-docx==0.8.11
 reportlab==4.0.4
-Pillow==10.0.0
+PyPDF2==3.0.1
+PyMuPDF==1.22.0
+pdfminer.six==20221105
+
+# ── NLP (Resume / Text Parsing) ─────────────────────────────
+spacy==3.6.1
+
+# ── Data Handling ───────────────────────────────────────────
+pandas==2.2.2
+numpy==1.26.4
+
+# ── Optional: For Deployment & Production ─────────────────────
+# pip install https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.6.0/en_core_web_sm-3.6.0-py3-none-any.whl 
+
