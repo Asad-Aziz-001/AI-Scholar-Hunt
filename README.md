@@ -123,12 +123,12 @@
   ┌──────────────────────▼───────────────────────────────────────┐
   │                   FLASK APPLICATION LAYER                    │
   │                                                              │
-  │  auth_bp ── profile_bp ── preferences_bp ── security_bp     │
-  │                         cv_bp                               │
+  │  auth_bp ── profile_bp ── preferences_bp ── security_bp      │
+  │                         cv_bp                                │
   │                                                              │
-  │  Routes: chatbot · eligibility · comparison · tracker       │
-  │          cost_estimator · timeline · checklist · mentor     │
-  │          sop_writer · ats_checker · strength_analyzer       │
+  │  Routes: chatbot · eligibility · comparison · tracker        │
+  │          cost_estimator · timeline · checklist · mentor      │
+  │          sop_writer · ats_checker · strength_analyzer        │
   └──────────────────────┬───────────────────────────────────────┘
                          │
          ┌───────────────┴───────────────┐
@@ -300,6 +300,8 @@ A complete user management system with registration, secure login, profile editi
 <div align="center">
 
 ### 🏠 Landing Page
+
+![Banner](upscalemedia-transformed (1).png)
 ![Landing Page](screenshots/home.png)
 
 </div>
