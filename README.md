@@ -301,7 +301,7 @@ A complete user management system with registration, secure login, profile editi
 
 ### 🏠 Landing Page
 
-![Banner](upscalemedia-transformed (1).png)
+![Banner](screenshots/upscalemedia-transformed(1).png)
 ![Landing Page](screenshots/home.png)
 
 </div>
